@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐍 Khóa Học Python Từ Cơ Bản Đến Nâng Cao
+# 🐍 Khóa Học Python Từ Cơ Bản Đến Nâng Cao Hyper - Hubg
 
 **"Lập trình Python cho người mới bắt đầu" — Giáo án hoàn chỉnh, tự học và giảng dạy**
 
