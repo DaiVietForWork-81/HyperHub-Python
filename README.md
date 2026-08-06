@@ -291,3 +291,5 @@ Nếu bạn thấy khóa học hữu ích, hãy:
 - Đăng ký kênh / theo dõi tác giả nếu là bản fork từ kênh giảng dạy.
 
 **Chúc bạn học vui và trở thành một lập trình viên Python giỏi! 🎉**
+
+**SERVER DISCORD CỦA HYPERHUB : https://discord.gg/nEaFUUBMAM **
