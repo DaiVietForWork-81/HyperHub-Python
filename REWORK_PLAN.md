@@ -179,6 +179,7 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | 5 | Viết mới 12 bài nhánh Thuật toán | ✅ Xong |
 | 5b | Mở rộng nhánh Thuật toán lên 19 bài (đồ thị, đường ngắn nhất, cây/DSU, segment tree, chuỗi, bitmask, DP nâng cao) | ✅ Xong |
 | 5c | Gộp vật lý 3 mục tự chứa: 01-Co-Ban (gốc) + 02-Thuat-Toan/Phan-1 + 04-Full (3 phần + PDF) | ✅ Xong |
+| 5d | Track Thuật toán lược 7 bài cơ bản không cần cho HSG (03, 09, 19, 21, 24, 28, 29) + sửa link/prereq/văn xuôi + finale riêng | ✅ Xong |
 | 6 | Viết lại README gốc với roadmap 3 nhánh | ✅ Xong |
 | 7 | Validate: link hỏng, file thiếu, tham chiếu cũ | ✅ Xong (script `tools/validate.py`) |
 

@@ -822,7 +822,7 @@ class SanPham:
   So du hop le: 100000
   `vi.__so_du` gay AttributeError (dang bao mat)
   ```
-* **Gợi ý:** Dùng `try/except` để bắt lỗi truy cập trực tiếp (kiến thức Bài 19).
+* **Gợi ý:** Dùng `try/except` để bắt lỗi truy cập trực tiếp.
 
 ### Bài 14: `@staticmethod` và `@classmethod`
 
@@ -2146,7 +2146,7 @@ for gv in truong.giao_vien:
 * `_` là quy ước nội bộ, `__` là che giấu — hãy cho người dùng phương thức đúng thay vì sờ vào thuộc tính.
 * Bài sau sẽ gọn nhẹ hơn hẳn với **dataclass** — Python tự sinh `__init__`, `__str__`... cho bạn!
 
-👉 Tiếp theo: **[Bài 24: Dataclass](../24-Dataclass/bai.md)**
+👉 Tiếp theo: **[Bài 25: Lambda – Hàm Vô Danh Siêu Ngắn Gọn](../25-Lambda/bai.md)**
 
 ---
 
@@ -2154,4 +2154,4 @@ for gv in truong.giao_vien:
 
 **Vị trí:** `02-Thuat-Toan/Phan-1-Co-Ban/23-OOP/bai.md`
 
-**Bài tiếp theo:** [Bài 24 — Dataclass – Dữ Liệu "Tự Biết" Khai Báo](../24-Dataclass/bai.md)
+**Bài tiếp theo:** [Bài 25 — Lambda – Hàm Vô Danh Siêu Ngắn Gọn](../25-Lambda/bai.md)

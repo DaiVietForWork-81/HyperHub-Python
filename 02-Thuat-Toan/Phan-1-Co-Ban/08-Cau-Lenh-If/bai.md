@@ -1596,7 +1596,7 @@ else:
 * 🧪 **Thử các giá trị biên:** 49/50/51 kWh, 7.99/8.0 điểm, năm 1900/2000 — đây là nơi các lỗi ẩn nấp.
 * 🚦 `if` là nền tảng của mọi thuật toán ra quyết định — bài sau sẽ giới thiệu `match - case`, bản "nâng cấp" gọn gàng khi cần so khớp nhiều giá trị cố định.
 
-👉 Tiếp theo: **[Bài 9: Match Case – Cấu Trúc Phân Rẽ Mẫu](../09-Match-Case/bai.md)**
+👉 Tiếp theo: **[Bài 10: Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../10-Vong-Lap-For/bai.md)**
 
 ---
 
@@ -1604,4 +1604,4 @@ else:
 
 **Vị trí:** `02-Thuat-Toan/Phan-1-Co-Ban/08-Cau-Lenh-If/bai.md`
 
-**Bài tiếp theo:** [Bài 9 — Câu Lệnh Match – Case](../09-Match-Case/bai.md)
+**Bài tiếp theo:** [Bài 10 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../10-Vong-Lap-For/bai.md)

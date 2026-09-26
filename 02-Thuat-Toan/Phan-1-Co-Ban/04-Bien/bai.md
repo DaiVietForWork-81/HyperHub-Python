@@ -8,8 +8,6 @@
 
 - [Bài 1 — Giới Thiệu Python](../01-Gioi-Thieu/bai.md)
 - [Bài 2 — Cài Đặt Python](../02-Cai-Dat-Python/bai.md)
-- [Bài 3 — Visual Studio Code – Môi Trường Viết Code](../03-VSCode/bai.md)
-
 ---
 
 ## 🎯 Mục tiêu

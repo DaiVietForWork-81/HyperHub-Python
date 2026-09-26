@@ -1438,4 +1438,5 @@ print("So loi phat hien:", so_loi)
 
 **Vị trí:** `02-Thuat-Toan/Phan-1-Co-Ban/27-Generator/bai.md`
 
-**Bài tiếp theo:** [Bài 28 — Decorator – Trang Trí Cho Hàm](../28-Decorator/bai.md)
+🎉 **Bạn đã hoàn thành phần Cơ bản của track Thuật toán!** Nền tảng đã đủ để luyện giải thuật — tiếp tục với:
+- 🧮 [Bài 1 — Tư Duy Thuật Toán](../../01-Tu-Duy-Thuat-Toan/bai.md)

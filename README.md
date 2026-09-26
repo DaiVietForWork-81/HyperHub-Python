@@ -99,8 +99,15 @@ HyperHub-Python/
 > | Mục | Chứa gì | Dành cho ai |
 > |---|---|---|
 > | `01-Co-Ban` | Chỉ 29 bài cơ bản (bản chính) | Người mới bắt đầu |
-> | `02-Thuat-Toan` | Cơ bản + 19 bài thuật toán | Luyện HSG, không cần nhảy thư mục |
+> | `02-Thuat-Toan` | Cơ bản (lược còn 22 bài) + 19 bài thuật toán | Luyện HSG, không cần nhảy thư mục |
 > | `04-Full` | Cơ bản + thuật toán + thực chiến + PDF | Học từ đầu đến cuối một mạch |
+>
+> ✂️ **Track Thuật toán lược 7 bài cơ bản không cần cho HSG:**
+> VSCode (03), Match-Case (09), Exception (19), Package (21),
+> Dataclass (24), Decorator (28), Iterator (29).
+> "Bài tiếp theo", điều kiện tiên quyết và văn xuôi đã chỉnh khớp
+> (bài cuối phần cơ bản là Generator → sang thẳng Tư Duy Thuật Toán).
+> Cần đủ 29 bài? Học ở `01-Co-Ban` hoặc `04-Full`.
 >
 > Các thư mục `Phan-*` là **bản copy tự động** — đừng sửa trực tiếp! Sửa bản
 > chính (`01-Co-Ban`, `02-Thuat-Toan`, `03-Thuc-Chien`) rồi chạy:

@@ -1341,7 +1341,7 @@ print(ten_dang_nhap)
 * Chuỗi bất biến — mọi phương thức chỉ trả về chuỗi mới, đừng quên gán lại.
 * Kiểm tra đầu vào bằng `isdigit()`, `isalpha()` trước khi xử lý để tránh lỗi bất ngờ (bài 19 sẽ học cách chuyên nghiệp hơn).
 
-👉 Tiếp theo: **[Bài 19: Ngoại lệ (Exception)](../19-Exception/bai.md)**
+👉 Tiếp theo: **[Bài 20: Module Trong Python](../20-Module/bai.md)**
 
 ---
 
@@ -1349,4 +1349,4 @@ print(ten_dang_nhap)
 
 **Vị trí:** `02-Thuat-Toan/Phan-1-Co-Ban/18-String/bai.md`
 
-**Bài tiếp theo:** [Bài 19 — Ngoại Lệ (Exception) Trong Python](../19-Exception/bai.md)
+**Bài tiếp theo:** [Bài 20 — Module Trong Python](../20-Module/bai.md)

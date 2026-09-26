@@ -1033,7 +1033,7 @@ print("4) Xem help")
 * Ghi nhớ cách sửa PATH — lỗi kinh điển của người mới.
 * Đừng lo nếu thấy nhiều lệnh mới: chúng sẽ lặp lại và bạn sớm nhớ thôi!
 
-👉 Tiếp theo: **[Bài 3: Visual Studio Code](../03-VSCode/bai.md)**
+👉 Tiếp theo: **[Bài 4: Biến Trong Python](../04-Bien/bai.md)**
 
 ---
 
@@ -1041,4 +1041,4 @@ print("4) Xem help")
 
 **Vị trí:** `02-Thuat-Toan/Phan-1-Co-Ban/02-Cai-Dat-Python/bai.md`
 
-**Bài tiếp theo:** [Bài 3 — Visual Studio Code – Môi Trường Viết Code](../03-VSCode/bai.md)
+**Bài tiếp theo:** [Bài 4 — Biến Trong Python](../04-Bien/bai.md)

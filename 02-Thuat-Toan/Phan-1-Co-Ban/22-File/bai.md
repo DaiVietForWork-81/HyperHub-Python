@@ -7,8 +7,6 @@
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 20 — Module Trong Python](../20-Module/bai.md)
-- [Bài 21 — Package Trong Python](../21-Package/bai.md)
-
 ---
 
 ## 🎯 Mục tiêu
@@ -160,7 +158,7 @@ with open("khong_co.txt", "r", encoding="utf-8") as f:   # ❌ FileNotFoundError
     print(f.read())
 ```
 
-Giải pháp: bọc trong `try/except` (kiến thức **Bài 19**):
+Giải pháp: bọc trong `try/except`:
 
 ```python
 try:
@@ -203,7 +201,7 @@ with open("diem.txt", "r", encoding="utf-8") as f:
         print(f"{ten}: {tb:.2f}")
 ```
 
-> 💡 `float(x)` có thể gây `ValueError` nếu dữ liệu lỗi — kết hợp `try/except` (Bài 19) khi dữ liệu không tin cậy.
+> 💡 `float(x)` có thể gây `ValueError` nếu dữ liệu lỗi — kết hợp `try/except` khi dữ liệu không tin cậy.
 
 ---
 

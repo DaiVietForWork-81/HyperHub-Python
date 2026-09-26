@@ -153,7 +153,7 @@ import tien_ich   # hoặc: from tien_ich import dien_tich_hinh_tron
 print(tien_ich.dien_tich_hinh_tron(5))   # 78.53975
 ```
 
-> ✔️ Điều kiện duy nhất với người mới: **file module và file dùng nó nằm cùng thư mục**. Bài 21 (Package) và Bài 30 (Virtual Environment) sẽ dạy cách tổ chức chuyên nghiệp hơn.
+> ✔️ Điều kiện duy nhất với người mới: **file module và file dùng nó nằm cùng thư mục**. Với người mới, chỉ cần nhớ: file module và file dùng nó nằm cùng thư mục.
 
 ### 9. Module chuẩn của Python
 
@@ -287,7 +287,7 @@ print(f"Chúc mừng! Bạn đã đoán đúng số {so_bi_mat} sau {so_lu_doan}
 
 * `random.randint(1, 100)` — máy chọn số ngẫu nhiên.
 * `while` + `if/elif` — tạo vòng phản hồi cho đến khi trúng.
-* Lưu ý: cần xử lý trường hợp người dùng nhập chữ *(dùng ứng dụng Bài 19)*.
+* Lưu ý: cần xử lý trường hợp người dùng nhập chữ *(bọc try/except — xem mẫu ở Bài 22-File)*.
 
 ### Ví dụ 2: Nhật ký thời gian chạy bằng `datetime`
 
@@ -1178,7 +1178,7 @@ else:
 **Giải thích code:**
 * `input(...)` trả về chuỗi nên phải `int(...)` để so sánh số.
 * `if/else` quyết định thông báo thắng – thua.
-* Lời khuyên: bọc `int(input(...))` trong `try/except` (Bài 19) để an toàn.
+* Lời khuyên: bọc `int(input(...))` trong `try/except` (mẫu ở Bài 22-File) để an toàn.
 
 **Độ phức tạp:** O(1).
 
@@ -1566,4 +1566,4 @@ else:
 
 **Vị trí:** `02-Thuat-Toan/Phan-1-Co-Ban/20-Module/bai.md`
 
-**Bài tiếp theo:** [Bài 21 — Package Trong Python](../21-Package/bai.md)
+**Bài tiếp theo:** [Bài 22 — Đọc Và Ghi File Trong Python](../22-File/bai.md)
