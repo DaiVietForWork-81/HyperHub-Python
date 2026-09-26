@@ -14,7 +14,8 @@
 
 Sau bài học này, học viên sẽ:
 
-* ✅ Hiểu **biến là gì** — "chiếc hộp có tên" dùng để lưu trữ dữ liệu trong chương trình.
+* ✅ Hiểu **biến là gì** — "cái nhãn có tên" dán lên giá trị để gọi ra dùng.
+* ✅ Hiểu `b = a` là dán thêm nhãn (không copy), nền tảng để không bị sốc ở Bài 14 (List).
 * ✅ Gán giá trị cho biến bằng dấu `=` và **gán lại giá trị mới** cho biến.
 * ✅ Nắm vững **quy tắc đặt tên biến** (chữ cái, số, `_`, không bắt đầu bằng số, không trùng từ khóa).
 * ✅ Đặt được **tên biến có nghĩa** theo chuẩn `snake_case`.
@@ -27,24 +28,34 @@ Sau bài học này, học viên sẽ:
 
 ### 1. Biến là gì?
 
-> 💬 **Nói đơn giản:** Biến (variable) là một **chiếc hộp có tên** dùng để **cất giữ dữ liệu tạm thời** trong lúc chương trình chạy.
+> 💬 **Nói đơn giản:** Biến (variable) là một **cái nhãn có tên** dán lên một
+> giá trị, để sau này bạn gọi tên là lấy được giá trị đó ra dùng.
 
-**Ví dụ đời thực:** Bạn có một chiếc hộp quà ghi nhãn `so_keo`. Bạn bỏ vào đó 10 viên kẹo. Mỗi lần cần biết có bao nhiêu kẹo, bạn chỉ cần nhìn nhãn `so_keo` — không cần mở hộp ra đếm lại. Trong Python cũng vậy:
+**Ví dụ đời thực:** Trong kho có thùng hàng chứa 10 viên kẹo. Bạn dán lên thùng
+một tờ nhãn ghi `so_keo`. Mỗi lần cần biết có bao nhiêu kẹo, bạn chỉ cần đọc
+nhãn `so_keo` — không cần mở thùng ra đếm lại. Trong Python cũng vậy:
 
 ```python
-so_keo = 10   # mở "hộp" tên là so_keo, bỏ vào 10
-print(so_keo) # nhìn nhãn so_keo => in ra 10
+so_keo = 10   # dán nhãn "so_keo" lên số 10
+print(so_keo) # đọc nhãn so_keo => in ra 10
 ```
 
 ```mermaid
 flowchart LR
-    A["so_keo = 10"] --> B[("Hộp biến so_keo<br/>giá trị: 10")]
+    A["so_keo = 10"] --> B["Nhãn so_keo ---dán lên---> 🔢 số 10"]
     B --> C[print so_keo]
     C --> D["Kết quả: 10"]
 ```
 
 * **Trước khi có biến:** muốn dùng số 10 ở nhiều nơi, bạn phải gõ đi gõ lại số 10.
-* **Sau khi có biến:** chỉ cần gõ tên biến — và khi giá trị thay đổi, mọi nơi dùng biến đều tự động cập nhật.
+* **Sau khi có biến:** chỉ cần gõ tên biến — và khi nhãn được dán sang giá trị
+  mới, mọi nơi dùng biến đều tự động thấy giá trị mới.
+
+> 🧠 **Nhớ kỹ hình ảnh "nhãn dán", đừng hình dung "hộp chứa".**
+> Hộp chứa (bỏ đồ vào hộp) nghe quen nhưng sẽ làm bạn **hiểu sai** ở bài sau:
+> một giá trị có thể được dán **nhiều nhãn cùng lúc** (`b = a`), và với list
+> (Bài 14) thì sửa qua một nhãn sẽ thấy đổi ở nhãn kia. Mô hình "nhãn dán"
+> giải thích đúng mọi trường hợp — hộp chứa thì không.
 
 ### 2. Gán giá trị cho biến
 
@@ -54,28 +65,56 @@ Cú pháp gán giá trị:
 ten_bien = gia_tri
 ```
 
-> ⚠️ Dấu `=` ở đây **KHÔNG phải "bằng"** trong toán học. Nó có nghĩa là **"gán"** — đưa giá trị bên phải vào hộp tên bên trái. Nói cách khác: **"hộp bên trái nhận giá trị bên phải"**.
+> ⚠️ Dấu `=` ở đây **KHÔNG phải "bằng"** trong toán học. Nó có nghĩa là **"gán"** — dán nhãn bên trái lên giá trị bên phải. Nói cách khác: **"nhãn bên trái dán vào giá trị bên phải"**.
 
 | Viết | Nghĩa |
 |---|---|
-| `tuoi = 15` | Hộp `tuoi` nhận giá trị 15 |
-| `ten = "Mai"` | Hộp `ten` nhận chuỗi chữ "Mai" |
-| `diem = 8.5` | Hộp `diem` nhận số thực 8.5 |
+| `tuoi = 15` | Dán nhãn `tuoi` lên số 15 |
+| `ten = "Mai"` | Dán nhãn `ten` lên chuỗi "Mai" |
+| `diem = 8.5` | Dán nhãn `diem` lên số 8.5 |
 
 Python rất "thông minh": bạn **không cần khai báo kiểu dữ liệu** trước như các ngôn ngữ khác (C, Java). Cứ gán là có.
 
-### 3. Gán lại giá trị — hộp có thể đổi nội dung
+### 3. Gán lại giá trị — gỡ nhãn, dán sang chỗ mới
 
-Điểm đặc biệt của biến: giá trị bên trong hộp **có thể thay đổi**:
+Điểm đặc biệt của biến: nhãn có thể được **dán sang giá trị khác**:
 
 ```python
-diem = 7          # hộp diem chứa 7
+diem = 7          # nhãn diem đang dán lên số 7
 print(diem)       # 7
-diem = 9          # đổ hộp ra, bỏ giá trị mới vào
+diem = 9          # gỡ nhãn diem khỏi số 7, dán sang số 9
 print(diem)       # 9
 ```
 
-Chú ý thứ tự các lệnh: Python chạy từ trên xuống, lệnh nào ở sau sẽ ghi đè lệnh trước.
+Chú ý thứ tự các lệnh: Python chạy từ trên xuống, lệnh gán sau dán nhãn sang
+chỗ mới (số 7 cũ vẫn nằm đó, chỉ là không còn nhãn nào dán nó thì Python sẽ
+tự dọn đi — bạn không cần quan tâm).
+
+### 3b. Một giá trị có thể mang nhiều nhãn — `b = a` nghĩa là gì?
+
+Đây là điểm quan trọng nhất bài này, đọc chậm:
+
+```python
+a = 100     # dán nhãn "a" lên số 100
+b = a       # dán THÊM nhãn "b" lên ĐÚNG số 100 đó (không copy gì cả!)
+```
+
+```mermaid
+flowchart LR
+    A["a"] --> V(("🔢 số 100"))
+    B["b"] --> V
+```
+
+Cả hai nhãn cùng trỏ một giá trị. Với **số và chuỗi**, bạn không thể "sửa tại
+chỗ" giá trị 100 (số thì chỉ có gán lại số khác) — nên muốn đổi `b` thì bắt
+buộc gán lại (`b = 200` là dán nhãn `b` sang số 200), nhãn `a` vẫn dán số 100.
+Đó là lý do "sửa b mà a không đổi" **trong bài này**.
+
+> ⚠️ **Nhá hàng quan trọng:** với **list** (Bài 14) thì khác — list SỬA ĐƯỢC
+> tại chỗ (`append`, gán phần tử...), nên `b = a` rồi `b.append(99)` thì nhìn
+> qua nhãn `a` cũng thấy 99! Đừng gọi đó là "lỗi" — đó chính là mô hình nhãn
+> dán hoạt động đúng. Tới Bài 14 bạn sẽ thấy tận mắt, giờ chỉ cần nhớ:
+> **`b = a` không copy gì cả, chỉ dán thêm nhãn**.
 
 ### 4. Quy tắc đặt tên biến
 
@@ -117,18 +156,22 @@ in  is  lambda  not  or  pass  raise  return  try  while  with  yield
 | `SODU` | `so_du_tai_khoan` |
 | `tongtien2nguoi` | `tong_tien_2_nguoi` |
 
-### 6. Kiểm tra vùng nhớ bằng id()
+### 6. Kiểm tra "mã số" của giá trị bằng id()
 
-Mỗi biến được máy tính cấp một **vùng nhớ riêng**. Hàm `id(bien)` trả về **địa chỉ vùng nhớ** của biến đó:
+Mỗi **giá trị** trong Python có một **mã số định danh**. Hàm `id(...)` trả về
+mã số của giá trị mà nhãn đang dán lên — **không phải** mã số của biến:
 
 ```python
 a = 100
-b = a          # b sao chép giá trị của a
+b = a          # dán thêm nhãn "b" lên ĐÚNG số 100 đó (không copy!)
 print(id(a))   # ví dụ: 2387456344528
-print(id(b))   # giống hệt id(a) vì b cùng trỏ tới giá trị 100
+print(id(b))   # giống hệt id(a) — đương nhiên, vì cùng một số 100!
 ```
 
-> 💡 **Lưu ý quan trọng:** `b = a` nghĩa là **sao chép giá trị** của `a` cho `b`. Sau đó sửa `b` thì `a` **không đổi** — vì là hai hộp riêng biệt.
+> 💡 **Đọc kết quả:** `id` giống nhau chứng minh hai nhãn đang dán **cùng một
+> giá trị** — khớp 100% với mô hình nhãn dán ở mục 3b. Với số và chuỗi, muốn
+> "đổi" `b` thì chỉ có cách gán lại (`b = 200` — dán nhãn sang số mới), nên
+> nhãn `a` không bị ảnh hưởng. Còn với list thì khác — hẹn gặp ở Bài 14!
 
 ### 7. Gán nhiều biến cùng lúc
 
@@ -170,10 +213,10 @@ print(a, b) # 5 3
 
 ## 💡 Ví dụ minh họa
 
-### Ví dụ 1: Chiếc hộp lưu điểm số
+### Ví dụ 1: Ba nhãn lưu điểm số
 
 ```python
-# Lưu điểm 3 môn học vào 3 biến
+# Dán 3 nhãn lên 3 điểm số
 toan = 8
 van = 7
 anh = 9
@@ -195,9 +238,9 @@ Kết quả:
 
 | Dòng code | Ý nghĩa |
 |---|---|
-| `toan = 8` | Tạo hộp `toan`, bỏ số 8 vào |
+| `toan = 8` | Dán nhãn `toan` lên số 8 |
 | `van = 7`, `anh = 9` | Tương tự cho hai môn còn lại |
-| `print("Điểm Toán:", toan)` | In nhãn "Điểm Toán:" rồi in giá trị trong hộp `toan` |
+| `print("Điểm Toán:", toan)` | In chữ "Điểm Toán:" rồi đọc giá trị nhãn `toan` |
 
 ### Ví dụ 2: Biến thay đổi theo thời gian
 
@@ -222,8 +265,10 @@ Cuối ngày: 95000 đồng
 
 **Giải thích từng dòng:**
 
-* `tien = tien - 35000` — lấy giá trị hiện tại (100000) trừ 35000, rồi **gán kết quả ngược về hộp** `tien`. Hộp bây giờ chứa 65000.
-* Mỗi lần gán mới, giá trị cũ **bị thay thế hoàn toàn** — hộp chỉ chứa được một giá trị tại một thời điểm.
+* `tien = tien - 35000` — đọc giá trị nhãn `tien` đang dán (100000), trừ 35000
+  được 65000, rồi **dán nhãn `tien` sang số mới 65000** (gỡ khỏi số cũ).
+* Mỗi nhãn tại một thời điểm chỉ dán **đúng một giá trị** — gán mới là dán sang
+  chỗ mới, không phải "sửa số cũ".
 
 ### Ví dụ 3: Hoán đổi hai "cốc nước"
 
@@ -328,7 +373,7 @@ print(so_keo)   # ❌ chưa gán so_keo bao giờ
 ```
 
 * **Kết quả báo:** `NameError: name 'so_keo' is not defined`
-* **Nguyên nhân:** Python không tìm thấy "hộp" tên `so_keo` — bạn quên gán `so_keo = ...` trước đó.
+* **Nguyên nhân:** Python không tìm thấy nhãn `so_keo` — bạn quên gán `so_keo = ...` trước đó.
 * **Cách sửa:** gán giá trị trước khi dùng: `so_keo = 10` rồi mới `print(so_keo)`.
 
 ### Lỗi 2: Tên biến bắt đầu bằng số
@@ -378,7 +423,9 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
 
 ## 💎 Mẹo
 
-* 📦 **Hình dung biến như chiếc hộp:** mỗi hộp có nhãn (tên biến), chứa một giá trị; gán lại là "đổ hộp, bỏ đồ mới vào".
+* 🏷️ **Hình dung biến như nhãn dán:** tên biến là tờ nhãn, giá trị là đồ vật;
+  gán là dán nhãn lên đồ vật, gán lại là gỡ ra dán sang đồ vật khác,
+  `b = a` là dán thêm một nhãn lên cùng đồ vật.
 * 🏷️ **Đặt tên có nghĩa:** `diem_toan` tốt hơn `x`; sau này đọc lại code sẽ không phải "giải mã".
 * 🐍 **Chuẩn snake_case:** chữ thường + gạch dưới: `tong_tien`, `so_luong_hoc_sinh`.
 * 🔢 **Không bao giờ viết hoa đầu tên biến** — chuẩn đó dành riêng cho lớp (học ở Bài 23 OOP).
@@ -391,9 +438,10 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
 
 | Khái niệm | Nội dung |
 |---|---|
-| 🏷️ Biến | Chiếc hộp có tên lưu dữ liệu tạm thời |
-| ✍️ Gán giá trị | `ten_bien = gia_tri` — dấu `=` là gán, không phải so sánh |
-| 🔄 Gán lại | Giá trị mới ghi đè giá trị cũ |
+| 🏷️ Biến | Cái nhãn có tên dán lên giá trị để gọi ra dùng |
+| ✍️ Gán giá trị | `ten_bien = gia_tri` — dán nhãn trái lên giá trị phải (`=` là gán, không phải so sánh) |
+| 🔄 Gán lại | Gỡ nhãn khỏi giá trị cũ, dán sang giá trị mới |
+| 👯 `b = a` | Dán thêm nhãn (không copy); số/chuỗi thì a không ảnh hưởng, list thì có (Bài 14) |
 | 📛 Quy tắc tên | Chữ cái, số (không đứng đầu), `_`; không trùng từ khóa; không dấu cách |
 | 🔤 Hoa – thường | Phân biệt: `Ten` ≠ `ten` |
 | 🐍 snake_case | `ho_va_ten`, `so_du` — dễ đọc, chuẩn Python |
@@ -414,13 +462,13 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
 7. ❓ Lệnh `a, b, c = 1, 2, 3` cho kết quả gì?
 8. ❓ Viết một dòng lệnh hoán đổi giá trị 2 biến `x` và `y`.
 9. ❓ `id()` dùng để làm gì?
-10. ❓ Khi gán `b = a` rồi sửa `b`, giá trị của `a` có thay đổi không? Vì sao?
+10. ❓ Khi gán `b = a` (với `a` là số) rồi gán lại `b = 200`, nhãn `a` còn dán số cũ không? Vì sao? Với list thì sao (đón đọc Bài 14)?
 
 <details>
 <summary>🔍 Xem đáp án</summary>
 
-1. Biến là "hộp có tên" lưu dữ liệu; dùng để tái sử dụng và cập nhật dữ liệu một chỗ.
-2. Dấu gán — đưa giá trị bên phải vào hộp tên bên trái.
+1. Biến là "nhãn có tên" dán lên giá trị; dùng để tái sử dụng và cập nhật dữ liệu một chỗ.
+2. Dấu gán — dán nhãn tên bên trái lên giá trị bên phải.
 3. `nam_hien_tai = 2026`.
 4. `lop10` và `ho_va_ten` hợp lệ; `10lop` sai (bắt đầu bằng số), `ho va ten` sai (có dấu cách).
 5. Vì chúng là từ khóa dành riêng của Python.
@@ -428,7 +476,10 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
 7. `a = 1`, `b = 2`, `c = 3`.
 8. `x, y = y, x`.
 9. Trả về địa chỉ vùng nhớ của biến.
-10. Không thay đổi — `b = a` chỉ sao chép giá trị, hai biến là hai hộp độc lập.
+10. Nhãn `a` vẫn dán số cũ — vì `b = a` chỉ dán thêm nhãn `b` lên cùng giá trị,
+   còn `b = 200` là dán nhãn `b` sang số mới, không động tới nhãn `a`.
+   Với list thì khác: list sửa được tại chỗ nên `b.append(...)` sẽ thấy đổi
+   qua cả nhãn `a` — chi tiết ở Bài 14.
 
 </details>
 
@@ -439,7 +490,7 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
 * [Python.org – Hướng dẫn chính thức: khai báo biến (W3Schools)](https://www.w3schools.com/python/python_variables.asp)
 * [Python.org – Từ khóa dành riêng](https://docs.python.org/3/reference/lexical_analysis.html#keywords)
 * [PEP 8 – Quy ước đặt tên biến (section Naming Conventions)](https://peps.python.org/pep-0008/#naming-conventions)
-* [Python Tutor – chạy từng bước để xem "hộp biến" thay đổi](https://pythontutor.com/)
+* [Python Tutor – chạy từng bước để xem nhãn biến đổi chỗ dán](https://pythontutor.com/)
 
 ---
 
@@ -451,7 +502,7 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
 
 ## 🟢 Dễ (Bài 1 – 7)
 
-### Bài 1: Chiếc hộp đầu tiên
+### Bài 1: Chiếc nhãn đầu tiên
 
 * **Đề bài:** Tạo biến `lop` chứa chuỗi `"10A1"` và in giá trị của nó ra màn hình.
 * **Input:** Không có.
@@ -471,7 +522,7 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
   ```
 * **Gợi ý:** `print("Diem cua toi la:", diem)`.
 
-### Bài 3: Đổi nội dung hộp
+### Bài 3: Dán nhãn sang chỗ mới
 
 * **Đề bài:** Biến `so` đầu tiên được gán `5`, sau đó gán lại `10`. In ra giá trị cuối cùng của `so`.
 * **Input:** Không có.
@@ -660,7 +711,7 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
   ```
 * **Gợi ý:** Gán `cao = diem1`, `thap = diem2`; nếu `diem1 < diem2` thì đổi ngược lại bằng biến tạm.
 
-### Bài 20: Mô phỏng "hộp số kẹo chia đôi"
+### Bài 20: Mô phỏng "chia đôi kẹo"
 
 * **Đề bài:** Bạn có `so_keo = 25` viên kẹo. Mỗi ngày bạn ăn hết 3 viên và nhận thêm 2 viên từ bạn bè. Mô phỏng 3 ngày bằng biến `so_keo` (cập nhật liên tiếp), mỗi ngày in số kẹo còn lại. Ngày nào số kẹo còn lại là số chẵn thì gán `so_le = False`, ngược lại `so_le = True` (chỉ cần gán ở ngày cuối).
 * **Input:** Không có.
@@ -682,7 +733,7 @@ Sau 20 bài tập, bạn đã:
 * ✅ Khai báo, gán và gán lại biến thành thạo.
 * ✅ Nắm vững quy tắc đặt tên biến và chuẩn `snake_case`.
 * ✅ Gán nhiều biến cùng lúc, hoán đổi giá trị bằng nhiều cách.
-* ✅ Biết kiểm tra vùng nhớ bằng `id()` và sao chép giá trị giữa các biến.
+* ✅ Biết kiểm tra mã số giá trị bằng `id()` và hiểu `b = a` là dán thêm nhãn.
 
 > 💪 Khi gặp `NameError`, hãy kiểm tra: biến đã được gán trước khi dùng chưa? Tên viết đúng hoa – thường chưa? **Lập trình là luyện tập!**
 
@@ -696,7 +747,7 @@ Sau 20 bài tập, bạn đã:
 
 
 <details>
-<summary>✅ Bài 1: Chiếc hộp đầu tiên</summary>
+<summary>✅ Bài 1: Chiếc nhãn đầu tiên</summary>
 
 
 **Phân tích:** Khai báo biến và in giá trị ra màn hình.
@@ -718,8 +769,8 @@ print(lop)
 
 **Giải thích code:**
 
-* `lop = "10A1"` — tạo hộp `lop`, bỏ chuỗi `"10A1"` vào.
-* `print(lop)` — in giá trị bên trong hộp nên kết quả là `10A1` (không có dấu nháy).
+* `lop = "10A1"` — dán nhãn `lop` lên chuỗi `"10A1"`.
+* `print(lop)` — đọc giá trị nhãn dán nên kết quả là `10A1` (không có dấu nháy).
 
 **Độ phức tạp:** O(1).
 
@@ -760,7 +811,7 @@ print("Diem cua toi la:", diem)
 </details>
 
 <details>
-<summary>✅ Bài 3: Đổi nội dung hộp</summary>
+<summary>✅ Bài 3: Dán nhãn sang chỗ mới</summary>
 
 
 **Phân tích:** Biến được gán hai lần — giá trị sau ghi đè giá trị trước.
@@ -782,7 +833,7 @@ print(so)    # in giá trị mới nhất
 
 **Giải thích code:**
 
-* Sau lệnh thứ hai, hộp `so` chứa `10`, giá trị `5` bị thay thế hoàn toàn.
+* Sau lệnh thứ hai, nhãn `so` dán sang `10` (gỡ khỏi `5`).
 * Python in ra giá trị **hiện tại cuối cùng** của biến.
 
 **Độ phức tạp:** O(1).
@@ -1018,8 +1069,8 @@ print("So tien con lai:", tien)
 
 **Giải thích code:**
 
-* `tien = tien - 45000` — lấy giá trị hiện tại (200000) trừ 45000, gán kết quả (155000) ngược về hộp `tien`.
-* Qua mỗi lần gán, hộp `tien` được cập nhật: 200000 → 155000 → 75000 → 175000.
+* `tien = tien - 45000` — lấy giá trị hiện tại (200000) trừ 45000, dán nhãn `tien` sang kết quả mới (155000).
+* Qua mỗi lần gán, nhãn `tien` dán sang số mới: 200000 → 155000 → 75000 → 175000.
 
 **Độ phức tạp:** O(1).
 
@@ -1206,7 +1257,7 @@ print("a =", a, ", b =", b)
 <summary>✅ Bài 16: Kiểm tra `id()` của biến</summary>
 
 
-**Phân tích:** `id(bien)` trả về địa chỉ vùng nhớ. `y = x` sao chép giá trị nên hai biến trỏ tới cùng đối tượng ban đầu.
+**Phân tích:** `id(...)` trả về mã số của giá trị. `y = x` dán thêm nhãn `y` lên cùng giá trị nên hai nhãn trỏ tới cùng một đối tượng ban đầu.
 
 **Ý tưởng:** So sánh `id(x)` và `id(y)` trước và sau khi đổi giá trị `y`.
 
@@ -1219,7 +1270,7 @@ print("a =", a, ", b =", b)
 
 ```python
 x = 1000
-y = x                 # y sao chép giá trị của x
+y = x                 # dán thêm nhãn y lên cùng số 1000 (không copy!)
 print("id(x) =", id(x))
 print("id(y) =", id(y))
 print("id(x) == id(y):", id(x) == id(y))
@@ -1233,7 +1284,7 @@ print("id(x) == id(y):", id(x) == id(y))
 **Giải thích code:**
 
 * Ban đầu `x` và `y` cùng trỏ tới đối tượng `1000` nên `id` bằng nhau.
-* Sau khi `y` nhận giá trị mới `2000`, Python tạo đối tượng khác cho `y` — địa chỉ thay đổi, `x` vẫn như cũ. Điều này chứng minh `b = a` là **sao chép giá trị**, không phải "kết nối" hai biến.
+* Sau khi `y` nhận giá trị mới `2000` (dán nhãn `y` sang số mới), mã số của `y` đổi còn `x` vẫn như cũ. Điều này chứng minh `b = a` chỉ dán thêm nhãn chứ không "dính" hai biến vào nhau — muốn đổi `b` thì gán lại, nhãn `a` không ảnh hưởng (với số và chuỗi).
 
 **Độ phức tạp:** O(1).
 
@@ -1355,7 +1406,7 @@ print("Cao:", cao, "- Thap:", thap)
 </details>
 
 <details>
-<summary>✅ Bài 20: Mô phỏng "hộp số kẹo chia đôi"</summary>
+<summary>✅ Bài 20: Mô phỏng "chia đôi kẹo"</summary>
 
 
 **Phân tích:** Mỗi ngày số kẹo giảm 3 và tăng 2 → mạng lại lưới biết trước mỗi ngày.

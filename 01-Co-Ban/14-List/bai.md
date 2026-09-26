@@ -258,8 +258,13 @@ for hang in bang_diem:            # duyệt theo từng hàng
 a = [1, 2, 3]
 b = a                # ❌ CHƯA copy gì cả — b và a trỏ về CÙNG một list!
 b.append(99)
-print(a)             # [1, 2, 3, 99] — a cũng bị đổi theo! Ngạc nhiên chưa?
+print(a)             # [1, 2, 3, 99] — a cũng bị đổi theo!
 ```
+
+> 🧠 **Nhớ lại Bài 4 (mục 3b):** `b = a` chỉ dán thêm nhãn, không copy gì cả.
+> Với số thì không sao (số không sửa tại chỗ được), nhưng list SỬA ĐƯỢC tại
+> chỗ (`append` chọc thẳng vào list gốc) — nên nhìn qua nhãn nào cũng thấy đổi.
+> Không có gì ngạc nhiên nếu bạn đã hiểu mô hình nhãn dán: hai nhãn, một list!
 
 ```mermaid
 flowchart LR
