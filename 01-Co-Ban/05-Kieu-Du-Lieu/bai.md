@@ -36,7 +36,7 @@ mindmap
     float - số thực
       3.14, 2.5, -0.5
     str - chuỗi
-      "Xin chào", "A1"
+      Xin chào, A1
     bool - đúng/sai
       True, False
 ```

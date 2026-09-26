@@ -46,14 +46,14 @@ hs1 = "An"; hs2 = "Binh"; ...   # ❌ viết 50 dòng, không thể duyệt bằ
 mindmap
   root((List))
     Đặc điểm
-      Có THỨ TỰ (cố định)
-      Có THỂ thay đổi (mutable)
+      Có THỨ TỰ cố định
+      Có THỂ thay đổi mutable
       Được phép TRÙNG giá trị
       Chứa mọi kiểu dữ liệu
     Thao tác chính
-      Tạo: ds = [ ... ]
-      Truy cập: ds[0], ds[-1]
-      Cắt: ds[1:4]
+      Tạo list ds
+      Truy cập phần tử đầu cuối
+      Cắt đoạn giữa
       Thêm: append, extend, insert
       Xóa: remove, pop, del, clear
       Sắp xếp: sort, sorted

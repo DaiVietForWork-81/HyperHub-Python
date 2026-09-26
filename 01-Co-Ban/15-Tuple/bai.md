@@ -47,7 +47,7 @@ mindmap
   root((Tuple))
     Đặc điểm
       Có THỨ TỰ
-      BẤT BIẾN (không đổi được)
+      BẤT BIẾN không đổi được
       Cho phép TRÙNG giá trị
       Chứa mọi kiểu dữ liệu
     So với List
@@ -55,7 +55,7 @@ mindmap
       List: linh hoạt thêm xóa
     Vì sao dùng
       Bảo vệ dữ liệu không đổi
-      Làm khóa từ điển (bài 17)
+      Làm khóa từ điển
       Truyền dữ liệu cố định
 ```
 

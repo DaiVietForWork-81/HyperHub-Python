@@ -42,15 +42,15 @@ diem     = {"Toan": 8.5, "Van": 7.0, "Anh": 9.0}   # ✅ gói gọn, tra cứu n
 mindmap
   root((Dictionary))
     Cặp khóa - giá trị
-      Khóa: nhãn bất biến (str, int, tuple)
+      Khóa nhãn bất biến str int tuple
       Giá trị: mọi kiểu
     Thao tác
-      Tạo: {} / dict()
-      Truy cập: x["key"], get()
-      Thêm - sửa: x["key"] = value
-      Xóa: del, pop, clear
-      Duyệt: keys(), values(), items()
-      Kiểm tra: in, len()
+      Tạo dict rỗng
+      Truy cập theo khóa
+      Thêm sửa theo khóa
+      Xóa del pop clear
+      Duyệt keys values items
+      Kiểm tra in len
 ```
 
 ### 2. Tạo dictionary

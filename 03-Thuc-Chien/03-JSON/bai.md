@@ -76,10 +76,10 @@ JSON chỉ có hai khối cơ bản, lồng nhau tùy ý:
 ```mermaid
 mindmap
   root((JSON))
-    📦 Object { }
-      Cặp "khóa": giá trị
+    📦 Object
+      Cặp khóa giá trị
       Tương đương dict
-    📚 Array [ ]
+    📚 Array
       Danh sách có thứ tự
       Tương đương list
     🔤 Kiểu dữ liệu

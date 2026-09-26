@@ -46,13 +46,13 @@ ma_sv = {"SV001", "SV002", "SV003"}   # mỗi mã chỉ có một
 mindmap
   root((Set))
     Đặc điểm
-      Duy nhất (không trùng)
-      Không thứ tự (không index)
+      Duy nhất không trùng
+      Không thứ tự
       Phần tử phải bất biến
-      Tra cứu cực nhanh (bảng băm)
+      Tra cứu cực nhanh
     Thao tác
-      Tạo: {} / set()
-      Thêm: add()
+      Tạo set rỗng
+      Thêm add
       Xóa: remove, discard, clear
       Kiểm tra: in, len
     Phép toán tập hợp

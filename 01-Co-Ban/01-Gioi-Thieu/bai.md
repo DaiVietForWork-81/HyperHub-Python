@@ -62,9 +62,9 @@ print("Xin chào")
 ```mermaid
 mindmap
   root((Python))
-    🤖 Trí tuệ nhân tạo (AI)
+    🤖 Trí tuệ nhân tạo AI
       Học máy
-      Chatbot (ChatGPT, DeepSeek)
+      Chatbot ChatGPT DeepSeek
       Xử lý ảnh, giọng nói
     📊 Khoa học dữ liệu
       Phân tích số liệu
@@ -76,7 +76,7 @@ mindmap
       Bot gửi tin nhắn
       Đọc file tự động
     🎮 Game & Desktop
-      Minecraft (một phần)
+      Minecraft một phần
       Ứng dụng văn phòng
     🚀 Khoa học vũ trụ
       NASA, SpaceX dùng Python
