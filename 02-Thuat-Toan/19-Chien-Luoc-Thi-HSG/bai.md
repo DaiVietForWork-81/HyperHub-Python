@@ -18,6 +18,7 @@ Sau bài học này, học viên sẽ:
 * ✅ Có quy trình làm bài thi chuẩn: đọc — phân loại — nghĩ — code — test, với phân bổ thời gian.
 * ✅ Biết thứ tự ưu tiên khi chọn thuật toán từ ràng buộc (bảng tra cứu tổng hợp).
 * ✅ Debug có phương pháp: chia đôi, in trace, stress test (so brute force).
+* ✅ Đọc/ghi file `.INP`/`.OUT` đúng quy ước đề thi (template redirect + tự test như máy chấm).
 * ✅ Tránh 10 lỗi mất điểm oan phổ biến nhất (đọc sai đề, tràn I/O, quên biên...).
 * ✅ Có lộ trình luyện tập sau khóa học (nguồn bài, tần suất, cách review).
 
@@ -168,6 +169,92 @@ print("OK 2000 test")
 > Cách review một bài (quan trọng hơn số lượng): sau khi AC, đọc editorial —
 > nếu có cách hay hơn, cài lại; ghi vào sổ "mẫu mới + bẫy đã gặp".
 > Sổ này là tài sản lớn nhất của bạn sau 1 năm.
+
+### 7. Đọc/ghi file `.INP`/`.OUT` trong thi HSG
+
+Nhiều kỳ thi (đặc biệt thi HSG truyền thống, thi học sinh giỏi các cấp) không
+chấm qua stdin/stdout mà chấm qua **file**: đề bài mã `SUM` thì đọc dữ liệu từ
+file `SUM.INP` (hoặc `sum.inp`) và ghi đáp án ra `SUM.OUT`. Đọc sai tên/quy ước
+là mất trắng dù thuật toán đúng!
+
+**a) Quy ước tên file — đọc đề trước khi code.**
+
+| Kỳ thi | Quy ước thường gặp | Ví dụ bài mã SUM |
+|---|---|---|
+| VOI / quốc gia | `SUM.INP`, `SUM.OUT` (HOA, cùng thư mục bài làm) | Đọc đề ghi rõ |
+| Tỉnh / trường | `sum.inp`, `sum.out` (thường) hoặc stdin/stdout | Đọc đề ghi rõ |
+| LQDOJ / VOJ / OJ online | stdin/stdout (không có file!) | Không cần file |
+
+> ⚠️ Không đoán — **đề bài luôn ghi rõ** đọc từ đâu, ghi ra đâu. Đọc mục
+> Input/Output của đề trước khi viết một dòng code nào.
+
+**b) Mẹo redirect — code một lần, chạy cả 2 chế độ.**
+
+Thay vì viết riêng logic đọc file, hãy "lái" stdin/stdout sang file ngay đầu
+chương trình — phần còn lại (`input()`, `print()`, `sys.stdin.read()`) giữ
+nguyên y hệt:
+
+```python
+import sys
+
+TEN_BAI = "SUM"   # đổi theo mã bài trong đề, ví dụ "SUBSTR" — copy y nguyên!
+
+try:
+    sys.stdin = open(TEN_BAI + ".inp", encoding="utf-8")
+    sys.stdout = open(TEN_BAI + ".out", "w", encoding="utf-8")
+except FileNotFoundError:
+    pass   # không có file .inp → chạy stdin/stdout (test ở nhà, OJ online)
+
+
+def solve() -> None:
+    data = sys.stdin.read().strip().split()
+    if not data:
+        return
+    print(sum(map(int, data)))
+
+
+solve()
+```
+
+Vì sao mẫu này tốt:
+
+* Có file `SUM.inp` → đọc file, ghi `SUM.out` (chế độ thi file).
+* Không có file → `open` báo `FileNotFoundError`, bỏ qua, chạy stdin/stdout
+  bình thường (test ở nhà, nộp OJ online). **Một file code duy nhất cho mọi nơi.**
+* `print()` ghi vào `.out` tự động — không cần `f.write` khắp nơi.
+* Khi chương trình chạy xong bình thường, Python tự flush + đóng file
+  (không lo `.out` rỗng vì quên đóng — trừ khi crash giữa chừng!).
+
+**c) Tự test ở nhà như máy chấm (quy trình 4 bước).**
+
+```
+1. Tạo SUM.inp : 3 10 20 30
+2. Chạy        : python sum.py
+3. Mở SUM.out  : 63
+4. So với đáp án mẫu bằng mắt (test nhỏ) hoặc lệnh so file:
+   Windows: fc SUM.out EXPECTED.out
+   Linux  : diff SUM.out EXPECTED.out
+```
+
+> 💡 Mẹo: giữ file đáp án mẫu tên `EXPECTED.out` (tự gõ từ đề bài). Mỗi lần sửa
+> code, chạy lại + `diff` — khác nhau là biết ngay đúng/sai, khỏi đọc bằng mắt.
+
+**d) Năm bẫy file kinh điển (mất điểm oan nhiều nhất).**
+
+1. **Sai tên file:** đề ghi `SUBSTR.INP` mà code mở `substr.inp` — Linux phân
+   biệt hoa/thường → `FileNotFoundError` → rớt về stdin → treo chờ nhập
+   (máy chấm không gõ gì) → TLE 0 điểm! Copy tên file từ đề, đừng gõ lại.
+2. **Chạy sai thư mục:** file `.inp` để ở Desktop mà terminal đang đứng ở
+   `D:\` → không tìm thấy file. Luôn `cd` đúng thư mục hoặc dùng đường dẫn
+   tuyệt đối khi test.
+3. **`.out` rỗng vì crash:** chương trình lỗi giữa chừng → buffer chưa flush →
+   file `.out` trống hoặc dở dang. Sửa hết crash với test nhỏ trước.
+4. **Encoding:** file đề có tiếng Việt → mở với `encoding="utf-8"`.
+   Không ghi encoding, Windows mặc định cp1252 → đọc chữ có dấu vỡ
+   (`UnicodeDecodeError`).
+5. **Dấu cách/dòng thừa:** máy chấm thường bỏ qua khoảng trắng thừa ở cuối dòng
+   nhưng **không** bỏ qua số thiếu/sai. `print` mỗi số một dòng hay cách nhau
+   đều được — miễn đúng giá trị, đúng thứ tự, đúng số lượng.
 
 ---
 
@@ -349,6 +436,12 @@ d) q ≤ 10⁵ truy vấn tổng đoạn, n ≤ 10⁵
 viết thành checklist riêng dán vào vở (ví dụ: "☐ reset biến giữa test?
 ☐ I/O nhanh? ☐ test n=1?").
 
+**Bài 3b — Chạy file .INP/.OUT thật.** Lấy template redirect ở mục 7, đổi
+`TEN_BAI = "TONG"`, viết `solve()` đọc n rồi đọc n số, in ra tổng. Tự tạo
+`TONG.inp` với nội dung `4\n1 2 3 4\n`, chạy chương trình, mở `TONG.out`
+kiểm tra bằng 10. Sau đó xóa file `.inp` và chạy lại với gõ tay stdin —
+chương trình vẫn chạy đúng. (Đây chính là quy trình 4 bước ở mục 7c.)
+
 ### 🟡 Hiểu sâu (4–6)
 
 **Bài 4 — Brute force có chủ đích.** Bài "cặp tổng chia hết cho k" (ví dụ 2):
@@ -414,6 +507,41 @@ Không có đáp án chung — mẫu của một người hay quên I/O:
 
 Dán vào vở, đọc trước khi nộp mỗi bài. Sau 10 kỳ thi, danh sách này ngắn dần —
 đó là tiến bộ.
+
+</details>
+
+<details>
+<summary>✅ Bài 3b: Chạy file .INP/.OUT thật</summary>
+
+```python
+import sys
+
+TEN_BAI = "TONG"
+
+try:
+    sys.stdin = open(TEN_BAI + ".inp", encoding="utf-8")
+    sys.stdout = open(TEN_BAI + ".out", "w", encoding="utf-8")
+except FileNotFoundError:
+    pass
+
+
+def solve() -> None:
+    data = sys.stdin.read().strip().split()
+    if not data:
+        return
+    n = int(data[0])
+    print(sum(map(int, data[1:1 + n])))
+
+
+solve()
+```
+
+* Tạo `TONG.inp` với `4` rồi `1 2 3 4` → chạy → `TONG.out` chứa `10`. ✔
+* Xóa `TONG.inp`, chạy lại, gõ tay `4` Enter `1 2 3 4` → màn hình in `10`. ✔
+  (Nhấn Ctrl+Z rồi Enter trên Windows / Ctrl+D trên Linux để kết thúc stdin
+  khi gõ tay.)
+* Từ nay mọi bài thi file đều bắt đầu bằng cách copy template này rồi đổi
+  `TEN_BAI` + viết `solve()` — không bao giờ lo sai quy ước I/O nữa.
 
 </details>
 

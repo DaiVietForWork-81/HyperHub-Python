@@ -1767,3 +1767,7 @@ print("Da ghi ket qua vao tong_ket.txt")
 **Vị trí:** `01-Co-Ban/22-File/bai.md`
 
 **Bài tiếp theo:** [Bài 23 — Lập Trình Hướng Đối Tượng (OOP)](../23-OOP/bai.md)
+
+> 🏆 **Thi HSG?** Cách mở file `BAI.INP` / ghi `BAI.OUT` đúng quy ước phòng thi
+> (template redirect + tự test như máy chấm) nằm ở
+> [Bài 19 — Chiến Lược Thi HSG, mục 7](../../02-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md).
