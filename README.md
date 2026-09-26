@@ -64,37 +64,51 @@ HyperHub-Python/
 ├── README.md                  ← bạn đang đọc
 ├── REWORK_PLAN.md             ← tài liệu thiết kế & tái cấu trúc khóa học
 │
-├── 01-Co-Ban/                 ✅ BẮT BUỘC (29 bài)
+├── 01-Co-Ban/                 ✅ MỤC 1: chỉ cơ bản (29 bài, bản chính)
 │   ├── 01-Gioi-Thieu/bai.md
-│   ├── 02-Cai-Dat-Python/bai.md
-│   ├── 03-VSCode/bai.md
 │   ├── ...
 │   └── 29-Iterator/bai.md
 │
-├── 02-Thuat-Toan/             🧮 TỰ CHỌN (20 bài)
+├── 02-Thuat-Toan/             🧮 MỤC 2: cơ bản + thuật toán (tự chứa)
+│   ├── Phan-1-Co-Ban/         ← copy 29 bài cơ bản (tự động đồng bộ)
 │   ├── 01-Tu-Duy-Thuat-Toan/bai.md
 │   ├── ...
-│   ├── 12-Do-Thi-BFS-DFS/bai.md
-│   ├── 13-Duong-Di-Ngan-Nhat/bai.md
-│   ├── 14-Cay-Va-DSU/bai.md
-│   ├── 15-Segment-Tree/bai.md
-│   ├── 16-Xu-Ly-Chuoi/bai.md
-│   ├── 17-Bitmask/bai.md
-│   ├── 18-DP-Nang-Cao/bai.md
 │   └── 19-Chien-Luoc-Thi-HSG/bai.md
 │
-├── 03-Thuc-Chien/             🚀 TỰ CHỌN (12 bài)
+├── 03-Thuc-Chien/             🚀 bản chính thực chiến (12 bài)
 │   ├── 01-Virtual-Environment/bai.md
 │   ├── ...
 │   └── 12-Du-An-Cuoi-Khoa/bai.md
 │
-├── tools/                     🛠️ script bảo trì
-│   ├── migrate.py             ← gộp 3 file cũ thành bai.md (đã dùng xong)
-│   ├── complete_answers.py    ← bổ sung đáp án thiếu (đã dùng xong)
-│   └── validate.py            ← kiểm tra link hỏng, file thiếu, format
+├── 04-Full/                   🏆 MỤC 3: full — tất cả + tài liệu (tự chứa)
+│   ├── Phan-1-Co-Ban/         ← copy 29 bài cơ bản
+│   ├── Phan-2-Thuat-Toan/     ← copy 19 bài thuật toán
+│   ├── Phan-3-Thuc-Chien/     ← copy 12 bài thực chiến
+│   └── Tai-Lieu/              ← 3 file PDF giáo trình tham khảo
 │
-└── *.pdf                      📚 giáo trình tham khảo (tiếng Việt)
+└── tools/                     🛠️ script bảo trì
+    ├── migrate.py             ← gộp 3 file cũ thành bai.md (đã dùng xong)
+    ├── complete_answers.py    ← bổ sung đáp án thiếu (đã dùng xong)
+    ├── sync_tracks.py         ← đồng bộ các bản copy (chạy sau mỗi lần sửa)
+    └── validate.py            ← kiểm tra link hỏng, file thiếu, format
 ```
+
+> 🗂️ **Vì sao có bản copy?** Ba mục là 3 lộ trình **tự chứa** để người học chỉ
+> cần mở một thư mục duy nhất:
+>
+> | Mục | Chứa gì | Dành cho ai |
+> |---|---|---|
+> | `01-Co-Ban` | Chỉ 29 bài cơ bản (bản chính) | Người mới bắt đầu |
+> | `02-Thuat-Toan` | Cơ bản + 19 bài thuật toán | Luyện HSG, không cần nhảy thư mục |
+> | `04-Full` | Cơ bản + thuật toán + thực chiến + PDF | Học từ đầu đến cuối một mạch |
+>
+> Các thư mục `Phan-*` là **bản copy tự động** — đừng sửa trực tiếp! Sửa bản
+> chính (`01-Co-Ban`, `02-Thuat-Toan`, `03-Thuc-Chien`) rồi chạy:
+>
+> ```bash
+> python tools/sync_tracks.py
+> python tools/validate.py
+> ```
 
 **Mỗi bài học = 1 file duy nhất `bai.md`**, gồm: mục tiêu, điều kiện tiên quyết,
 kiến thức, ví dụ, lỗi thường gặp, tóm tắt, kiểm tra nhanh, **20 bài tập phân cấp**
@@ -165,14 +179,16 @@ kiến thức, ví dụ, lỗi thường gặp, tóm tắt, kiểm tra nhanh, **
 
 ### Tự học
 
-1. Bắt đầu từ [Bài 1 — Giới Thiệu Python](01-Co-Ban/01-Gioi-Thieu/bai.md),
-   học lần lượt hết nhánh Cơ bản **theo đúng thứ tự** (mỗi bài ghi rõ điều kiện
-   tiên quyết và bài tiếp theo).
+1. **Chọn mục của bạn** (xem bảng 3 mục ở trên):
+   - Chỉ học nền tảng → mở `01-Co-Ban`, bắt đầu từ
+     [Bài 1 — Giới Thiệu Python](01-Co-Ban/01-Gioi-Thieu/bai.md).
+   - Luyện HSG → mở `02-Thuat-Toan` (học `Phan-1-Co-Ban` trước rồi tới
+     các bài thuật toán, không cần nhảy thư mục).
+   - Học một mạch từ đầu đến cuối → mở `04-Full` (đi theo thứ tự
+     Phan-1 → Phan-2 → Phan-3).
 2. Mỗi bài: đọc kiến thức → chạy thử ví dụ → **tự làm bài tập ít nhất 15 phút**
    trước khi mở đáp án.
-3. Xong Cơ bản → chọn nhánh **Thuật toán** (thi HSG) hoặc **Thực chiến**
-   (làm dự án) — hoặc cả hai.
-4. Mỗi tuần làm lại 1 bài khó nhất đã học để ghi nhớ lâu.
+3. Mỗi tuần làm lại 1 bài khó nhất đã học để ghi nhớ lâu.
 
 ### Giảng dạy
 

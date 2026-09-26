@@ -177,7 +177,8 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | 3 | Script chuyển đổi 41 bài cũ → `bai.md` mới | ✅ Xong |
 | 4 | Xóa cấu trúc cũ sau khi validate | ✅ Xong |
 | 5 | Viết mới 12 bài nhánh Thuật toán | ✅ Xong |
-| 5b | Mở rộng nhánh Thuật toán lên 20 bài (đồ thị, đường ngắn nhất, cây/DSU, segment tree, chuỗi, bitmask, DP nâng cao) | ✅ Xong |
+| 5b | Mở rộng nhánh Thuật toán lên 19 bài (đồ thị, đường ngắn nhất, cây/DSU, segment tree, chuỗi, bitmask, DP nâng cao) | ✅ Xong |
+| 5c | Gộp vật lý 3 mục tự chứa: 01-Co-Ban (gốc) + 02-Thuat-Toan/Phan-1 + 04-Full (3 phần + PDF) | ✅ Xong |
 | 6 | Viết lại README gốc với roadmap 3 nhánh | ✅ Xong |
 | 7 | Validate: link hỏng, file thiếu, tham chiếu cũ | ✅ Xong (script `tools/validate.py`) |
 
@@ -201,6 +202,7 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | Quyết định | Lý do |
 |---|---|
 | Giữ nội dung cũ, gộp bằng script thay vì viết lại từ đầu | Nội dung cũ chất lượng tốt (~45k dòng). Viết lại tay 41 bài trong một lần sẽ phát sinh lỗi và mất nội dung. Script gộp đảm bảo 0 mất mát, sau đó nâng cấp tay từng bài. |
+| 3 mục tự chứa bằng copy + script đồng bộ (thay vì viết tay 3 lần) | Người học chỉ mở 1 thư mục duy nhất. Copy tay sẽ lệch nhau sau vài lần sửa → `tools/sync_tracks.py` tái tạo toàn bộ copy từ bản chính, `tools/validate.py` kiểm tra link. Quy tắc: chỉ sửa `01-Co-Ban`, `02-Thuat-Toan/*` (trừ `Phan-1`), `03-Thuc-Chien`. |
 | Nhánh Thuật toán viết mới hoàn toàn | Thư mục cũ rỗng. Chuẩn HSG cần tư duy giải bài toán, không phải liệt kê định nghĩa. |
 | Nhánh Thực chiến tách khỏi Thuật toán | Hai mục tiêu khác nhau: giải thuật vs dùng Python trong dự án thật. Không bắt buộc học 02 trước 03. |
 | Đáp án bọc `<details>` theo từng câu | Người học chỉ mở đúng câu mình bí, không lộ đáp án các câu khác. |
