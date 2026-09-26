@@ -103,6 +103,42 @@ class SegTree:
 > và không lo recursion limit. Quy ước nửa khoảng [l, r): hỏi [l, r] bao cả
 > hai đầu thì gọi `hoi(l, r + 1)` — thống nhất một quy ước, tránh off-by-one.
 
+### 1b. 🔍 Nhìn cây "đi bộ" khi truy vấn — hỏi [1, 4) trên [2, 1, 5, 3, 4]
+
+Cây tổng (N = 8, node ghi chỉ số trong mảng `t`):
+
+```
+                        15(1)
+              11(2)               4(3)
+          3(4)      8(5)      4(6)      0(7)
+        2(8) 1(9) 5(10) 3(11) 4(12) 0(13) 0(14) 0(15)
+        a0   a1   a2    a3    a4
+```
+
+Hỏi [1, 4) nghĩa là l = 9, r = 12 (cộng N). Thuật toán cho l, r "leo" lên,
+gắp node nào **nằm gọn** trong đoạn thì lấy:
+
+| Vòng | (l, r) | l lẻ? | r lẻ? | Gắp |
+|---|---|---|---|---|
+| 1 | (9, 12) | 9 lẻ → lấy t[9] = 1 (lá a[1]), l = 10 | 12 chẵn → bỏ qua | t[9] |
+| 2 | (5, 6) | 5 lẻ → lấy t[5] = 8 (đoạn a[2..3]), l = 6 | 6 chẵn → bỏ qua | t[5] |
+| 3 | (6, 6) | l == r → dừng | | |
+
+Đáp án 1 + 8 = **9** = a[1] + a[2] + a[3] = 1 + 5 + 3 ✔. Chỉ thăm **2 node**
+thay vì 3 lá — với n = 10⁵, số node thăm ≤ 2·log n ≈ 34 thay vì 10⁵.
+
+**Cập nhật a[2] = 0** (lá số 10): chỉ leo một đường duy nhất lên gốc:
+
+```
+lá 10: 5 → 0
+node 5: t[5] = 0 + 3 = 3
+node 2: t[2] = 3 + 3 = 6
+gốc 1:  t[1] = 6 + 4 = 10  (tổng mới 15 − 5 = 10 ✔)
+```
+
+Mỗi tầng đúng 1 node → O(log n) node cập nhật. Đây là toàn bộ "phép màu"
+của segment tree: **hỏi ghép O(log n) mảnh, sửa leo O(log n) tầng**.
+
 Đổi phép tổng hợp bằng `op` + `e` (phần tử trung hòa: 0 cho cộng, +∞ cho min,
 −∞ cho max, 0 cho GCD/XOR): một class dùng cho mọi phép **kết hợp**.
 
@@ -140,6 +176,40 @@ nhớ "cộng khi đi lên, trừ khi đi xuống".
 
 > BIT 1-based bên trong, bọc 0-based bên ngoài (code mẫu đã bọc). Quên +1/−1
 > là bug #1 — test ngay với n = 1 và cập nhật biên.
+
+### 2b. 🐢 Hiểu chậm `i & -i` — mỗi ô `bit` quản lý đoạn nào?
+
+`i & -i` tách bit 1 cuối cùng của i — đó chính là **độ dài đoạn** mà `bit[i]`
+quản lý. Bảng với n = 8 (chỉ số nội bộ 1-based):
+
+| i (nhị phân) | i & −i | bit[i] quản lý ô |
+|---|---|---|
+| 1 (001) | 1 | ô 1 |
+| 2 (010) | 2 | ô 1–2 |
+| 3 (011) | 1 | ô 3 |
+| 4 (100) | 4 | ô 1–4 |
+| 5 (101) | 1 | ô 5 |
+| 6 (110) | 2 | ô 5–6 |
+| 7 (111) | 1 | ô 7 |
+| 8 (1000) | 8 | ô 1–8 |
+
+Quy luật: bit 1 cuối càng "nặng" (bên trái), đoạn quản lý càng dài.
+Ô lẻ quản 1 ô, ô chẵn quản cụm — toàn bộ mảng được phủ kín ở mỗi "tầng".
+
+**Chạy tay:** `them(2, 5)` (ngoài 0-based → trong i = 3), rồi `them(5, 3)`
+(ngoài → trong i = 6), rồi `tong(5)` (ngoài → trong i = 6):
+
+* `them` thứ nhất: i = 3 (011): bit[3] += 5; i += 1 → 4: bit[4] += 5;
+  i += 4 → 8: bit[8] += 5. (Nhảy lên cụm lớn hơn: cộng bit cuối.)
+* `them` thứ hai: i = 6 (110): bit[6] += 3; i += 2 → 8: bit[8] += 3
+  (giờ bit[8] = 8).
+* `tong`: i = 6: s += bit[6] (= 3, tức ô 5–6); i −= 2 → 4:
+  s += bit[4] (= 5, tức ô 1–4). Tổng **8** = a[2] + a[5] = 5 + 3 ✔
+  (các ô khác bằng 0).
+
+> 💡 **Nhớ bằng một câu:** `them` đi **lên** (cộng bit cuối — tìm cụm cha chứa
+> mình), `tong` đi **xuống** (trừ bit cuối — gộp các cụm vừa khít tiền tố).
+> Mỗi vòng xử lý đúng 1 bit → tối đa log n vòng.
 
 ### 3. So sánh chọn lựa
 

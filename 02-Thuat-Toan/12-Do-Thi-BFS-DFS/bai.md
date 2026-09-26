@@ -81,6 +81,51 @@ def them_canh(u, v, co_huong=False):
 Đồ thị **có hướng** thì chỉ thêm chiều u→v. **Trọng số** thì lưu tuple
 `ke[u].append((v, w))` — dùng ở Bài 13.
 
+### 1b. 🖼️ Vẽ đồ thị ra giấy — đọc hình, viết kề
+
+Trước khi code, hãy vẽ. Ba loại hình bạn sẽ gặp:
+
+**Vô hướng** (đường 2 chiều — tình bạn, đường làng):
+
+```
+    1 --- 2
+   /       \
+  0         4
+   \       /
+    3 -----
+ke = [[1, 3], [0, 2], [1, 4], [0, 4], [2, 3]]
+```
+
+Đọc `ke[0] = [1, 3]` là "đỉnh 0 nối với 1 và 3". Mỗi cạnh xuất hiện 2 lần
+(0→1 và 1→0) — đó là lý do duyệt toàn đồ thị tốn O(V + E) với E đếm cả 2 chiều.
+
+**Có hướng** (đường 1 chiều — tiên quyết, follow):
+
+```
+  0 ---> 1 ---> 3
+  |             ^
+  +----> 2 -----+
+ke = [[1, 2], [3], [3], []]
+```
+
+`ke[3] = []` — đỉnh 3 không đi đâu được (nhưng vẫn tới được từ 1, 2).
+Đồ thị có hướng: "tới được" không đối xứng — BFS từ 3 chỉ thăm được {3}!
+
+**Trọng số** (mỗi cạnh có giá — bản đồ, cước phí):
+
+```
+  0 --4-- 1
+  | \     | 1
+  1  \2   3
+  |   \   | \ 3
+  2 --5-- +  4
+ke = [[(1, 4), (2, 1)], [(0, 4), (2, 2), (3, 1)], ...]
+```
+
+> 💡 **Mẹo đọc đề:** thấy "đường một chiều / tiên quyết / phụ thuộc" → có hướng.
+> Thấy "chi phí / thời gian / độ dài" khác nhau → trọng số → Bài 13.
+> Không nói gì → vô hướng, cạnh bằng nhau → BFS/DFS bài này.
+
 ### 2. BFS — loang theo lớp, đường ngắn nhất cạnh đơn vị
 
 ```python
@@ -107,6 +152,42 @@ qua một đỉnh cùng lớp hoặc xa hơn). Chứng minh hình thức dùng b
 trực giác "sóng lan đều" là đủ để dùng đúng.
 
 O(V + E): mỗi đỉnh vào/ra queue 1 lần, mỗi cạnh xét 2 lần (vô hướng).
+
+### 2b. 🔍 Chạy tay BFS từng bước — nhìn queue "thở"
+
+Đồ thị mẫu (6 đỉnh):
+
+```
+    1 --- 2
+    |     |
+    0     3 --- 4 --- 5
+    (0 nối 1; 1 nối 0,3; 2 nối 0,3; 3 nối 1,2,4; 4 nối 3,5; 5 nối 4)
+```
+
+BFS từ 0. Quy ước: pop đỉnh nào thì xét hết hàng xóm của nó, đỉnh mới thăm
+được đẩy vào **đuôi** queue:
+
+| Bước | Pop | Queue sau pop | Hàng xóm xét | Đẩy mới | dist |
+|---|---|---|---|---|---|
+| 0 (khởi tạo) | — | [0] | — | — | [0,·,·,·,·,·] |
+| 1 | 0 | [] → [1, 2] | 1 ✔ mới, 2 ✔ mới | 1, 2 | [0,1,1,·,·,·] |
+| 2 | 1 | [2] → [2, 3] | 0 cũ, 3 ✔ mới | 3 | [0,1,1,2,·,·] |
+| 3 | 2 | [3] → [3] | 0 cũ, 3 cũ (đã thăm!) | — | không đổi |
+| 4 | 3 | [] → [4] | 1 cũ, 2 cũ, 4 ✔ mới | 4 | [0,1,1,2,3,·] |
+| 5 | 4 | [] → [5] | 3 cũ, 5 ✔ mới | 5 | [0,1,1,2,3,4] |
+| 6 | 5 | [] | 4 cũ | — | xong |
+
+Ba điều rút ra khi nhìn bảng:
+
+1. **Queue luôn chứa các đỉnh cùng lớp hoặc lệch nhau đúng 1 lớp**
+   (bước 2: [2(lớp 1), 3(lớp 2)]). Đây chính là "sóng lan đều" — và là lý do
+   lần đầu chạm đỉnh nào thì đó là đường ngắn nhất: mọi đường khác tới nó đều
+   phải đi qua lớp ≥ lớp hiện tại.
+2. **Đỉnh 3 được phát hiện từ 1 nhưng cũng kề 2** — khi pop 2, thấy 3 đã thăm
+   thì bỏ qua. Mỗi cạnh tuy xét 2 lần nhưng chỉ "đẩy mới" đúng 1 lần → O(V+E).
+3. Thứ tự pop (0, 1, 2, 3, 4, 5) chính là thứ tự khoảng cách tăng dần —
+   BFS "xếp hàng" đỉnh theo độ xa. Muốn in đường đi cụ thể? Lưu thêm mảng
+   `cha[v] = u` lúc đẩy mới, rồi đi ngược từ đích về nguồn (xem bài tập).
 
 ### 3. DFS — đệ quy (tự nhiên) và vòng lặp (an toàn sâu)
 
@@ -136,6 +217,34 @@ def dfs_vong_lap(nguon, ke):
 > ⚠️ Đệ quy sâu = sâu của đường đi dài nhất (xấu nhất V = 10⁵ → crash).
 > Lưới/mê cung dài ngoằn → dùng BFS (queue, không sâu) hoặc DFS vòng lặp.
 > Quy tắc: V ≤ ~10⁴ và đồ thị "bè" thì đệ quy ok; sâu tuyến tính → vòng lặp/BFS.
+
+### 3b. 🔍 Chạy tay DFS — cùng đồ thị, thứ tự khác hẳn
+
+Dùng đúng đồ thị 6 đỉnh ở mục 2b, DFS vòng lặp từ 0
+(đẩy hàng xóm theo thứ tự trong `ke`, stack lấy từ **đỉnh**):
+
+| Bước | Pop | Stack sau | Đẩy mới | Đã thăm |
+|---|---|---|---|---|
+| 0 | — | [0] | — | {0} |
+| 1 | 0 | [1, 2] | 1, 2 | {0,1,2} |
+| 2 | 2 | [1, 3] | 3 (0 cũ) | {0,1,2,3} |
+| 3 | 3 | [1, 4] | 4 (1,2 cũ) | {0,1,2,3,4} |
+| 4 | 4 | [1, 5] | 5 (3 cũ) | {0,...,5} |
+| 5 | 5 | [1] | — (4 cũ) | đủ |
+| 6 | 1 | [] | — (0,3 cũ) | xong |
+
+So sánh với BFS ở mục 2b:
+
+| | BFS (queue) | DFS (stack) |
+|---|---|---|
+| Thứ tự pop | 0, 1, 2, 3, 4, 5 | 0, 2, 3, 4, 5, 1 |
+| Hình dung | Lan đều theo lớp | Đâm sâu một nhánh rồi quay lại |
+| Đỉnh 1 | thăm ở bước 1 (lớp 1) | thăm ở bước 1 nhưng **xử lý cuối cùng** (bước 6) |
+| dist | Có (đường ngắn nhất) | Không (chỉ biết tới được) |
+
+> 💡 **Nhớ bằng hình:** BFS như nước ngập đồng đều — chỗ trũng (gần) ướt trước.
+> DFS như chuột chũi đào hang — đào sâu một đường đến cụt mới quay lại đào
+> nhánh khác. Cùng một hang (đồ thị), hai cách khám phá cho hai thông tin khác nhau.
 
 ### 4. Ba ứng dụng DFS/BFS phải thuộc
 
@@ -290,6 +399,25 @@ main()
 **Giải thích:** BFS từ nguồn trên lưới = sóng lan từng bước; `dist` vừa là
 khoảng cách vừa là mảng thăm (−1 = chưa tới). Gặp đích thì `break` ngay
 (BFS đảm bảo đó là ngắn nhất — không cần duyệt hết). O(n·m).
+
+**🗺️ Chạy tay trên lưới mẫu 4×4** (S = xuất phát, E = đích, # = tường):
+
+```
+S . . #        dist sau BFS:
+# # . #   →    0  1  2  X
+. . . .        X  X  3  X
+# . # .        6  5  4  5
+               X  6  X  6
+```
+
+Đọc bảng dist như bản đồ "sóng lan": ô (0,2) = 2 (đi S→→), ô (1,2) = 3,
+sóng vòng xuống hàng 2: (2,2) = 4, rồi tản ra (2,1) = 5, (2,3) = 5,
+(2,0) = 6, (3,1) = 6, và đích E(3,3) = **6**. Đáp án 6 bước.
+
+Dựng lại đường đi ngắn nhất: từ E đi ngược về ô kề có dist nhỏ hơn 1:
+(3,3)=6 → (2,3)=5 → (2,2)=4 → (1,2)=3 → (0,2)=2 → (0,1)=1 → (0,0)=0.
+Đường: →→↓↓↓→. Muốn code in đường đi? Lưu mảng `cha` khi đẩy vào queue
+(như gợi ý ở mục 2b), rồi đi ngược từ đích — đúng 5 dòng thêm.
 
 ### Ví dụ 2 — Thực tế: lan truyền đa nguồn (covid trong siêu thị)
 

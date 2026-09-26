@@ -99,6 +99,33 @@ từ s là t ≠ x, y → xét giao của 3 đường s–t, s–x, s–y trên 
 nhất đường đi suy ra mâu thuẫn.) Cây có trọng số cạnh → thay BFS bằng Dijkstra
 (vẫn 2 lần, vì đường duy nhất nên Dijkstra = BFS có cân).
 
+### 2b. 🐢 Hiểu chậm: vì sao "đi xa nhất 2 lần" ra đường kính?
+
+Lấy ví dụ cụ thể — cây 6 đỉnh, cạnh: 0-1, 0-2, 0-3, 2-4, 4-5.
+
+```
+        3
+        |
+    1 - 0 - 2 - 4 - 5
+```
+
+**Lần 1:** BFS từ 0 (đỉnh bất kỳ). dist từ 0: {0:0, 1:1, 2:1, 3:1, 4:2, 5:3} →
+xa nhất là **5** (dist 3).
+
+**Lần 2:** BFS từ 5: 5→4 (1), 4→2 (2), 2→0 (3), 0→1 (4), 0→3 (4) → xa nhất là
+1 (hoặc 3), dist **4**. Đường kính = 4 (đường 5-4-2-0-1). ✔
+
+Giờ hỏi: vì sao lần 1 (từ đỉnh bừa) luôn "rơi" vào một đầu đường kính? Tưởng
+tượng đường kính là sợi dây dài nhất trong mạng nhện (cây). Bạn đứng ở điểm
+bất kỳ s, đi xa nhất có thể → bạn sẽ đi về một trong hai đầu dây. Vì sao?
+Mọi đường từ s đều phải "nhập" vào sợi dây ở điểm nào đó rồi đi dọc nó —
+đi xa nhất nghĩa là đi dọc dây đến đầu xa hơn. (Trên cây chỉ có một đường giữa
+hai điểm nên không có "đường tắt" phá vỡ lập luận — trên đồ thị có chu trình
+thì sai ngay!) Lần 2 đo từ đầu này sang đầu kia = cả sợi dây. ✔
+
+> ⚠️ Bẫy: 2-BFS **chỉ đúng trên cây** (không chu trình). Đồ thị tổng quát phải
+> Floyd/all-pairs (Bài 13) — mang 2-BFS sang đồ thị có vòng là WA.
+
 ### 3. LCA bằng binary lifting — O((V+Q) log V)
 
 **Bài toán:** q ≤ 10⁵ truy vấn (u, v): tìm tổ tiên chung sâu nhất của u, v
@@ -153,6 +180,47 @@ def lca(u, v, up, sau):
 > Khoảng cách(u, v) = sau[u] + sau[v] − 2·sau[lca] — từ LCA suy ra khoảng cách
 > O(1) sau mỗi truy vấn. Cạnh kề thứ k trên đường u–v cũng nhảy được (mở rộng).
 
+### 3b. 🔍 Chạy tay binary lifting trên cây 8 đỉnh
+
+Cây (gốc 0): 0 nối 1, 2; 1 nối 3, 4; 2 nối 5; 4 nối 6, 7.
+
+```
+        0
+       / \
+      1   2
+     / \   \
+    3   4   5
+       / \
+      6   7
+```
+
+Bảng tiền xử lý (sau = độ sâu; up[0] = cha; up[1] = ông (2 bậc); up[2] = cụ (4 bậc)):
+
+| v | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| sau | 0 | 1 | 1 | 2 | 2 | 2 | 3 | 3 |
+| up[0] (cha) | −1 | 0 | 0 | 1 | 1 | 2 | 4 | 4 |
+| up[1] (ông) | −1 | −1 | −1 | 0 | 0 | 0 | 1 | 1 |
+| up[2] (cụ) | −1 | −1 | −1 | −1 | −1 | −1 | −1 | −1 |
+
+**Truy vấn lca(6, 5):**
+
+1. sau[6] = 3 > sau[5] = 2 → đưa 6 lên 1 bậc: up[0][6] = 4. Giờ (4, 5) cùng sâu 2.
+2. 4 ≠ 5. Nhảy từ cao: up[1][4] = 0, up[1][5] = 0 — bằng nhau → bỏ qua
+   (nhảy là vượt quá LCA, tới gốc luôn — không được!).
+3. Nhảy thấp: up[0][4] = 1, up[0][5] = 2 — khác nhau → u = 1, v = 2.
+4. Trả up[0][1] = **0**. LCA(6, 5) = 0 ✔. Khoảng cách = 3 + 2 − 0 = 5
+   (đường 6-4-1-0-2-5 đúng 5 cạnh ✔).
+
+**Truy vấn lca(6, 7):** cùng sâu 3. up[1]: cả hai đều 1 → bằng nhau, bỏ qua.
+up[0]: cả hai đều 4 → bằng nhau, bỏ qua. Trả up[0][6] = **4** ✔
+(anh em ruột thì cha chung là LCA — code xử lý đúng mà không cần nhánh riêng!).
+
+> 💡 **Hiểu vòng nhảy đôi:** ta muốn dừng **ngay dưới** LCA (con của LCA).
+> Nhảy 2^k mà hai bên vẫn khác nhau → an toàn (chưa vượt LCA).
+> Nhảy mà bằng nhau → đã vượt (hoặc tới) LCA → không nhảy.
+> Cuối cùng cả hai đều là con của LCA → cha của chúng là đáp án.
+
 ### 4. DSU — nén đường + hợp theo hạng
 
 ```python
@@ -184,6 +252,29 @@ class DSU:
 > Độ phức tạp gần như O(1) mỗi thao tác (hàm Ackermann ngược α(n) ≤ 5 với mọi
 > n thực tế). `hop` trả False = hai đầu đã cùng nhóm → cạnh tạo chu trình —
 > chính là kiểm tra dùng trong Kruskal.
+
+### 4b. 🔍 Nhìn mảng `cha` biến đổi sau mỗi `hop` (n = 5)
+
+Khởi tạo `cha = [0, 1, 2, 3, 4]` (ai cũng là trưởng của chính mình),
+`hang = [0, 0, 0, 0, 0]`.
+
+| Thao tác | cha sau | hang sau | Giải thích |
+|---|---|---|---|
+| hop(0,1) | [0,**0**,2,3,4] | [1,0,0,0,0] | Ngang hạng → 1 về 0, hang[0] = 1 |
+| hop(2,3) | [0,0,2,**2**,4] | [1,0,1,0,0] | 3 về 2 |
+| hop(1,2) | [0,0,**0**,2,4] | [2,0,1,0,0] | Trưởng 0 vs 2, ngang hạng → 2 về 0 |
+| tim(3) | [0,0,0,**0**,4] | (không đổi) | 3→2→0, **nén**: 3 trỏ thẳng 0 |
+| hop(3,4) | [0,0,0,0,**0**] | (không đổi) | Trưởng 0 (hạng 2) vs 4 (hạng 0) → 4 về 0 |
+| hop(0,4) | (không đổi) | — | Cùng trưởng 0 → **False** |
+
+Hai quan sát:
+
+1. **Nén đường** ở `tim(3)`: trước đó tìm trưởng của 3 phải qua 2 (2 bước);
+   sau khi nén, 3 trỏ thẳng 0 (1 bước) — mọi lần sau đều nhanh. Càng hỏi nhiều,
+   cây càng "bẹt". Đó là vì sao DSU càng dùng càng nhanh (khấu hao).
+2. **Hợp theo hạng**: cây thấp chui dưới cây cao (hop(3,4): nhóm {4} chui dưới
+   nhóm {0,1,2,3}) — cây không bao giờ cao quá log n. Nén + hạng kết hợp cho
+   α(n) ≈ hằng số.
 
 ### 5. Kruskal — cây khung nhỏ nhất (MST) O(E log E)
 

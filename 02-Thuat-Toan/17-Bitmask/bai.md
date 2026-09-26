@@ -105,6 +105,31 @@ def tsp(c):
 > n = 20: 4×10⁸ — Python TLE, cần PyPy tối ưu hoặc C++. **Biết giới hạn ngôn
 > ngữ là một phần đáp án** (ôn Bài 10 — lỗi 5).
 
+### 2b. 🔍 Chạy tay TSP 4 thành phố trên bảng dp
+
+Ma trận ví dụ 3 (đối xứng): c[0][1]=10, c[0][2]=15, c[0][3]=20, c[1][2]=35,
+c[1][3]=25, c[2][3]=30. `dp[mask][i]` = đường rẻ nhất từ 0, thăm đúng tập mask,
+đang ở i (− = không tới được):
+
+| mask (tập đã thăm) | i=0 | i=1 | i=2 | i=3 | Giải thích chuyển |
+|---|---|---|---|---|---|
+| {0} | 0 | − | − | − | xuất phát |
+| {0,1} | − | 10 | − | − | 0→1 |
+| {0,2} | − | − | 15 | − | 0→2 |
+| {0,3} | − | − | − | 20 | 0→3 |
+| {0,1,2} | − | 50 | 45 | − | tới 1 qua 2: 15+35=50; tới 2 qua 1: 10+35=45 |
+| {0,1,3} | − | 45 | − | 35 | tới 1 qua 3: 20+25=45; tới 3 qua 1: 10+25=35 |
+| {0,2,3} | − | − | 50 | 45 | tới 2 qua 3: 20+30=50; tới 3 qua 2: 15+30=45 |
+| {0,1,2,3} | − | 70 | 65 | 75 | tới 1: min(50+35, 45+25)=70; tới 2: min(45+35, 35+30)=65... |
+
+Đọc hàng cuối + đường về 0: i=1: 70+10 = 80; i=2: 65+15 = 80; i=3: 75+20 = 95.
+Đáp án **80** (tour 0→1→3→2→0: 10+25+30+15 ✔).
+
+> 💡 **Cách đọc bảng:** mỗi hàng là một "trạng thái tập hợp", mỗi ô là "đang
+> đứng ở đâu với chi phí rẻ nhất". Chuyển trạng thái = bật thêm 1 bit
+> (thăm thêm 1 thành phố). Số hàng = 2ⁿ, mỗi hàng n ô, mỗi ô thử n lối đi —
+> đó chính là O(n²·2ⁿ). Hiểu bảng này là hiểu mọi DP bitmask.
+
 ### 3. Phân công (assignment) — O(n·2ⁿ)
 
 > n người, n việc; cost[i][j] = người i làm việc j tốn bao nhiêu. Mỗi người
@@ -167,6 +192,36 @@ def dem_tap_con_tong_s(a, s):
 O(2^(n/2) · n) liệt kê + O(2^(n/2) log) sort/ghép. n = 34: ~2×17M phép —
 Python vài giây, sát biên nhưng qua được với tối ưu (dùng itertools?). n = 40
 cần PyPy/C++.
+
+### 4b. 🐢 Hiểu chậm meet-in-the-middle bằng ví dụ nhỏ
+
+Đếm tập con của [1, 2, 3, 4, 5, 6] có tổng = 10. Chia đôi [1,2,3] và [4,5,6],
+liệt kê **mọi** tổng mỗi nửa (2³ = 8 tổng mỗi bên):
+
+```
+Nửa trái:  0, 1, 2, 3, 3, 4, 5, 6        (vd: 3 = {1,2} hoặc {3})
+Nửa phải:  0, 4, 5, 6, 9, 10, 11, 15     (đã sort)
+```
+
+Với mỗi tổng trái t, cần tổng phải = 10 − t. Đếm bằng nhị phân trên nửa phải:
+
+| t (trái) | cần (phải) | số lượng trong nửa phải | Tập tương ứng |
+|---|---|---|---|
+| 0 | 10 | 1 ({}) | {} + {4,6} |
+| 1 | 9 | 1 | {1} + {4,5} |
+| 2 | 8 | 0 | — |
+| 3 | 7 | 0 | — |
+| 3 | 7 | 0 | — |
+| 4 | 6 | 1 | {1,3} + {6} |
+| 5 | 5 | 1 | {2,3} + {5} |
+| 6 | 4 | 1 | {1,2,3} + {4} |
+
+Tổng **5** tập con: {4,6}, {1,4,5}, {1,3,6}, {2,3,5}, {1,2,3,4} ✔ (brute force
+2⁶ = 64 tập cũng ra 5).
+
+> 💡 **Vì sao phải sort nửa phải?** Vì mỗi t cần đếm nhanh "có bao nhiêu tổng
+> phải bằng 10−t" — sort một lần O(2^(n/2) log), rồi mỗi t nhị phân O(log).
+> Không sort mà quét tuyến tính mỗi lần → O(2^n) — mất hết ý nghĩa chia đôi!
 
 ### 5. SOS DP — tổng trên mọi tập con, O(n·2ⁿ)
 

@@ -85,6 +85,27 @@ về biên của biên (`pi[j−1]`) — vì biên ngắn hơn của "tiền t�
 ứng viên. Mỗi lần co j giảm, mỗi lần khớp j tăng tối đa n lần → **O(n)** tổng
 (dù có while lồng — phân tích khấu hao, giống Bài 8 cửa sổ trượt!).
 
+### 1b. 🔍 Chạy tay pi từng bước trên "aabaaab"
+
+Ghi j sau mỗi i — chú ý i = 5 phải co 2 lần (chỗ hay sai nhất):
+
+| i | s[i] | j bắt đầu (= pi[i−1]) | Diễn biến | pi[i] |
+|---|---|---|---|---|
+| 1 | a | 0 | s[1] = s[0] khớp → +1 | 1 |
+| 2 | b | 1 | s[2] vs s[1] lệch → co 1→0; s[2] vs s[0] vẫn lệch | 0 |
+| 3 | a | 0 | s[3] = s[0] khớp → +1 | 1 |
+| 4 | a | 1 | s[4] = s[1] khớp → +1 | 2 |
+| 5 | a | 2 | s[5] vs s[2] ('a' vs 'b') lệch → co 2→1; s[5] = s[1] khớp → +1 | 2 |
+| 6 | b | 2 | s[6] = s[2] khớp → +1 | 3 |
+
+Kết quả [0, 1, 0, 1, 2, 2, 3]. Đọc pi[6] = 3: cả xâu "aabaaab" có biên dài 3
+("aab" vừa là đầu vừa là đuôi). Đọc pi[5] = 2: đoạn "aabaaa" có biên "aa".
+
+> 💡 **Vì sao co theo `pi[j−1]` mà không thử j−1, j−2...?** Vì ta cần biên
+> **dài nhất** còn khả thi. Mọi biên ngắn hơn của biên-j đều là biên của biên-j
+> (tính chất bắc cầu của biên) — nên nhảy thẳng tới `pi[j−1]` (biên dài nhất
+> còn lại) thay vì thử từng độ dài. Đó là toàn bộ "phép màu" O(n).
+
 ### 2. KMP tìm mẫu — O(n + m)
 
 Nối `mẫu + '#' + văn_bản`, tính pi: tại vị trí mà pi = len(mẫu) → tìm thấy
@@ -157,6 +178,34 @@ class RollingHash:
 > **Mod đôi** (2 mod khác nhau): xác suất va chạm ~1/M² ≈ 10⁻¹⁸ — an toàn thi cử.
 > Mod đơn 10⁹+7 vẫn có test anti-hash (kẻ ra đề cố tình) — mod đôi + base ngẫu
 > nhiên là chuẩn. Python `%` luôn không âm nên công thức trừ an toàn.
+
+### 4b. 🔢 Hash bằng số nhỏ — tự tính tay một lần cho nhớ
+
+Lấy base = 7, mod = 100 (số nhỏ để tính tay được; thi thật dùng mod lớn),
+s = "ababa" (a = 97, b = 98 theo `ord`):
+
+```
+P[0] = 0
+P[1] = 0·7 + 97 = 97
+P[2] = 97·7 + 98 = 777 → mod 100 = 77
+P[3] = 77·7 + 97 = 636 → mod 100 = 36
+P[4] = 36·7 + 98 = 350 → mod 100 = 50
+P[5] = 50·7 + 97 = 447 → mod 100 = 47
+Lũy thừa: L = [1, 7, 49, 43, 1]  (7²=49, 7³=343→43, 7⁴→301→1)
+```
+
+Trích hash đoạn [l, r] = P[r+1] − P[l]·L[r−l+1] (mod 100):
+
+* [0, 2] ("aba"): 36 − 0·43 = **36**.
+* [2, 4] ("aba"): 47 − 77·43 = 47 − 3311 = 47 − 11 = **36**. ✔ Bằng nhau —
+  hai xâu con giống hệt nhau cho cùng mã.
+* [0, 1] ("ab"): 77 − 0 = **77**. [1, 2] ("ba"): 36 − 97·49 = 36 − 4753 =
+  36 − 53 = −17 → mod 100 = **83**. ✔ Khác nhau.
+
+Hiểu công thức trừ: P[r+1] chứa cả "đầu thừa" P[l] đã nhân thêm B^(độ dài) —
+trừ đi đúng phần thừa là còn lại mã của đoạn. Giống đổi tiền: tổng đến r trừ
+tổng đến trước l (tiền tố — Bài 8!), chỉ khác ở hệ số lũy thừa vì mỗi vị trí
+có "trọng số" khác nhau.
 
 Ứng dụng: đếm xâu con phân biệt (set hash O(n²) cặp? — vẫn O(n²), nhưng so O(1)
 thay vì O(n) mỗi cặp), tìm xâu con chung dài nhất bằng chặt nhị phân + hash

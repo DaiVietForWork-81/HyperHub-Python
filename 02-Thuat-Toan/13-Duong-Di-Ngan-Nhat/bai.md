@@ -91,6 +91,48 @@ dist ≥ dist[u], cộng thêm cạnh không âm → không rẻ hơn dist[u]. V
 là an toàn. Cạnh âm phá vỡ lập luận này (đường vòng có thể rẻ hơn!) → cấm
 Dijkstra với cạnh âm.
 
+### 2b. 🐢 Hiểu chậm: vì sao "chốt đỉnh rẻ nhất" không bao giờ sai?
+
+Hãy đóng vai thuật toán. Bạn đã chốt vài đỉnh (biết chắc đường rẻ nhất tới
+chúng). Heap chứa các đỉnh "đang xét" với đường tốt nhất **tính đến hiện tại**.
+Bạn pop ra u rẻ nhất (dist = 5, ví dụ).
+
+Có đường nào tới u rẻ hơn 5 mà bạn chưa thấy không? Mọi đường tới u đều có dạng:
+nguồn → ... → v' → ... → u, trong đó v' là đỉnh chưa chốt đầu tiên trên đường.
+Đoạn nguồn→v' tốn ≥ dist[v'] (định nghĩa dist), mà dist[v'] ≥ 5 (vì u rẻ nhất
+trong heap, v' cũng trong heap hoặc chưa vào heap với dist ≥ 5). Cộng thêm các
+cạnh còn lại (≥ 0 vì không âm) → cả đường ≥ 5. Vậy không đường nào rẻ hơn 5 —
+chốt u với 5 là **vĩnh viễn đúng**. ✔
+
+Giờ thêm một cạnh âm −10 từ đỉnh xa vào u: đường vòng có thể "giảm giá" xuống
+dưới 5 → lập luận vỡ → chốt sai. Đó là toàn bộ lý do "cấm cạnh âm" — không phải
+quy định tùy tiện, mà là điều kiện để lập luận trên đứng vững.
+
+### 2c. 🔍 Chạy tay Dijkstra — nhìn heap "nhả" từng đỉnh
+
+Đồ thị ví dụ 1 (5 đỉnh). Theo dõi heap sau mỗi pop — chú ý 2 lần BỎ mục cũ
+(lazy deletion trong code):
+
+| Pop | Kết luận | Nới lỏng | Heap sau | dist |
+|---|---|---|---|---|
+| (0,0) | chốt 0 | 1→4, 2→1 | [(1,2),(4,1)] | [0,4,1,∞,∞] |
+| (1,2) | chốt 2 | 1→3 (rẻ hơn 4!), 3→6 | [(3,1),(4,1),(6,3)] | [0,3,1,6,∞] |
+| (3,1) | chốt 1 | 3→4 (rẻ hơn 6!) | [(4,1),(4,3),(6,3)] | [0,3,1,4,∞] |
+| (4,1) | **BỎ** (dist[1] đã là 3) | — | [(4,3),(6,3)] | không đổi |
+| (4,3) | chốt 3 | 4→7 | [(6,3),(7,4)] | [0,3,1,4,7] |
+| (6,3) | **BỎ** (dist[3] đã là 4) | — | [(7,4)] | không đổi |
+| (7,4) | chốt 4 | 3 không rẻ hơn | [] | xong |
+
+Hai điểm đáng ngẫm:
+
+1. Đỉnh 1 được "chốt" 2 lần trong heap ((4,1) rồi (3,1)) — mục (4,1) là tin cũ
+   (từ khi chưa biết đường qua 2 rẻ hơn). Dòng `if d != dist[u]: continue` sinh
+   ra để vứt đúng 2 mục này. Không có nó, thuật toán vẫn đúng (pop (4,1) rồi
+   nới lỏng vô ích) nhưng heap phình to trong đồ thị lớn → TLE.
+2. Đỉnh 2 chốt trước đỉnh 1 dù cạnh 0→1 nhìn "trực tiếp" — Dijkstra không quan
+   tâm trực tiếp hay vòng vèo, chỉ quan tâm **tổng rẻ nhất**. Đây cũng là chỗ
+   trực giác "đường thẳng gần hơn" của con người hay sai.
+
 **Chi tiết `if d != dist[u]: continue`** — "lazy deletion": một đỉnh có thể
 nằm trong heap nhiều lần (mỗi lần nới lỏng đẩy một mục); khi pop ra mục cũ
 (d lớn hơn dist hiện tại) thì bỏ. Không có dòng này vẫn đúng nhưng chậm hơn;
@@ -124,6 +166,32 @@ def bellman_ford(n, canh, nguon):
 
 Dùng khi: có cạnh âm (giảm giá, lợi nhuận), hoặc cần phát hiện chu trình âm
 (arbitrage tiền tệ!). Không âm → Dijkstra nhanh hơn hẳn.
+
+### 3b. 🔍 Chạy tay Bellman-Ford theo vòng
+
+Đồ thị 4 đỉnh, có cạnh âm nhưng không có chu trình âm:
+0→1 (4), 0→2 (2), 2→1 (−1), 1→3 (2), 2→3 (5). Nguồn 0.
+
+| | dist[0] | dist[1] | dist[2] | dist[3] | Có đổi? |
+|---|---|---|---|---|---|
+| Khởi tạo | 0 | ∞ | ∞ | ∞ | — |
+| Vòng 1 | 0 | 4→**1** (nhờ 2→1 âm!) | 2 | 3 | Có |
+| Vòng 2 | 0 | 1 | 2 | 3 | Không → **dừng sớm** |
+
+Đọc vòng 1 như "tin đồn lan": sau khi biết đường tới 2 tốn 2, cạnh 2→1 (−1)
+kéo dist[1] từ 4 xuống 1 — đường 0→2→1 tốn 2 + (−1) = 1, rẻ hơn cạnh trực tiếp
+0→1 (tốn 4). Đây chính là điều Dijkstra làm trong 1 bước heap, còn Bellman-Ford
+cần "lan" qua các vòng.
+
+**Demo chu trình âm:** thêm cạnh 1→0 (−5). Vòng 0→1 (1), 1→2 (−2), 2→0 (−2):
+tổng vòng = 1 − 2 − 2 = −3 < 0. Chạy n = 3 vòng xong, vòng kiểm tra thứ 4 vẫn
+nới được → thuật toán báo `None` (chu trình âm). Trong tiền tệ, đó là "in tiền
+vô hạn" — ví dụ 3 khai thác đúng điều này.
+
+> 💡 **Nhớ bằng hình:** Dijkstra như cứu hộ có bản đồ giá — đi thẳng tới chỗ rẻ
+> nhất. Bellman-Ford như tin đồn — mỗi vòng lan một "tầm", đồn đủ n−1 tầm thì
+> cả làng biết; vòng thứ n mà còn tin mới thì chắc chắn có "máy đồn vòng tròn"
+> (chu trình âm) cứ khuếch đại mãi.
 
 ### 4. Floyd-Warshall — mọi cặp, O(V³), V ≤ 400–500
 

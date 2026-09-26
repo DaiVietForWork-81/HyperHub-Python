@@ -134,6 +134,31 @@ print(dem_tong_chia_het(10**18, 7))   # chớp mắt
 
 Trạng thái ~19 × 2 × K số → O(19·2·K·10): K = 100 vẫn nhẹ.
 
+### 2b. 🔍 Chạy tay digit DP — đếm số ≤ 25 có tổng chữ số chia hết cho 3
+
+Vẽ cây quyết định (s = "25", K = 3). Mỗi node là f(pos, tight, dư):
+
+```
+f(0, chặt, dư=0)  [pos0 ≤ 2]
+├─ d=0 → f(1, lỏng, dư=0): pos1 tự do 0–9, cần dư 0 → d ∈ {0,3,6,9} → 4 số
+├─ d=1 → f(1, lỏng, dư=1): cần (1+d)%3==0 → d ∈ {2,5,8} → 3 số
+└─ d=2 → f(1, chặt, dư=2): pos1 ≤ 5, cần (2+d)%3==0 → d ∈ {1,4} → 2 số
+Tổng: 4 + 3 + 2 = 9 số (0, 3, 6, 9, 12, 15, 18, 21, 24 ✔ kiểm bằng brute force)
+```
+
+Ba điều thấy rõ từ cây:
+
+1. Nhánh **lỏng** (tight = False) không bao giờ chia tiếp theo chữ số của N —
+   nó là bài đếm tổ hợp thuần ("pos còn lại × dư hiện tại"), memo nhớ 1 lần,
+   dùng lại mãi. Đó là vì sao digit DP nhanh: số nhánh chặt chỉ dài 19 node,
+   còn lại toàn tra bảng.
+2. `tight and d == gioi_han`: chỉ khi chọn đúng chữ số trần mới giữ chặt —
+   một phép AND quyết định cả cây.
+3. Với N = 10¹⁸ (19 chữ số), cây chặt dài 19 node, mỗi node ≤ 10 nhánh,
+   mỗi nhánh tra memo O(1) → ~19·10 thao tác + bảng lỏng. Tổng vài nghìn phép
+   cho đáp án của 10¹⁸ số — "nén" 10¹⁸ khả năng vào vài nghìn trạng thái, đó là
+   toàn bộ sức mạnh của DP.
+
 ### 3. Tree DP — DFS lá lên gốc (ôn + tổng quát Bài 14 bài 8)
 
 Mẫu chung: `dfs(u, cha)` trả đáp án subtree u; nút cha hợp đáp án các con.
@@ -174,6 +199,37 @@ def duong_kinh_trong_so(n, ke):
 > (ví dụ qua đúng K đỉnh, tổng mod M...) bằng cách thêm trạng thái vào `sau`.
 > 2-BFS chỉ cho đường kính thuần.
 
+### 3b. 🔍 Chạy tay tree DP — cây 4 đỉnh có trọng số
+
+Cây (gốc 0): 0–1 (tốn 2), 1–2 (tốn 3), 1–3 (tốn 4).
+
+```
+      0
+      |2
+      1
+     / \
+   3/   \4
+   2     3
+```
+
+Xử lý lá trước (thứ tự post-order: 3, 2, 1, 0). `sau[u]` = đường xuống dài
+nhất từ u; `ans` = đường kính tốt nhất thấy tới nay:
+
+| Xử lý u | Con (d = sau[con] + w) | b1, b2 | sau[u] | ans | Nghĩa |
+|---|---|---|---|---|---|
+| 3 (lá) | không có | 0, 0 | 0 | 0 | lá: xuống = 0 |
+| 2 (lá) | không có | 0, 0 | 0 | 0 | lá: xuống = 0 |
+| 1 | 2→3, 3→4 | 4, 3 | 4 | **7** | qua 1: 3+4 = 7 (đường 2-1-3) |
+| 0 | 1→4+2=6 | 6, 0 | 6 | max(7, 6) = **7** | qua 0 chỉ 1 nhánh → giữ 7 cũ |
+
+Đáp án **7** (đường 2–1–3 tốn 3+4 ✔).
+
+> 💡 **Đọc bảng như đọc suy nghĩ của DP:** mỗi nút chỉ cần biết 2 con số từ
+> mỗi con (đường xuống dài nhất), rồi quyết định: "đường tốt nhất qua ta" vs
+> "đường tốt nhất trong các con". Lá cho 0, gốc cho đáp án. Mọi tree DP đều
+> theo đúng kịch bản này — chỉ khác "con số" mang nghĩa gì (tổng, số cách,
+> max...).
+
 ### 4. Interval DP — thử "nhát cắt cuối cùng"
 
 > Nhân dãy ma trận A₁...Aₙ (kích thước p₀×p₁, p₁×p₂...): thứ tự nhân quyết định
@@ -201,6 +257,30 @@ def nhan_ma_tran(p):
 
 > Thứ tự "độ dài tăng dần" — vì dp[l][r] cần đoạn NGẮN hơn (bên trong), giống
 > LPS (Bài 10 — ví dụ 3). O(n³) — n ≤ 500 Python sát biên, n ≤ 200 thoải mái.
+
+### 4b. 🔍 Chạy tay interval DP — nhân 3 ma trận p = [10, 30, 5, 60]
+
+A₁: 10×30, A₂: 30×5, A₃: 5×60. Bảng dp (dp[l][r] = rẻ nhất đoạn [l, r]):
+
+**Độ dài 1** (base — 1 ma trận, không nhân gì): dp[0][0] = dp[1][1] = dp[2][2] = 0.
+
+**Độ dài 2:**
+
+| Ô | Nhát cắt duy nhất | Tính | Kết quả |
+|---|---|---|---|
+| dp[0][1] | k = 0: A₁·A₂ | 10·30·5 | **1500** |
+| dp[1][2] | k = 1: A₂·A₃ | 30·5·60 | **9000** |
+
+**Độ dài 3** (dp[0][2] — thử cả 2 nhát cắt cuối):
+
+| Nhát cắt cuối | Công thức | Tính | Kết quả |
+|---|---|---|---|
+| k = 0: (A₁)·(A₂A₃) | dp[0][0] + dp[1][2] + 10·30·60 | 0 + 9000 + 18000 | 27000 |
+| k = 1: (A₁A₂)·(A₃) | dp[0][1] + dp[2][2] + 10·5·60 | 1500 + 0 + 3000 | **4500** ✔ |
+
+Đáp án **4500**. Nhìn vào bảng thấy rõ: ô dài dùng toàn ô ngắn đã tính xong —
+đó là lý do vòng `dai` phải tăng dần. Đảo vòng (l tăng mà không theo độ dài)
+thì dp[1][2] có thể chưa tính khi cần → sai âm thầm.
 
 ### 5. Nhận diện 4 họ DP nâng cao
 
