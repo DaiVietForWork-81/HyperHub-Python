@@ -9,8 +9,8 @@
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 1 — Tư Duy Thuật Toán](../01-Tu-Duy-Thuat-Toan/bai.md)
-- [Bài 12 — Hàm (Function)](../Phan-1-Co-Ban/12-Ham/bai.md)
-- [Bài 10 — Vòng Lặp For](../Phan-1-Co-Ban/10-Vong-Lap-For/bai.md)
+- [Bài 12 — Hàm (Function)](../../Phan-1-Co-Ban/12-Ham/bai.md)
+- [Bài 10 — Vòng Lặp For](../../Phan-1-Co-Ban/10-Vong-Lap-For/bai.md)
 
 ---
 

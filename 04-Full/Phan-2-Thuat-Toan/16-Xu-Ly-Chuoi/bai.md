@@ -8,7 +8,7 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 18 — String](../Phan-1-Co-Ban/18-String/bai.md) (cơ bản chuỗi Python)
+- [Bài 18 — String](../../Phan-1-Co-Ban/18-String/bai.md) (cơ bản chuỗi Python)
 - [Bài 2 — Độ Phức Tạp](../02-Do-Phuc-Tap/bai.md)
 - [Bài 5 — Stack, Queue & Hashing](../05-Stack-Queue-Hashing/bai.md) (dict, hashing)
 

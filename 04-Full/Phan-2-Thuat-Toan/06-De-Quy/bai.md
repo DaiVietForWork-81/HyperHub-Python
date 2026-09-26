@@ -8,7 +8,7 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm](../Phan-1-Co-Ban/12-Ham/bai.md)
+- [Bài 12 — Hàm](../../Phan-1-Co-Ban/12-Ham/bai.md)
 - [Bài 5 — Stack, Queue & Hashing](../05-Stack-Queue-Hashing/bai.md)
 - [Bài 4 — Sắp Xếp](../04-Sap-Xep/bai.md) (đã thấy merge sort đệ quy)
 

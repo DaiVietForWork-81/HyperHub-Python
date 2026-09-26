@@ -8,10 +8,10 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm (Function)](../Phan-1-Co-Ban/12-Ham/bai.md)
-- [Bài 10 — Vòng Lặp For](../Phan-1-Co-Ban/10-Vong-Lap-For/bai.md)
-- [Bài 11 — Vòng Lặp While](../Phan-1-Co-Ban/11-Vong-Lap-While/bai.md)
-- [Bài 14 — List](../Phan-1-Co-Ban/14-List/bai.md)
+- [Bài 12 — Hàm (Function)](../../Phan-1-Co-Ban/12-Ham/bai.md)
+- [Bài 10 — Vòng Lặp For](../../Phan-1-Co-Ban/10-Vong-Lap-For/bai.md)
+- [Bài 11 — Vòng Lặp While](../../Phan-1-Co-Ban/11-Vong-Lap-While/bai.md)
+- [Bài 14 — List](../../Phan-1-Co-Ban/14-List/bai.md)
 
 ---
 

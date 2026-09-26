@@ -7,8 +7,8 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 1 — Giới Thiệu Python](../Phan-1-Co-Ban/01-Gioi-Thieu/bai.md)
-- [Bài 3 — Visual Studio Code – Môi Trường Viết Code](../Phan-1-Co-Ban/03-VSCode/bai.md)
+- [Bài 1 — Giới Thiệu Python](../../Phan-1-Co-Ban/01-Gioi-Thieu/bai.md)
+- [Bài 3 — Visual Studio Code – Môi Trường Viết Code](../../Phan-1-Co-Ban/03-VSCode/bai.md)
 
 ---
 

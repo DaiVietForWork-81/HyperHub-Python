@@ -6,8 +6,8 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm (Function) Trong Python](../Phan-1-Co-Ban/12-Ham/bai.md)
-- [Bài 19 — Ngoại Lệ (Exception) Trong Python](../Phan-1-Co-Ban/19-Exception/bai.md)
+- [Bài 12 — Hàm (Function) Trong Python](../../Phan-1-Co-Ban/12-Ham/bai.md)
+- [Bài 19 — Ngoại Lệ (Exception) Trong Python](../../Phan-1-Co-Ban/19-Exception/bai.md)
 
 ---
 

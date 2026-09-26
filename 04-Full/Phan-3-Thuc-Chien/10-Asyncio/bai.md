@@ -6,7 +6,7 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm (Function) Trong Python](../Phan-1-Co-Ban/12-Ham/bai.md)
+- [Bài 12 — Hàm (Function) Trong Python](../../Phan-1-Co-Ban/12-Ham/bai.md)
 - [Bài 35 — Thư Viện Requests – Gọi API Từ Python](../06-Requests/bai.md)
 
 ---

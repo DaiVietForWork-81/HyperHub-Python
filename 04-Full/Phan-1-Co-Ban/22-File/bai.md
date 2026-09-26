@@ -1772,4 +1772,4 @@ print("Da ghi ket qua vao tong_ket.txt")
 
 > 🏆 **Thi HSG?** Cách mở file `BAI.INP` / ghi `BAI.OUT` đúng quy ước phòng thi
 > (template redirect + tự test như máy chấm) nằm ở
-> [Bài 19 — Chiến Lược Thi HSG, mục 7](../Phan-2-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md).
+> [Bài 19 — Chiến Lược Thi HSG, mục 7](../../Phan-2-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md).

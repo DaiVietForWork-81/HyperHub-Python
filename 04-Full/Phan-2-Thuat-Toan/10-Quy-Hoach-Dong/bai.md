@@ -11,7 +11,7 @@
 - [Bài 6 — Đệ Quy](../06-De-Quy/bai.md) (đặc biệt memoization + `lru_cache`)
 - [Bài 7 — Quay Lui](../07-Quay-Lui/bai.md)
 - [Bài 9 — Tham Lam](../09-Tham-Lam/bai.md) (biết khi tham lam sai → DP)
-- [Bài 14 — List](../Phan-1-Co-Ban/14-List/bai.md)
+- [Bài 14 — List](../../Phan-1-Co-Ban/14-List/bai.md)
 
 ---
 

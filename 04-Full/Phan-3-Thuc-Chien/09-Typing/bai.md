@@ -6,8 +6,8 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 23 — Lập Trình Hướng Đối Tượng (OOP)](../Phan-1-Co-Ban/23-OOP/bai.md)
-- [Bài 25 — Lambda – Hàm Vô Danh Siêu Ngắn Gọn](../Phan-1-Co-Ban/25-Lambda/bai.md)
+- [Bài 23 — Lập Trình Hướng Đối Tượng (OOP)](../../Phan-1-Co-Ban/23-OOP/bai.md)
+- [Bài 25 — Lambda – Hàm Vô Danh Siêu Ngắn Gọn](../../Phan-1-Co-Ban/25-Lambda/bai.md)
 
 ---
 

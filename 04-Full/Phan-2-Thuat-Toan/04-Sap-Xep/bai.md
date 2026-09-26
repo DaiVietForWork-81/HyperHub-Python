@@ -10,8 +10,8 @@
 
 - [Bài 3 — Tìm Kiếm](../03-Tim-Kiem/bai.md)
 - [Bài 2 — Độ Phức Tạp](../02-Do-Phuc-Tap/bai.md)
-- [Bài 10 — Vòng Lặp For](../Phan-1-Co-Ban/10-Vong-Lap-For/bai.md)
-- [Bài 14 — List](../Phan-1-Co-Ban/14-List/bai.md)
+- [Bài 10 — Vòng Lặp For](../../Phan-1-Co-Ban/10-Vong-Lap-For/bai.md)
+- [Bài 14 — List](../../Phan-1-Co-Ban/14-List/bai.md)
 
 ---
 

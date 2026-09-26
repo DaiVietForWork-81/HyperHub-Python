@@ -10,7 +10,7 @@
 
 - [Bài 6 — Đệ Quy](../06-De-Quy/bai.md) (lũy thừa nhanh, Euclid đệ quy)
 - [Bài 2 — Độ Phức Tạp](../02-Do-Phuc-Tap/bai.md)
-- [Bài 10 — Vòng Lặp For](../Phan-1-Co-Ban/10-Vong-Lap-For/bai.md)
+- [Bài 10 — Vòng Lặp For](../../Phan-1-Co-Ban/10-Vong-Lap-For/bai.md)
 
 ---
 

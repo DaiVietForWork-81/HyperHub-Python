@@ -7,7 +7,7 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 20 — Module Trong Python](../Phan-1-Co-Ban/20-Module/bai.md)
+- [Bài 20 — Module Trong Python](../../Phan-1-Co-Ban/20-Module/bai.md)
 - [Bài 32 — JSON – Ngôn Ngữ Lưu Trữ Dữ Liệu](../03-JSON/bai.md)
 
 ---

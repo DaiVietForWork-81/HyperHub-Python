@@ -57,25 +57,38 @@ for p in md_files:
     if not h1:
         warnings.append(f"[H1] {rel}: thiếu tiêu đề H1")
         continue
-    in_branch = str(rel).startswith(("01-Co-Ban", "02-Thuat-Toan", "03-Thuc-Chien"))
+    in_branch = str(rel).startswith(("01-Co-Ban", "02-Thuat-Toan", "03-Thuc-Chien",
+                                         "04-Full"))
     if in_branch and not re.match(r"^# Bài \d+ — ", h1[0]):
         warnings.append(f"[H1] {rel}: H1 không theo định dạng -> {h1[0][:60]}")
 
+
+NON_LESSON_DIRS = {"Tai-Lieu", "assets", "images", "diagrams", "screenshots"}
+
+
+def check_lessons(container, label):
+    """Kiểm tra mỗi thư mục bài học (kể cả trong nhóm Phan-*) có bai.md."""
+    for lesson in sorted(container.iterdir()):
+        if not lesson.is_dir() or lesson.name in NON_LESSON_DIRS:
+            continue
+        direct = [f.name for f in lesson.glob("*.md")]
+        if "bai.md" in direct:
+            extra = [f for f in direct if f != "bai.md"]
+            if extra:
+                warnings.append(f"[FILE] {label}/{lesson.name}: file thừa {extra}")
+        elif any((sub / "bai.md").exists() for sub in lesson.iterdir() if sub.is_dir()):
+            check_lessons(lesson, f"{label}/{lesson.name}")  # thư mục nhóm
+        else:
+            errors.append(f"[FILE] {label}/{lesson.name}: thiếu bai.md")
+
+
 # 6. Mỗi thư mục bài học có đúng 1 bai.md
-for branch in ("01-Co-Ban", "02-Thuat-Toan", "03-Thuc-Chien"):
+for branch in ("01-Co-Ban", "02-Thuat-Toan", "03-Thuc-Chien", "04-Full"):
     b = ROOT / branch
     if not b.exists():
         errors.append(f"[DIR] Thiếu nhánh: {branch}")
         continue
-    for lesson in sorted(b.iterdir()):
-        if not lesson.is_dir():
-            continue
-        files = list(lesson.glob("*.md"))
-        if "bai.md" not in [f.name for f in files]:
-            errors.append(f"[FILE] {branch}/{lesson.name}: thiếu bai.md")
-        extra = [f.name for f in files if f.name != "bai.md"]
-        if extra:
-            warnings.append(f"[FILE] {branch}/{lesson.name}: file thừa {extra}")
+    check_lessons(b, branch)
 
 print("=== LỖI ===")
 if errors:

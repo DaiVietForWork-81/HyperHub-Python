@@ -9,7 +9,7 @@
 ## 🧠 Điều kiện tiên quyết
 
 - Toàn bộ Bài 1–19 nhánh Thuật Toán (đặc biệt Bài 1 — tư duy, Bài 2 — Big-O)
-- [Bài 19 — Exception](../Phan-1-Co-Ban/19-Exception/bai.md) (chương trình không được crash)
+- [Bài 19 — Exception](../../Phan-1-Co-Ban/19-Exception/bai.md) (chương trình không được crash)
 
 ---
 
@@ -681,5 +681,5 @@ cho cả 4 bài (kể cả bài không làm được — ghi editorial học đ�
 **Vị trí:** `04-Full/Phan-2-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md`
 
 🎉 **Bạn đã hoàn thành nhánh Thuật Toán!** Hai hướng đi tiếp:
-- 🚀 [Nhánh 03 — Thực Chiến (API/Package/Project)](../Phan-3-Thuc-Chien/01-Virtual-Environment/bai.md)
+- 🚀 [Nhánh 03 — Thực Chiến (API/Package/Project)](../../Phan-3-Thuc-Chien/01-Virtual-Environment/bai.md)
 - 🔁 Ôn lại [Bài 1 — Tư Duy Thuật Toán](../01-Tu-Duy-Thuat-Toan/bai.md) với con mắt mới — bạn sẽ thấy mọi bài sâu hơn lần đọc đầu.

@@ -6,7 +6,7 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 22 — Đọc Và Ghi File Trong Python](../Phan-1-Co-Ban/22-File/bai.md)
+- [Bài 22 — Đọc Và Ghi File Trong Python](../../Phan-1-Co-Ban/22-File/bai.md)
 - [Bài 32 — JSON – Ngôn Ngữ Lưu Trữ Dữ Liệu](../03-JSON/bai.md)
 
 ---

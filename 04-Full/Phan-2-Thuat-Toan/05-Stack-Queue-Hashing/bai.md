@@ -9,8 +9,8 @@
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 2 — Độ Phức Tạp](../02-Do-Phuc-Tap/bai.md)
-- [Bài 14 — List](../Phan-1-Co-Ban/14-List/bai.md)
-- [Bài 17 — Dictionary](../Phan-1-Co-Ban/17-Dictionary/bai.md)
+- [Bài 14 — List](../../Phan-1-Co-Ban/14-List/bai.md)
+- [Bài 17 — Dictionary](../../Phan-1-Co-Ban/17-Dictionary/bai.md)
 
 ---
 

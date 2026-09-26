@@ -9,8 +9,8 @@
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 6 — Đệ Quy](../06-De-Quy/bai.md)
-- [Bài 12 — Hàm](../Phan-1-Co-Ban/12-Ham/bai.md)
-- [Bài 14 — List](../Phan-1-Co-Ban/14-List/bai.md)
+- [Bài 12 — Hàm](../../Phan-1-Co-Ban/12-Ham/bai.md)
+- [Bài 14 — List](../../Phan-1-Co-Ban/14-List/bai.md)
 
 ---
 

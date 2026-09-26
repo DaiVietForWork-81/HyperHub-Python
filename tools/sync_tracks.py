@@ -47,10 +47,12 @@ def copy_track(src_branch, dest_dir, link_rules, pos_old, pos_new):
 def main():
     print("Đồng bộ các track...")
     # Mục thuật toán: cơ bản + thuật toán (thuật toán giữ nguyên ở gốc 02)
+    # Quy tắc: link cùng Phan dùng ../ ; link sang Phan khác dùng ../../
     copy_track(
         "01-Co-Ban", "02-Thuat-Toan/Phan-1-Co-Ban",
         link_rules=[
-            ("](../../02-Thuat-Toan/", "](../"),
+            ("](../../02-Thuat-Toan/", "](../../"),
+            ("](../../03-Thuc-Chien/", "](../../../03-Thuc-Chien/"),
         ],
         pos_old="01-Co-Ban/",
         pos_new="02-Thuat-Toan/Phan-1-Co-Ban/",
@@ -59,9 +61,8 @@ def main():
     copy_track(
         "01-Co-Ban", "04-Full/Phan-1-Co-Ban",
         link_rules=[
-            ("](../../01-Co-Ban/", "](../"),
-            ("](../../02-Thuat-Toan/", "](../Phan-2-Thuat-Toan/"),
-            ("](../../03-Thuc-Chien/", "](../Phan-3-Thuc-Chien/"),
+            ("](../../02-Thuat-Toan/", "](../../Phan-2-Thuat-Toan/"),
+            ("](../../03-Thuc-Chien/", "](../../Phan-3-Thuc-Chien/"),
         ],
         pos_old="01-Co-Ban/",
         pos_new="04-Full/Phan-1-Co-Ban/",
@@ -69,9 +70,9 @@ def main():
     copy_track(
         "02-Thuat-Toan", "04-Full/Phan-2-Thuat-Toan",
         link_rules=[
-            ("](../../01-Co-Ban/", "](../Phan-1-Co-Ban/"),
+            ("](../../01-Co-Ban/", "](../../Phan-1-Co-Ban/"),
             ("](../../02-Thuat-Toan/", "](../"),
-            ("](../../03-Thuc-Chien/", "](../Phan-3-Thuc-Chien/"),
+            ("](../../03-Thuc-Chien/", "](../../Phan-3-Thuc-Chien/"),
         ],
         pos_old="02-Thuat-Toan/",
         pos_new="04-Full/Phan-2-Thuat-Toan/",
@@ -79,8 +80,8 @@ def main():
     copy_track(
         "03-Thuc-Chien", "04-Full/Phan-3-Thuc-Chien",
         link_rules=[
-            ("](../../01-Co-Ban/", "](../Phan-1-Co-Ban/"),
-            ("](../../02-Thuat-Toan/", "](../Phan-2-Thuat-Toan/"),
+            ("](../../01-Co-Ban/", "](../../Phan-1-Co-Ban/"),
+            ("](../../02-Thuat-Toan/", "](../../Phan-2-Thuat-Toan/"),
             ("](../../03-Thuc-Chien/", "](../"),
         ],
         pos_old="03-Thuc-Chien/",
