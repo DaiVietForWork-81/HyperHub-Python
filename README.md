@@ -6,7 +6,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Lessons](https://img.shields.io/badge/B%C3%A0i%20h%E1%BB%8Dc-53-orange)
+![Lessons](https://img.shields.io/badge/B%C3%A0i%20h%E1%BB%8Dc-60-orange)
 ![Lang](https://img.shields.io/badge/Ti%E1%BA%BFng%20Vi%E1%BB%87t-100%25-red)
 
 *"Đừng chỉ đọc code — hãy viết code. Sai 100 lần vẫn tốt hơn nhìn đúng 100 lần."*
@@ -71,11 +71,17 @@ HyperHub-Python/
 │   ├── ...
 │   └── 29-Iterator/bai.md
 │
-├── 02-Thuat-Toan/             🧮 TỰ CHỌN (12 bài)
+├── 02-Thuat-Toan/             🧮 TỰ CHỌN (20 bài)
 │   ├── 01-Tu-Duy-Thuat-Toan/bai.md
-│   ├── 02-Do-Phuc-Tap/bai.md
 │   ├── ...
-│   └── 12-Chien-Luoc-Thi-HSG/bai.md
+│   ├── 12-Do-Thi-BFS-DFS/bai.md
+│   ├── 13-Duong-Di-Ngan-Nhat/bai.md
+│   ├── 14-Cay-Va-DSU/bai.md
+│   ├── 15-Segment-Tree/bai.md
+│   ├── 16-Xu-Ly-Chuoi/bai.md
+│   ├── 17-Bitmask/bai.md
+│   ├── 18-DP-Nang-Cao/bai.md
+│   └── 19-Chien-Luoc-Thi-HSG/bai.md
 │
 ├── 03-Thuc-Chien/             🚀 TỰ CHỌN (12 bài)
 │   ├── 01-Virtual-Environment/bai.md
@@ -118,7 +124,7 @@ kiến thức, ví dụ, lỗi thường gặp, tóm tắt, kiểm tra nhanh, **
 | 14 | [List](01-Co-Ban/14-List/bai.md) | 29 | [Iterator](01-Co-Ban/29-Iterator/bai.md) |
 | 15 | [Tuple](01-Co-Ban/15-Tuple/bai.md) | | |
 
-### 🧮 02. Thuật toán — HSG / competitive programming (12 bài)
+### 🧮 02. Thuật toán — HSG / competitive programming (20 bài)
 
 | # | Bài học | Nội dung chính |
 |---|---|---|
@@ -133,7 +139,14 @@ kiến thức, ví dụ, lỗi thường gặp, tóm tắt, kiểm tra nhanh, **
 | 9 | [Tham Lam](02-Thuat-Toan/09-Tham-Lam/bai.md) | Xếp lịch, nối cáp, bẫy tham lam, exchange |
 | 10 | [Quy Hoạch Động](02-Thuat-Toan/10-Quy-Hoach-Dong/bai.md) | 5 bước DP, túi 0/1, LIS, LCS, lăn mảng |
 | 11 | [Toán Học & Số Học](02-Thuat-Toan/11-Toan-Hoc-So-Hoc/bai.md) | Sàng, Euclid, pow mod, Fermat, tổ hợp mod |
-| 12 | [Chiến Lược Thi HSG](02-Thuat-Toan/12-Chien-Luoc-Thi-HSG/bai.md) | Quy trình phòng thi, subtask, stress test |
+| 12 | [Đồ Thị: BFS & DFS](02-Thuat-Toan/12-Do-Thi-BFS-DFS/bai.md) | Danh sách kề, BFS đa nguồn, topo, hai phía, flood fill |
+| 13 | [Đường Đi Ngắn Nhất](02-Thuat-Toan/13-Duong-Di-Ngan-Nhat/bai.md) | Dijkstra, Bellman-Ford, Floyd, minimax, arbitrage |
+| 14 | [Cây & DSU](02-Thuat-Toan/14-Cay-Va-DSU/bai.md) | Đường kính, LCA binary lifting, Kruskal, đảo động |
+| 15 | [Segment Tree & Fenwick](02-Thuat-Toan/15-Segment-Tree/bai.md) | Segtree lặp, BIT, nén tọa độ, hiệu phân, nghịch thế |
+| 16 | [Xử Lý Chuỗi Nâng Cao](02-Thuat-Toan/16-Xu-Ly-Chuoi/bai.md) | KMP, Z, rolling hash, Trie, XOR max |
+| 17 | [Bitmask](02-Thuat-Toan/17-Bitmask/bai.md) | Bit tricks, TSP, phân công, meet-in-the-middle, SOS DP |
+| 18 | [DP Nâng Cao](02-Thuat-Toan/18-DP-Nang-Cao/bai.md) | DAG, digit DP, tree DP, interval DP |
+| 19 | [Chiến Lược Thi HSG](02-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md) | Quy trình phòng thi, subtask, stress test |
 
 ### 🚀 03. Thực chiến — API / Package / Project (12 bài)
 

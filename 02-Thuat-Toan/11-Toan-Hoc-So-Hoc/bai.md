@@ -641,4 +641,4 @@ chuẩn cho n lớn — cài được thì không còn bài sàng nào làm khó
 
 **Vị trí:** `02-Thuat-Toan/11-Toan-Hoc-So-Hoc/bai.md`
 
-**Bài tiếp theo:** [Bài 12 — Chiến Lược Thi HSG](../12-Chien-Luoc-Thi-HSG/bai.md)
+**Bài tiếp theo:** [Bài 12 — Đồ Thị: BFS & DFS](../12-Do-Thi-BFS-DFS/bai.md)

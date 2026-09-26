@@ -110,7 +110,14 @@ Hoàn thành nền tảng
 | 9 | 09-Tham-Lam | Greedy: đổi tiền, xếp lịch, chọn đoạn |
 | 10 | 10-Quy-Hoach-Dong | Quy hoạch động: LIS, LCS, cái túi |
 | 11 | 11-Toan-Hoc-So-Hoc | Số nguyên tố, GCD/LCM, lũy thừa nhanh, đồng dư |
-| 12 | 12-Chien-Luoc-Thi-HSG | Đọc đề, chiến lược thi, quản lý thời gian, test case |
+| 12 | 12-Do-Thi-BFS-DFS | Danh sách kề, BFS/DFS, thành phần, topo, hai phía, flood fill |
+| 13 | 13-Duong-Di-Ngan-Nhat | Dijkstra, Bellman-Ford, Floyd, minimax, arbitrage |
+| 14 | 14-Cay-Va-DSU | Đường kính, LCA binary lifting, DSU, Kruskal |
+| 15 | 15-Segment-Tree | Segtree lặp, Fenwick, nén tọa độ, hiệu phân |
+| 16 | 16-Xu-Ly-Chuoi | KMP/pi, Z, rolling hash, Trie, XOR max |
+| 17 | 17-Bitmask | Bit tricks, TSP, phân công, meet-in-the-middle, SOS DP |
+| 18 | 18-DP-Nang-Cao | DAG, digit DP, tree DP, interval DP |
+| 19 | 19-Chien-Luoc-Thi-HSG | Đọc đề, chiến lược thi, quản lý thời gian, test case |
 
 **Nhánh 03-Thuc-Chien** (từ bài 30–41 cũ — gộp 3 file thành `bai.md`):
 
@@ -170,6 +177,7 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | 3 | Script chuyển đổi 41 bài cũ → `bai.md` mới | ✅ Xong |
 | 4 | Xóa cấu trúc cũ sau khi validate | ✅ Xong |
 | 5 | Viết mới 12 bài nhánh Thuật toán | ✅ Xong |
+| 5b | Mở rộng nhánh Thuật toán lên 20 bài (đồ thị, đường ngắn nhất, cây/DSU, segment tree, chuỗi, bitmask, DP nâng cao) | ✅ Xong |
 | 6 | Viết lại README gốc với roadmap 3 nhánh | ✅ Xong |
 | 7 | Validate: link hỏng, file thiếu, tham chiếu cũ | ✅ Xong (script `tools/validate.py`) |
 

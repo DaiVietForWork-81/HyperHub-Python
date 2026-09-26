@@ -1,4 +1,4 @@
-# Bài 12 — Chiến Lược Thi HSG & Tổng Kết Nhánh Thuật Toán
+# Bài 19 — Chiến Lược Thi HSG & Tổng Kết Nhánh Thuật Toán
 
 > 🧮 **Nhánh 02 — Thuật Toán (HSG / Competitive Programming)**
 
@@ -6,7 +6,7 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- Toàn bộ Bài 1–11 nhánh Thuật Toán (đặc biệt Bài 1 — tư duy, Bài 2 — Big-O)
+- Toàn bộ Bài 1–19 nhánh Thuật Toán (đặc biệt Bài 1 — tư duy, Bài 2 — Big-O)
 - [Bài 19 — Exception](../../01-Co-Ban/19-Exception/bai.md) (chương trình không được crash)
 
 ---
@@ -62,7 +62,7 @@ flowchart TD
 | Bước | Việc | Thời gian gợi ý |
 |---|---|---|
 | 1. Đọc | Input? Output? Ràng buộc? Ví dụ? | 5–10 phút |
-| 2. Phân loại | Mẫu nào (Bài 1–11)? Big-O nào sống? (mục 2) | 5–15 phút |
+| 2. Phân loại | Mẫu nào (Bài 1–19)? Big-O nào sống? (mục 2) | 5–15 phút |
 | 3. Nghĩ | Pseudocode + chạy tay + tìm phản ví dụ | 30–40% tổng |
 | 4. Code | Một mạch từ pseudocode, đặt tên rõ | 20–30% tổng |
 | 5. Test | Ví dụ + 4 loại biên + stress (mục 4) | 30% tổng |
@@ -82,6 +82,8 @@ flowchart TD
 | ≤ 10⁷–10⁸ | O(n): duyệt, hai con trỏ, Counter | Bài 2, 5, 8 |
 | ≤ 10¹² | O(√n): kiểm tra nguyên tố, phân tích thừa số | Bài 11 |
 | ≤ 10¹⁸ | O(log n): nhị phân đáp số, lũy thừa nhanh/ma trận | Bài 3, 6, 11 |
+| Đồ thị n, m ≤ 10⁵–10⁶ | O(n+m): BFS/DFS; O(m log n): Dijkstra | Bài 12, 14 |
+| q truy vấn đoạn ≤ 10⁵ | O(log n)/truy vấn: segment tree / Fenwick | Bài 15 |
 
 Đọc ràng buộc → tra bảng → khoanh vùng mẫu → nghĩ chi tiết. 30 giây tra bảng
 tiết kiệm 30 phút đi sai hướng.
@@ -159,7 +161,7 @@ print("OK 2000 test")
 
 | Giai đoạn | Việc | Nguồn |
 |---|---|---|
-| Củng cố (1–2 tháng) | 100–150 bài dễ–trung bình, đủ mọi mẫu Bài 1–11 | LQDOJ, VOJ, Codeforces Div.3 A–C |
+| Củng cố (1–2 tháng) | 100–150 bài dễ–trung bình, đủ mọi mẫu Bài 1–19 | LQDOJ, VOJ, Codeforces Div.3 A–C |
 | Nâng cao (3–6 tháng) | Chuyên đề sâu: đồ thị (BFS/DFS/Dijkstra), DP nâng cao, segment tree | VOI/HSG các tỉnh, Codeforces Div.2 |
 | Thi thật | Thi thử bấm giờ, review editorial sau mỗi kỳ | VOI, APIO, kỳ thi tỉnh/thành |
 
@@ -367,7 +369,7 @@ gì sau mỗi lần chạy).
 khó: DP), bấm giờ 90 phút làm nghiêm túc, rồi tự chấm + viết review
 (mẫu nào dùng, bug nào gặp, lần sau tránh sao). Nộp review cho bạn/mentor.
 
-**Bài 8 — Sổ mẫu.** Tổng hợp từ Bài 1–11 thành "sổ tay 1 trang": mỗi mẫu một
+**Bài 8 — Sổ mẫu.** Tổng hợp từ Bài 1–19 thành "sổ tay 1 trang": mỗi mẫu một
 dòng (dấu hiệu → kỹ thuật → độ phức tạp). Đây là tài liệu duy nhất bạn đọc
 trước giờ thi.
 
@@ -533,13 +535,20 @@ cho cả 4 bài (kể cả bài không làm được — ghi editorial học đ�
 | 9. Tham lam | Sort + 1 vòng, exchange, phản VD | "Chọn tốt nhất có an toàn?" |
 | 10. DP | 5 bước, top-down/bottom-up, lăn mảng | "Bài con gối nhau?" |
 | 11. Số học | Sàng, Euclid, pow mod, Fermat, C(n,k) | "Ước/nguyên tố/mod?" |
-| 12. Thi cử | Quy trình, subtask, stress, checklist | "Làm sao AC dưới áp lực?" |
+| 12. Đồ thị | BFS/DFS, thành phần, topo, hai phía | "Quan hệ/lưới/mê cung?" |
+| 13. Đường ngắn nhất | Dijkstra, Bellman-Ford, Floyd | "Chi phí nhỏ nhất?" |
+| 14. Cây & DSU | Đường kính, LCA, Kruskal, hợp nhất | "Cây/MST/nhóm động?" |
+| 15. Đoạn & BIT | Segment tree, Fenwick, range query | "Truy vấn đoạn + cập nhật?" |
+| 16. Chuỗi | KMP, Z, rolling hash, Trie | "Tìm mẫu/đếm xâu con?" |
+| 17. Bitmask | Bit tricks, meet-in-the-middle, TSP | "n ≤ 20, trạng thái tập hợp?" |
+| 18. DP nâng cao | DAG, digit DP, tree DP, interval DP | "DP 1 chiều không đủ?" |
+| 19. Thi cử | Quy trình, subtask, stress, checklist | "Làm sao AC dưới áp lực?" |
 
 ---
 
 ## ➡️ Điều hướng
 
-**Vị trí:** `02-Thuat-Toan/12-Chien-Luoc-Thi-HSG/bai.md`
+**Vị trí:** `02-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md`
 
 🎉 **Bạn đã hoàn thành nhánh Thuật Toán!** Hai hướng đi tiếp:
 - 🚀 [Nhánh 03 — Thực Chiến (API/Package/Project)](../../03-Thuc-Chien/01-Virtual-Environment/bai.md)
