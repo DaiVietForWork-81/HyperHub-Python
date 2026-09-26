@@ -31,7 +31,112 @@ dài ngắn khác nhau — cần "BFS có cân": luôn mở rộng đỉnh **r�
 dùng heap để lấy đỉnh rẻ nhất trong O(log V). Đó là Dijkstra — và khi có cạnh
 âm, cần Bellman-Ford; khi cần mọi cặp, cần Floyd.
 
+> 🐣 **Thấy Dijkstra đáng sợ? Đọc mục "Khởi động siêu chậm" ngay dưới đây trước.
+> Chỉ có 3 đỉnh, shipper giao hàng, và code in từng bước.**
+
 ---
+
+## 🐣 Khởi động siêu chậm — vì sao BFS "chết" khi đường dài ngắn khác nhau?
+
+### Chuyện 1: Anh shipper và 3 điểm
+
+Anh shipper ở điểm 0, cần giao tới điểm 2. Bản đồ:
+
+```
+0 --1-- 1 --1-- 2    (đường trên: 2 chặng, mỗi chặng tốn 1 → tổng 2)
+|                    (đường tắt: 1 chặng nhưng tốn 5)
++---------5---------+
+        (0 thẳng tới 2, tốn 5)
+```
+
+BFS (đếm chặng, Bài 12) nói: "đường tắt chỉ 1 chặng → chọn nó!" — tốn **5**.
+Nhưng đi vòng 0→1→2 tốn 1+1 = **2**, rẻ hơn nhiều! BFS sai vì nó chỉ đếm
+**số chặng**, không cộng **giá tiền**.
+
+Bài học 1 câu: **đường ít chặng chưa chắc rẻ**. Mọi thuật toán bài này sinh ra
+để cộng giá tiền thay vì đếm chặng.
+
+### Chuyện 2: Cách nghĩ của Dijkstra — "lúc nào cũng ghé chỗ rẻ nhất"
+
+Anh shipper làm thế này (không cần biết trước bản đồ hết):
+
+1. Đang ở 0 (tốn 0). Hỏi giá tới hàng xóm: tới 1 tốn 1, tới 2 tốn 5.
+   Ghi bảng: {0: 0, 1: 1, 2: 5}.
+2. Trong các điểm **chưa chốt**, điểm nào rẻ nhất? Điểm 1 (tốn 1).
+   Chốt 1 — vì sao chắc? Mọi đường khác tới 1 đều phải qua điểm tốn ≥ 1
+   rồi cộng thêm (giá không âm) → không thể rẻ hơn 1. **Chốt vĩnh viễn.**
+3. Từ 1, hỏi tiếp: tới 2 tốn 1+1 = 2 — rẻ hơn 5 đang ghi → sửa bảng: 2 còn 2.
+4. Điểm chưa chốt rẻ nhất giờ là 2 (tốn 2). Chốt 2. Xong!
+
+Bảng cuối {0: 0, 1: 1, 2: 2} — đúng đáp án rẻ nhất tới mọi điểm.
+Heap trong code chỉ là "người nhắc việc": luôn nhắc điểm rẻ nhất chưa chốt.
+
+### ✋ Dừng lại tự kiểm tra
+
+4 điểm. Đường (giá): 0→1 (2), 0→2 (6), 1→2 (1), 1→3 (7), 2→3 (1).
+Xuất phát 0. Chạy tay Dijkstra (làm đúng 4 bước "ghé chỗ rẻ nhất"):
+
+<details>
+<summary>✅ Xem đáp án kiểm tra</summary>
+
+* Bảng đầu: {0: 0, 1: ∞, 2: ∞, 3: ∞}.
+* Chốt 0 → hàng xóm: 1 còn 2, 2 còn 6. Bảng {0: 0, 1: 2, 2: 6, 3: ∞}.
+* Rẻ nhất chưa chốt là 1 (2) → chốt 1. Từ 1: 2 còn min(6, 2+1) = 3;
+  3 còn 2+7 = 9. Bảng {0: 0, 1: 2, 2: 3, 3: 9}.
+* Rẻ nhất chưa chốt là 2 (3) → chốt 2. Từ 2: 3 còn min(9, 3+1) = 4.
+* Chốt 3 (4). Đáp án **[0, 2, 3, 4]**.
+
+Đường tới 3 là 0→1→2→3 tốn 2+1+1 = 4 (chứ không phải 0→2→3 tốn 7,
+càng không phải 0→1→3 tốn 9). Làm đúng thì đọc tiếp sẽ nhẹ hẳn!
+
+</details>
+
+### Code chậm — Dijkstra in từng bước (chạy thử!)
+
+```python
+import heapq
+
+def dij_cham(ke, nguon):
+    INF = 10 ** 18
+    dist = [INF] * len(ke)
+    dist[nguon] = 0
+    heap = [(0, nguon)]   # (giá tới, điểm): luôn nhắc điểm rẻ nhất
+    while heap:
+        d, u = heapq.heappop(heap)
+        if d != dist[u]:
+            print(f"Lấy ({d},{u}) -> CŨ (đã có rẻ hơn là {dist[u]}), bỏ qua")
+            continue
+        print(f"Lấy ({d},{u}) -> RẺ NHẤT chưa chốt, chốt luôn!")
+        for v, w in ke[u]:
+            moi = dist[u] + w
+            if moi < dist[v]:
+                print(f"  {u}->{v} tốn {w}: cập nhật {v} còn {moi}, xếp vào hàng")
+                dist[v] = moi
+                heapq.heappush(heap, (moi, v))
+            else:
+                print(f"  {u}->{v} tốn {w}: đang {dist[v]} rẻ hơn {moi}, bỏ qua")
+    return dist
+
+# Đồ thị chuyện 1: 0--1--2 và đường tắt 0--2
+ke = [[(1, 1), (2, 5)], [(2, 1)], []]
+print("Đáp án:", dij_cham(ke, 0))
+```
+
+Output:
+
+```
+Lấy (0,0) -> RẺ NHẤT chưa chốt, chốt luôn!
+  0->1 tốn 1: cập nhật 1 còn 1, xếp vào hàng
+  0->2 tốn 5: cập nhật 2 còn 5, xếp vào hàng
+Lấy (1,1) -> RẺ NHẤT chưa chốt, chốt luôn!
+  1->2 tốn 1: cập nhật 2 còn 2, xếp vào hàng
+Lấy (2,2) -> RẺ NHẤT chưa chốt, chốt luôn!
+Lấy (5,2) -> CŨ (đã có rẻ hơn là 2), bỏ qua
+Đáp án: [0, 1, 2]
+```
+
+Thấy dòng CŨ cuối không? Đó là "tin cũ" (đường tắt tốn 5) đến muộn — code vứt
+đi nhờ phép so `d != dist[u]`. Hiểu được 4 dòng in này là hiểu Dijkstra.
 
 ## 💡 Ý tưởng trực quan
 

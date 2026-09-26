@@ -36,7 +36,73 @@ Cần cấu trúc O(log n) cả hai chiều — segment tree và Fenwick sinh ra
 việc này. Đây là "vé vào" vòng HSG nâng cao: không biết hai cấu trúc này thì
 một lớp đề hoàn toàn bất khả thi.
 
+> 🐣 **Thấy cây đoạn đáng sợ? Đọc mục "Khởi động siêu chậm" ngay dưới đây trước.
+> Chỉ có 4 con số, vẽ cây bằng tay, hỏi–sửa từng bước.**
+
 ---
+
+## 🐣 Khởi động siêu chậm — cây quản lý 4 nhân viên
+
+### Chuyện 1: Sếp cần tổng doanh số nhanh
+
+4 nhân viên A, B, C, D có doanh số [5, 2, 7, 1] (triệu). Sếp hay hỏi kiểu:
+"Tổng của B+C+D là bao nhiêu?" và "sửa doanh số của A thành 0, tổng mới?"
+
+Cách quét: cộng lại mỗi lần hỏi — 4 người thì không sao, 10⁵ người × 10⁵ lần
+hỏi thì chết. Cách segment tree: dựng sẵn "báo cáo gộp" theo tầng:
+
+```
+Tầng sếp tổng:              15
+Tầng quản lý:      7                   8
+Tầng nhân viên:  5     2           7       1
+                 A     B           C       D
+```
+
+* Quản lý trái giữ tổng A+B = 7; quản lý phải giữ C+D = 8; sếp giữ 7+8 = 15.
+* Hỏi tổng B+C+D? Không cần cộng 3 số — lấy báo cáo của B (2) + báo cáo của
+  "nhóm C+D" (8) = **10**. Chỉ ghép 2 mảnh!
+* Sửa A thành 0? Chỉ 3 người phải tính lại: A (lá), quản lý trái (0+2=2),
+  sếp (2+8=10). Người còn lại không động vào.
+
+Đó là toàn bộ segment tree: **dựng báo cáo gộp theo tầng, hỏi thì ghép vài
+mảnh, sửa thì leo một đường**. Code trong bài chỉ là cách lưu cái cây này vào
+mảng `t` (lá ở nửa sau, sếp ở ô 1).
+
+### Chuyện 2: Hỏi [0, 3) trên cây [5, 2, 7, 1] — đi bộ cùng thuật toán
+
+Hỏi tổng a[0..2] (= 5+2+7 = 14, kiểm tra sau). Thuật toán cho 2 con trỏ leo:
+
+```
+Bắt đầu: l = lá a[0], r = lá a[3] (ranh giới phải, không lấy)
+Vòng 1: l chẵn (bỏ qua), r lẻ → gắp node a[2] (= 7), r co lại
+Vòng 2: l chẵn (bỏ qua), r lẻ → gắp node (a[0]+a[1]) (= 7), r co lại
+l == r → dừng. Ghép 7 + 7 = 14 ✔
+```
+
+Quy tắc gắp trực quan: node nào **nằm gọn** trong đoạn hỏi thì gắp cả node
+(khỏi chẻ nhỏ); node nào **lấn ra ngoài** thì bỏ qua, leo lên cha xét tiếp.
+Vì mỗi tầng gắp tối đa 2 node → cả cây gắp ≤ 2·log n mảnh.
+
+### ✋ Dừng lại tự kiểm tra
+
+Cây trên [5, 2, 7, 1] (tổng 15).
+
+a) Hỏi tổng a[1..3] (= 2+7+1) thì gắp những node nào, kết quả?
+b) Sửa a[3] = 10. Những node nào đổi? Tổng mới?
+
+<details>
+<summary>✅ Xem đáp án kiểm tra</summary>
+
+a) Hỏi nửa khoảng [1, 4): gắp lá a[1] (= 2) + node (a[2]+a[3]) (= 8) → **10** ✔
+   (2+7+1 = 10 ✔).
+
+b) Lá a[3]: 1 → 10. Node (a[2]+a[3]): 8 → 17. Gốc: 15 → 7+17 = **24** ✔
+   (5+2+7+10 = 24 ✔). Chỉ 3 node đổi — còn lại giữ nguyên!
+
+   Làm đúng thì Fenwick (BIT) ở nửa sau bài sẽ dễ nuốt hơn nhiều, vì BIT cũng
+   là "báo cáo gộp", chỉ khác cách chia đoạn (theo bit thay vì theo nửa).
+
+</details>
 
 ## 💡 Ý tưởng trực quan
 

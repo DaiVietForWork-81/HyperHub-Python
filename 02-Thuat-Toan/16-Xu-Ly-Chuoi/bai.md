@@ -32,7 +32,64 @@ nhưng thi HSG cấm dùng "hộp đen" cho chính thứ cần kiểm tra, và n
 hơn "tìm ở đâu": đếm, biên dài nhất, tiền tố chung của nhiều xâu, XOR lớn nhất...
 Bốn công cụ trong bài này là toàn bộ "vũ khí chuỗi" của competitive programming.
 
+> 🐣 **Thấy KMP đáng sợ? Đọc mục "Khởi động siêu chậm" ngay dưới đây trước.
+> Chỉ có tìm chữ bằng tay, 5 ký tự, và một câu hỏi "có phí không?".**
+
 ---
+
+## 🐣 Khởi động siêu chậm — tìm chữ bằng tay trước khi học KMP
+
+### Chuyện 1: Tìm "aba" trong "ababa" bằng mắt thường
+
+Bạn làm thế này (cách naive — ngây thơ):
+
+```
+Văn bản:  a b a b a
+Thử từ vị trí 0: a✔ b✔ a✔ → THẤY ở 0!
+Thử từ vị trí 1: b✗ (cần a) → bỏ ngay (tốn 1 so sánh)
+Thử từ vị trí 2: a✔ b✔ a✔ → THẤY ở 2!
+Tổng: 3 + 1 + 3 = 7 lần so sánh.
+```
+
+Với văn bản dài 10⁶ và mẫu dài 10⁵, cách này tốn tới 10¹¹ so sánh → chết.
+Nhưng hãy nhìn kỹ chỗ phí: ở vị trí 0, ta đã đọc "aba" rồi; khi thử vị trí 1
+thất bại ngay, ta **quên sạch** 3 chữ vừa đọc. KMP sinh ra từ một câu hỏi:
+**"chữ vừa đọc có dùng lại được không?"**
+
+### Chuyện 2: Phát hiện "đuôi trùng đầu"
+
+Nhìn mẫu "aba": đuôi "a" (1 chữ cuối) trùng đầu "a" (1 chữ đầu).
+Khi đang khớp dở mà lệch, thay vì quay về đầu mẫu, ta **giữ lại phần đuôi
+trùng đầu** — vì đoạn văn bản vừa đọc chắc chắn có đuôi đó!
+
+Ví dụ khác — mẫu "aaaa": đang khớp tới chữ thứ 4 thì lệch. Naive quay về đầu
+(quên 3 chữ 'a' vừa đọc — phí!). Nhưng 3 chữ 'a' đó cũng chính là 3 chữ đầu
+mẫu → giữ nguyên, thử tiếp chữ thứ 4 luôn. Tiết kiệm 3 lần đọc lại.
+
+Con số "giữ lại bao nhiêu" cho mỗi vị trí chính là mảng **pi** (hàm tiền tố):
+pi[i] = "đang khớp tới i mà lệch thì giữ lại mấy chữ". Tính nó là xong 90% KMP.
+
+### ✋ Dừng lại tự kiểm tra (làm tay!)
+
+Tính pi cho "abcab" (5 ký tự). Quy tắc từng i (từ 1): nhìn pi[i−1] = j;
+so s[i] với s[j]: khớp → j+1; lệch → co j về pi[j−1] rồi so lại; j = 0 mà vẫn
+lệch → pi[i] = 0.
+
+<details>
+<summary>✅ Xem đáp án kiểm tra</summary>
+
+* i=1 ('b'): j=0, 'b' vs 'a' lệch → pi[1] = **0**.
+* i=2 ('c'): j=0, 'c' vs 'a' lệch → pi[2] = **0**.
+* i=3 ('a'): j=0, 'a' = 'a' khớp → pi[3] = **1**.
+* i=4 ('b'): j=1, 'b' = 'b' khớp → pi[4] = **2**.
+
+Đáp án **[0, 0, 0, 1, 2]**. Đọc pi[4] = 2: xâu "abcab" có biên "ab" (đầu = đuôi).
+
+Chưa cần co lần nào (vì chưa lệch khi j > 0) — bài tập co nhiều lần ở mục 1b
+("aabaaab", i = 5 co 2 lần). Làm đúng bài này thì mục 1b chỉ là "nặng hơn",
+không phải "mới hoàn toàn"!
+
+</details>
 
 ## 💡 Ý tưởng trực quan
 

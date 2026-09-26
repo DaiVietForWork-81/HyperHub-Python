@@ -32,7 +32,129 @@ Sau bài học này, học viên sẽ:
 
 Nắm bài này, bạn mở khóa Bài 13 (đường ngắn nhất có trọng số) và Bài 14
 (cây, DSU) — vì cây chỉ là đồ thị không chu trình, và Dijkstra chỉ là
-"BFS có trọng số".
+"BFS có cân".
+
+> 🐣 **Mới học đồ thị? Đọc mục "Khởi động siêu chậm" ngay dưới đây trước,
+> rồi mới đọc tiếp. Mục đó không có code khó, chỉ có kể chuyện + làm tay.**
+
+---
+
+## 🐣 Khởi động siêu chậm — đồ thị là gì? (10 phút, không cần code)
+
+### Chuyện 1: Ba người bạn
+
+An chơi thân với Bình. Bình chơi thân với Chi. An và Chi **không** chơi thân
+trực tiếp.
+
+Hỏi: An muốn nhắn cho Chi thì nhắn qua ai? — Qua Bình. Hỏi tiếp: Chi muốn nhắn
+cho An? — Cũng qua Bình (tình bạn 2 chiều).
+
+Vẽ ra giấy:
+
+```
+An --- Bình --- Chi
+```
+
+Đó chính là một **đồ thị**: 3 **đỉnh** (người), 2 **cạnh** (tình bạn).
+Máy tính lưu nó bằng "danh sách bạn của từng người":
+
+```
+Bạn của An:   [Bình]
+Bạn của Bình: [An, Chi]
+Bạn của Chi:  [Bình]
+```
+
+Trong code, người ta đánh số 0, 1, 2 thay vì tên:
+
+```python
+ke = [[1], [0, 2], [1]]   # ke[0] = bạn của 0, ke[1] = bạn của 1...
+```
+
+Đọc `ke[1] = [0, 2]` thành tiếng: "1 chơi với 0 và 2". Chỉ vậy thôi —
+**danh sách kề = danh sách bạn bè**. Mọi thứ phức tạp sau này đều xây trên
+cái đơn giản này.
+
+### Chuyện 2: Truyền tin theo hàng (đây chính là BFS!)
+
+An có tin khẩn, muốn **mọi người** biết càng sớm càng tốt. Cách làm:
+
+1. An nhắn cho tất cả bạn trực tiếp (Bình). — *Lớp 1 biết tin.*
+2. Ai vừa biết tin thì nhắn tiếp cho bạn mình chưa biết (Bình nhắn Chi). — *Lớp 2 biết tin.*
+3. Lặp lại đến khi không còn ai chưa biết.
+
+Đó chính là BFS! "Hàng đợi" (queue) chỉ là cách nói sang của "xếp hàng chờ
+đến lượt nhắn": ai biết tin trước thì nhắn trước (vào hàng trước, ra trước).
+
+Chạy tay với 3 người trên: hàng đợi ban đầu [An] → lấy An ra, nhắn Bình
+(hàng đợi [Bình]) → lấy Bình ra, nhắn Chi (hàng đợi [Chi]) → lấy Chi ra,
+hết bạn mới → xong. Thứ tự biết tin: An, Bình, Chi.
+
+### ✋ Dừng lại tự kiểm tra (che đáp án, làm trước!)
+
+4 người đánh số 0, 1, 2, 3. Tình bạn: 0–1, 0–2, 2–3.
+
+a) Viết danh sách kề `ke` (4 dòng).
+b) BFS từ 0: thứ tự biết tin là gì? Ai ở "lớp" mấy?
+
+<details>
+<summary>✅ Xem đáp án kiểm tra</summary>
+
+a) `ke = [[1, 2], [0], [0, 3], [2]]` — đọc: 0 chơi với 1, 2; 1 chỉ chơi với 0;
+   2 chơi với 0, 3; 3 chỉ chơi với 2.
+
+b) Hàng đợi [0] → lấy 0, nhắn 1, 2 (hàng đợi [1, 2]) → lấy 1, bạn 0 đã biết
+   (bỏ qua) → lấy 2, nhắn 3 (hàng đợi [3]) → lấy 3, xong.
+   Thứ tự: **0, 1, 2, 3**. Lớp: 0 ở lớp 0; 1, 2 ở lớp 1; 3 ở lớp 2
+   (dist = [0, 1, 1, 2]).
+
+   Nếu bạn làm đúng cả a và b thì đã hiểu 50% bài này — đọc tiếp sẽ nhẹ hẳn!
+
+</details>
+
+### Code chậm — BFS in từng bước (chạy thử!)
+
+Code dưới đây làm **đúng** việc bạn vừa làm tay — hãy chạy nó và đối chiếu
+từng dòng in với bảng tay của bạn:
+
+```python
+from collections import deque
+
+def bfs_cham(ke, nguon):
+    dist = [-1] * len(ke)   # -1 = chưa biết tin; số = lớp biết tin
+    dist[nguon] = 0
+    q = deque([nguon])      # hàng đợi: ai biết tin trước, nhắn trước
+    print("Bắt đầu: hàng đợi =", list(q), "| dist =", dist)
+    while q:
+        u = q.popleft()     # lấy người đầu hàng ra nhắn tin
+        print(f"Lấy {u} ra -> xét bạn của {u}: {ke[u]}")
+        for v in ke[u]:     # nhắn cho từng bạn
+            if dist[v] == -1:              # bạn chưa biết tin?
+                dist[v] = dist[u] + 1      # lớp = lớp mình + 1
+                q.append(v)                # xếp bạn vào cuối hàng
+                print(f"  {v} chưa biết -> lớp {dist[v]}, hàng đợi: {list(q)}")
+            else:
+                print(f"  {v} đã biết rồi -> bỏ qua")
+    return dist
+
+print(bfs_cham([[1], [0, 2], [1]], 0))
+```
+
+Chạy với 3 người An–Bình–Chi, output:
+
+```
+Bắt đầu: hàng đợi = [0] | dist = [0, -1, -1]
+Lấy 0 ra -> xét bạn của 0: [1]
+  1 chưa biết -> lớp 1, hàng đợi: [1]
+Lấy 1 ra -> xét bạn của 1: [0, 2]
+  0 đã biết rồi -> bỏ qua
+  2 chưa biết -> lớp 2, hàng đợi: [2]
+Lấy 2 ra -> xét bạn của 2: [1]
+  1 đã biết rồi -> bỏ qua
+[0, 1, 2]
+```
+
+Khớp 100% với làm tay? Khớp thì bạn đã **thật sự** hiểu BFS — phần còn lại
+của bài chỉ là "BFS mặc thêm quần áo" (lưới, nhiều nguồn, topo...).
 
 ---
 

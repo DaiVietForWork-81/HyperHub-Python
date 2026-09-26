@@ -31,7 +31,66 @@ Khi n ≤ 20, "tập hợp" nhét vừa một số nguyên (bit i = 1 nghĩa là
 AND, thêm = OR bit, bỏ = AND phủ định... DP trên mặt nạ bit (bitmask DP)
 giải được TSP, phân công, chia nhóm — những bài NP-khó mà n nhỏ.
 
+> 🐣 **Thấy số nhị phân đáng sợ? Đọc mục "Khởi động siêu chậm" ngay dưới đây
+> trước. Chỉ có công tắc đèn, giỏ trái cây, và đếm bằng tay.**
+
 ---
+
+## 🐣 Khởi động siêu chậm — công tắc đèn và giỏ trái cây
+
+### Chuyện 1: Ba công tắc đèn
+
+Phòng có 3 đèn (đèn 0, 1, 2). Mỗi đèn hoặc tắt (0) hoặc bật (1).
+Có bao nhiêu trạng thái? 2×2×2 = **8** trạng thái:
+
+```
+000 (tắt hết), 001 (bật đèn 0), 010 (bật đèn 1), 011 (bật 0+1),
+100 (bật đèn 2), 101, 110, 111 (bật hết)
+```
+
+Đọc từ **phải sang trái**: bit phải nhất = đèn 0. Số `101` nghĩa là đèn 0 bật,
+đèn 1 tắt, đèn 2 bật. Mỗi số nguyên 0–7 là một "ảnh chụp" trạng thái phòng —
+đó chính là **mask** (mặt nạ bit)!
+
+Muốn bật thêm đèn 1 khi đang ở trạng thái `101`? `101 OR 010 = 111`
+(phép OR = "bật thêm, cái đang bật giữ nguyên"). Muốn hỏi "đèn 2 có đang bật
+không ở trạng thái 5 (`101`)"? Nhìn bit số 2: là 1 → đang bật.
+Mọi "thao tác tập hợp" chỉ là bật/tắt/nhìn công tắc.
+
+### Chuyện 2: Giỏ trái cây
+
+Giỏ có 4 loại: 0-táo, 1-chuối, 2-cam, 3-xoài. Bạn chọn bỏ vào túi một số loại.
+Cách ghi "đã chọn gì" gọn nhất: một số!
+
+* Túi có táo + cam + xoài (0, 2, 3) → bật bit 0, 2, 3 → `1101` nhị phân = **13**.
+* Muốn biết túi 13 có chuối (bit 1) không? Bit 1 của 13 là 0 → không có.
+* Túi {chuối, xoài} = bit 1 + bit 3 = `1010` = **10**.
+
+Liệt kê **mọi** túi con của [táo, chuối, cam]? 2³ = 8 túi — chính là 8 số 0–7!
+Muốn tổng giá trị từng túi? Duyệt mask 0–7, cộng giá các bit bật (xem bảng
+tổng tập con của [2, 3, 5] ở mục 1 — cùng một việc!).
+
+### ✋ Dừng lại tự kiểm tra
+
+a) Túi mask = 13 (`1101`) trong giỏ [táo, chuối, cam, xoài] có những gì?
+b) Viết mask (thập phân + nhị phân) của túi {chuối, xoài}.
+c) Liệt kê tổng mọi túi con của [2, 3, 5] (8 túi).
+
+<details>
+<summary>✅ Xem đáp án kiểm tra</summary>
+
+a) Bit 0, 2, 3 bật → **táo, cam, xoài** (không có chuối).
+
+b) Bit 1 + bit 3 = `1010` nhị phân = **10** thập phân.
+
+c) 000→[] = 0; 001→[2] = 2; 010→[3] = 3; 011→[2,3] = 5;
+   100→[5] = 5; 101→[2,5] = 7; 110→[3,5] = 8; 111→[2,3,5] = 10.
+   (Chú ý 011 và 100 cùng tổng 5 — túi khác nhau, tổng trùng nhau là bình thường!)
+
+   Làm đúng cả 3 câu thì "số nguyên = tập hợp" đã ngấm — DP bitmask (TSP,
+   phân công) chỉ là "ghi đáp án tốt nhất cho từng túi"!
+
+</details>
 
 ## 💡 Ý tưởng trực quan
 

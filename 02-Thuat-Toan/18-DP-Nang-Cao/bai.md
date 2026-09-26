@@ -32,7 +32,59 @@ DP cơ bản (Bài 10) sống trên dãy 1–2 chiều có thứ tự tự nhiê
 cấu trúc: topo (DAG), từ số lớn xuống số nhỏ (digit), lá lên gốc (tree), đoạn
 ngắn đến dài (interval). Bài này dạy 4 thứ tự đó — xong là hết "DP lạ".
 
+> 🐣 **Thấy digit DP như ma thuật? Đọc mục "Khởi động siêu chậm" ngay dưới đây
+> trước. Chỉ có đếm số từ 0 đến 12 bằng tay, và một cái "trần nhà".**
+
 ---
+
+## 🐣 Khởi động siêu chậm — đếm số bằng cách lắp từng chữ số
+
+### Chuyện 1: Đếm số 0–12 có tổng chữ số ≤ 2 (làm tay!)
+
+Liệt kê hết: 0 (tổng 0 ✔), 1 ✔, 2 ✔, 3 ✗ (tổng 3), ..., 9 ✗, 10 (1 ✔),
+11 (2 ✔), 12 (3 ✗). Đáp án **5 số**: {0, 1, 2, 10, 11}.
+
+Giờ lắp từng chữ số (số có 2 chữ số, chục + đơn vị). Chữ số chục quyết định
+"số phận":
+
+```
+Chục = 0 → số là 0–9, đơn vị tự do 0–9, cần tổng ≤ 2 → đơn vị ∈ {0,1,2} → 3 số
+Chục = 1 → số là 10–19 NHƯNG không quá 12! Đơn vị chỉ được 0–2 (trần!),
+           cần 1 + đơn vị ≤ 2 → đơn vị ∈ {0,1} → 2 số (10, 11)
+Chục = 2 → vượt 12? Không — chục ≤ 1 (trần là "12", chục tối đa 1). Hết!
+Tổng: 3 + 2 = 5 ✔ khớp liệt kê!
+```
+
+Thấy chữ "trần" không? Chục = 1 thì đơn vị bị trần (≤ 2); chục = 0 thì đơn vị
+tự do (0–9). Đó chính là **tight** (chặt = chạm trần) và **loose** (lỏng = tự
+do) — toàn bộ digit DP chỉ là "lắp từng chữ số, nhớ đang chạm trần hay không"!
+
+### Chuyện 2: Vì sao không liệt kê hết với N = 10¹⁸?
+
+Liệt kê 10¹⁸ số thì đến... kiếp sau chưa xong. Nhưng lắp chữ số chỉ có 19 vị
+trí × (chặt/lỏng) × (tổng đang bao nhiêu) = vài nghìn trạng thái. Mỗi trạng
+thái nhớ đáp án (memo) → vài nghìn phép tính cho đáp án của 10¹⁸ số.
+"Nén" 10¹⁸ khả năng vào vài nghìn ô nhớ — đó là phép màu duy nhất của bài này,
+không có gì khác!
+
+### ✋ Dừng lại tự kiểm tra
+
+Đếm số 0–20 có tổng chữ số ≤ 1. Vẽ cây như chuyện 1 (s = "20"):
+
+<details>
+<summary>✅ Xem đáp án kiểm tra</summary>
+
+* Chục = 0 → đơn vị tự do 0–9, cần tổng ≤ 1 → đơn vị ∈ {0, 1} → 2 số (0, 1).
+* Chục = 1 → đơn vị bị trần (≤ 0, vì số ≤ 20): chỉ đơn vị = 0, tổng 1+0 = 1
+  ≤ 1 ✔ → 1 số (10).
+* Chục = 2 → đơn vị tự do, nhưng tổng đã = 2 > 1 → 0 số (số 20 tổng 2, loại!).
+* Tổng: 2 + 1 + 0 = **3 số** {0, 1, 10} ✔ (brute force cũng ra 3).
+
+  Chú ý nhánh chục = 2: tổng vượt ngay từ chục → cả nhánh bằng 0, khỏi xét
+  đơn vị. Code thật làm đúng việc này bằng dòng `if tong > gioi: return 0`
+  (cắt tỉa!). Làm đúng thì digit DP đã hiểu 70%!
+
+</details>
 
 ## 💡 Ý tưởng trực quan
 
