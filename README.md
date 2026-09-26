@@ -270,5 +270,6 @@ Nếu thấy khóa học hữu ích, hãy:
 
 - Cho repository một ⭐ **ngôi sao** trên GitHub.
 - Chia sẻ cho bạn bè cùng học.
+- Tham gia **server Discord của HyperHub**: https://discord.gg/nEaFUUBMAM
 
 **Chúc bạn học vui và trở thành một lập trình viên Python giỏi! 🎉**
