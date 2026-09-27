@@ -395,8 +395,12 @@ diem: List[float] = [8.5]    # ❌ NameError: name 'List' is not defined
 ### Lỗi 4: Nhầm lẫn Union và Optional
 
 ```python
-def ham(x: Optional[int]):   # x là int HOẶC None
-def ham(x: Union[int, float])  # x là int HOẶC float (không có None)
+def ham_a(x: Optional[int]):   # x là int HOẶC None
+    ...
+
+
+def ham_b(x: Union[int, float]):  # x là int HOẶC float (không có None)
+    ...
 ```
 
 * `Optional[T]` = `Union[T, None]` — **không phải** "tùy chọn không truyền".
