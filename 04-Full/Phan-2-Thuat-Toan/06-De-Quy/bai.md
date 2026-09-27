@@ -1,4 +1,4 @@
-<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/06-De-Quy/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
+<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/28-De-Quy/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
 
 # Bài 6 — Đệ Quy
 

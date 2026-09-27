@@ -110,14 +110,19 @@ Hoàn thành nền tảng
 | 9 | 09-Tham-Lam | Greedy: đổi tiền, xếp lịch, chọn đoạn |
 | 10 | 10-Quy-Hoach-Dong | Quy hoạch động: LIS, LCS, cái túi |
 | 11 | 11-Toan-Hoc-So-Hoc | Số nguyên tố, GCD/LCM, lũy thừa nhanh, đồng dư |
-| 12 | 12-Do-Thi-BFS-DFS | Danh sách kề, BFS/DFS, thành phần, topo, hai phía, flood fill |
-| 13 | 13-Duong-Di-Ngan-Nhat | Dijkstra, Bellman-Ford, Floyd, minimax, arbitrage |
-| 14 | 14-Cay-Va-DSU | Đường kính, LCA binary lifting, DSU, Kruskal |
-| 15 | 15-Segment-Tree | Segtree lặp, Fenwick, nén tọa độ, hiệu phân |
-| 16 | 16-Xu-Ly-Chuoi | KMP/pi, Z, rolling hash, Trie, XOR max |
-| 17 | 17-Bitmask | Bit tricks, TSP, phân công, meet-in-the-middle, SOS DP |
-| 18 | 18-DP-Nang-Cao | DAG, digit DP, tree DP, interval DP |
-| 19 | 19-Chien-Luoc-Thi-HSG | Đọc đề, chiến lược thi, quản lý thời gian, test case |
+| 34 | 34-Do-Thi-BFS-DFS | Danh sách kề, BFS/DFS, thành phần, topo, hai phía, flood fill |
+| 35 | 35-Duong-Di-Ngan-Nhat | Dijkstra, Bellman-Ford, Floyd, minimax, arbitrage |
+| 36 | 36-Cay-Va-DSU | Đường kính, LCA binary lifting, DSU, Kruskal |
+| 37 | 37-Segment-Tree | Segtree lặp, Fenwick, nén tọa độ, hiệu phân |
+| 38 | 38-Xu-Ly-Chuoi | KMP/pi, Z, rolling hash, Trie, XOR max |
+| 39 | 39-Bitmask | Bit tricks, TSP, phân công, meet-in-the-middle, SOS DP |
+| 40 | 40-DP-Nang-Cao | DAG, digit DP, tree DP, interval DP |
+| 41 | 41-Chien-Luoc-Thi-HSG | Đọc đề, chiến lược thi, quản lý thời gian, test case |
+
+> 🔢 **Track Thuật toán đánh số phẳng (1)–(41):** 22 bài cơ bản (lược 7 bài,
+> đánh số lại 1–22) + 19 bài thuật toán (đánh số lại 23–41, script một lần
+> `tools/renumber_algo_23_41.py`). `04-Full/Phan-2` giữ số gốc 1–19 (reverse
+> trong `tools/sync_tracks.py`). Các bài 1–22 trong track 2 là bản copy.
 
 **Nhánh 03-Thuc-Chien** (từ bài 30–41 cũ — gộp 3 file thành `bai.md`):
 
@@ -180,6 +185,7 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | 5b | Mở rộng nhánh Thuật toán lên 19 bài (đồ thị, đường ngắn nhất, cây/DSU, segment tree, chuỗi, bitmask, DP nâng cao) | ✅ Xong |
 | 5c | Gộp vật lý 3 mục tự chứa: 01-Co-Ban (gốc) + 02-Thuat-Toan/Phan-1 + 04-Full (3 phần + PDF) | ✅ Xong |
 | 5d | Track Thuật toán lược 7 bài cơ bản không cần cho HSG (03, 09, 19, 21, 24, 28, 29) + sửa link/prereq/văn xuôi + finale riêng | ✅ Xong |
+| 5e | Track Thuật toán phẳng (1)–(41): cơ bản đánh số lại 1–22, thuật toán 1–19 thành 23–41 (giữ exercise/contest numbering) | ✅ Xong |
 | 6 | Viết lại README gốc với roadmap 3 nhánh | ✅ Xong |
 | 7 | Validate: link hỏng, file thiếu, tham chiếu cũ | ✅ Xong (script `tools/validate.py`) |
 

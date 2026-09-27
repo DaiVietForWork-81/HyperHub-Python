@@ -1,4 +1,4 @@
-<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/04-Sap-Xep/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
+<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/26-Sap-Xep/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
 
 # Bài 4 — Sắp Xếp
 

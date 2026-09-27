@@ -1,4 +1,4 @@
-<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/15-Segment-Tree/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
+<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/37-Segment-Tree/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
 
 # Bài 15 — Segment Tree & Fenwick (Cây Đoạn & Cây BIT)
 

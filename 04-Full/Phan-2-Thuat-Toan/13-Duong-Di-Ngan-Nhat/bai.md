@@ -1,4 +1,4 @@
-<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/13-Duong-Di-Ngan-Nhat/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
+<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/35-Duong-Di-Ngan-Nhat/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
 
 # Bài 13 — Đường Đi Ngắn Nhất
 

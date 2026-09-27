@@ -1,4 +1,4 @@
-<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/05-Stack-Queue-Hashing/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
+<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/27-Stack-Queue-Hashing/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
 
 # Bài 5 — Stack, Queue & Hashing
 

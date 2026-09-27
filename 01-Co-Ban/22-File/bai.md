@@ -67,7 +67,7 @@ Mọi thao tác file đều theo 3 bước: **Mở → Xử lý → Đóng** —
 
 ```mermaid
 flowchart LR
-    A[Mở file<br/>open()] --> B[Đọc hoặc ghi<br/>read / write] --> C[Đóng file<br/>close()]
+    A[Mở file<br/>open] --> B[Đọc hoặc ghi<br/>read write] --> C[Đóng file<br/>close]
 ```
 
 ```python
@@ -1770,4 +1770,4 @@ print("Da ghi ket qua vao tong_ket.txt")
 
 > 🏆 **Thi HSG?** Cách mở file `BAI.INP` / ghi `BAI.OUT` đúng quy ước phòng thi
 > (template redirect + tự test như máy chấm) nằm ở
-> [Bài 19 — Chiến Lược Thi HSG, mục 7](../../02-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md).
+> [Bài 41 — Chiến Lược Thi HSG, mục 7](../../02-Thuat-Toan/41-Chien-Luoc-Thi-HSG/bai.md).

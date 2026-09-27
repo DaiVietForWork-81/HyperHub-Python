@@ -1,4 +1,4 @@
-<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/01-Tu-Duy-Thuat-Toan/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
+<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/23-Tu-Duy-Thuat-Toan/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
 
 # Bài 1 — Tư Duy Thuật Toán
 
@@ -136,7 +136,7 @@ Một đề thi chuẩn có 5 phần. Đọc **theo thứ tự** này:
 2. OUTPUT  — in ra cái gì, định dạng chính xác (dấu cách? xuống dòng?
              làm tròn mấy chữ số? chữ hoa/thường?)
 3. RÀNG BUỘC — n ≤ ? , a[i] ≤ ? , giới hạn thời gian/bộ nhớ?
-               → QUYẾT ĐỊNH thuật toán nào sống sót (xem Bài 2).
+               → QUYẾT ĐỊNH thuật toán nào sống sót (xem Bài 24).
 4. VÍ DỤ   — chạy tay theo ví dụ để xác nhận mình hiểu đúng đề.
 5. BIÊN    — n = 0? n = 1? số âm? số bằng nhau? input rỗng?
 ```

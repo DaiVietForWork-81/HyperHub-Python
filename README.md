@@ -69,11 +69,13 @@ HyperHub-Python/
 │   ├── ...
 │   └── 29-Iterator/bai.md
 │
-├── 02-Thuat-Toan/             🧮 MỤC 2: cơ bản + thuật toán (tự chứa)
-│   ├── Phan-1-Co-Ban/         ← copy 29 bài cơ bản (tự động đồng bộ)
-│   ├── 01-Tu-Duy-Thuat-Toan/bai.md
+├── 02-Thuat-Toan/             🧮 MỤC 2: dãy phẳng (1)–(41), tự chứa
+│   ├── 01-Gioi-Thieu/bai.md   ← 22 bài cơ bản (copy, số 1–22, lược 7 bài)
 │   ├── ...
-│   └── 19-Chien-Luoc-Thi-HSG/bai.md
+│   ├── 22-Generator/bai.md
+│   ├── 23-Tu-Duy-Thuat-Toan/bai.md   ← 19 bài thuật toán (bản chính, số 23–41)
+│   ├── ...
+│   └── 41-Chien-Luoc-Thi-HSG/bai.md
 │
 ├── 03-Thuc-Chien/             🚀 bản chính thực chiến (12 bài)
 │   ├── 01-Virtual-Environment/bai.md
@@ -103,14 +105,14 @@ HyperHub-Python/
 > | `04-Full` | Cơ bản + thuật toán + thực chiến + PDF | Học từ đầu đến cuối một mạch |
 >
 > ✂️ **Track Thuật toán lược 7 bài cơ bản không cần cho HSG:**
-> VSCode (03), Match-Case (09), Exception (19), Package (21),
-> Dataclass (24), Decorator (28), Iterator (29).
-> "Bài tiếp theo", điều kiện tiên quyết và văn xuôi đã chỉnh khớp
-> (bài cuối phần cơ bản là Generator → sang thẳng Tư Duy Thuật Toán).
-> Cần đủ 29 bài? Học ở `01-Co-Ban` hoặc `04-Full`.
+> VSCode, Match-Case, Exception, Package, Dataclass, Decorator, Iterator —
+> còn lại đánh số lại liên tục (1)–(22), nối tiếp thuật toán (23)–(41).
+> "Bài tiếp theo", điều kiện tiên quyết và văn xuôi đã chỉnh khớp.
+> Cần đủ 29 bài gốc? Học ở `01-Co-Ban` hoặc `04-Full`.
 >
-> Các thư mục `Phan-*` là **bản copy tự động** — đừng sửa trực tiếp! Sửa bản
-> chính (`01-Co-Ban`, `02-Thuat-Toan`, `03-Thuc-Chien`) rồi chạy:
+> Các thư mục `Phan-*` trong `04-Full` và 22 bài cơ bản trong `02-Thuat-Toan`
+> là **bản copy tự động** — đừng sửa trực tiếp! Sửa bản chính
+> (`01-Co-Ban`, `02-Thuat-Toan/23-..-41-..`, `03-Thuc-Chien`) rồi chạy:
 >
 > ```bash
 > python tools/sync_tracks.py
@@ -145,29 +147,33 @@ kiến thức, ví dụ, lỗi thường gặp, tóm tắt, kiểm tra nhanh, **
 | 14 | [List](01-Co-Ban/14-List/bai.md) | 29 | [Iterator](01-Co-Ban/29-Iterator/bai.md) |
 | 15 | [Tuple](01-Co-Ban/15-Tuple/bai.md) | | |
 
-### 🧮 02. Thuật toán — HSG / competitive programming (20 bài)
+### 🧮 02. Thuật toán — dãy phẳng (1)–(41), tự chứa
 
-| # | Bài học | Nội dung chính |
-|---|---|---|
-| 1 | [Tư Duy Thuật Toán](02-Thuat-Toan/01-Tu-Duy-Thuat-Toan/bai.md) | Phân rã, nhận diện mẫu, đọc đề HSG, dry run |
-| 2 | [Độ Phức Tạp & Big-O](02-Thuat-Toan/02-Do-Phuc-Tap/bai.md) | Đếm Big-O, bảng ràng buộc, bẫy hiệu năng Python |
-| 3 | [Tìm Kiếm](02-Thuat-Toan/03-Tim-Kiem/bai.md) | Tuyến tính, nhị phân, bisect, chặt đáp số |
-| 4 | [Sắp Xếp](02-Thuat-Toan/04-Sap-Xep/bai.md) | Bubble/chọn/chèn, merge sort, `sorted` + key, nghịch thế |
-| 5 | [Stack, Queue & Hashing](02-Thuat-Toan/05-Stack-Queue-Hashing/bai.md) | Ngoặc, deque đơn điệu, Counter, heap |
-| 6 | [Đệ Quy](02-Thuat-Toan/06-De-Quy/bai.md) | Base + niềm tin, memo, lũy thừa nhanh, Hà Nội |
-| 7 | [Quay Lui](02-Thuat-Toan/07-Quay-Lui/bai.md) | Hoán vị/tổ hợp, N-Queens, cắt tỉa |
-| 8 | [Hai Con Trỏ & Tiền Tố](02-Thuat-Toan/08-Hai-Con-Tro/bai.md) | Cửa sổ trượt, tổng tiền tố, tiền tố + dict |
-| 9 | [Tham Lam](02-Thuat-Toan/09-Tham-Lam/bai.md) | Xếp lịch, nối cáp, bẫy tham lam, exchange |
-| 10 | [Quy Hoạch Động](02-Thuat-Toan/10-Quy-Hoach-Dong/bai.md) | 5 bước DP, túi 0/1, LIS, LCS, lăn mảng |
-| 11 | [Toán Học & Số Học](02-Thuat-Toan/11-Toan-Hoc-So-Hoc/bai.md) | Sàng, Euclid, pow mod, Fermat, tổ hợp mod |
-| 12 | [Đồ Thị: BFS & DFS](02-Thuat-Toan/12-Do-Thi-BFS-DFS/bai.md) | Danh sách kề, BFS đa nguồn, topo, hai phía, flood fill |
-| 13 | [Đường Đi Ngắn Nhất](02-Thuat-Toan/13-Duong-Di-Ngan-Nhat/bai.md) | Dijkstra, Bellman-Ford, Floyd, minimax, arbitrage |
-| 14 | [Cây & DSU](02-Thuat-Toan/14-Cay-Va-DSU/bai.md) | Đường kính, LCA binary lifting, Kruskal, đảo động |
-| 15 | [Segment Tree & Fenwick](02-Thuat-Toan/15-Segment-Tree/bai.md) | Segtree lặp, BIT, nén tọa độ, hiệu phân, nghịch thế |
-| 16 | [Xử Lý Chuỗi Nâng Cao](02-Thuat-Toan/16-Xu-Ly-Chuoi/bai.md) | KMP, Z, rolling hash, Trie, XOR max |
-| 17 | [Bitmask](02-Thuat-Toan/17-Bitmask/bai.md) | Bit tricks, TSP, phân công, meet-in-the-middle, SOS DP |
-| 18 | [DP Nâng Cao](02-Thuat-Toan/18-DP-Nang-Cao/bai.md) | DAG, digit DP, tree DP, interval DP |
-| 19 | [Chiến Lược Thi HSG](02-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md) | Quy trình phòng thi, subtask, stress test |
+Học một mạch không nhảy thư mục: 22 bài cơ bản (lược gọn cho HSG) nối tiếp 19 bài thuật toán.
+
+| # | Bài học | # | Bài học |
+|---|---|---|---|
+| 1 | [Giới Thiệu Python](02-Thuat-Toan/01-Gioi-Thieu/bai.md) | 22 | [Generator – Sinh Dữ Liệu "Từng Phần Một"](02-Thuat-Toan/22-Generator/bai.md) |
+| 2 | [Cài Đặt Python](02-Thuat-Toan/02-Cai-Dat-Python/bai.md) | 23 | [Tư Duy Thuật Toán](02-Thuat-Toan/23-Tu-Duy-Thuat-Toan/bai.md) |
+| 3 | [Biến Trong Python](02-Thuat-Toan/03-Bien/bai.md) | 24 | [Độ Phức Tạp & Big-O](02-Thuat-Toan/24-Do-Phuc-Tap/bai.md) |
+| 4 | [Kiểu Dữ Liệu Cơ Bản](02-Thuat-Toan/04-Kieu-Du-Lieu/bai.md) | 25 | [Tìm Kiếm Tuyến Tính & Nhị Phân](02-Thuat-Toan/25-Tim-Kiem/bai.md) |
+| 5 | [Toán Tử Trong Python](02-Thuat-Toan/05-Toan-Tu/bai.md) | 26 | [Sắp Xếp](02-Thuat-Toan/26-Sap-Xep/bai.md) |
+| 6 | [Nhập và Xuất Dữ Liệu](02-Thuat-Toan/06-Input-Output/bai.md) | 27 | [Stack, Queue & Hashing](02-Thuat-Toan/27-Stack-Queue-Hashing/bai.md) |
+| 7 | [Câu Lệnh If – Cấu Trúc Rẽ Nhánh](02-Thuat-Toan/07-Cau-Lenh-If/bai.md) | 28 | [Đệ Quy](02-Thuat-Toan/28-De-Quy/bai.md) |
+| 8 | [Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](02-Thuat-Toan/08-Vong-Lap-For/bai.md) | 29 | [Quay Lui (Backtracking)](02-Thuat-Toan/29-Quay-Lui/bai.md) |
+| 9 | [Vòng Lặp While – Lặp Cho Đến Khi Điều Kiện Sai](02-Thuat-Toan/09-Vong-Lap-While/bai.md) | 30 | [Hai Con Trỏ, Cửa Sổ Trượt & Tổng Tiền Tố](02-Thuat-Toan/30-Hai-Con-Tro/bai.md) |
+| 10 | [Hàm (Function) Trong Python](02-Thuat-Toan/10-Ham/bai.md) | 31 | [Tham Lam (Greedy)](02-Thuat-Toan/31-Tham-Lam/bai.md) |
+| 11 | [Phạm Vi Biến (Scope) Trong Python](02-Thuat-Toan/11-Scope/bai.md) | 32 | [Quy Hoạch Động (Dynamic Programming)](02-Thuat-Toan/32-Quy-Hoach-Dong/bai.md) |
+| 12 | [Danh Sách (List) Trong Python](02-Thuat-Toan/12-List/bai.md) | 33 | [Toán Học & Số Học Thuật Toán](02-Thuat-Toan/33-Toan-Hoc-So-Hoc/bai.md) |
+| 13 | [Tuple (Bộ Dữ Liệu) Trong Python](02-Thuat-Toan/13-Tuple/bai.md) | 34 | [Đồ Thị: BFS & DFS](02-Thuat-Toan/34-Do-Thi-BFS-DFS/bai.md) |
+| 14 | [Set (Tập Hợp) Trong Python](02-Thuat-Toan/14-Set/bai.md) | 35 | [Đường Đi Ngắn Nhất](02-Thuat-Toan/35-Duong-Di-Ngan-Nhat/bai.md) |
+| 15 | [Dictionary (Từ Điển) Trong Python](02-Thuat-Toan/15-Dictionary/bai.md) | 36 | [Cây & DSU (Hợp Nhất Tập Rời)](02-Thuat-Toan/36-Cay-Va-DSU/bai.md) |
+| 16 | [Chuỗi (String) Trong Python](02-Thuat-Toan/16-String/bai.md) | 37 | [Segment Tree & Fenwick (Cây Đoạn & Cây BIT)](02-Thuat-Toan/37-Segment-Tree/bai.md) |
+| 17 | [Module Trong Python](02-Thuat-Toan/17-Module/bai.md) | 38 | [Xử Lý Chuỗi Nâng Cao: KMP, Z, Hash & Trie](02-Thuat-Toan/38-Xu-Ly-Chuoi/bai.md) |
+| 18 | [Đọc Và Ghi File Trong Python](02-Thuat-Toan/18-File/bai.md) | 39 | [Bitmask & Tối Ưu Trên Tập Hợp](02-Thuat-Toan/39-Bitmask/bai.md) |
+| 19 | [Lập Trình Hướng Đối Tượng (OOP)](02-Thuat-Toan/19-OOP/bai.md) | 40 | [Quy Hoạch Động Nâng Cao: DAG, Digit, Tree & Interval](02-Thuat-Toan/40-DP-Nang-Cao/bai.md) |
+| 20 | [Lambda – Hàm Vô Danh Siêu Ngắn Gọn](02-Thuat-Toan/20-Lambda/bai.md) | 41 | [Chiến Lược Thi HSG & Tổng Kết Nhánh Thuật Toán](02-Thuat-Toan/41-Chien-Luoc-Thi-HSG/bai.md) |
+| 21 | [List Comprehension – Vòng Lặp "Viết Trong Một Dòng"](02-Thuat-Toan/21-List-Comprehension/bai.md) | | |
 
 ### 🚀 03. Thực chiến — API / Package / Project (12 bài)
 
@@ -189,8 +195,9 @@ kiến thức, ví dụ, lỗi thường gặp, tóm tắt, kiểm tra nhanh, **
 1. **Chọn mục của bạn** (xem bảng 3 mục ở trên):
    - Chỉ học nền tảng → mở `01-Co-Ban`, bắt đầu từ
      [Bài 1 — Giới Thiệu Python](01-Co-Ban/01-Gioi-Thieu/bai.md).
-   - Luyện HSG → mở `02-Thuat-Toan` (học `Phan-1-Co-Ban` trước rồi tới
-     các bài thuật toán, không cần nhảy thư mục).
+   - Luyện HSG → mở `02-Thuat-Toan`, học một mạch từ Bài 1 (Giới Thiệu)
+     đến Bài 41 (Chiến Lược Thi) — 22 bài cơ bản gọn nhẹ nối tiếp
+     19 bài thuật toán, không nhảy thư mục.
    - Học một mạch từ đầu đến cuối → mở `04-Full` (đi theo thứ tự
      Phan-1 → Phan-2 → Phan-3).
 2. Mỗi bài: đọc kiến thức → chạy thử ví dụ → **tự làm bài tập ít nhất 15 phút**

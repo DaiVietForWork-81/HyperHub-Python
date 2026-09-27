@@ -1,4 +1,4 @@
-<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/19-Chien-Luoc-Thi-HSG/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
+<!-- TỰ ĐỘNG ĐỒNG BỘ từ 02-Thuat-Toan/41-Chien-Luoc-Thi-HSG/bai.md — đừng sửa trực tiếp, sửa bản chính rồi chạy tools/sync_tracks.py -->
 
 # Bài 19 — Chiến Lược Thi HSG & Tổng Kết Nhánh Thuật Toán
 
@@ -9,7 +9,6 @@
 ## 🧠 Điều kiện tiên quyết
 
 - Toàn bộ Bài 1–19 nhánh Thuật Toán (đặc biệt Bài 1 — tư duy, Bài 2 — Big-O)
-- [Bài 19 — Exception](../../Phan-1-Co-Ban/19-Exception/bai.md) (chương trình không được crash)
 
 ---
 
@@ -339,7 +338,7 @@ def brute(a):
     return sum(1 for i in range(len(a)) for j in range(i + 1, len(a))
                if (a[i] + a[j]) % 2 == 0)
 
-def nhanh(a):   # bản cần kiểm chứng (Bài 1 — ví dụ 3)
+def nhanh(a):   # bản cần kiểm chứng (Bài 23 — ví dụ 3)
     c = sum(1 for x in a if x % 2 == 0)
     l = len(a) - c
     return c * (c - 1) // 2 + l * (l - 1) // 2

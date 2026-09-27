@@ -3592,4 +3592,4 @@ Bạn đã đi hết **20 bài tập + 1 dự án hoàn chỉnh** — từ class
 
 **Vị trí:** `03-Thuc-Chien/12-Du-An-Cuoi-Khoa/bai.md`
 
-🏆 **Bạn đã hoàn thành lộ trình Thực chiến!** Hãy quay lại nhánh [02 — Thuật Toán](../../02-Thuat-Toan/01-Tu-Duy-Thuat-Toan/bai.md) nếu bạn muốn luyện tư duy giải thuật cho HSG.
+🏆 **Bạn đã hoàn thành lộ trình Thực chiến!** Hãy quay lại nhánh [02 — Thuật Toán (bắt đầu từ Bài 23)](../../02-Thuat-Toan/23-Tu-Duy-Thuat-Toan/bai.md) nếu bạn muốn luyện tư duy giải thuật cho HSG.

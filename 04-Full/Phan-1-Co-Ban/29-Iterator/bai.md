@@ -1774,5 +1774,5 @@ for giay in DongHoDemNguoc(3):
 **Vị trí:** `04-Full/Phan-1-Co-Ban/29-Iterator/bai.md`
 
 🎉 **Bạn đã hoàn thành lộ trình Cơ bản!** Giờ bạn có thể chọn nhánh:
-- 🧮 [Nhánh 02 — Thuật Toán (HSG/CP)](../../Phan-2-Thuat-Toan/01-Tu-Duy-Thuat-Toan/bai.md)
+- 🧮 [Nhánh 02 — Thuật Toán (HSG/CP): bắt đầu từ Bài 23](../../Phan-2-Thuat-Toan/01-Tu-Duy-Thuat-Toan/bai.md)
 - 🚀 [Nhánh 03 — Thực Chiến (API/Package/Project)](../../Phan-3-Thuc-Chien/01-Virtual-Environment/bai.md)
