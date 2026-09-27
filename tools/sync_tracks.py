@@ -331,7 +331,7 @@ def sync_full():
         text = text.replace("`03-Thuc-Chien/", "`04-Full/Phan-3-Thuc-Chien/")
         text = MARK.format(src=src.relative_to(ROOT).as_posix()) + text
         write_file(d3 / src.parent.name / "bai.md", text)
-    print("  04-Full/Phan-3-Thuc-Chien: 12 file")
+    print(f"  04-Full/Phan-3-Thuc-Chien: {len(list(d3.glob('*/bai.md')))} file")
 
 
 def main():

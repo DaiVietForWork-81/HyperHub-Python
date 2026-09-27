@@ -77,10 +77,12 @@ HyperHub-Python/
 │   ├── ...
 │   └── 41-Chien-Luoc-Thi-HSG/bai.md
 │
-├── 03-Thuc-Chien/             🚀 bản chính thực chiến (12 bài)
+├── 03-Thuc-Chien/             🚀 bản chính thực chiến (14 bài)
 │   ├── 01-Virtual-Environment/bai.md
 │   ├── ...
-│   └── 12-Du-An-Cuoi-Khoa/bai.md
+│   ├── 12-Du-An-Cuoi-Khoa/bai.md
+│   ├── 13-Pytest/bai.md
+│   └── 14-Git/bai.md
 │
 ├── 04-Full/                   🏆 MỤC 3: full — tất cả + tài liệu (tự chứa)
 │   ├── Phan-1-Co-Ban/         ← copy 29 bài cơ bản
@@ -175,7 +177,7 @@ Học một mạch không nhảy thư mục: 22 bài cơ bản (lược gọn ch
 | 20 | [Lambda – Hàm Vô Danh Siêu Ngắn Gọn](02-Thuat-Toan/20-Lambda/bai.md) | 41 | [Chiến Lược Thi HSG & Tổng Kết Nhánh Thuật Toán](02-Thuat-Toan/41-Chien-Luoc-Thi-HSG/bai.md) |
 | 21 | [List Comprehension – Vòng Lặp "Viết Trong Một Dòng"](02-Thuat-Toan/21-List-Comprehension/bai.md) | | |
 
-### 🚀 03. Thực chiến — API / Package / Project (12 bài)
+### 🚀 03. Thực chiến — API / Package / Project (14 bài)
 
 | # | Bài học | # | Bài học |
 |---|---|---|---|
@@ -184,7 +186,8 @@ Học một mạch không nhảy thư mục: 22 bài cơ bản (lược gọn ch
 | 3 | [JSON](03-Thuc-Chien/03-JSON/bai.md) | 9 | [Typing](03-Thuc-Chien/09-Typing/bai.md) |
 | 4 | [CSV](03-Thuc-Chien/04-CSV/bai.md) | 10 | [Asyncio](03-Thuc-Chien/10-Asyncio/bai.md) |
 | 5 | [API](03-Thuc-Chien/05-API/bai.md) | 11 | [Mini Project](03-Thuc-Chien/11-Mini-Project/bai.md) |
-| 6 | [Requests](03-Thuc-Chien/06-Requests/bai.md) | 12 | [Đồ Án Cuối Khóa](03-Thuc-Chien/12-Du-An-Cuoi-Khoa/bai.md) |
+| 6 | [Requests](03-Thuc-Chien/06-Requests/bai.md) | 13 | [Kiểm Thử Với pytest](03-Thuc-Chien/13-Pytest/bai.md) |
+| 7 | [SQLite](03-Thuc-Chien/07-SQLite/bai.md) | 14 | [Git & GitHub](03-Thuc-Chien/14-Git/bai.md) |
 
 ---
 

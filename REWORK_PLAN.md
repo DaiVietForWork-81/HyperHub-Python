@@ -140,6 +140,8 @@ Hoàn thành nền tảng
 | 39_Asyncio | 03-Thuc-Chien/10-Asyncio |
 | 40_Mini_Project | 03-Thuc-Chien/11-Mini-Project |
 | 41_Du_an_Cuoi_Khoa | 03-Thuc-Chien/12-Du-An-Cuoi-Khoa |
+| (mới) pytest | 03-Thuc-Chien/13-Pytest (test kho sách, fixture, tmp_path) |
+| (mới) git | 03-Thuc-Chien/14-Git (workflow thật, merge conflict, PR) |
 
 ---
 
