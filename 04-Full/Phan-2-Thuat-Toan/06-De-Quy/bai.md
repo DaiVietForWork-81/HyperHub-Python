@@ -375,6 +375,23 @@ memo cứu được (mỗi cặp (n,k) tính 1 lần → O(n·k)).
 **Bài 8 — Độ sâu an toàn.** Merge sort đệ quy sâu bao nhiêu với n = 10⁶?
 Duyệt list bằng đệ quy sâu bao nhiêu? Kết luận cái nào an toàn với limit 1000,
 cái nào phải viết vòng lặp.
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Vẽ cây gọi fib(4).** Vẽ toàn bộ cây gọi của `fib(4)` naive (giống hình
+fib(5) trong bài), đếm số node. Kiểm chứng công thức C(4) = 9 ở Bài 4. Chỉ ra
+node nào bị tính lại nhiều nhất.
+
+**Bài 10 — Chẵn lẻ tương hỗ.** Viết `chan(n)`/`le(n)` gọi lẫn nhau
+(`chan(0) = True`, `le(0) = False`). Test n = 0..10. Cảnh báo: độ sâu đệ quy
+bao nhiêu với n = 10⁵? Sửa sao cho an toàn? (Gợi ý: `n % 2 == 0`.)
+
+**Bài 11 — Quicksort tay + bẫy.** Cài quicksort đệ quy (chọn pivot giữa, chia
+3 nhóm <, =, >). Test đúng. Rồi phân tích: input đã sắp xếp thì độ sâu và thời
+gian ra sao? Vì sao `sorted()` (Timsort) an toàn hơn quicksort tự cài?
+
+**Bài 12 — Liệt kê hoán vị chuỗi.** Liệt kê mọi hoán vị của `"abc"` (6 xâu)
+bằng đệ quy quay lui mini (chọn 1 ký tự + đệ quy phần còn lại). In theo thứ tự
+từ điển. Đếm số node lá của cây gọi với n = 4 (đáp án: 24 = 4!).
 
 ---
 
@@ -502,6 +519,97 @@ Memo: mỗi cặp tính đúng 1 lần, số cặp ≤ (n+1)(k+1) ≈ 5.000 → 
 * Merge sort: sâu log₂n ≈ 20 với n = 10⁶ → **an toàn** (≪ 1000).
 * Duyệt list đệ quy `f(i) → f(i+1)`: sâu n = 10⁶ → **crash** → phải vòng lặp.
 * Quy tắc: sâu logarit thì đệ quy thoải mái; sâu tuyến tính theo n thì vòng lặp.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Vẽ cây gọi fib(4)</summary>
+
+```
+              fib(4)
+        fib(3)       fib(2)
+      fib(2) fib(1) fib(1) fib(0)
+     fib(1) fib(0)
+```
+
+Đếm: 1 + 2 + 4 + 2 = **9 node** = C(4) ✔ (khớp Bài 4).
+`fib(1)` xuất hiện 3 lần, `fib(0)` 2 lần, `fib(2)` 2 lần — tính lại nhiều nhất
+là `fib(1)` (3 lần). Với n = 30, số node ≈ 2³⁰ ≈ 10⁹ — vẽ không nổi, chạy không
+xong, đó chính là lý do naive chết.
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Chẵn lẻ tương hỗ</summary>
+
+```python
+import sys
+sys.setrecursionlimit(10000)
+
+def chan(n):
+    return True if n == 0 else le(n - 1)
+
+def le(n):
+    return False if n == 0 else chan(n - 1)
+
+assert [chan(i) for i in range(11)] == [i % 2 == 0 for i in range(11)]
+```
+
+Độ sâu với n = 10⁵: **10⁵ frame** (mỗi số 1 frame, 2 hàm xen kẽ) → vượt limit
+mặc định, nới limit thì vẫn tốn RAM + chậm. Sửa an toàn: `return n % 2 == 0`
+(O(1), không đệ quy). Bài học: đệ quy tương hỗ đẹp để học, vòng lặp/công thức
+để thi.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Quicksort tay + bẫy</summary>
+
+```python
+import sys
+sys.setrecursionlimit(10000)
+
+def qs(a):
+    if len(a) <= 1:
+        return a
+    p = a[len(a) // 2]
+    return (qs([x for x in a if x < p])
+            + [x for x in a if x == p]
+            + qs([x for x in a if x > p]))
+
+assert qs([3, 1, 4, 1, 5, 9, 2, 6]) == [1, 1, 2, 3, 4, 5, 6, 9]
+```
+
+Bẫy: input đã sắp xếp + pivot luôn ở giữa → vẫn chia đều (bản này ổn!).
+Nhưng bản chọn pivot đầu (`p = a[0]`) với dãy đã xếp: mỗi lần chỉ bớt 1 phần tử
+→ sâu n = 10⁵ → **crash** + O(n²). `sorted()` (Timsort) không bao giờ suy biến
+kiểu đó và viết bằng C — đó là lý do thi thật luôn dùng hàm có sẵn.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Liệt kê hoán vị chuỗi</summary>
+
+```python
+def hoan_vi(s):
+    ra = []
+
+    def dq(path, con):
+        if not con:
+            ra.append("".join(path))
+            return
+        for i in range(len(con)):
+            dq(path + [con[i]], con[:i] + con[i + 1:])
+
+    dq([], list(s))
+    return sorted(ra)
+
+assert hoan_vi("abc") == ["abc", "acb", "bac", "bca", "cab", "cba"]
+```
+
+Mỗi vị trí thử mọi ký tự còn lại → n! lá. n = 4 → **24 lá**. Đây chính là khung
+quay lui thu nhỏ (chọn → đệ quy → quay lui ngầm qua `con[:i]+con[i+1:]`) —
+học ở đây, Bài 7 (Quay Lui) sẽ thấy lại ở dạng tổng quát!
 
 </details>
 

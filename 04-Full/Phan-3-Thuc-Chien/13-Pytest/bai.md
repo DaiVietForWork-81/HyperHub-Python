@@ -502,6 +502,24 @@ ra sao.
 thêm sách → tìm (cache) → xóa sách đó → tìm lại (vẫn thấy vì cache cũ!).
 Sửa `xoa_sach` (xóa cache liên quan) hoặc bỏ cache → test xanh. *Gợi ý: bug nằm
 ở chỗ cache không biết kho đã đổi.*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Vòng lặp đỏ–xanh.** Viết hàm `nhan_doi(x)` (trả x*2) + 1 test sai cố ý
+(`assert nhan_doi(3) == 7`). Chạy pytest xem đỏ, sửa code/test cho xanh, chạy
+lại. Ghi đúng 3 bước ra giấy (đây là nhịp TDD: đỏ → sửa → xanh).
+
+**Bài 10 — Lãi kép và approx.** Hàm `lai_kep(goc, lai, nam)` trả
+`goc * (1 + lai) ** nam`. Viết test `lai_kep(100, 0.1, 3) == 133.1` → pytest đỏ
+(vì ra 133.10000000000005!). Sửa bằng `pytest.approx` cho xanh. Giải thích vì
+sao dân tài chính cấm so float bằng `==`.
+
+**Bài 11 — Fixture lồng nhau.** Viết fixture `kho_1_sach` (1 cuốn) dùng trong
+fixture `file_kho` (lưu kho 1 cuốn ra `tmp_path`, trả đường dẫn). Viết test đọc
+lại bằng `nap_file`. Vẽ sơ đồ phụ thuộc fixture (test → file_kho → kho_1_sach).
+
+**Bài 12 — Săn nhánh chưa test.** Cho hàm có 3 nhánh if/elif/else, viết 2 test
+mới chỉ bao phủ 2 nhánh. Chạy `pytest --cov` (cài `pytest-cov`) xem dòng nào đỏ
+(missing), viết thêm test thứ 3 cho xanh 100%. Ghi lại % trước/sau.
 
 ---
 
@@ -705,6 +723,106 @@ def test_cache_loi_thoi(kho_mau):
 Sửa đúng: `xoa_sach` (và `sua_gia`, `them_sach`) phải xóa cache liên quan —
 hoặc đơn giản **bỏ cache** nếu kho nhỏ (tối ưu sớm là nguồn gốc mọi bug!
 — Knuth). Sau sửa: xanh.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Vòng lặp đỏ–xanh</summary>
+
+```python
+# code.py
+def nhan_doi(x):
+    return x * 2
+
+# test_code.py
+from code import nhan_doi
+
+def test_nhan_doi():
+    assert nhan_doi(3) == 7   # cố tình sai
+```
+
+1. `pytest -q` → đỏ (`assert 6 == 7`). 2. Sửa test thành `== 6`
+   (lỗi ở kỳ vọng, không phải code!). 3. `pytest -q` → xanh.
+   Nhịp TDD thu nhỏ: **đỏ (biết sai ở đâu) → sửa đúng chỗ → xanh (xác nhận)**.
+   Chú ý bước 2: test đỏ chưa chắc code sai — có thể kỳ vọng sai (như Bài 3)!
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Lãi kép và approx</summary>
+
+```python
+import pytest
+
+def lai_kep(goc, lai, nam):
+    return goc * (1 + lai) ** nam
+
+
+def test_lai_kep():
+    assert lai_kep(100, 0.1, 3) == pytest.approx(133.1)
+```
+
+`100 * 1.1**3` = 133.10000000000005 (sai số nhị phân, đã kiểm bằng chạy thật).
+Dân tài chính cấm `==` với tiền: lệch 0.00000000005 đồng × hàng triệu giao dịch
+= sai số thật! `approx` (mặc định dung sai 10⁻⁶ tương đối) là chuẩn.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Fixture lồng nhau</summary>
+
+```python
+import pytest
+from kho import tao_sach, them_sach, luu_file, nap_file
+
+
+@pytest.fixture
+def kho_1_sach():
+    kho = []
+    them_sach(kho, tao_sach(1, "A", "B", "C", 1000.0, 1))
+    return kho
+
+
+@pytest.fixture
+def file_kho(kho_1_sach, tmp_path):
+    f = tmp_path / "k.json"
+    luu_file(kho_1_sach, str(f))
+    return str(f)
+
+
+def test_nap_tu_file(file_kho):
+    assert nap_file(file_kho)[0]["ten"] == "A"
+```
+
+Sơ đồ: `test_nap_tu_file` → cần `file_kho` → cần `kho_1_sach` + `tmp_path`
+(pytest tự giải thứ tự!). Fixture lồng nhau = xây dựng từng lớp, test chỉ xin
+thứ mình cần.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Săn nhánh chưa test</summary>
+
+```python
+# code.py
+def phi_ship(tong):
+    if tong >= 500000:
+        return 0
+    elif tong >= 200000:
+        return 20000
+    return 35000
+```
+
+```bash
+pip install pytest-cov
+pytest --cov=code --cov-report=term-missing -q
+```
+
+Với 2 test (`phi_ship(600000)`, `phi_ship(100000)`): báo cáo hiện nhánh
+`elif` missing → viết thêm `assert phi_ship(300000) == 20000` → 100%.
+Quy trình: **đo bao phủ → viết test cho dòng đỏ → đo lại**. Đừng mê 100% mù
+quáng (test vô nghĩa để đủ số còn tệ hơn thiếu), nhưng nhánh chưa test nào
+cũng là bug tiềm ẩn!
 
 </details>
 

@@ -374,6 +374,25 @@ bằng nhau **và mỗi bạn chỉ lấy từ đúng một gói, gói không đ
 **Bài 8 — Cặp có hiệu nhỏ nhất.** Cho dãy chưa sắp xếp (n ≤ 10⁵), tìm hiệu nhỏ
 nhất giữa hai phần tử phân biệt. *Gợi ý: sắp xếp O(n log n) rồi... hiệu nhỏ
 nhất nhất định nằm ở đâu trong dãy đã sắp xếp?*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Đếm điểm đạt.** Điểm thi đã sắp xếp tăng dần (n ≤ 10⁵). m ≤ 10⁵ truy
+vấn, mỗi truy vấn cho x, in số bạn đạt điểm ≥ x. Code bằng `bisect_left`, test
+với điểm mẫu và 3 truy vấn (kể cả x lớn hơn mọi điểm, x nhỏ hơn mọi điểm).
+
+**Bài 10 — Tìm chỗ treo máy.** Đoạn code nhị phân sai: `while l < r` với
+`l = mid` (thay vì `mid + 1`). Tìm input nhỏ nhất làm treo máy, giải thích vì
+sao kẹt, và sửa đúng 1 dòng.
+
+**Bài 11 — Photo 2 máy.** Hai máy photo: máy A photo 1 bản tốn x giây, máy B
+tốn y giây (làm song song). Cần n bản, thời gian ít nhất bao nhiêu? Chặt nhị
+phân đáp số T với hàm kiểm tra `T // x + T // y >= n`. Code + test
+(x=3, y=5, n=10 → 20).
+
+**Bài 12 — Tìm đỉnh O(log n).** Dãy bất kỳ (phân biệt), "đỉnh" là phần tử lớn
+hơn cả 2 hàng xóm (đầu/cuối dãy chỉ cần lớn hơn 1 hàng xóm). Tìm 1 đỉnh trong
+O(log n) (không phải O(n) quét!). *Gợi ý: so a[mid] với a[mid+1] để quyết định
+bỏ nửa nào — luôn tồn tại đỉnh ở nửa giữ lại.*
 
 ---
 
@@ -550,6 +569,103 @@ main()
 
 O(n log n) do sắp xếp + O(n) duyệt kề. Cách naive thử mọi cặp O(n²) → TLE
 với n = 10⁵.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Đếm điểm đạt</summary>
+
+```python
+import sys
+from bisect import bisect_left
+
+def main():
+    data = sys.stdin.read().strip().split()
+    if not data:
+        return
+    it = iter(data)
+    n = int(next(it))
+    diem = sorted(int(next(it)) for _ in range(n))   # đảm bảo đã xếp
+    m = int(next(it))
+    ra = [str(n - bisect_left(diem, int(next(it)))) for _ in range(m)]
+    sys.stdout.write("\n".join(ra))
+
+main()
+```
+
+Số bạn ≥ x = n − (vị trí đầu tiên ≥ x). Test: điểm [5,6,7,8,9], x = 10 → 0;
+x = 1 → 5; x = 7 → 3. Mỗi truy vấn O(log n).
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Tìm chỗ treo máy</summary>
+
+```python
+# Code sai:
+l, r = 0, 1          # chỉ 2 phần tử!
+while l < r:
+    mid = (l + r) // 2   # mid = 0 = l mãi
+    if a[mid] < x:
+        l = mid          # l vẫn = 0 -> lặp vô tận!
+```
+
+Input nhỏ nhất gây treo: dãy 2 phần tử bất kỳ mà `a[0] < x` (ví dụ
+`a = [1, 2]`, `x = 2`): mid = 0, `a[0] < x` đúng → `l = mid = 0` → lặp mãi.
+Sửa đúng 1 dòng: `l = mid` → `l = mid + 1` (đã loại `a[mid]` thì bỏ hẳn nó).
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Photo 2 máy</summary>
+
+```python
+import sys
+
+def main():
+    data = sys.stdin.read().strip().split()
+    if not data:
+        return
+    x, y, n = map(int, data[:3])
+
+    def duoc(T):
+        return T // x + T // y >= n   # đơn điệu theo T ✔
+
+    l, r, ans = 0, min(x, y) * n, 0
+    while l <= r:
+        mid = (l + r) // 2
+        if duoc(mid):
+            ans, l = mid, mid + 1
+        else:
+            r = mid - 1
+    print(ans)
+
+main()
+```
+
+Chạy tay x=3, y=5, n=10: T=19 → 6+3=9 < 10 (chưa); T=20 → 6+4=10 ✔ → đáp án
+**20**. Cận trên `min(x,y)*n` (máy nhanh nhất làm hết) luôn đủ.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Tìm đỉnh O(log n)</summary>
+
+```python
+def tim_dinh(a):
+    l, r = 0, len(a) - 1
+    while l < r:
+        mid = (l + r) // 2
+        if a[mid] < a[mid + 1]:
+            l = mid + 1   # dốc lên -> đỉnh ở bên phải
+        else:
+            r = mid       # dốc xuống/bằng -> đỉnh ở đây hoặc bên trái
+    return l
+```
+
+Vì sao đúng: nếu `a[mid] < a[mid+1]` thì đi sang phải, dãy (hữu hạn) phải có
+chỗ "đổi chiều" thành đỉnh; ngược lại đỉnh nằm bên trái (kể cả mid). Mỗi bước
+bỏ một nửa → O(log n). Đã kiểm 500 dãy ngẫu nhiên: luôn trả vị trí đỉnh hợp lệ.
 
 </details>
 

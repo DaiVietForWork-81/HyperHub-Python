@@ -499,6 +499,25 @@ sai? (Đến sớm luôn tốt hơn cho tương lai — tính đơn điệu th�
 hiện; SOS trên freq → g[mask] = số phần tử là tập con của mask; với mỗi x,
 số y sao cho x & y == 0 = g[~x & ((1<<n)−1)]; cộng dồn / 2 (đếm đôi) và trừ
 tự cặp (0 & 0 == 0 — cặp (i,i) bị tính!). O(n·2ⁿ + m).*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Khoảng cách Hamming.** Đếm số bit khác nhau giữa 2 số (XOR rồi đếm
+bit 1). Viết 3 cách (bin.count, bit_count, vòng lowbit) + test (0b10110 vs
+0b10001 → 3). Ứng dụng: so sánh chuỗi DNA, phát hiện lỗi truyền tin!
+
+**Bài 10 — Liệt kê tập con của mask.** Cho mask (ví dụ 0b1010), liệt kê mọi tập
+con bằng `sub = (sub-1) & mask`. Code + test (ra [0, 2, 8, 10]). Giải thích vì
+sao công thức này vét đúng hết mà không sót/trùng.
+
+**Bài 11 — TSP đường (không về).** Sửa code TSP (ví dụ 3): thăm hết n thành phố
+nhưng **không cần quay về** điểm xuất phát. Đáp án = min dp[full][i] (không cộng
+đường về). Code + test (ma trận cũ → 65, thay vì 80). Khi nào bản đường hữu ích
+hơn bản vòng? (Gợi ý: giao hàng 1 chiều!)
+
+**Bài 12 — Mã Gray.** Sinh mọi số n bit sao cho 2 số liên tiếp khác đúng 1 bit,
+bằng công thức `g[i] = i ^ (i >> 1)`. Code + test (n=3 ra 8 số, kiểm tra tính
+kề). Ứng dụng thật: encoder quay (xoay 1 nấc chỉ đổi 1 bit → không đọc nhầm
+trạng thái trung gian!).
 
 ---
 
@@ -661,6 +680,111 @@ def dem_cap_and_0(a, n):
 y thỏa x & y == 0 ⟺ y ⊆ (~x) (trong n bit) ⟺ y được đếm trong g[~x & full].
 Mỗi x cộng số y (kể cả chính nó) → trừ tự cặp của số 0 → chia 2 (đếm đôi).
 O(n·2ⁿ + m) — m = 10⁵, n = 20: ~2×10⁷ + 10⁵, Python sát biên, PyPy qua.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Khoảng cách Hamming</summary>
+
+```python
+def hamming_1(a, b):
+    return bin(a ^ b).count("1")
+
+
+def hamming_2(a, b):
+    return (a ^ b).bit_count()   # Python 3.8+: nhanh nhất (lệnh CPU)
+
+
+def hamming_3(a, b):
+    x, dem = a ^ b, 0
+    while x:
+        dem += 1
+        x &= x - 1               # tắt bit 1 thấp nhất mỗi vòng
+    return dem
+
+assert hamming_1(0b10110, 0b10001) == 3
+assert hamming_2(0b10110, 0b10001) == 3
+assert hamming_3(0b10110, 0b10001) == 3
+```
+
+Kiểm tay 22 vs 17: 10110 vs 10001 → khác ở bit 0, 1, 2 → **3** ✔.
+(bit_count nhanh nhất vì là 1 lệnh máy; vòng lowbit chạy đúng bằng số bit 1.)
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Liệt kê tập con của mask</summary>
+
+```python
+def tap_con_cua(mask):
+    ra = []
+    sub = mask
+    while True:
+        ra.append(sub)
+        if sub == 0:
+            break
+        sub = (sub - 1) & mask   # trừ 1 rồi "lọc" lại trong mask
+    return sorted(ra)
+
+assert tap_con_cua(0b1010) == [0, 2, 8, 10]
+```
+
+Vì sao đúng: `sub - 1` lật bit 0 cuối thành 1 và tắt bit 1 cuối; `& mask` giữ
+lại những bit thuộc mask. Mỗi lần lặp ra đúng 1 tập con khác nhau, đi từ mask
+xuống 0 — đủ 2^k tập (k = số bit 1). Tổng thời gian trên mọi mask là O(3ⁿ) —
+đắt, chỉ dùng khi thật cần duyệt tập con của tập con!
+
+</details>
+
+<details>
+<summary>✅ Bài 11: TSP đường (không về)</summary>
+
+```python
+def tsp_duong(c):
+    n = len(c)
+    INF = 10 ** 18
+    dp = [[INF] * n for _ in range(1 << n)]
+    dp[1][0] = 0
+    for mask in range(1 << n):
+        for i in range(n):
+            if not (mask >> i & 1) or dp[mask][i] == INF:
+                continue
+            for j in range(n):
+                if mask >> j & 1:
+                    continue
+                nmask = mask | (1 << j)
+                if dp[mask][i] + c[i][j] < dp[nmask][j]:
+                    dp[nmask][j] = dp[mask][i] + c[i][j]
+    return min(dp[(1 << n) - 1])   # KHÁC bản vòng: không cộng đường về!
+
+assert tsp_duong([[0, 10, 15, 20], [10, 0, 35, 25],
+                  [15, 35, 0, 30], [20, 25, 30, 0]]) == 65
+```
+
+Đáp án 65 (đường 0→1→3→2: 10+25+30) thay vì 80 (vòng về tốn thêm 15). Khác đúng
+**1 dòng** so với TSP vòng — nhưng ý nghĩa khác hẳn (giao hàng 1 chiều vs tuần
+tra về kho). Đọc đề kỹ: "có cần về không" quyết định công thức cuối!
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Mã Gray</summary>
+
+```python
+def gray(n):
+    return [i ^ (i >> 1) for i in range(1 << n)]
+
+g = gray(3)
+assert len(g) == 8
+assert all(bin(g[i] ^ g[i + 1]).count("1") == 1 for i in range(7))
+# 000, 001, 011, 010, 110, 111, 101, 100
+```
+
+Công thức `i ^ (i>>1)`: bit thứ k của Gray = bit k XOR bit k+1 của i —
+chỉ 1 phép tính mỗi số, O(2ⁿ) tổng (tối ưu, vì output đã dài 2ⁿ).
+Ứng dụng thật: encoder vòng quay — xoay 1 nấc chỉ đổi 1 bit nên không bao giờ
+đọc nhầm trạng thái "giữa chừng" (khác mã nhị phân thường có thể đổi nhiều bit
+cùng lúc → đọc sai tai hại trong phần cứng!).
 
 </details>
 

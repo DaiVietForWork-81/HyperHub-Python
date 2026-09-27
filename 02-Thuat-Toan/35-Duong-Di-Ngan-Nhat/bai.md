@@ -587,6 +587,25 @@ nhất** trên đường là nhỏ nhất có thể (đường ống chịu áp 
 biến thể — dist[v] = min độ cao cực đại; nới lỏng: max(dist[u], w) thay vì
 dist[u] + w. Chứng minh: tính đơn điệu max vẫn giữ bất biến heap. (Còn gọi là
 "đường minimax" — ra đề HSG rất nhiều.)*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Bellman-Ford tay.** Đồ thị 4 đỉnh, cạnh: 0→1 (4), 0→2 (2), 2→1 (−1),
+1→3 (2), 2→3 (5), nguồn 0. Ghi dist sau mỗi vòng, chỉ ra vòng nào dừng sớm.
+Giải thích vì sao cạnh âm 2→1 không phá được đáp án (không có chu trình âm!).
+
+**Bài 10 — Dijkstra tay mới.** Đồ thị vô hướng: (0,1,2), (0,2,6), (1,2,1),
+(1,3,7), (2,3,1), nguồn 0. Chạy tay Dijkstra (ghi heap sau mỗi pop), đáp án
+dist = ? (Đáp án: [0, 2, 3, 4].)
+
+**Bài 11 — Đếm cặp tới được.** n ≤ 100, đồ thị có hướng. Đếm số cặp (u, v) mà
+u tới được v (kể cả u = v). Floyd boolean O(n³). Test (n=4, cạnh (0,1),(2,3)
+→ 6 cặp). Khi nào dùng Floyd thay vì BFS từ mỗi đỉnh? (Gợi ý: V nhỏ + hỏi nhiều.)
+
+**Bài 12 — Phí vào đỉnh.** Mỗi đỉnh v có phí vào f[v]; đi cạnh (u,v) tốn w +
+f[v] (kể cả đỉnh xuất phát tốn f[s]). Tìm đường rẻ nhất s→t. Mẹo: tách mỗi đỉnh
+v thành v_in → v_out tốn f[v] (mô hình hóa trạng thái — ôn Bài 14 mục 5!).
+Code Dijkstra trên 2n đỉnh + test (n=3, cạnh (0,1,1),(1,2,1),(0,2,1),
+phí [5,1,10], 0→2 → 16).
 
 ---
 
@@ -757,6 +776,102 @@ def minimax(ke, s, t):
 max ≥ best[u] (đỉnh đó best ≥ best[u], max với cạnh không âm chỉ tăng).
 Cùng khung Dijkstra, đổi phép kết hợp — mẫu "Dijkstra tổng quát" (phép kết
 hợp đơn điệu + có thứ tự đều dùng được).
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Bellman-Ford tay</summary>
+
+| | dist[0] | dist[1] | dist[2] | dist[3] |
+|---|---|---|---|---|
+| Khởi tạo | 0 | ∞ | ∞ | ∞ |
+| Vòng 1 | 0 | 4→**1** (nhờ 2→1 âm!) | 2 | **3** (qua 1: 1+2) |
+| Vòng 2 | 0 | 1 | 2 | 3 (không đổi → **dừng sớm**) |
+
+Đường tới 1 là 0→2→1 tốn 2 + (−1) = 1, rẻ hơn cạnh trực tiếp 0→1 (tốn 4) —
+cạnh âm **có ích** ở đây! Nó chỉ phá Dijkstra khi tạo chu trình âm; cạnh âm
+đơn lẻ thì Bellman-Ford xử lý đúng (và Dijkstra... cũng có thể sai — đừng dùng
+Dijkstra khi có cạnh âm dù chỉ 1 cạnh!).
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Dijkstra tay mới</summary>
+
+| Pop | Nới lỏng | dist |
+|---|---|---|
+| (0,0) | 1→2, 2→6 | [0,2,6,∞] |
+| (2,1) | 2→min(6,3)=3, 3→9 | [0,2,3,9] |
+| (3,2) | 3→min(9,4)=4 | [0,2,3,4] |
+| (4,3) | hết | xong |
+
+Đáp án **[0, 2, 3, 4]**. Đường tới 3: 0→1→2→3 tốn 2+1+1 = 4 (chứ không phải
+0→2→3 tốn 7 hay 0→1→3 tốn 9). Heap sau pop (0,0): [(2,1),(6,2)] — luôn lấy rẻ
+nhất trước, đúng tinh thần Dijkstra.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Đếm cặp tới được</summary>
+
+```python
+def dem_cap_toi_duoc(n, canh):
+    d = [[False] * n for _ in range(n)]
+    for i in range(n):
+        d[i][i] = True            # đỉnh tới được chính nó
+    for u, v in canh:
+        d[u][v] = True
+    for k in range(n):            # k NGOÀI CÙNG (ôn Bài 4 Floyd!)
+        for i in range(n):
+            if d[i][k]:
+                for j in range(n):
+                    if d[k][j]:
+                        d[i][j] = True
+    return sum(sum(hang) for hang in d)
+
+assert dem_cap_toi_duoc(4, [(0, 1), (2, 3)]) == 6
+```
+
+6 cặp: (0,0), (0,1), (1,1), (2,2), (2,3), (3,3). Dùng Floyd khi V nhỏ (≤ 400)
+và cần **mọi cặp** (ma trận quan hệ). Chỉ cần từ 1 nguồn → BFS O(V+E) nhẹ hơn
+nhiều. Chọn theo câu hỏi: "mọi cặp" hay "một nguồn"?
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Phí vào đỉnh</summary>
+
+```python
+import heapq
+
+def duong_phi_dinh(n, canh, phi, s, t):
+    N = 2 * n
+    ke = [[] for _ in range(N)]
+    for v in range(n):
+        ke[v].append((v + n, phi[v]))   # vào đỉnh = trả phí (tách đỉnh!)
+    for u, v, w in canh:
+        ke[u + n].append((v, w))        # ra khỏi u rồi mới đi cạnh
+    INF = 10 ** 18
+    dist = [INF] * N
+    dist[s] = 0
+    heap = [(0, s)]
+    while heap:
+        d, u = heapq.heappop(heap)
+        if d != dist[u]:
+            continue
+        for v, w in ke[u]:
+            if d + w < dist[v]:
+                dist[v] = d + w
+                heapq.heappush(heap, (d + w, v))
+    return dist[t + n]
+
+assert duong_phi_dinh(3, [(0, 1, 1), (1, 2, 1), (0, 2, 1)],
+                       [5, 1, 10], 0, 2) == 16
+```
+
+Đường 0→2 trực tiếp: phí 5 + cạnh 1 + phí 10 = **16** (rẻ hơn 0→1→2:
+5+1+1+1+10 = 18). Mẹo "tách đỉnh" biến phí đỉnh thành phí cạnh — Dijkstra chạy
+nguyên xi. Mẫu này gặp hoài: phí qua trạm, thời gian chờ, đổi phương tiện...
 
 </details>
 

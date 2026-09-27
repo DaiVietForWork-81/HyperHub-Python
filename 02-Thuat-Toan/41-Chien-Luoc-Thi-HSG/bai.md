@@ -464,6 +464,25 @@ khó: DP), bấm giờ 90 phút làm nghiêm túc, rồi tự chấm + viết re
 **Bài 8 — Sổ mẫu.** Tổng hợp từ Bài 23–41 thành "sổ tay 1 trang": mỗi mẫu một
 dòng (dấu hiệu → kỹ thuật → độ phức tạp). Đây là tài liệu duy nhất bạn đọc
 trước giờ thi.
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Đọc đề 5 dòng.** Đề mini: "Cho n và dãy a. Đếm số cặp (i<j) mà a[i]+a[j]
+chia hết cho k. n ≤ 10⁵." Trích ra Input / Output / Ràng buộc / Ví dụ tự đặt /
+2 test biên. Ước lượng subtask (n ≤ 500 brute được bao nhiêu %?).
+
+**Bài 10 — Bắt 3 lỗi checklist.** Đoạn code giải "cặp tổng chẵn" có 3 lỗi thuộc
+checklist 10 lỗi: đọc bằng `input()` trong vòng lặp 10⁵ lần, biến `dem` không
+reset giữa các test, quên `if __name__`. Tìm đủ 3 + sửa từng cái (nêu số mục
+checklist tương ứng).
+
+**Bài 11 — Stress bắt bug người khác.** Code tối ưu SAI cho "cặp tổng chẵn":
+chỉ tính `c*(c-1)//2` (quên số lẻ!). Brute force đúng đã có. Viết stress test
+2000 case ngẫu nhiên (n ≤ 12) tìm counterexample đầu tiên + giải thích vì sao
+test nhỏ đã bắt được (gợi ý: [1, 3]!).
+
+**Bài 12 — Viết editorial mini.** Viết editorial 5 dòng cho bài "cặp tổng chẵn":
+phát biểu lại → ý tưởng (cùng chẵn/lẻ) → công thức → Big-O → bẫy thường gặp.
+So với đáp án mẫu: editorial tốt khác code tốt ở chỗ nào?
 
 ---
 
@@ -633,6 +652,87 @@ n ≤ 20 + liệt kê/đếm → quay lui/bitmask + tỉa
 Nguyên tố nhiều Q → sàng; 1 số lớn → √n; mũ lớn → pow mod
 Lồng nhau/quay lui → stack; theo lớp → queue; min/max liên tục → heap
 ```
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Đọc đề 5 dòng</summary>
+
+* **Input:** n, k, dãy a[1..n] số nguyên.
+* **Output:** một số nguyên — số cặp (i<j) tổng chia hết cho k.
+* **Ràng buộc:** n ≤ 10⁵ → cần O(n log n) trở xuống; O(n²) = 10¹⁰ → TLE.
+* **Ví dụ tự đặt:** n=4, k=3, a=[1,2,3,4] → liệt kê: 1+2=3 ✔, 1+3=4 ✗, 1+4=5 ✗,
+  2+3=5 ✗, 2+4=6 ✔, 3+4=7 ✗ → **2**.
+* **Biên:** n=1 → 0; k=1 → mọi cặp (n(n−1)/2); toàn số chia hết cho k.
+* **Subtask:** n ≤ 500 → brute O(n²) ≈ 2.5×10⁵ phép, ăn 30–40% điểm;
+  n ≤ 10⁵ → đếm dư O(n+k).
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Bắt 3 lỗi checklist</summary>
+
+```python
+# Code gốc (3 lỗi):
+for _ in range(int(input())):      # LỖI 1 (mục 4): input() trong vòng lặp lớn
+    n = int(input())
+    a = list(map(int, input().split()))
+    # dem KHÔNG reset ở đây!          # LỖI 2 (mục 9): dính test trước
+    for i in range(n):
+        for j in range(i + 1, n):
+            if (a[i] + a[j]) % 2 == 0:
+                dem += 1           # NameError ngay test đầu (dem chưa định nghĩa!)
+    print(dem)
+```
+
+* Lỗi 1 → mục 4 (I/O chậm): `sys.stdin.read` + gom output.
+* Lỗi 2 → mục 9 (biến dư): `dem = 0` đầu mỗi test.
+* Lỗi 3 (ẩn): không có `if __name__` + không tách `solve()` — khó stress test.
+  Sửa cả 3 rồi chạy stress với brute để xác nhận.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Stress bắt bug người khác</summary>
+
+```python
+import random
+
+def brute(a):
+    return sum(1 for i in range(len(a)) for j in range(i + 1, len(a))
+               if (a[i] + a[j]) % 2 == 0)
+
+def sai(a):   # quên số lẻ!
+    c = sum(1 for x in a if x % 2 == 0)
+    return c * (c - 1) // 2
+
+random.seed(1)
+for lan in range(2000):
+    n = random.randint(0, 12)
+    a = [random.randint(0, 9) for _ in range(n)]
+    if brute(a) != sai(a):
+        print(f"Bắt được ở lần {lan}: {a} (đúng {brute(a)}, sai {sai(a)})")
+        break
+```
+
+Chạy ra ngay: `[1, 3]` (đúng 1, sai 0) — test nhỏ nhất có thể! Vì bug là "quên
+hẳn 1 trường hợp" nên test càng nhỏ càng dễ lộ (không cần test lớn). Bài học:
+stress test không thay tư duy đúng, nhưng bắt mọi lỗi "quên trường hợp".
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Viết editorial mini</summary>
+
+Mẫu editorial tốt:
+
+> **Cặp tổng chẵn.** Tổng chẵn ⟺ cùng chẵn/lẻ. Đếm c số chẵn, l số lẻ trong
+> một lần duyệt O(n). Đáp án C(c,2) + C(l,2). Độ phức tạp O(n) thời gian,
+> O(1) nhớ. Bẫy: thử mọi cặp O(n²) TLE với n = 10⁵; quên nhóm lẻ.
+
+Editorial tốt ≠ code tốt: editorial giải thích **vì sao** (quan sát chẵn/lẻ,
+chứng minh đủ), code chỉ cho **làm sao**. Viết được editorial nghĩa là hiểu
+bài ở mức dạy lại được — mức cao nhất của "biết".
 
 </details>
 

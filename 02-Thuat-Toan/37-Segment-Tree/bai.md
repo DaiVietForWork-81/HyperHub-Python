@@ -561,6 +561,25 @@ có đúng k người cao ≥ mình đứng trước). Dựng hàng ban đầu. 
 → chèn vào vị trí k trong cấu trúc "danh sách có chèn O(log n)" (BIT tìm vị
 trí trống thứ k! + mảng kết quả). Vì sao sort giảm dần đúng? (Người sau thấp
 hơn/ bằng, không ảnh hưởng k của người trước.)*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Segtree min.** Đổi class tổng ở ví dụ 1 thành range-min-query + cập
+nhật điểm: phần tử trung hòa `e` là gì? Phép `op` là gì? Code + test (nêu rõ 2
+chỗ đổi so với bản tổng). *Gợi ý: e = +∞, op = min.*
+
+**Bài 10 — BIT tìm prefix.** Cho BIT tần suất, tìm chỉ số nhỏ nhất mà tổng tiền
+tố ≥ S (binary lifting trên BIT: đi từ bit cao xuống thấp). Code + test
+([1,0,3,0,2], S=1→0, S=2→2, S=5→4, S=6→4). Ứng dụng: tìm phần tử thứ k còn lại!
+
+**Bài 11 — Cặp đảo ngược (reverse pairs).** Đếm cặp (i<j) mà `a[i] > 2*a[j]`.
+Dùng BIT + nén tọa độ, duyệt phải→trái, hỏi số đã thấy mà `< x/2` (cẩn thận
+chia nguyên: y ≤ (x−1)//2!). Code + test ([1,3,2,3,1] → 2) + stress 200 test
+ngẫu nhiên so brute force.
+
+**Bài 12 — Max subarray + cập nhật điểm.** Segment tree mỗi node lưu 4 số
+(tổng, max tiền tố, max hậu tố, đáp án), gộp: `tong = L+R`, `tien = max(L.tien,
+L.tong+R.tien)`... Code đầy đủ + test ([−2,1,−3,4,−1,2,1,−5,4] → 6). Đây là
+"segtree khó nhất nhóm cơ bản" — làm được thì lazy không còn sợ!
 
 ---
 
@@ -674,6 +693,174 @@ hơn hoặc bằng → họ đều "đếm" vào k của người này; người
 không ảnh hưởng k của người trước. Chèn vào vị trí trống thứ (k+1): cần cấu
 trúc tìm ô trống thứ k trong O(log n) — BIT trên mảng trống (1 = trống):
 tìm prefix-sum = k bằng đi xuống cây (BIT binary lifting). O(n log n) tổng.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Segtree min</summary>
+
+```python
+class SegMin:
+    def __init__(self, a):
+        n = len(a)
+        N = 1
+        while N < n:
+            N *= 2
+        self.N = N
+        self.t = [float("inf")] * (2 * N)   # ĐỔI 1: e = +vô cùng
+        self.t[N:N + n] = a
+        for i in range(N - 1, 0, -1):
+            self.t[i] = min(self.t[2 * i], self.t[2 * i + 1])  # ĐỔI 2: op = min
+
+    def cap_nhat(self, i, v):
+        p = self.N + i
+        self.t[p] = v
+        p //= 2
+        while p:
+            self.t[p] = min(self.t[2 * p], self.t[2 * p + 1])
+            p //= 2
+
+    def hoi(self, l, r):
+        N, t = self.N, self.t
+        l += N
+        r += N + 1
+        kq = float("inf")
+        while l < r:
+            if l & 1:
+                kq = min(kq, t[l])
+                l += 1
+            if r & 1:
+                r -= 1
+                kq = min(kq, t[r])
+            l //= 2
+            r //= 2
+        return kq
+
+s = SegMin([5, 2, 7, 1, 9])
+assert s.hoi(0, 2) == 2      # min(5, 2, 7)
+s.cap_nhat(1, 10)            # dãy thành [5, 10, 7, 1, 9]
+assert s.hoi(0, 2) == 5      # min(5, 10, 7)
+```
+
+Đúng **2 chỗ** khác bản tổng: `e` (0 → +∞) và `op` (+ → min). Mọi chỗ khác
+giữ nguyên — đó là sức mạnh của segment tree tổng quát (mục 1 bài học)!
+
+</details>
+
+<details>
+<summary>✅ Bài 10: BIT tìm prefix</summary>
+
+```python
+class BIT:
+    def __init__(self, n):
+        self.n = n
+        self.bit = [0] * (n + 1)
+
+    def them(self, i, d):
+        i += 1
+        while i <= self.n:
+            self.bit[i] += d
+            i += i & -i
+
+    def tim_prefix(self, s):
+        # chỉ số 0-based NHỎ NHẤT có tổng tiền tố >= s (s >= 1)
+        i, buoc = 0, 1 << self.n.bit_length()
+        while buoc:
+            nxt = i + buoc
+            if nxt <= self.n and self.bit[nxt] < s:
+                s -= self.bit[nxt]
+                i = nxt
+            buoc //= 2
+        return i   # 0-based (i nội bộ = đáp án 0-based)
+
+b = BIT(5)
+for i, v in enumerate([1, 0, 3, 0, 2]):
+    b.them(i, v)
+assert [b.tim_prefix(s) for s in [1, 2, 5, 6]] == [0, 2, 4, 4]
+```
+
+Đi từ bit cao xuống thấp, "nhảy thử": nhảy mà tổng vẫn < S thì nhảy luôn (trừ
+đi), không thì đứng yên. O(log n) — nhanh hơn chặt nhị phân + `tong()` O(log²n)!
+Ứng dụng kinh điển: danh sách còn/khuyết (tìm người thứ k còn sống — Josephus
+nhanh, ôn Bài 10 nhóm Stack!).
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Cặp đảo ngược (reverse pairs)</summary>
+
+```python
+import bisect
+
+def dem_dao_nguoc(a):
+    vals = sorted(set(a))
+    mp = {v: i + 1 for i, v in enumerate(vals)}
+    bit = [0] * (len(vals) + 2)
+
+    def them(i):
+        while i < len(bit):
+            bit[i] += 1
+            i += i & -i
+
+    def tong(i):
+        s = 0
+        while i:
+            s += bit[i]
+            i -= i & -i
+        return s
+
+    dem = 0
+    for x in reversed(a):          # duyệt phải -> trái: "đã thấy" = bên phải
+        dem += tong(bisect.bisect_right(vals, (x - 1) // 2))  # y <= (x-1)//2 ⟺ 2y < x
+        them(mp[x])
+    return dem
+
+assert dem_dao_nguoc([1, 3, 2, 3, 1]) == 2
+```
+
+Bẫy số học: điều kiện `2y < x` (nghiêm ngặt!) tương đương `y <= (x−1)//2` với
+số nguyên — dùng `x//2` là sai khi x chẵn (ví dụ x=4: y<2, tức y≤1 = (4−1)//2,
+không phải 4//2 = 2!). Đã stress 200 test ngẫu nhiên vs brute force. ✔
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Max subarray + cập nhật điểm</summary>
+
+```python
+class SegMaxSub:
+    def __init__(self, a):
+        n = len(a)
+        N = 1
+        while N < n:
+            N *= 2
+        self.N = N
+        NE = float("-inf")
+        self.t = [(0, NE, NE, NE)] * (2 * N)
+        for i, x in enumerate(a):
+            self.t[N + i] = (x, x, x, x)
+        for i in range(N - 1, 0, -1):
+            self.t[i] = self.gop(self.t[2 * i], self.t[2 * i + 1])
+
+    @staticmethod
+    def gop(L, R):
+        tong = L[0] + R[0]
+        tien = max(L[1], L[0] + R[1])
+        hau = max(R[2], R[0] + L[2])
+        tot = max(L[3], R[3], L[2] + R[1])
+        return (tong, tien, hau, tot)
+
+    def dap_an(self):
+        return self.t[1][3]
+
+
+assert SegMaxSub([-2, 1, -3, 4, -1, 2, 1, -5, 4]).dap_an() == 6
+```
+
+Ý nghĩa 4 số: tổng đoạn; tiền tố tốt nhất (hoặc trọn trái + tiền tố phải);
+hậu tố tốt nhất (đối xứng); đáp án (trái/phải/nối giữa). Lá thừa (ngoài dãy)
+dùng `(0, −∞, −∞, −∞)` để không ảnh hưởng max. Mỗi cập nhật điểm leo O(log n) —
+xong bài này thì lazy segment tree (Thử thách) chỉ thêm "đẩy lười"!
 
 </details>
 

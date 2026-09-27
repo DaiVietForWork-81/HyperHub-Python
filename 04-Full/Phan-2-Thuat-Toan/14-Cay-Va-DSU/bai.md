@@ -562,6 +562,23 @@ Chọn tập đỉnh không kề nhau sao cho tổng lớn nhất (cây n ≤ 10
 *Gợi ý: dp0[u] = tốt nhất subtree u khi KHÔNG lấy u (= Σ max(dp0,dp1) con);
 dp1[u] = tốt nhất khi LẤY u (= w[u] + Σ dp0 con). DFS từ gốc, đáp án
 max(dp0,dp1) gốc. O(n). (Tiền đề Bài 18 — tree DP.)*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — 2-BFS tay.** Cây: 0-1, 0-2, 2-3, 2-4, 4-5. BFS từ 0 ghi dist, tìm đỉnh
+xa nhất; BFS lần 2 từ đó, ghi dist, đọc đường kính. (Đáp án: lần 1 tới 5, lần 2
+đường kính 4.)
+
+**Bài 10 — Đếm nhóm bạn.** n người, m cặp bạn thân (quan hệ 2 chiều). Đếm số
+nhóm bạn (liên thông). Dùng DSU (không dùng BFS!). Code + test (n=6, cặp
+(0,1),(1,2),(3,4) → 3 nhóm). So sánh với cách BFS (khi nào DSU thắng?).
+
+**Bài 11 — Kruskal tay mới.** 5 đỉnh, cạnh (w,u,v): (1,0,1), (2,0,2), (3,1,2),
+(4,1,3), (5,2,4), (6,3,4). Sort + duyệt, ghi cạnh lấy/bỏ + tổng. (Đáp án: lấy
+1, 2, 4, 5 → tổng 12.)
+
+**Bài 12 — Khoảng cách có trọng số.** Cây có trọng số cạnh + q truy vấn khoảng
+cách (u, v). Mở rộng LCA: lưu `dist_root` (khoảng cách từ gốc), đáp án =
+dist_root[u] + dist_root[v] − 2·dist_root[lca]. Code + test.
 
 ---
 
@@ -733,6 +750,130 @@ def tap_doc_lap(n, ke, w):
 
 DFS thứ tự sau (post-order bằng stack tay 2 pha). Mỗi đỉnh xử lý 1 lần → O(n).
 Trọng số âm: dp1 có thể âm → max chọn dp0 (không lấy) — đúng vì được chọn rỗng.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: 2-BFS tay</summary>
+
+BFS từ 0: dist = {0:0, 1:1, 2:1, 3:2, 4:2, 5:3} → xa nhất **5**.
+BFS từ 5: 5→4 (1), 4→2 (2), 2→0 (3), 0→1 (4), 2→3 (3) → xa nhất 1 (dist 4).
+Đường kính **4** (5-4-2-0-1). Chạy tay 2 lần BFS là cách nhanh nhất để "cảm"
+được vì sao lần 1 luôn rơi vào đầu đường kính (ôn mục 2b!).
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Đếm nhóm bạn</summary>
+
+```python
+class DSU:
+    def __init__(self, n):
+        self.cha = list(range(n))
+        self.nhom = n
+
+    def tim(self, x):
+        while self.cha[x] != x:
+            self.cha[x] = self.cha[self.cha[x]]
+            x = self.cha[x]
+        return x
+
+    def hop(self, a, b):
+        a, b = self.tim(a), self.tim(b)
+        if a == b:
+            return
+        self.cha[b] = a
+        self.nhom -= 1
+
+
+def dem_nhom(n, cap_ban):
+    dsu = DSU(n)
+    for a, b in cap_ban:
+        dsu.hop(a, b)
+    return dsu.nhom
+
+assert dem_nhom(6, [(0, 1), (1, 2), (3, 4)]) == 3
+```
+
+6 người → 6 nhóm; hop 3 lần thành công → còn **3** ({0,1,2}, {3,4}, {5}).
+DSU thắng BFS khi quan hệ **thêm dần theo thời gian** (online): BFS phải duyệt
+lại cả đồ thị mỗi lần thêm cạnh O(V+E), DSU chỉ O(α)!
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Kruskal tay mới</summary>
+
+Sort theo w: (1,0,1), (2,0,2), (3,1,2), (4,1,3), (5,2,4), (6,3,4).
+
+| Cạnh | Nhóm trước | Quyết định | Tổng |
+|---|---|---|---|
+| (1,0,1) | {0},{1} khác | LẤY | 1 |
+| (2,0,2) | {0,1},{2} khác | LẤY | 3 |
+| (3,1,2) | cùng {0,1,2} | BỎ (tạo chu trình!) | 3 |
+| (4,1,3) | {0,1,2},{3} khác | LẤY | 7 |
+| (5,2,4) | {0,1,2,3},{4} khác | LẤY (đủ 4 = n−1, dừng) | **12** |
+| (6,3,4) | không xét tới | — | — |
+
+MST = **12**. Cạnh (3,1,2) rẻ thứ 3 nhưng nối 2 đỉnh đã cùng nhóm → bỏ.
+Đây chính là cut property trong hành động: cạnh rẻ nhất không tạo chu trình
+luôn an toàn!
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Khoảng cách có trọng số</summary>
+
+```python
+import sys
+sys.setrecursionlimit(300000)
+
+def khoang_cach_cay(n, ke, truy_van):
+    LOG = n.bit_length()
+    up = [[-1] * n for _ in range(LOG)]
+    sau = [0] * n
+    dist_goc = [0] * n
+    st = [(0, -1, 0, 0)]
+    while st:
+        u, cha, d, dd = st.pop()
+        up[0][u] = cha
+        sau[u] = d
+        dist_goc[u] = dd
+        for v, w in ke[u]:
+            if v != cha:
+                st.append((v, u, d + 1, dd + w))
+    for k in range(1, LOG):
+        for v in range(n):
+            if up[k - 1][v] != -1:
+                up[k][v] = up[k - 1][up[k - 1][v]]
+
+    def lca(u, v):
+        if sau[u] < sau[v]:
+            u, v = v, u
+        lech, k = sau[u] - sau[v], 0
+        while lech:
+            if lech & 1:
+                u = up[k][u]
+            lech >>= 1
+            k += 1
+        if u == v:
+            return u
+        for k in range(LOG - 1, -1, -1):
+            if up[k][u] != up[k][v]:
+                u, v = up[k][u], up[k][v]
+        return up[0][u]
+
+    return [dist_goc[u] + dist_goc[v] - 2 * dist_goc[lca(u, v)]
+            for u, v in truy_van]
+
+
+ke = [[(1, 2)], [(0, 2), (2, 3), (3, 4)], [(1, 3)], [(1, 4)]]
+assert khoang_cach_cay(4, ke, [(2, 3), (0, 3), (2, 2)]) == [7, 6, 0]
+```
+
+Đường u–v đi qua lca: đoạn gốc→u + gốc→v, trừ 2 lần đoạn gốc→lca (đếm trùng).
+Tiền xử lý O(n log n) + O(log n)/truy vấn — với q = 10⁵ thì BFS mỗi truy vấn
+O(n) sẽ TLE (10¹⁰), LCA chỉ ~2×10⁶!
 
 </details>
 

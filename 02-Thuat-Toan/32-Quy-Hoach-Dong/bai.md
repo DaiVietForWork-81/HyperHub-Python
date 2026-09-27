@@ -431,6 +431,24 @@ k+1); mỗi a[i] nhị phân tìm vị trí thay thế. Cài đặt + test. Gi�
 được 2 nhóm bằng nhau không? *Gợi ý: DP túi — dp[s] = có tạo được tổng s?
 dp[s] |= dp[s − a[i]] (duyệt ngược!); đáp án dp[tong//2] khi tổng chẵn.
 O(n·tổng) — "giả đa thức", đủ với tổng ≤ 10⁵.*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Chạy tay DP đổi tiền.** Mệnh giá [1, 3, 4], S = 6. Điền tay dp[0..6]
+theo truy hồi `dp[x] = 1 + min(dp[x−c])` (dp[0] = 0). Ghi bảng đầy đủ và chỉ ra
+dp[6] = 2 ứng với cách đổi nào.
+
+**Bài 10 — Đếm cách đổi (khác ít tờ nhất!).** Vẫn mệnh giá và S, nhưng đếm **số
+cách** đổi (thứ tự không quan trọng). DP: `dp[x] += dp[x−c]` duyệt mệnh giá
+ngoài, số tiền trong. Code + test (S=5, [1,2,5] → 4; S=6, [1,3,4] → 4). Giải
+thích vì sao đảo vòng lặp (tiền ngoài, mệnh giá trong) sẽ đếm trùng do thứ tự!
+
+**Bài 11 — Tổng lớn nhất dãy con tăng.** Giống LIS nhưng tối đa **tổng** thay vì
+độ dài: `dp[i] = a[i] + max(dp[j])` với j < i, a[j] < a[i]. Code O(n²) + test
+([1,101,2,3,100,4,5] → 106). Chỉ ra ví dụ mà LIS dài nhất ≠ tổng lớn nhất.
+
+**Bài 12 — Truy vết edit distance.** Mở rộng Bài 4: không chỉ in số phép mà in
+ra **từng phép** (thay/chèn/xóa gì). Đi ngược bảng dp từ (n,m) về (0,0). Code +
+test ("kitten" → "sitting" in đúng 3 phép: thay k→s, thay e→i, chèn g).
 
 ---
 
@@ -630,6 +648,115 @@ main()
 
 `dp[s]` = "tạo được tổng s từ các số đã xét". Mỗi số cập nhật ngược → dùng 1
 lần (đúng túi 0/1). Tổng chẵn và tạo được nửa tổng ⟺ chia đôi được. O(n·tổng).
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Chạy tay DP đổi tiền</summary>
+
+| x | Xét các c ≤ x | dp[x] = 1 + min | Cách tương ứng |
+|---|---|---|---|
+| 0 | — | 0 (base) | (rỗng) |
+| 1 | 1 | 1 + dp[0] = 1 | 1 |
+| 2 | 1 | 1 + dp[1] = 2 | 1+1 |
+| 3 | 1, 3 | 1 + min(2, 0) = 1 | 3 |
+| 4 | 1, 3, 4 | 1 + min(1, 0, 0) = 1 | 4 |
+| 5 | 1, 3, 4 | 1 + min(1, 1, 1) = 2 | 4+1 (hoặc 3+1+1...) |
+| 6 | 1, 3, 4 | 1 + min(2, 1, 1) = 2 | **3+3** ✔ |
+
+dp[6] = 2 — đúng cái tham lam sai (3 tờ)! Nhìn cột "1 + min": mỗi ô chỉ cần 3
+ô trước đó — đây là lăn mảng trong hành động (dp chỉ cần nhớ max(mệnh giá) ô).
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Đếm cách đổi</summary>
+
+```python
+def dem_cach_doi(s, menh_gia):
+    dp = [0] * (s + 1)
+    dp[0] = 1                      # 1 cách đổi 0 đồng: không lấy gì
+    for c in menh_gia:             # mệnh giá NGOÀI
+        for x in range(c, s + 1):  # số tiền TRONG
+            dp[x] += dp[x - c]
+    return dp[s]
+
+assert dem_cach_doi(5, [1, 2, 5]) == 4    # 11111, 1112, 122, 5
+assert dem_cach_doi(6, [1, 3, 4]) == 4    # 111111, 1113, 114, 33
+```
+
+Vì sao thứ tự vòng lặp quyết định? Mệnh giá ngoài → mỗi mệnh giá "xét một lượt",
+cách đổi được chuẩn hóa (dùng hết 1 rồi mới tới 3...) → không đếm trùng thứ tự.
+Đảo lại (tiền ngoài, mệnh giá trong): dp[4] cộng từ dp[3] (dùng 1 sau 3) VÀ từ
+dp[0]... — (1,3) và (3,1) tính 2 lần! Cùng DP, đảo vòng lặp là đổi bài toán.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Tổng lớn nhất dãy con tăng</summary>
+
+```python
+def tong_day_con_tang(a):
+    n = len(a)
+    dp = a[:]   # dp[i]: tổng lớn nhất của dãy tăng KẾT THÚC tại i
+    for i in range(n):
+        for j in range(i):
+            if a[j] < a[i] and dp[j] + a[i] > dp[i]:
+                dp[i] = dp[j] + a[i]
+    return max(dp)
+
+assert tong_day_con_tang([1, 101, 2, 3, 100, 4, 5]) == 106
+```
+
+Đáp án 106 = 1+2+3+100 (không phải 101 đơn độc!). Ví dụ LIS dài nhất ≠ tổng
+lớn nhất: [1, 101, 2, 3, 100] — LIS dài nhất là [1,2,3,100] (dài 4, tổng 106)
+trùng ở đây... ví dụ phân biệt thật: [10, 1, 2, 3]: LIS = [1,2,3] (dài 3, tổng
+6), nhưng tổng lớn nhất = **10** ([10] đơn độc)! Cùng khung LIS, đổi hàm mục
+tiêu — mẫu "DP cùng khung, khác đáp án" cực kỳ hay gặp.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Truy vết edit distance</summary>
+
+```python
+def edit_truy_vet(s, t):
+    n, m = len(s), len(t)
+    dp = [[0] * (m + 1) for _ in range(n + 1)]
+    for i in range(n + 1):
+        dp[i][0] = i
+    for j in range(m + 1):
+        dp[0][j] = j
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            if s[i - 1] == t[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1]
+            else:
+                dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1])
+    i, j, ops = n, m, []
+    while i > 0 or j > 0:
+        if i > 0 and j > 0 and s[i - 1] == t[j - 1]:
+            i -= 1
+            j -= 1                                # khớp: đi chéo, không tốn phép
+        elif i > 0 and j > 0 and dp[i][j] == dp[i - 1][j - 1] + 1:
+            ops.append(f"thay {s[i - 1]}->{t[j - 1]}")
+            i -= 1
+            j -= 1
+        elif j > 0 and dp[i][j] == dp[i][j - 1] + 1:
+            ops.append(f"chèn {t[j - 1]}")
+            j -= 1
+        else:
+            ops.append(f"xóa {s[i - 1]}")
+            i -= 1
+    return dp[n][m], list(reversed(ops))
+
+d, ops = edit_truy_vet("kitten", "sitting")
+assert d == 3 and ops == ["thay k->s", "thay e->i", "chèn g"]
+```
+
+Đi ngược từ (n,m): mỗi bước hỏi "dp ô này từ đâu tới" (khớp/chèn/xóa/thay) —
+đúng mẫu truy vết Bài 2 (LIS). Muốn truy vết thì **phải giữ cả bảng**
+(không lăn mảng được) — đánh đổi nhớ lấy đáp án cụ thể!
 
 </details>
 

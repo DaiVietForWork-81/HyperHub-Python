@@ -411,6 +411,24 @@ Tính số phép tính mỗi cách, kết luận cách nào AC và cài đặt c
 So sánh 2 phiên bản: (a) `input()` + `print` từng số; (b) `sys.stdin.read` +
 gom output + một lần `write`. Đo thời gian, giải thích vì sao (b) nhanh hơn
 hàng chục lần. *Gợi ý: mỗi lần gọi print/input tốn syscall + flush.*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Tốt nhất vs xấu nhất.** Hàm tìm phần tử đầu tiên > 0 trong list.
+Phân tích Big-O trường hợp tốt nhất, xấu nhất. Khi phân tích để nộp bài thì
+lấy trường hợp nào? Vì sao? Cho ví dụ dãy khiến mỗi trường hợp xảy ra.
+
+**Bài 10 — Đếm bước Euclid.** Thuật toán Euclid tìm GCD lặp lại phép `%`.
+Đếm số vòng lặp với (1071, 462) và với cặp Fibonacci liên tiếp (6765, 10946).
+Giải thích vì sao cặp Fibonacci là trường hợp xấu nhất (số giảm chậm nhất).
+
+**Bài 11 — Thực nghiệm tra cứu.** n = 10⁵ tên trong list, m = 10⁴ tên cần tra.
+Đo thời gian 2 cách: (a) `x in list`, (b) đổi sang `set` rồi tra. Tính tỉ số,
+đối chiếu với lý thuyết O(n·m) vs O(n+m).
+
+**Bài 12 — Khi nào segment tree thắng.** n, q ≤ 10⁵ truy vấn "tổng đoạn [l, r]"
+**kèm cập nhật điểm**. So sánh 3 cách: quét O(n)/truy vấn, tiền tố O(1) hỏi +
+O(n) cập nhật, segment tree O(log n) cả hai. Tính tổng phép tính khi nửa số
+truy vấn là cập nhật, kết luận và giải thích.
 
 ---
 
@@ -549,6 +567,87 @@ Vì sao (b) nhanh hơn hàng chục lần: `print` mỗi lần gọi tốn sysca
 xử lý flush/encoding; `input()` cũng vậy. Gom lại: **1 syscall** cho toàn bộ
 output. Với n = 10⁶, (a) có thể TLE chỉ vì I/O dù thuật toán đã O(n) —
 bài học: **thuật toán nhanh + I/O chậm = vẫn TLE**.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Tốt nhất vs xấu nhất</summary>
+
+```python
+def tim_duong_dau(a):
+    for x in a:
+        if x > 0:
+            return x
+    return None
+```
+
+* Tốt nhất O(1): phần tử đầu đã > 0 (ví dụ `[5, -1, -2]`) — 1 phép so sánh.
+* Xấu nhất O(n): không có số dương (ví dụ `[-3, -1]`) — duyệt hết.
+* Nộp bài lấy **xấu nhất** O(n): giám khảo chấm test khó nhất, không chấm may mắn.
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Đếm bước Euclid</summary>
+
+```python
+def dem_euclid(a, b):
+    dem = 0
+    while b:
+        a, b = b, a % b
+        dem += 1
+    return dem
+
+assert dem_euclid(1071, 462) == 3
+assert dem_euclid(6765, 10946) == 20
+```
+
+(1071, 462): 1071 % 462 = 147 → 462 % 147 = 21 → 147 % 21 = 0 → **3 bước**.
+Cặp Fibonacci liên tiếp (6765, 10946) cần **20 bước** — vì mỗi lần `%` chỉ bớt
+đi một số Fibonacci (thương luôn = 1), số giảm chậm nhất có thể. Đây chính là
+trường hợp xấu nhất của Euclid: O(log min(a, b)) với hằng số lớn nhất khi là
+2 số Fibonacci liên tiếp.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Thực nghiệm tra cứu</summary>
+
+```python
+import random, time
+
+n, m = 100000, 10000
+ds = [f"ten{i}" for i in range(n)]
+hoi = [f"ten{random.randint(0, n - 1)}" for _ in range(m)]
+
+t0 = time.perf_counter()
+kq1 = [x in ds for x in hoi]
+t1 = time.perf_counter()
+
+s = set(ds)
+kq2 = [x in s for x in hoi]
+t2 = time.perf_counter()
+assert kq1 == kq2
+print(f"List: {t1 - t0:.2f}s, Set: {t2 - t1:.4f}s")
+```
+
+Điển hình: list ~10–30s (10⁵ × 10⁴ quét), set ~0.01s — nhanh hơn **hàng nghìn
+lần**, khớp lý thuyết O(n·m) = 10⁹ vs O(n+m) ≈ 10⁵.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Khi nào segment tree thắng</summary>
+
+Giả sử q/2 truy vấn hỏi + q/2 cập nhật, q = 10⁵:
+
+* Quét: 10⁵ × 10⁵ = **10¹⁰** → chết.
+* Tiền tố: hỏi O(1) nhưng mỗi cập nhật xây lại O(n) → 5×10⁴ × 10⁵ = **5×10⁹** → chết.
+* Segment tree: 10⁵ × log(10⁵) ≈ 10⁵ × 17 = **1.7×10⁶** → sống khỏe.
+
+Kết luận: **có cập nhật xen kẽ thì tiền tố thua**, segment tree/Fenwick
+(Bài 15) thắng. Không cập nhật thì tiền tố đơn giản nhất — chọn công cụ theo
+đề, không học vẹt "cái nào xịn hơn".
 
 </details>
 

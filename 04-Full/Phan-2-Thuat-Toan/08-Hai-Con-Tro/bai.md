@@ -384,6 +384,23 @@ không giải được bài này.
 liên tiếp chứa **không quá K** số lẻ. *Gợi ý: với mỗi r, tìm l nhỏ nhất sao cho
 đoạn [l, r] thỏa → mọi l' ≥ l đều thỏa → cộng (r − l + 1). Cửa sổ co giãn đếm
 thay vì tìm max.*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Mảng đối xứng?** Kiểm tra dãy có đối xứng không (đọc xuôi = đọc ngược)
+bằng hai con trỏ hai đầu. Code + test (`[1,2,3,2,1]` → True, `[1,2,3]` → False,
+`[]` → True). So sánh với `a == a[::-1]` (khi nào 2 con trỏ thắng?).
+
+**Bài 10 — Tổng lớn nhất k liên tiếp.** Cho dãy và k, tìm tổng lớn nhất của k
+phần tử liên tiếp (cửa sổ rộng cố định). Code trượt O(n) + test
+([1,4,2,10,23,3,1,0,20], k=4 → 39). So với naive O(n·k).
+
+**Bài 11 — Lật tối đa K số 0.** Dãy nhị phân, được đổi tối đa K số 0 thành 1.
+Đoạn toàn số 1 dài nhất là bao nhiêu? Cửa sổ co giãn đếm số 0 trong cửa sổ.
+Test ([1,1,0,0,1,1,1,0,1], K=2 → 7).
+
+**Bài 12 — Mảng hiệu.** n phần tử 0, q truy vấn cộng v vào đoạn [l, r].
+Trả mảng cuối cùng trong O(n+q) bằng mảng hiệu (d[l] += v, d[r+1] −= v rồi cộng
+dồn). Test (n=5, [(0,2,10),(1,3,5)] → [10,15,15,5,0]).
 
 ---
 
@@ -524,6 +541,97 @@ def dem_doan_k_le(a, k):
 
 Điểm mấu chốt: khi cửa sổ [l, r] thỏa, mọi đoạn con kết thúc tại r và bắt đầu
 từ l..r đều thỏa → có đúng (r − l + 1) đoạn. Đếm gộp thay vì liệt kê → O(n).
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Mảng đối xứng?</summary>
+
+```python
+def doi_xung(a):
+    l, r = 0, len(a) - 1
+    while l < r:
+        if a[l] != a[r]:
+            return False
+        l += 1
+        r -= 1
+    return True
+
+assert doi_xung([1, 2, 3, 2, 1]) is True
+assert doi_xung([1, 2, 3]) is False
+assert doi_xung([]) is True
+```
+
+O(n) thời gian, O(1) nhớ. `a == a[::-1]` cũng O(n) nhưng tạo bản copy O(n) nhớ
++ luôn duyệt hết (không dừng sớm khi lệch đầu). Hai con trỏ thắng khi nhớ chật
+hoặc muốn dừng sớm — và đây là mẫu "hai đầu" dùng lại ở bài đối xứng xâu!
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Tổng lớn nhất k liên tiếp</summary>
+
+```python
+def tong_max_k(a, k):
+    s = sum(a[:k])
+    tot = s
+    for i in range(k, len(a)):
+        s += a[i] - a[i - k]
+        tot = max(tot, s)
+    return tot
+
+assert tong_max_k([1, 4, 2, 10, 23, 3, 1, 0, 20], 4) == 39
+```
+
+Liệt kê các tổng cửa sổ rộng 4: 17, **39** (4+2+10+23), 38, 37, 27, 24 → max
+**39** ✔. Naive O(n·k) tính lại mỗi cửa sổ; trượt O(n) chỉ cộng/trừ 2 đầu.
+Edge: k > n → `sum(a[:k])` = tổng cả dãy (coi như một cửa sổ duy nhất).
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Lật tối đa K số 0</summary>
+
+```python
+def dai_nhat_sau_lat(a, k):
+    l = so0 = tot = 0
+    for r, x in enumerate(a):
+        so0 += x == 0
+        while so0 > k:          # quá quota 0 -> co trái
+            so0 -= a[l] == 0
+            l += 1
+        tot = max(tot, r - l + 1)
+    return tot
+
+assert dai_nhat_sau_lat([1, 1, 0, 0, 1, 1, 1, 0, 1], 2) == 7
+```
+
+Cửa sổ tốt nhất [0..6] (2 số 0, dài 7). Mẫu "cửa sổ co giãn với quota" — thay
+"quota số 0" bằng "quota K phân biệt" là ra Bài 5! Một khung, nhiều bài.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Mảng hiệu</summary>
+
+```python
+def ap_dung(n, queries):
+    d = [0] * (n + 1)
+    for l, r, v in queries:
+        d[l] += v
+        d[r + 1] -= v      # hết đoạn thì trừ lại
+    ra, s = [], 0
+    for i in range(n):
+        s += d[i]
+        ra.append(s)
+    return ra
+
+assert ap_dung(5, [(0, 2, 10), (1, 3, 5)]) == [10, 15, 15, 5, 0]
+```
+
+Mỗi truy vấn O(1) (2 phép cộng) + cộng dồn cuối O(n) → O(n+q) thay vì O(n·q).
+Ý tưởng "đánh dấu biên rồi quét" này chính là hiệu phân 1D — bản 2D dùng cho
+bài "cộng hình chữ nhật" (ôn Bài 6 ma trận tiền tố!).
 
 </details>
 

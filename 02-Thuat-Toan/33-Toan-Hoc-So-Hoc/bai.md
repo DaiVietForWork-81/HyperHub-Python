@@ -426,6 +426,24 @@ bằng công thức, kiểm chứng bằng liệt kê code (brute force đến �
 (M không nguyên tố, n ≤ 10⁹). *Gợi ý khó: Euler totient + đệ quy "số mũ đủ
 lớn thì cộng φ(M)" (khái niệm overflow-cap). Đây là bài HSG quốc gia —
 làm được thì số học của bạn đã rất vững.*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Gặp lại sau bao lâu.** 2 đèn: đèn A chớp mỗi a giây, đèn B mỗi b giây,
+cùng chớp lúc 0. Sau bao nhiêu giây gặp lại (cùng chớp)? Mở rộng 3 đèn a, b, c.
+Code dùng `math.gcd`/`math.lcm` + test (a=4, b=6 → 12; thêm c=8 → 24).
+
+**Bài 10 — Đếm ước 2 cách.** Viết đếm ước bằng duyệt tới n và bằng duyệt tới
+√n (+ cặp ước). Đo thời gian với n = 999983 × 999979 (≈ 10¹², tích 2 nguyên tố).
+Giải thích vì sao cách 1 không bao giờ xong còn cách 2 chớp mắt.
+
+**Bài 11 — Tổ hợp 1 truy vấn.** Không tiền xử lý cả bảng: tính C(n, k) mod
+10⁹+7 cho 1 truy vấn bằng công thức tử/mẫu + `pow(mau, MOD-2, MOD)`. Code +
+kiểm chứng với `math.comb` (n=100, k=50). Khi nào dùng cách này thay vì bảng
+giai thừa? (Gợi ý: q nhỏ, n lớn.)
+
+**Bài 12 — Hàm phi Euler.** Cài `phi(n)` bằng phân tích thừa số
+(n = ∏p^e → phi = ∏p^(e−1)(p−1)). Test (phi(36) = 12, phi(10⁹+7) = 10⁹+6,
+phi(1) = 1). Giải thích 1 dòng: phi đếm số 1 ≤ k ≤ n nguyên tố cùng nhau với n.
 
 ---
 
@@ -610,6 +628,112 @@ def thap(k, m):
 
 Đây là bài khó cấp quốc gia — hiểu được lời giải đã là thành công;
 cài đúng + phân tích overflow-cap là xuất sắc.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Gặp lại sau bao lâu</summary>
+
+```python
+import math
+
+def gap_lai(*chu_ky):
+    kq = 1
+    for c in chu_ky:
+        kq = kq // math.gcd(kq, c) * c   # lcm(a,b) = a*b/gcd (chia trước!)
+    return kq
+
+assert gap_lai(4, 6) == 12
+assert gap_lai(4, 6, 8) == 24
+```
+
+Cùng chớp ⟺ thời gian là bội chung → đáp án là BCNN. `kq // gcd * c` (chia
+trước nhân sau) tránh số phình trung gian — thói quen từ C++ vẫn tốt cho Python
+(nhanh hơn với số khổng lồ).
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Đếm ước 2 cách</summary>
+
+```python
+import time
+
+def dem_uoc_naive(n):
+    return sum(1 for d in range(1, n + 1) if n % d == 0)
+
+def dem_uoc_can(n):
+    import math
+    dem, r = 0, math.isqrt(n)
+    for d in range(1, r + 1):
+        if n % d == 0:
+            dem += 2 if d * d != n else 1   # cặp (d, n//d), trừ chính phương
+    return dem
+
+n = 999983 * 999979
+t0 = time.perf_counter()
+assert dem_uoc_can(n) == 4
+t1 = time.perf_counter()
+print(f"Can bac 2: {t1 - t0:.3f}s")   # ~0.3s (10^6 vòng)
+# dem_uoc_naive(n): 10^12 vòng ~ hàng giờ -> KHÔNG CHẠY, chỉ tính lý thuyết!
+```
+
+n = 999983 × 999979 có đúng 4 ước (1, 2 số nguyên tố, n). Cách naive 10¹² vòng
+≈ hàng giờ/ngày; cách căn 10⁶ vòng ≈ 0.3s. Bài học: **đếm bằng cặp ước, không
+bao giờ duyệt tới n** — và với n ≤ 10¹² thì O(√n) luôn đủ.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Tổ hợp 1 truy vấn</summary>
+
+```python
+MOD = 10**9 + 7
+
+def Cn_k_1_truy_van(n, k):
+    if k < 0 or k > n:
+        return 0
+    k = min(k, n - k)          # C(n,k) = C(n,n-k): vòng lặp ngắn hơn!
+    tu = mau = 1
+    for i in range(k):
+        tu = tu * (n - i) % MOD
+        mau = mau * (i + 1) % MOD
+    return tu * pow(mau, MOD - 2, MOD) % MOD
+
+import math
+assert Cn_k_1_truy_van(100, 50) == math.comb(100, 50) % MOD
+assert Cn_k_1_truy_van(10, 3) == 120
+```
+
+O(k) mỗi truy vấn, O(1) nhớ. Dùng khi q nhỏ (vài truy vấn) hoặc n quá lớn
+không tiền xử lý nổi. q ≥ 10⁵ → bảng giai thừa (Bài 6) thắng vì O(1)/truy vấn
+sau O(N) một lần. Chọn công cụ theo q!
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Hàm phi Euler</summary>
+
+```python
+def phi(n):
+    ket_qua, x, p = n, n, 2
+    while p * p <= x:
+        if x % p == 0:
+            while x % p == 0:
+                x //= p
+            ket_qua -= ket_qua // p   # bỏ các bội của p
+        p += 1 if p == 2 else 2
+    if x > 1:
+        ket_qua -= ket_qua // x
+    return ket_qua
+
+assert phi(36) == 12 and phi(10**9 + 7) == 10**9 + 6 and phi(1) == 1
+```
+
+Với n = ∏p^e: tỉ lệ số nguyên tố cùng nhau với n là ∏(1 − 1/p) → nhân với n.
+Ứng dụng đã gặp: `pow(b, MOD-2, MOD)` (Bài 6) đúng vì phi(MOD) = MOD−1 khi MOD
+nguyên tố (Fermat nhỏ là trường hợp riêng của Euler!). Hiểu phi = hiểu vì sao
+nghịch đảo modular tồn tại.
 
 </details>
 

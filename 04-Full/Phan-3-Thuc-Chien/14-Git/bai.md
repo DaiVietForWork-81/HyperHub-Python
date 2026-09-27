@@ -390,6 +390,23 @@ báo `UU`, giải quyết giữ cả 2, commit gộp. Chụp `log --oneline --gr
 **Bài 8 — PR thật.** Fork repo HyperHub-Python, sửa 1 lỗi chính tả bất kỳ,
 push nhánh, mở PR đúng quy trình mục 8. Dán link PR vào vở (đây là đóng góp
 thật cho cộng đồng!).
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Kể chuyện bằng log.** Tạo repo, commit 3 lần (thêm file, sửa file,
+xóa file). Dùng `git log --oneline`, `git show <mã>`, `git diff HEAD~1` kể lại
+toàn bộ lịch sử cho bạn nghe (file nào sinh ra/chết đi ở commit nào).
+
+**Bài 10 — Cứu commit thiếu file.** Commit quên `add` 1 file mới. Sửa bằng
+`git commit --amend --no-edit` (chưa push!) + kiểm tra `log` vẫn 1 commit.
+Trả lời: vì sao đã push thì KHÔNG được amend? (Gợi ý: hash đổi → lịch sử phân nhánh.)
+
+**Bài 11 — Stash cứu nguy.** Đang sửa dở (`M a.py`, chưa commit) mà sếp gọi fix
+bug gấp trên `main`. Dùng `stash` cất việc dở, sang nhánh hotfix, commit, về
+lại, `pop` lấy việc dở ra tiếp tục. Ghi toàn bộ lệnh + `status` sau mỗi bước.
+
+**Bài 12 — Review PR như senior.** Cho 1 PR mẫu (diff: thêm hàm + `print`
+debug quên xóa + message "update"). Viết review 5 điểm (diff sạch? test? message?
+key? rác?) và quyết định gộp hay yêu cầu sửa. Giải thích mỗi điểm.
 
 ---
 
@@ -499,6 +516,74 @@ Kiểm tra: `git log --oneline --graph` thấy commit gộp nối 2 nhánh:
 Không có đáp án mẫu — làm đúng quy trình mục 8 là đạt:
 Fork → clone → nhánh mới → sửa + test → push → mở PR với mô tả rõ ràng.
 PR đầu tiên được gộp là cột mốc đáng nhớ, chúc mừng trước! 🎉
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Kể chuyện bằng log</summary>
+
+```bash
+echo 1 > a.txt && git add . && git commit -qm "them a"
+echo 2 > b.txt && git add . && git commit -qm "them b"
+rm a.txt && git add . && git commit -qm "xoa a"
+git log --oneline        # 3 dòng: xoa a / them b / them a (mới nhất trên cùng!)
+git show HEAD~1 --stat   # xem commit "them b" đụng file nào
+git diff HEAD~1          # khác biệt giữa hiện tại và 1 commit trước
+```
+
+Đọc `log` từ dưới lên = đọc truyện từ đầu: sinh a → sinh b → xóa a.
+`show`/`diff` là kính lúp soi từng commit — review code người khác bắt đầu từ đây.
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Cứu commit thiếu file</summary>
+
+```bash
+git add main.py && git commit -m "them chuc nang"   # quên test.py!
+git add test.py
+git commit --amend --no-edit    # gộp vào commit vừa rồi, giữ message
+git log --oneline               # vẫn 1 commit ✔ (hash đã đổi!)
+```
+
+Vì sao push rồi thì cấm: `amend` tạo commit **mới** (hash mới), commit cũ vẫn
+nằm trên remote → lịch sử phân nhánh, đồng đội pull về sẽ rối. Chưa push thì
+lịch sử là của riêng mình, sửa thoải mái.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Stash cứu nguy</summary>
+
+```bash
+git status --short        # M a.py (việc dở, chưa commit)
+git stash push -m "viec dang do"
+git status --short        # (trống! việc dở đã cất vào "ngăn kéo")
+git checkout -b hotfix
+# ... sửa bug, commit, (push) ...
+git checkout main         # hoặc nhánh cũ
+git stash pop             # lấy việc dở ra, tiếp tục
+git status --short        # M a.py (trở lại!)
+```
+
+`stash` = ngăn kéo tạm: `push` cất, `pop` lấy ra (xóa khỏi ngăn kéo),
+`list` xem còn gì trong đó. Quy tắc: không bao giờ chuyển nhánh khi đang dở
+việc mà chưa commit/stash — dễ lẫn code 2 việc vào nhau!
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Review PR như senior</summary>
+
+PR mẫu: thêm `tinh_thue()` + `print(thue)` debug + message "update".
+
+1. **Diff sạch?** ❌ — còn `print` debug → yêu cầu xóa.
+2. **Test?** ❌ — không có test mới → yêu cầu thêm ít nhất 1 test.
+3. **Message?** ❌ — "update" vô nghĩa → đổi `them: tinh thue hang hoa`.
+4. **Key/bí mật?** ✔ (không có) — qua.
+5. **File rác?** ❌ — kèm `__pycache__/` → thêm `.gitignore`.
+→ **Yêu cầu sửa** (request changes), không gộp. Review gắt hôm nay đỡ bug
+ngày mai — và chính bạn cũng muốn người khác review mình kỹ như vậy!
 
 </details>
 

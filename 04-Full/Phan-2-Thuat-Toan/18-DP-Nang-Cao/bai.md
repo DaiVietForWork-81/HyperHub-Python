@@ -610,6 +610,26 @@ không? Viết lập luận exchange cho trạm xăng và phản ví dụ tham l
 độc lập (lấy lá tham lam: cây sao 1 trung tâm + 5 lá — tham lam lấy 5 lá = 5
 đúng; tìm cây mà tham lam "lấy lá" sai: trung tâm nối 2 lá + mỗi lá nối thêm...
 gợi ý: tham lam "lấy nút sâu nhất" trên đường dài có thể chặn 2 nút tốt hơn).
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Đếm đường DAG.** DAG n ≤ 10⁵, đếm số đường đi từ s đến t (không cần
+dài nhất, chỉ cần đếm!). DP: topo + `dp[v] += dp[u]`. Code + test (4 đỉnh,
+cạnh (0,1),(0,2),(1,3),(2,3), s=0, t=3 → 2 đường). So với bài đường dài nhất
+(Bài 1 đáp án): khác nhau đúng phép gộp (cộng vs max)!
+
+**Bài 10 — Số không chứa 7.** Đếm số trong [0, 100] không chứa chữ số 7 (làm
+tay + digit DP + brute check 3 cách, đáp án 82). Mở rộng: code digit DP tổng
+quát nhận N ≤ 10¹⁸ (đã kiểm: khớp brute với N nhỏ).
+
+**Bài 11 — Đường tổng lớn nhất (có âm!).** Cây có trọng số đỉnh (âm được!).
+Tìm tổng lớn nhất của đường đi bất kỳ (đi qua/hoặc không qua gốc, 1 đỉnh cũng
+tính). Tree DP: `xuong[u]`, đáp án qua u = w[u] + 2 nhánh dương tốt nhất.
+Code + test ([10,−5,4,3,2] → 14; toàn âm [−5,−2,−9] → −2).
+
+**Bài 12 — Triangulation (Catalan).** Đếm cách chia đa giác lồi n đỉnh thành
+tam giác bằng đường chéo không cắt nhau. Interval DP: `dp[l][r] = Σ
+dp[l][k]·dp[k][r]`. Code + test (n=3..8 → 1, 2, 5, 14, 42, 132). Nhận ra dãy
+Catalan!
 
 ---
 
@@ -770,6 +790,148 @@ a[l] với a[m] cùng màu (nhập nhóm, tính sau). O(m⁴) worst — m ≤ 50
   Kết luận đúng: tập độc lập KHÔNG có tính chất tham lam (không có exchange
   đơn giản) → phải DP; trạm xăng CÓ (lá bắt buộc phủ từ trên) → tham lam.
   Phân biệt bằng chứng minh, không bằng ví dụ lẻ.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Đếm đường DAG</summary>
+
+```python
+from collections import deque
+
+def dem_duong_dag(n, canh, s, t):
+    ke = [[] for _ in range(n)]
+    bac = [0] * n
+    for u, v in canh:
+        ke[u].append(v)
+        bac[v] += 1
+    q = deque([u for u in range(n) if bac[u] == 0])
+    topo = []
+    while q:
+        u = q.popleft()
+        topo.append(u)
+        for v in ke[u]:
+            bac[v] -= 1
+            if bac[v] == 0:
+                q.append(v)
+    dp = [0] * n
+    dp[s] = 1                       # 1 "đường rỗng" bắt đầu tại s
+    for u in topo:
+        for v in ke[u]:
+            dp[v] += dp[u]          # gộp bằng CỘNG (đếm), không phải max!
+    return dp[t]
+
+assert dem_duong_dag(4, [(0, 1), (0, 2), (1, 3), (2, 3)], 0, 3) == 2
+```
+
+So với đường dài nhất (Bài 1): cùng khung topo + duyệt, khác đúng phép gộp
+(`+=` đếm vs `max` tối ưu). DP trên DAG là một khung, thay phép gộp là ra bài
+mới — hiểu khung này thì "nghĩ DP" nhanh gấp đôi!
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Số không chứa 7</summary>
+
+Làm tay N = 100: hàng chục 0–8 (9 hàng, bỏ hàng 7): mỗi hàng 9 số (bỏ đơn vị 7)
+→ 9 × 9 = 81, cộng số 100 (không chứa 7) → **82**.
+
+```python
+from functools import lru_cache
+
+def dem_khong_7(n):
+    s = str(n)
+
+    @lru_cache(maxsize=None)
+    def f(i, tight):
+        if i == len(s):
+            return 1
+        gioi = int(s[i]) if tight else 9
+        return sum(f(i + 1, tight and d == gioi)
+                   for d in range(gioi + 1) if d != 7)
+
+    return f(0, True)
+
+assert dem_khong_7(100) == 82
+assert dem_khong_7(100) == sum(1 for x in range(101) if "7" not in str(x))
+```
+
+(3 cách khớp nhau: tay 82, DP 82, brute 82 ✔.) Code chạy được tới N = 10¹⁸
+(trạng thái 19×2) — brute thì không bao giờ xong. Đây là toàn bộ "phép màu"
+digit DP trong 15 dòng!
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Đường tổng lớn nhất (có âm!)</summary>
+
+```python
+import sys
+sys.setrecursionlimit(300000)
+
+def duong_tong_lon_nhat(n, ke, w):
+    xuong = [0] * n
+    tot = float("-inf")
+    st = [(0, -1, False)]
+    while st:
+        u, cha, xong = st.pop()
+        if not xong:
+            st.append((u, cha, True))
+            for v in ke[u]:
+                if v != cha:
+                    st.append((v, u, False))
+        else:
+            b1 = b2 = float("-inf")
+            for v in ke[u]:
+                if v != cha:
+                    d = xuong[v]
+                    if d > b1:
+                        b1, b2 = d, b1
+                    elif d > b2:
+                        b2 = d
+            xuong[u] = w[u] + max(0, b1)
+            tot = max(tot, w[u] + max(0, b1) + max(0, b2))
+    return tot
+
+ke = [[1, 2], [0, 3, 4], [0], [1], [1]]
+assert duong_tong_lon_nhat(5, ke, [10, -5, 4, 3, 2]) == 14
+assert duong_tong_lon_nhat(3, [[1], [0, 2], [1]], [-5, -2, -9]) == -2
+```
+
+Truy ngược đáp án 14: cạnh 0–2 cho tổng 10 + 4 = **14** ✔ (mọi đường khác đều
+nhỏ hơn — kiểm bằng brute force liệt kê mọi cặp đỉnh). Bài học: đừng đoán mò
+đường nào tốt nhất, hãy để DP + brute force kiểm chứng!
+
+Trường hợp toàn âm [−5,−2,−9]: `max(0, ...)` cắt nhánh âm, đáp án = đỉnh ít
+âm nhất = **−2** (quy ước đường 1 đỉnh được tính!). Quên `max(0,·)` là sai ngay.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Triangulation (Catalan)</summary>
+
+```python
+def dem_chia_tam_giac(n):
+    # n đỉnh đa giác lồi, n >= 3
+    dp = [[0] * n for _ in range(n)]
+    for dai in range(2, n):          # độ dài đoạn (số cạnh)
+        for l in range(n - dai):
+            r = l + dai
+            tot = 0
+            for k in range(l + 1, r):  # thử đỉnh k nối với l, r
+                a = dp[l][k] if k - l >= 2 else 1
+                b = dp[k][r] if r - k >= 2 else 1
+                tot += a * b
+            dp[l][r] = tot
+    return dp[0][n - 1]
+
+assert [dem_chia_tam_giac(n) for n in range(3, 9)] == [1, 2, 5, 14, 42, 132]
+```
+
+Cố định cạnh (l, r), thử mọi đỉnh k làm tam giác (l, k, r): trái có a cách,
+phải có b cách (đoạn < 2 cạnh = 1 cách rỗng) → nhân lại, cộng qua mọi k.
+Kết quả 1, 2, 5, 14, 42, 132 = dãy **Catalan** — cùng dãy với số cây nhị phân,
+số cách đặt ngoặc... Interval DP và Catalan đi với nhau như hình với bóng!
 
 </details>
 

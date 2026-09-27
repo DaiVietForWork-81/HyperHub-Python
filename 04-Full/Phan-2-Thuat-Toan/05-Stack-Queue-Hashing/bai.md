@@ -404,6 +404,23 @@ tiền tố (giống Bài 1 — bài 8); gặp lại thì cập nhật độ dà
 **Bài 8 — Top-k phổ biến.** n ≤ 10⁶ số, tìm k = 10 số xuất hiện nhiều
 nhất. *Gợi ý: Counter O(n) + heapq.nlargest(10, dem.items(), key=...) —
 O(n + m log k). So với sort toàn bộ O(m log m).*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Đảo chuỗi bằng stack.** Đảo `"Python"` thành `"nohtyP"` chỉ dùng
+`append`/`pop` (không dùng `[::-1]` để luyện LIFO). Vẽ stack sau mỗi bước với
+input `"ab"`. Khi nào dùng stack, khi nào dùng `[::-1]`?
+
+**Bài 10 — Josephus mini.** n người xếp vòng tròn, đếm k thì loại 1 người, lặp
+đến khi còn 1. Mô phỏng bằng `deque` (`rotate` + `popleft`). Test n=7, k=3
+(đáp án 4) và n=5, k=2 (đáp án 3). Phân tích Big-O.
+
+**Bài 11 — Nhóm anagram.** Cho list từ, nhóm các từ là anagram của nhau
+(cùng chữ cái, khác thứ tự). Dùng dict với key = chuỗi đã sắp xếp. Test với
+`["an", "na", "binh", "hbin", "abc"]`.
+
+**Bài 12 — Làm phẳng 1 cấp bằng stack.** `[1, [2, 3], 4, [5]]` thành
+`[1, 2, 3, 4, 5]` dùng stack tường minh (không đệ quy). *Chú ý thứ tự: đẩy ngược
+(`reversed`) thì pop ra mới đúng thứ tự!*
 
 ---
 
@@ -555,6 +572,96 @@ top = heapq.nlargest(10, dem.items(), key=lambda kv: kv[1])  # O(m log 10)
 `nlargest(k, ...)` dùng heap cỡ k bên trong — O(m log k) thay vì sort hết
 O(m log m). Với m = 10⁶ loại phân biệt: sort ~2×10⁷ phép, heap ~4×10⁶ —
 nhanh hơn ~5 lần và ít RAM hơn.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Đảo chuỗi bằng stack</summary>
+
+```python
+def dao_stack(s):
+    st = []
+    for ch in s:
+        st.append(ch)      # đẩy hết vào
+    ra = ""
+    while st:
+        ra += st.pop()     # lấy ngược ra
+    return ra
+
+assert dao_stack("Python") == "nohtyP"
+```
+
+Với `"ab"`: stack [] → [a] → [a, b], rồi pop b, pop a → "ba".
+Dùng stack khi **minh họa/mô phỏng LIFO** hoặc xử lý luồng vào–ra; code thật
+dùng `[::-1]` (viết bằng C, nhanh hơn ~10 lần).
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Josephus mini</summary>
+
+```python
+from collections import deque
+
+def josephus(n, k):
+    q = deque(range(1, n + 1))
+    while len(q) > 1:
+        q.rotate(-(k - 1))   # xoay người bị loại ra đầu
+        q.popleft()          # loại
+    return q[0]
+
+assert josephus(7, 3) == 4
+assert josephus(5, 2) == 3
+```
+
+`rotate(-(k-1))` đưa người thứ k ra đầu hàng trong O(k) — tổng O(n·k).
+Với n ≤ 10⁵, k lớn thì TLE → cần công thức truy hồi O(n):
+`J(n) = (J(n-1) + k) % n` (đánh số 0-based). Mô phỏng để hiểu, công thức để AC!
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Nhóm anagram</summary>
+
+```python
+from collections import defaultdict
+
+def nhom_anagram(tu):
+    nhom = defaultdict(list)
+    for w in tu:
+        nhom["".join(sorted(w))].append(w)   # key chuẩn hóa
+    return sorted([sorted(v) for v in nhom.values()])
+
+assert nhom_anagram(["an", "na", "binh", "hbin", "abc"]) == [
+    ["abc"], ["an", "na"], ["binh", "hbin"]]
+```
+
+Hai từ anagram ⟺ sort ký tự giống nhau. O(T·L log L) với T từ, L dài nhất.
+Mẫu "chuẩn hóa rồi nhóm bằng dict" dùng cho mọi bài gom nhóm theo dạng.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Làm phẳng 1 cấp bằng stack</summary>
+
+```python
+def phang(a):
+    ra = []
+    st = list(reversed(a))   # đảo để pop ra đúng thứ tự gốc!
+    while st:
+        x = st.pop()
+        if isinstance(x, list):
+            st.extend(reversed(x))   # chẻ list con, đẩy ngược vào
+        else:
+            ra.append(x)
+    return ra
+
+assert phang([1, [2, 3], 4, [5]]) == [1, 2, 3, 4, 5]
+```
+
+Vì stack lấy ngược (LIFO) nên phải đẩy ngược mới giữ thứ tự — chi tiết nhỏ
+quyết định đúng/sai. Muốn phẳng **mọi cấp** (lồng sâu)? Code trên đã làm được
+(vì list con chẻ ra lại được xét tiếp) — thử với `[1, [2, [3]]]`!
 
 </details>
 

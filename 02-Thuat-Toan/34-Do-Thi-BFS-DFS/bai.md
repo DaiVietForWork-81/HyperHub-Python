@@ -752,6 +752,24 @@ mỗi ô ghi E gần nhất + dist. O(n·m) một lần.*
 gặp cạnh tới đỉnh xám → chu trình. So với Kahn: khi nào dùng cái nào?
 *Gợi ý: cần liệt kê chu trình cụ thể → DFS 3 màu (truy vết qua stack);
 chỉ cần thứ tự/kiểm tra → Kahn gọn hơn.*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — DFS tay + độ sâu.** Đồ thị: 0 nối 1, 2; 1 nối 3; 2 nối 3; 3 nối 4.
+Chạy tay DFS đệ quy từ 0 (hàng xóm theo thứ tự tăng dần), ghi thứ tự thăm và
+độ sâu ngăn xếp lớn nhất. So với thứ tự BFS (Bài 1 đáp án).
+
+**Bài 10 — Thành phần lớn nhất.** Đồ thị vô hướng n ≤ 10⁵. Tìm kích thước thành
+phần liên thông lớn nhất (số đỉnh). Code BFS/DFS + test (6 đỉnh, cạnh
+(0,1),(1,2),(3,4) → 3). Phân tích Big-O.
+
+**Bài 11 — Đảo 8 hướng.** Sửa flood fill 4 hướng thành 8 hướng (kể cả chéo).
+Test lưới 3×3 (góc + tâm = 1, còn lại 0): 4 hướng → 5 đảo, 8 hướng → 1 đảo.
+Giải thích vì sao đề phải ghi rõ 4 hay 8 hướng!
+
+**Bài 12 — Có phải cây?** Cho n đỉnh và danh sách cạnh. Kiểm tra có phải cây
+không (đủ n−1 cạnh + liên thông). Code + 3 test: cây thật, thiếu cạnh (rời),
+đủ cạnh nhưng có chu trình (tam giác + đỉnh treo). Giải thích vì sao thiếu 1
+trong 2 điều kiện là sai.
 
 ---
 
@@ -934,6 +952,107 @@ def co_chu_trinh(ke):
   quay lại tổ tiên = chu trình. Đỉnh ĐEN = xong, không cần xét lại.
 * Chọn: cần **vết** chu trình → DFS 3 màu (lưu cha để dựng đường);
   chỉ cần có/không + thứ tự → Kahn ngắn gọn hơn.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: DFS tay + độ sâu</summary>
+
+DFS đệ quy từ 0 (hàng xóm tăng dần): thăm 0 → 1 → 3 → (ke[3] = [1,2,4]:
+1 thăm rồi, tới 2 chưa thăm!) → 2 → (2 hết đường mới) quay lui → 4.
+
+* Thứ tự thăm: **0, 1, 3, 2, 4**. Ngăn xếp sâu nhất **4** (0→1→3→2).
+* Bẫy tinh vi: tưởng sau 3 là 4 (vì 4 "mới"), nhưng vòng lặp hàng xóm duyệt
+  theo thứ tự ke[3] = [1, 2, 4] nên **2 đi trước 4**! Chạy tay phải theo đúng
+  thứ tự code, không theo cảm tính.
+* So BFS (Bài 1): 0, 1, 2, 3, 4 — BFS theo lớp, DFS đâm sâu. Cùng đồ thị,
+  2 thứ tự khác nhau, 2 thông tin khác nhau (khoảng cách vs cấu trúc sâu)!
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Thành phần lớn nhất</summary>
+
+```python
+from collections import deque
+
+def thanh_phan_lon_nhat(n, canh):
+    ke = [[] for _ in range(n)]
+    for u, v in canh:
+        ke[u].append(v)
+        ke[v].append(u)
+    tham = [False] * n
+    tot = 0
+    for s in range(n):
+        if tham[s]:
+            continue
+        dem, q = 0, deque([s])
+        tham[s] = True
+        while q:
+            u = q.popleft()
+            dem += 1
+            for v in ke[u]:
+                if not tham[v]:
+                    tham[v] = True
+                    q.append(v)
+        tot = max(tot, dem)
+    return tot
+
+assert thanh_phan_lon_nhat(6, [(0, 1), (1, 2), (3, 4)]) == 3
+```
+
+Vòng ngoài qua mọi đỉnh (đồ thị có thể rời!) + BFS mỗi thành phần. O(V+E).
+Quên vòng ngoài là bug #1 (chỉ thăm được 1 thành phần).
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Đảo 8 hướng</summary>
+
+Thêm 4 hướng chéo vào tuple hướng:
+
+```python
+HUONG_8 = ((1, 0), (-1, 0), (0, 1), (0, -1),
+           (1, 1), (1, -1), (-1, 1), (-1, -1))
+```
+
+Lưới góc+tâm: 4 hướng → **5 đảo** (tâm + 4 góc riêng lẻ), 8 hướng → **1 đảo**
+(góc chạm tâm qua đường chéo). Đề không ghi rõ là đề lỗi — khi làm bài mà đề
+mập mờ, hãy hỏi/giả định rõ trong code comment!
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Có phải cây?</summary>
+
+```python
+from collections import deque
+
+def la_cay(n, canh):
+    if len(canh) != n - 1:      # điều kiện 1: đúng số cạnh
+        return False
+    ke = [[] for _ in range(n)]
+    for u, v in canh:
+        ke[u].append(v)
+        ke[v].append(u)
+    tham = [False] * n
+    q, tham[0], dem = deque([0]), True, 0
+    while q:
+        u = q.popleft()
+        dem += 1
+        for v in ke[u]:
+            if not tham[v]:
+                tham[v] = True
+                q.append(v)
+    return dem == n              # điều kiện 2: liên thông
+```
+
+* Cây thật [(0,1),(1,2),(2,3)] → True ✔.
+* Thiếu cạnh [(0,1),(2,3)] (2 ≠ 3 cạnh) → False (rời).
+* Đủ 3 cạnh nhưng tam giác [(0,1),(1,2),(0,2)] + đỉnh 3 treo → BFS thăm 3/4 →
+  False (có chu trình + rời).
+* Thiếu 1 trong 2 là sai: n−1 cạnh mà rời (thừa chu trình chỗ khác), liên thông
+  mà thừa cạnh (có chu trình). Cây ⟺ cả hai!
 
 </details>
 

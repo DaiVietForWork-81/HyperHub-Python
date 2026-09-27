@@ -188,6 +188,7 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | 5c | Gộp vật lý 3 mục tự chứa: 01-Co-Ban (gốc) + 02-Thuat-Toan/Phan-1 + 04-Full (3 phần + PDF) | ✅ Xong |
 | 5d | Track Thuật toán lược 7 bài cơ bản không cần cho HSG (03, 09, 19, 21, 24, 28, 29) + sửa link/prereq/văn xuôi + finale riêng | ✅ Xong |
 | 5e | Track Thuật toán phẳng (1)–(41): cơ bản đánh số lại 1–22, thuật toán 1–19 thành 23–41 (giữ exercise/contest numbering) | ✅ Xong |
+| 5f | Mở rộng 21 bài (19 algo + pytest + git) từ 8 lên 12 bài tập/bài (84 bài mới, code đáp án chạy kiểm chứng) | ✅ Xong |
 | 6 | Viết lại README gốc với roadmap 3 nhánh | ✅ Xong |
 | 7 | Validate: link hỏng, file thiếu, tham chiếu cũ | ✅ Xong (script `tools/validate.py`) |
 

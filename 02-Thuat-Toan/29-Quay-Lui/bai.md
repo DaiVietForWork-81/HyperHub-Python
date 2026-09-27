@@ -385,6 +385,23 @@ So sánh số node thăm với bản bitmask thuần. *Gợi ý: cận dưới =
 Đếm số đường từ (0,0) đến (n−1,m−1), mỗi ô thăm tối đa 1 lần (4 hướng).
 *Gợi ý: DFS + mảng đánh dấu + hoàn tác — đúng khung quay lui; tỉa: ô kẹt
 (không lối ra trừ đường vào) thì dừng sớm.*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Tổ hợp tay.** Chạy tay `to_hop(4, 2)` (code mục 4), ghi 6 bộ theo thứ
+tự in. Chỉ ra vai trò của `bat_dau` (thử bỏ nó xem chuyện gì: `(1,2)` và
+`(2,1)` ra 2 lần!).
+
+**Bài 10 — Xâu không có "11".** Sinh mọi xâu nhị phân độ dài 4 mà không chứa
+"11" liên tiếp. Thêm điều kiện tỉa vào khung quay lui (không chọn '1' sau '1').
+Đếm + liệt kê (đáp án: 8 xâu). Số lượng này liên quan gì đến Fibonacci?
+
+**Bài 11 — Đếm N-Queens n=4.** Dùng code `dem_hau` trong bài, assert đáp án 4
+hậu = 2 cách. Vẽ 2 bàn cờ đó ra giấy (dùng Q và .). Giải thích vì sao n=2, 3
+trả 0 (thử tay hoặc suy luận).
+
+**Bài 12 — Hoán vị có điều kiện.** Liệt kê hoán vị của [1, 2, 3] mà số 1
+**không đứng đầu**. Tỉa ngay khi chọn (nếu đường đi rỗng mà chọn 1 thì bỏ).
+Đếm đáp án (6 − 2 = 4) và liệt kê kiểm chứng.
 
 ---
 
@@ -574,6 +591,102 @@ main()
 
 Đúng khung quay lui trên lưới: đánh dấu → DFS 4 hướng → gỡ đánh dấu.
 Mỗi ô tối đa 1 lần mỗi đường đi → không lặp vô hạn.
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Tổ hợp tay</summary>
+
+`to_hop(4, 2)`: bat_dau=1 → chọn 1, đệ quy(2): chọn 2 → in [1,2]; chọn 3 →
+in [1,3]; chọn... Thứ tự in: **[1,2], [1,3], [1,4], [2,3], [2,4], [3,4]**
+(đúng 6 = C(4,2)). `bat_dau` ép chỉ đi về phía trước → mỗi tập sinh đúng 1 lần.
+Bỏ nó (luôn duyệt 1..n): (1,2) và (2,1) ra riêng → 12 "bộ" (thực ra là hoán vị
+chập 2, P(4,2) = 12) — sai yêu cầu tổ hợp!
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Xâu không có "11"</summary>
+
+```python
+def sinh_khong_11(n):
+    ra = []
+
+    def dq(s):
+        if len(s) == n:
+            ra.append("".join(s))
+            return
+        for bit in "01":
+            if bit == "1" and s and s[-1] == "1":
+                continue   # tỉa: nhánh này chắc chắn sai, bỏ luôn
+            s.append(bit)
+            dq(s)
+            s.pop()
+
+    dq([])
+    return ra
+
+kq = sinh_khong_11(4)
+assert len(kq) == 8
+# 0000, 0001, 0010, 0100, 0101, 1000, 1001, 1010
+```
+
+Số xâu độ dài n không có "11" = F(n+2) (Fibonacci!): n=1 → 2, n=2 → 3,
+n=3 → 5, n=4 → 8. Vì sao: xâu bắt đầu '0' + mọi xâu tốt độ dài n−1, hoặc "10" +
+mọi xâu tốt độ dài n−2 — đúng truy hồi Fibonacci. Tỉa ở đây không chỉ nhanh
+mà còn cho ra công thức đếm!
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Đếm N-Queens n=4</summary>
+
+```python
+assert dem_hau(4) == 2
+assert dem_hau(1) == 1
+assert dem_hau(2) == 0
+assert dem_hau(3) == 0
+```
+
+2 bàn n=4 (1 = hậu):
+
+```
+. Q . .     . . Q .
+. . . Q     Q . . .
+Q . . .     . . . Q
+. . Q .     . Q . .
+```
+
+n = 2: đặt hậu đầu ở (0,0) → hàng 1 chỉ còn cột 1 nhưng chéo với (0,0) ✗;
+(0,1) đối xứng ✗ → 0. n = 3 tương tự (thử hết 3 vị trí hàng đầu đều kẹt).
+Quy luật: n = 1 và n ≥ 4 luôn có đáp án; n = 2, 3 là 2 trường hợp duy nhất vô nghiệm!
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Hoán vị có điều kiện</summary>
+
+```python
+def hoan_vi_loc(a):
+    ra = []
+
+    def dq(duong_di, con):
+        if not con:
+            ra.append(tuple(duong_di))
+            return
+        for i, x in enumerate(con):
+            if not duong_di and x == 1:
+                continue   # tỉa ngay từ đầu: 1 không được đứng đầu
+            dq(duong_di + [x], con[:i] + con[i + 1:])
+
+    dq([], a)
+    return ra
+
+assert sorted(hoan_vi_loc([1, 2, 3])) == [(2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1)]
+```
+
+6 − 2 = **4** (bỏ 123, 132). Tỉa ở gốc (không thử nhánh 1xxx) tiết kiệm 1/3 cây
+ngay từ đầu — với n lớn, tỉa sớm kiểu này là khác biệt giữa xong và treo máy.
 
 </details>
 

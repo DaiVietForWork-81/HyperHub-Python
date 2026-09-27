@@ -409,6 +409,23 @@ hiệu nhỏ nhất luôn ở cặp kề nhau. Cài đặt O(n log n) hoàn ch�
 **Bài 8 — Đếm nghịch thế (ôn ví dụ 3).** Dãy `[2, 3, 8, 6, 1]` có bao nhiêu
 nghịch thế? Chạy tay merge_dem, ghi `d` sau mỗi lần lấy từ nửa phải.
 (Đáp án: 5 — các cặp (2,1), (3,1), (8,6), (8,1), (6,1).)
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Sắp xếp chuỗi 2 tiêu chí.** Cho list tên, sắp xếp theo độ dài tăng
+dần, cùng độ dài thì A→Z. Code bằng `key` tuple + test (kể cả chuỗi rỗng và
+hoa/thường lẫn lộn — có phân biệt hoa thường không? Vì sao?).
+
+**Bài 10 — Sắp xếp ổn định 2 lượt.** Điểm thi (tên, điểm). Muốn điểm giảm dần,
+hòa điểm thì tên A→Z. Làm bằng 2 lần `sorted` (nhờ tính ổn định, ôn Bài 4 đáp
+án) rồi so với 1 lần `key` tuple. Khi nào 2 lượt hữu ích hơn?
+
+**Bài 11 — Counting sort.** n ≤ 10⁶ số nguyên trong [0, 100]. Sắp xếp O(n) bằng
+đếm tần suất (không dùng `sorted`). So sánh thời gian với `sorted` và giải thích
+khi nào counting sort thắng/thua (gợi ý: miền giá trị to thì sao?).
+
+**Bài 12 — Sắp xếp phân số không float.** Cho list phân số (tử, mẫu) dương.
+Sắp xếp tăng dần mà **không** đổi sang float (sai số!). Dùng `cmp_to_key` so
+chéo `a*d` vs `c*b`. Test với [(1,2),(1,3),(2,3),(3,4)].
 
 ---
 
@@ -517,6 +534,80 @@ Chia `[2, 3, 8, 6, 1]` → `[2, 3]` và `[8, 6, 1]` (đệ quy tiếp). Giả s�
 
 Trộn cuối `[2,3]` vs `[1,6,8]`: lấy 1 (d += 2: (2,1), (3,1)); lấy 2, 3; lấy
 6, 8 → tổng d = 3 + 2 = **5**. ✔
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Sắp xếp chuỗi 2 tiêu chí</summary>
+
+```python
+ten = ["An", "binh", "Chi", "A", "Duc", ""]
+xep = sorted(ten, key=lambda s: (len(s), s))
+print(xep)   # ['', 'A', 'An', 'Chi', 'Duc', 'binh']
+```
+
+* `(len(s), s)`: so độ dài trước, hòa thì so chuỗi.
+* `"binh"` (thường b) đứng sau `"Duc"` vì Python so theo mã Unicode:
+  chữ hoa (65–90) < chữ thường (97–122)! Muốn không phân biệt:
+  `key=lambda s: (len(s), s.lower())`.
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Sắp xếp ổn định 2 lượt</summary>
+
+```python
+hs = [("An", 8.5), ("Binh", 9.0), ("Chi", 8.5)]
+b1 = sorted(hs, key=lambda s: s[0])    # tên A->Z trước
+b2 = sorted(b1, key=lambda s: -s[1])   # điểm giảm; hòa giữ thứ tự tên (ổn định!)
+assert b2 == [("Binh", 9.0), ("An", 8.5), ("Chi", 8.5)]
+```
+
+2 lượt hữu ích khi tiêu chí phức tạp khó gói 1 tuple (ví dụ cần hàm so sánh
+riêng từng lượt), hoặc khi tái dùng kết quả trung gian. Còn không, 1 lần
+`key` tuple gọn hơn.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Counting sort</summary>
+
+```python
+def counting_sort(a, k=100):
+    dem = [0] * (k + 1)
+    for x in a:
+        dem[x] += 1
+    ra = []
+    for v in range(k + 1):
+        ra.extend([v] * dem[v])
+    return ra
+```
+
+O(n + k) thời gian, O(k) nhớ. Thắng `sorted` khi k nhỏ (k = 100, n = 10⁶:
+~10⁶ phép vs ~2×10⁷). Thua thảm khi k lớn (k = 10⁹ → mảng đếm 10⁹ ô → MLE!)
+hoặc phần tử không phải số nguyên nhỏ. Quy tắc: **miền hẹp → đếm, miền rộng
+→ so sánh**.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Sắp xếp phân số không float</summary>
+
+```python
+from functools import cmp_to_key
+
+def sap_phan_so(ps):
+    def cmp(x, y):   # x=(a,b), y=(c,d): so a/b với c/d qua a*d ? c*b
+        trai, phai = x[0] * y[1], y[0] * x[1]
+        return -1 if trai < phai else (1 if trai > phai else 0)
+    return sorted(ps, key=cmp_to_key(cmp))
+
+assert sap_phan_so([(1, 2), (1, 3), (2, 3), (3, 4)]) == [(1, 3), (1, 2), (2, 3), (3, 4)]
+```
+
+Vì sao không float: 1/3 = 0.3333333333333333 (mất chính xác ở chữ số ~16),
+so sánh 2 phân số gần nhau có thể đảo ngược. So chéo số nguyên thì chính xác
+tuyệt đối (Python int vô hạn).
 
 </details>
 

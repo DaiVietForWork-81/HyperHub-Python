@@ -387,6 +387,26 @@ số còn lại **nhỏ nhất** (giữ thứ tự). *Gợi ý: stack đơn đi�
 số, trong khi k > 0 và đỉnh stack > chữ số hiện tại thì pop (xóa) đỉnh;
 đẩy chữ số hiện tại; cuối còn dư k thì cắt đuôi. Vì sao đúng? (Xóa chữ số trái
 lớn hơn chữ số phải luôn tốt hơn — exchange tại vị trí đầu tiên khác nhau.)*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Đổi tiền Mỹ.** Mệnh giá [1, 5, 10, 25], S = 63. Chạy tay tham lam,
+ghi số tờ mỗi loại + tổng. Chứng minh (miệng) vì sao mệnh giá Mỹ tham lam đúng
+nhưng [1, 3, 4] thì sai (gợi ý: 25 là bội của 5, 10 là bội của 5...).
+
+**Bài 10 — Số phòng họp tối thiểu.** n cuộc họp [bắt đầu, kết thúc). Cần ít
+nhất mấy phòng để không trùng? (KHÁC xếp lịch: ở đây được dùng nhiều phòng,
+muốn ít phòng nhất!) Dùng heap theo dõi giờ kết thúc. Test [(0,30),(5,10),
+(15,20)] → 2.
+
+**Bài 11 — Túi phân số (tham lam ĐÚNG).** n món (giá trị, khối lượng), túi chịu
+W, **được xẻ nhỏ** món. Tham lam theo tỉ số giá trị/khối lượng. Code + test
+([(60,10),(100,20),(120,30)], W=50 → 240). Đối chiếu Bài 5 mục 5: khác đúng 1
+chữ "xẻ được" mà đúng↔sai đảo ngược!
+
+**Bài 12 — Chứng minh phân kẹo.** Viết lập luận exchange 3–4 dòng cho bài phân
+kẹo (ví dụ 1): vì sao "em dễ tính nhất nhận gói vừa đủ nhỏ nhất" không bao giờ
+sai? (Gợi ý: giả sử đáp án tối ưu cho em đó gói to hơn → đổi sang gói nhỏ có
+hỏng gì không?)
 
 ---
 
@@ -512,6 +532,78 @@ def so_nho_nhat(s, k):
 Ví dụ "1432219", k = 3: duyệt 1→[1]; 4→[1,4]; 3<4 pop 4 (k=2)→[1,3];
 2<3 pop 3 (k=1)→[1,2]; 2→[1,2,2]; 1<2 pop 2 (k=0)→[1,2,1]; 9→[1,2,1,9] →
 "1219". ✔ (Số 0 đầu: lstrip + `or "0"` cho trường hợp toàn 0.)
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Đổi tiền Mỹ</summary>
+
+63 = 2×25 + 1×10 + 0×5 + 3×1 → **6 tờ** (25, 25, 10, 1, 1, 1).
+Mệnh giá Mỹ "chuẩn": 5|10, 5|25 (mỗi mệnh giá là bội của mệnh giá nhỏ hơn,
+trừ cặp 1–5... nhưng 5 = 5×1 nên vẫn ổn) → tham lam không bao giờ "kẹt" như
+trường hợp [1,3,4] đổi 6 (4 không phải bội của 3, lấy 4 phá mất cặp 3+3).
+Quy tắc ngón tay cái: mệnh giá bội nhau → tham lam thường đúng.
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Số phòng họp tối thiểu</summary>
+
+```python
+import heapq
+
+def so_phong(hop):
+    hop = sorted(hop)   # theo giờ bắt đầu
+    dang_dung = []      # heap giờ kết thúc các phòng đang bận
+    for bat_dau, ket_thuc in hop:
+        if dang_dung and dang_dung[0] <= bat_dau:
+            heapq.heappop(dang_dung)   # tái dùng phòng vừa trống
+        heapq.heappush(dang_dung, ket_thuc)
+    return len(dang_dung)
+
+assert so_phong([(0, 30), (5, 10), (15, 20)]) == 2
+assert so_phong([(7, 10), (2, 4)]) == 1
+```
+
+Khác xếp lịch (Bài ví dụ 2: 1 phòng, làm nhiều việc nhất) — ở đây nhiều phòng,
+muốn ít phòng nhất. Heap giữ giờ kết thúc: phòng trống sớm nhất tái dùng được
+thì dùng, không thì mở phòng mới. O(n log n). Thi hay ra nhầm 2 bài này với nhau!
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Túi phân số (tham lam ĐÚNG)</summary>
+
+```python
+def tui_phan_so(mon, W):
+    mon = sorted(mon, key=lambda p: p[0] / p[1], reverse=True)
+    tong = 0.0
+    for gia_tri, khoi_luong in mon:
+        if W <= 0:
+            break
+        lay = min(khoi_luong, W)
+        tong += lay * gia_tri / khoi_luong
+        W -= lay
+    return tong
+
+assert tui_phan_so([(60, 10), (100, 20), (120, 30)], 50) == 240.0
+```
+
+Tỉ số: 6, 5, 4 → lấy hết (60,10) + hết (100,20) + 20/30 của (120,30):
+60 + 100 + 80 = **240** ✔. Vì xẻ được nên "lấy tỉ số cao trước" không bao giờ
+kẹt (phần thừa xẻ nhỏ lấp đầy) — đúng 1 chữ "xẻ được" đảo ngược đúng/sai so với
+túi 0/1 (Bài 9 mục 5)!
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Chứng minh phân kẹo</summary>
+
+Giả sử có đáp án tối ưu OPT, trong đó em dễ tính nhất (cần g[i] nhỏ nhất) nhận
+gói G to hơn gói nhỏ nhất vừa đủ P (gói tham lam chọn). Đổi G ↔ P:
+em đó vẫn vui (P vừa đủ), gói G to hơn trả lại cho các em khác (không ai thiệt
+vì G dùng được ở mọi chỗ P dùng được, mà còn dư). Số em vui không giảm →
+tồn tại OPT chứa lựa chọn tham lam. Lặp lại cho em tiếp theo. ∎
 
 </details>
 

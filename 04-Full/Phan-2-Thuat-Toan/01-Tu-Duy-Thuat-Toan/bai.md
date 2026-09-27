@@ -459,6 +459,24 @@ tra lại ứng viên.*
 đoạn liên tiếp dài nhất có **số 0 bằng số 1**. *Gợi ý: đổi 0 thành −1, bài toán
 thành "đoạn dài nhất có tổng bằng 0"; dùng tổng tiền tố + dict lưu lần đầu
 thấy mỗi tổng (mẫu sẽ học ở Bài 8).*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — Phân tích đề xe khách.** Đề: "Nhà xe có n chuyến, chuyến thứ i chở
+được a[i] khách và tốn xăng b[i] lít. Cần chở ít nhất K khách, tổng xăng ít
+nhất là bao nhiêu? Mỗi chuyến đi tối đa 1 lần." Viết Input/Output/Ràng buộc
+(giả sử n ≤ 20) + pseudocode. Không cần code chạy.
+
+**Bài 10 — Tìm bug bằng chạy tay.** Pseudocode tìm max: `lon_nhat = 0; với mỗi
+x: nếu x > lon_nhat: lon_nhat = x`. Chạy tay với `[−5, −2, −9]`, chỉ ra kết quả
+sai, giải thích vì sao, và sửa đúng 1 chỗ (khởi tạo).
+
+**Bài 11 — Đếm số lẻ không duyệt.** Đếm số lẻ trong đoạn [L, R] với
+L, R ≤ 10¹⁸ (không được duyệt từng số!). Viết công thức, pseudocode, code
+Python và test với [1, 10] → 5, [3, 7] → 3, [2, 2] → 0.
+
+**Bài 12 — Vòng lặp vs công thức.** Tính tổng 1..n (n = 10⁷) bằng 2 cách:
+vòng lặp cộng dồn và công thức n(n+1)/2. Đo thời gian, tính tỉ số, giải thích
+vì sao chênh lệch và khi nào vòng lặp vẫn cần (gợi ý: tổng có điều kiện lạ).
 
 ---
 
@@ -623,6 +641,72 @@ Chạy tay `[0, 1, 0, 0, 1, 1]` → đổi thành `[−1, 1, −1, −1, 1, 1]`;
 0, −1, 0, −1, −2, −1, 0. Tổng 0 gặp lại ở vị trí 5 (lần đầu −1) → dài 6;
 tổng −1 gặp lại ở 4 (lần đầu 0) → dài 4. Đáp án 6 (cả dãy cân bằng: 3 số 0,
 3 số 1). ✔
+
+</details>
+
+<details>
+<summary>✅ Bài 9: Phân tích đề xe khách</summary>
+
+* **Input:** n (1 ≤ n ≤ 20), hai dãy a[1..n] (số khách), b[1..n] (xăng), số K.
+* **Output:** một số nguyên — tổng xăng nhỏ nhất để chở ≥ K khách; không làm
+  được in `-1`.
+* **Ràng buộc:** n ≤ 20 → 2ⁿ ≈ 10⁶, vét cạn/bitmask được.
+* **Pseudocode:** duyệt mọi tập con (bitmask), tính tổng khách + tổng xăng;
+  giữ xăng nhỏ nhất trong các tập đủ K.
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Tìm bug bằng chạy tay</summary>
+
+Chạy tay `[−5, −2, −9]` với `lon_nhat = 0`: −5 > 0? Không. −2 > 0? Không.
+−9 > 0? Không → kết quả 0 — **sai** (đáp án đúng −2, mà 0 còn không trong dãy!).
+
+* **Nguyên nhân:** khởi tạo 0 "ngầm giả định" dãy có số ≥ 0.
+* **Sửa đúng 1 chỗ:** `lon_nhat = a[0]` (lấy phần tử đầu), vòng lặp từ phần tử
+  thứ hai. Chạy lại: −2 > −5 ✔, −9 > −2 ✗ → −2 ✔.
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Đếm số lẻ không duyệt</summary>
+
+Quan sát: số lẻ ≤ X có đúng `(X + 1) // 2` số (1, 3, 5...). Đáp án đoạn [L, R]
+= lẻ(L..R) = lẻ(0..R) − lẻ(0..L−1):
+
+```python
+def dem_le(L, R):
+    return (R + 1) // 2 - L // 2
+
+assert dem_le(1, 10) == 5
+assert dem_le(3, 7) == 3
+assert dem_le(2, 2) == 0
+assert dem_le(1, 10**18) == 5 * 10**17
+```
+
+O(1) — duyệt 10¹⁸ số thì hết đời cũng chưa xong. Bài học: **đếm bằng công thức,
+không phải bằng vòng lặp**, khi dữ liệu khổng lồ.
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Vòng lặp vs công thức</summary>
+
+```python
+import time
+n = 10**7
+t0 = time.perf_counter(); s = 0
+for i in range(1, n + 1): s += i
+t1 = time.perf_counter()
+s2 = n * (n + 1) // 2
+t2 = time.perf_counter()
+print(f"Vong lap: {t1 - t0:.3f}s, cong thuc: {t2 - t1:.6f}s")
+assert s == s2
+```
+
+Điển hình: vòng lặp ~1s, công thức ~0.000001s (nhanh hơn ~10⁶ lần).
+Nhưng vòng lặp vẫn cần khi tổng **không có công thức đóng** (ví dụ tổng bình
+phương số lẻ + điều kiện phức tạp) — công thức chỉ thắng khi tồn tại!
 
 </details>
 

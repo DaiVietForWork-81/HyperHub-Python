@@ -583,6 +583,24 @@ dạng "h?llo" (? = đúng 1 ký tự bất kỳ). Đếm từ khớp. *Gợi ý
 khi gặp '?': mỗi '?' nhân nhánh ≤ 26... xấu nhất mũ! Tối ưu: tiền xử lý theo
 độ dài + vị trí ký tự (dict (độ_dài, vị_trí, ký_tự) → bitset/set từ) — giao các
 điều kiện. Vì sao Trie thuần + DFS có thể TLE với nhiều '?'?*
+### ➕ Bài tập bổ sung (Bài 9–12)
+
+**Bài 9 — KMP tay mới.** Tính pi("ababc") từng bước (đáp án [0,0,1,2,0]) rồi
+chạy tay tìm "ababc" trong "abababc" (tìm thấy ở vị trí 2). Ghi rõ chỗ khớp,
+chỗ lệch và pi giúp nhảy thế nào (so với naive quay về đầu).
+
+**Bài 10 — Đếm mẫu bằng Z.** Viết hàm đếm số lần mẫu P xuất hiện trong T (kể cả
+chồng lấn) bằng Z trên `P + "#" + T`. Code + test ("ababa"/"aba" → 2,
+"aaaa"/"aa" → 3). So sánh với bản KMP (khi nào dùng cái nào?).
+
+**Bài 11 — Xâu con bằng nhau?** Tiền xử lý rolling hash cho xâu S (|S| ≤ 10⁵).
+Trả lời q ≤ 10⁵ truy vấn "đoạn [l1, r1] có bằng đoạn [l2, r2] không?" O(1) mỗi
+truy vấn. Code class + test. Phân tích tổng Big-O (tiền xử lý + truy vấn).
+
+**Bài 12 — Tiền tố chung N xâu.** Tìm tiền tố chung dài nhất của n xâu (tổng
+dài ≤ 10⁶) bằng quét cột (so từng vị trí từ trái). Code + test
+(["flower","flow","flight"] → "fl", ["dog","car"] → "", [] → ""). Khi nào
+Trie thắng cách này? (Gợi ý: truy vấn động, thêm từ dần dần.)
 
 ---
 
@@ -744,6 +762,110 @@ def hoi(mau, theo_dai, bang):
 Trie + DFS với k dấu '?' thăm tới 26^k nhánh → TLE khi k lớn (ví dụ "?????"
 duyệt cả từ điển). Bản "giao tập hợp" trên chỉ xét vị trí cụ thể → mỗi điều
 kiện là một set lookup + giao dần (giao sớm với set nhỏ nhất còn tối ưu hơn).
+
+</details>
+
+<details>
+<summary>✅ Bài 9: KMP tay mới</summary>
+
+pi("ababc"): i=1 'b' vs 'a' → 0; i=2 'a' khớp → 1; i=3 'b' khớp s[1] → 2;
+i=4 'c' vs s[2]='a' lệch → co pi[1]=0 → 'c' vs 'a' lệch → **0**.
+Đáp án **[0, 0, 1, 2, 0]**.
+
+Tìm trong "abababc": khớp a-b-a-b (4 chữ) rồi văn bản 'a' vs mẫu 'c' lệch ở
+vị trí 4. Naive quay về vị trí 1 đọc lại; KMP co theo pi[3]=2 (giữ "ab") rồi
+so tiếp s[4]='a' vs mẫu[2]='a' khớp... đi tiếp tới hết mẫu tại vị trí văn bản
+6 → tìm thấy ở **2**. Tiết kiệm cả đoạn đọc lại!
+
+</details>
+
+<details>
+<summary>✅ Bài 10: Đếm mẫu bằng Z</summary>
+
+```python
+def z_function(s):
+    n = len(s)
+    z = [0] * n
+    l = r = 0
+    for i in range(1, n):
+        if i <= r:
+            z[i] = min(r - i + 1, z[i - l])
+        while i + z[i] < n and s[z[i]] == s[i + z[i]]:
+            z[i] += 1
+        if i + z[i] - 1 > r:
+            l, r = i, i + z[i] - 1
+    return z
+
+
+def dem_mau_z(van_ban, mau):
+    z = z_function(mau + "#" + van_ban)
+    return sum(1 for v in z if v == len(mau))
+
+assert dem_mau_z("ababa", "aba") == 2
+assert dem_mau_z("aaaa", "aa") == 3
+```
+
+`z[i] == len(mẫu)` nghĩa là đoạn từ i trùng toàn bộ mẫu. KMP vs Z: cùng O(n+m),
+KMP tiết kiệm nhớ hơn (không cần mảng z), Z trực quan hơn cho bài biên/tiền tố.
+Chọn cái nào bạn viết ít bug hơn!
+
+</details>
+
+<details>
+<summary>✅ Bài 11: Xâu con bằng nhau?</summary>
+
+```python
+class HashXau:
+    def __init__(self, s, base=9113823, mod=10**9 + 7):
+        n = len(s)
+        self.p = [0] * (n + 1)
+        self.l = [1] * (n + 1)
+        self.m = mod
+        for i, ch in enumerate(s):
+            self.p[i + 1] = (self.p[i] * base + ord(ch)) % mod
+            self.l[i + 1] = self.l[i] * base % mod
+
+    def doan(self, l, r):
+        return (self.p[r + 1] - self.p[l] * self.l[r - l + 1]) % self.m
+
+
+def tra_loi(s, truy_van):
+    h = HashXau(s)
+    return [h.doan(l1, r1) == h.doan(l2, r2) for l1, r1, l2, r2 in truy_van]
+
+s = "ababa"
+assert tra_loi(s, [(0, 2, 2, 4), (0, 1, 1, 2)]) == [True, False]
+```
+
+Tiền xử lý O(n), mỗi truy vấn O(1) → tổng O(n + q). So với so trực tiếp O(độ
+dài) mỗi truy vấn (q = 10⁵ × dài 10³ = 10⁸ ký tự so sánh!) — hash thắng lớn.
+(Mod đơn đủ cho bài tập; thi thật dùng mod đôi như mục 4.)
+
+</details>
+
+<details>
+<summary>✅ Bài 12: Tiền tố chung N xâu</summary>
+
+```python
+def tien_to_chung(tu):
+    if not tu:
+        return ""
+    ngan = min(tu, key=len)
+    dai = len(ngan)
+    for i, ch in enumerate(ngan):
+        if any(w[i] != ch for w in tu):
+            dai = i
+            break
+    return ngan[:dai]
+
+assert tien_to_chung(["flower", "flow", "flight"]) == "fl"
+assert tien_to_chung(["dog", "car"]) == ""
+assert tien_to_chung([]) == ""
+```
+
+O(tổng độ dài) — tối ưu về thời gian! Trie thắng khi **từ điển động** (thêm/xóa
+từ liên tục + hỏi tiền tố xen kẽ): quét cột phải đọc lại từ đầu mỗi lần hỏi,
+Trie chỉ đi xuống cây. Dữ liệu tĩnh → quét cột; động → Trie.
 
 </details>
 
