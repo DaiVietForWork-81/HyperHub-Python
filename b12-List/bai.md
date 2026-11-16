@@ -1,11 +1,11 @@
 # Bài 12 — Danh Sách (List) Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 10 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
-- [Bài 12 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
+- [Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
+- [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
 
 ---
 

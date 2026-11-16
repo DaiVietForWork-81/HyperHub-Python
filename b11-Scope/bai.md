@@ -1,10 +1,10 @@
 # Bài 11 — Phạm Vi Biến (Scope) Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
+- [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
 
 ---
 
@@ -419,7 +419,7 @@ ngoai()
 * 🔑 **Dùng `global` tối thiểu**: hằng số cấu hình (không sửa) thì không cần; chỉ khi hàm phải **cập nhật** biến toàn cục mới cần.
 * 🔁 **Quy tắc "in – out"**: dữ liệu đi vào hàm qua **tham số**, đi ra qua **`return`**. Hàm đẹp = đọc như công thức nấu ăn.
 * 🧪 **Kiểm thử dễ hơn**: hàm không dùng global gọi 2 lần ra 2 kết quả giống nhau — dễ kiểm tra, dễ chia sẻ.
-* 📚 Nhớ lại bài 12: biến bên trong hàm không bao giờ "tràn ra" ngoài — muốn lấy kết quả phải `return`.
+* 📚 Nhớ lại bài 10: biến bên trong hàm không bao giờ "tràn ra" ngoài — muốn lấy kết quả phải `return`.
 
 ---
 

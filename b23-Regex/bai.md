@@ -1,13 +1,13 @@
 # Bài 23 — Biểu Thức Chính Quy (Regex)
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ---
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 18 — Chuỗi (String)](../b16-String/bai.md)
-- [Bài 10 — Vòng Lặp For](../b08-Vong-Lap-For/bai.md)
+- [Bài 16 — Chuỗi (String)](../b16-String/bai.md)
+- [Bài 8 — Vòng Lặp For](../b08-Vong-Lap-For/bai.md)
 
 ---
 
@@ -595,6 +595,5 @@ viết trình thông dịch — máy tính "đọc" code cũng bắt đầu từ
 
 👉 Tiếp theo: **[Bài 24: Tư Duy Thuật Toán](../b24-Tu-Duy-Thuat-Toan/bai.md)**
 
-🏆 **Bạn đã hoàn thành lộ trình Cơ bản!** Giờ bạn có thể chọn nhánh:
-- 🧮 [Nhánh 02 — Thuật Toán (HSG/CP)](../b24-Tu-Duy-Thuat-Toan/bai.md)
-- 🚀 Nhánh 03 — Thực Chiến (API/Package/Project)
+🏆 **Bạn đã hoàn thành Phần 1 — Nền tảng (Bài 1–23)!** Tiếp tục ngay với:
+- 🧮 [Phần 2 — Thuật Toán (HSG/CP)](../b24-Tu-Duy-Thuat-Toan/bai.md) — từ **Bài 24 — Tư Duy Thuật Toán** tới **Bài 46 — Lý Thuyết Trò Chơi**.

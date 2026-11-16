@@ -1,12 +1,12 @@
 # Bài 25 — Độ Phức Tạp & Big-O
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ---
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 23 — Tư Duy Thuật Toán](../b24-Tu-Duy-Thuat-Toan/bai.md)
+- [Bài 24 — Tư Duy Thuật Toán](../b24-Tu-Duy-Thuat-Toan/bai.md)
 - [Bài 10 — Hàm (Function)](../b10-Ham/bai.md)
 - [Bài 8 — Vòng Lặp For](../b08-Vong-Lap-For/bai.md)
 
@@ -348,7 +348,7 @@ Phân tích luôn lấy worst case.
 * **Set/dict xấu nhất O(n)** (va chạm băm) nhưng thực tế luôn O(1) —
   trừ khi ai đó cố tình tấn công (không gặp trong HSG).
 * **Đệ quy**: cộng thêm O(độ sâu) bộ nhớ cho ngăn xếp gọi; Python giới hạn
-  ~1000 frame → đệ quy sâu hơn crash (`RecursionError`) — xem Bài 29.
+  ~1000 frame → đệ quy sâu hơn crash (`RecursionError`) — xem Bài 31.
 * **Hằng số vẫn quan trọng khi cùng Big-O**: hai thuật toán O(n), cái ít phép
   tính hơn thắng. Trong Python: list comprehension nhanh hơn vòng lặp +
   append ~2 lần; `sum(a)` (viết bằng C) nhanh hơn vòng lặp Python ~5–10 lần.
@@ -644,7 +644,7 @@ Giả sử q/2 truy vấn hỏi + q/2 cập nhật, q = 10⁵:
 * Segment tree: 10⁵ × log(10⁵) ≈ 10⁵ × 17 = **1.7×10⁶** → sống khỏe.
 
 Kết luận: **có cập nhật xen kẽ thì tiền tố thua**, segment tree/Fenwick
-(Bài 38) thắng. Không cập nhật thì tiền tố đơn giản nhất — chọn công cụ theo
+(Bài 40) thắng. Không cập nhật thì tiền tố đơn giản nhất — chọn công cụ theo
 đề, không học vẹt "cái nào xịn hơn".
 
 </details>
@@ -676,4 +676,4 @@ Big-O — cả hai đều O(n log n)).
 
 **Vị trí:** `b25-Do-Phuc-Tap/bai.md`
 
-**Bài tiếp theo:** [Bài 26 — Tìm Kiếm Tuyến Tính & Nhị Phân](../b26-Tim-Kiem/bai.md)
+**Bài tiếp theo:** [Bài 26 — Vét Cạn (Brute Force)](../b26-Vet-Can/bai.md)

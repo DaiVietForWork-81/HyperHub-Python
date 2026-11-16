@@ -1,11 +1,11 @@
 # Bài 6 — Nhập và Xuất Dữ Liệu
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 1 — Giới Thiệu Python](../b01-Gioi-Thieu/bai.md)
-- [Bài 4 — Biến Trong Python](../b03-Bien/bai.md)
+- [Bài 3 — Biến Trong Python](../b03-Bien/bai.md)
 
 ---
 
@@ -116,7 +116,7 @@ chieu_cao = float(input("Nhập chiều cao (m): "))
 
 Đây là phong cách chuẩn, được dùng trong hầu hết chương trình thực tế.
 
-> ⚠️ Nếu người dùng gõ thứ không thể ép kiểu (ví dụ `int("abc")`), chương trình báo lỗi **`ValueError`** và dừng — cách xử lý lỗi sẽ học ở bài 19.
+> ⚠️ Nếu người dùng gõ thứ không thể ép kiểu (ví dụ `int("abc")`), chương trình báo lỗi **`ValueError`** và dừng — cách xử lý lỗi bằng `try/except` sẽ học khi làm việc với file (Bài 18).
 
 ### 5. Ép kiểu `int` với số thực — cắt hay làm tròn?
 
@@ -1344,7 +1344,7 @@ print(f"Tiền phải trả: {tien_phai_tra:.2f}")
 **Giải thích code:**
 * `105000 * 0.1 = 10500`; `105000 - 10500 = 94500.00`.
 * `tong >= 100000` trả về `True` → `int(...)` biến thành `1`.
-* Kỹ thuật này gọn nhưng sẽ được thay thế bằng `if` rõ ràng hơn ở bài 8.
+* Kỹ thuật này gọn nhưng sẽ được thay thế bằng `if` rõ ràng hơn ở bài 7.
 
 **Độ phức tạp:** O(1).
 
@@ -1467,7 +1467,7 @@ print(f"Mỗi người phải trả: {moi_nguoi:.2f} VND")
 <details>
 <summary>✅ Bài 20: Hồ sơ học sinh hoàn chỉnh</summary>
 
-**Phân tích:** Kết hợp tất cả kiến thức bài 7: nhập nhiều kiểu dữ liệu, f-string, `sep`, trang trí khung.
+**Phân tích:** Kết hợp cả bài: nhập nhiều kiểu dữ liệu, f-string, `sep`, trang trí khung.
 
 **Ý tưởng:** Nhập 4 thông tin, in 3 dòng: dòng viền, dòng thông tin chính (f-string + `sep`), dòng môn học.
 

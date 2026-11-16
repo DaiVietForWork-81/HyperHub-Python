@@ -1,10 +1,10 @@
 # Bài 9 — Vòng Lặp While – Lặp Cho Đến Khi Điều Kiện Sai
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 10 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
+- [Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
 
 ---
 
@@ -339,7 +339,7 @@ else:
 **Giải thích:**
 * Vòng lặp đảm bảo `diem` nằm trong 0–10 **trước khi** xếp loại — phần sau vòng lặp yên tâm xử lý dữ liệu "sạch".
 * `0 <= diem <= 10` — cú pháp so sánh kép của Python (tương đương `diem >= 0 and diem <= 10`).
-* Kết hợp kiến thức bài 8 (if-elif) với while — một chuỗi xử lý hoàn chỉnh.
+* Kết hợp kiến thức bài 7 (if-elif) với while — một chuỗi xử lý hoàn chỉnh.
 
 ### Ví dụ 4: `else` với while — tìm kiếm trong dãy
 
@@ -884,7 +884,7 @@ while i >= 1:
 <details>
 <summary>✅ Bài 3: Tổng 1 đến n bằng while</summary>
 
-**Phân tích:** Biến tích lũy (bài 10) kết hợp while.
+**Phân tích:** Biến tích lũy (bài 8) kết hợp while.
 
 **Ý tưởng:** `tong = 0`, `i = 1`; cộng dồn rồi tăng i tới khi i > n.
 
@@ -988,7 +988,7 @@ while i <= 20:
 <details>
 <summary>✅ Bài 6: Bảng nhân 7 bằng while</summary>
 
-**Phân tích:** Giống bài 5 (bài 10) nhưng bằng while.
+**Phân tích:** Giống bài 5 (bài 8) nhưng bằng while.
 
 **Ý tưởng:** i chạy 1..10, in `7 x i = 7*i`.
 
@@ -1141,7 +1141,7 @@ else:
 <details>
 <summary>✅ Bài 10: Nhập điểm hợp lệ (0–10)</summary>
 
-**Phân tích:** Kiểm soát đầu vào rồi mới xử lý — kết hợp while với if-elif (bài 8).
+**Phân tích:** Kiểm soát đầu vào rồi mới xử lý — kết hợp while với if-elif (bài 7).
 
 **Ý tưởng:** `while True` hỏi lại tới khi `0 <= diem <= 10`; sau đó xếp loại.
 
@@ -1162,7 +1162,7 @@ while True:
 
 print(f"Điểm đã nhận: {diem}")
 
-# Xếp loại (kiến thức bài 8)
+# Xếp loại (kiến thức bài 7)
 if diem >= 9:
     loai = "Xuat sac"
 elif diem >= 8:
@@ -1571,7 +1571,7 @@ else:
 ```
 
 **Giải thích code:**
-* `random.randint(1, 100)` — sinh số nguyên ngẫu nhiên trong khoảng 1..100 (đã học cách cài `import` ở bài 2, chi tiết bài 20).
+* `random.randint(1, 100)` — sinh số nguyên ngẫu nhiên trong khoảng 1..100 (đã học cách cài `import` ở bài 2, chi tiết bài 17).
 * `while so_lan < 7:` — vòng lặp bị **giới hạn lượt** bởi điều kiện; không cần `while True`.
 * Khối `else` chạy khi vòng lặp kết thúc vì so_lan = 7 (không break) → thông báo thua. Đúng thì break → else bị bỏ qua.
 * Mẹo chơi: chọn 50, rồi thu hẹp nửa phạm vi mỗi lượt — tối đa ~7 lượt đủ thắng (thuật toán tìm kiếm nhị phân, sẽ học ở bài sau).

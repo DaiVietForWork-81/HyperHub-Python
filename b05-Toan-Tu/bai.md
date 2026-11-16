@@ -1,11 +1,11 @@
 # Bài 5 — Toán Tử Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 4 — Biến Trong Python](../b03-Bien/bai.md)
-- [Bài 5 — Kiểu Dữ Liệu Cơ Bản](../b04-Kieu-Du-Lieu/bai.md)
+- [Bài 3 — Biến Trong Python](../b03-Bien/bai.md)
+- [Bài 4 — Kiểu Dữ Liệu Cơ Bản](../b04-Kieu-Du-Lieu/bai.md)
 
 ---
 
@@ -897,7 +897,7 @@ print(5 != 4)    # True - khác nhau
 **Giải thích code:**
 * `==` — so sánh **giá trị** kèm kiểu: `5` (int) và `"5"` (str) không bao giờ bằng nhau.
 * `!=` — phủ định của `==`: đúng khi hai giá trị khác nhau.
-* Đây là lý do phải **ép kiểu** dữ liệu khi so sánh — kỹ năng sẽ học ở bài 7.
+* Đây là lý do phải **ép kiểu** dữ liệu khi so sánh — kỹ năng sẽ học ở bài 6.
 
 **Độ phức tạp:** O(1).
 
@@ -1208,7 +1208,7 @@ so_vnd = 2350000
 ti_gia = 25000
 # Quy đổi sang USD
 so_usd = so_vnd / ti_gia
-# In 2 chữ số thập phân bằng f-string (sẽ đọc kỹ ở bài 7)
+# In 2 chữ số thập phân bằng f-string (sẽ đọc kỹ ở bài 6)
 print(f"So USD: {so_usd:.2f}")   # 94.00
 # Phần nguyên của số USD
 print("Phan nguyen:", int(so_usd))   # 94

@@ -1,11 +1,11 @@
 # Bài 7 — Câu Lệnh If – Cấu Trúc Rẽ Nhánh
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 6 — Toán Tử Trong Python](../b05-Toan-Tu/bai.md)
-- [Bài 7 — Nhập và Xuất Dữ Liệu](../b06-Input-Output/bai.md)
+- [Bài 5 — Toán Tử Trong Python](../b05-Toan-Tu/bai.md)
+- [Bài 6 — Nhập và Xuất Dữ Liệu](../b06-Input-Output/bai.md)
 
 ---
 
@@ -311,7 +311,7 @@ print(f"Số tiền phải trả: {tien} đồng")
 
 ### Ví dụ 3: Máy ATM cơ bản
 
-> 💬 Bài toán từ PDF: chương trình nhận mã chức năng, thực hiện xem số dư / nạp tiền / rút tiền. (Đây là phiên bản một lượt — vòng lặp sẽ học ở bài 10, 11.)
+> 💬 Bài toán từ PDF: chương trình nhận mã chức năng, thực hiện xem số dư / nạp tiền / rút tiền. (Đây là phiên bản một lượt — vòng lặp sẽ học ở bài 8, 9.)
 
 ```python
 # Số dư khởi tạo
@@ -335,7 +335,7 @@ else:
     print("Lựa chọn không hợp lệ.")
 ```
 
-> 💡 Bạn thấy sức mạnh tổng hợp của 3 bài học: **nhập - ép kiểu** (bài 7), **toán tử** (bài 6), và **rẽ nhánh** (bài này). Chỉ cần thêm vòng lặp (bài 10, 11) là có một cây ATM hoàn chỉnh!
+> 💡 Bạn thấy sức mạnh tổng hợp của 3 bài học: **nhập - ép kiểu** (bài 6), **toán tử** (bài 5), và **rẽ nhánh** (bài này). Chỉ cần thêm vòng lặp (bài 8, 9) là có một cây ATM hoàn chỉnh!
 
 ---
 
@@ -401,7 +401,7 @@ print("Chúc mừng!")     # LUÔN chạy, dù tuổi có dưới 18!
 * 🧠 **Thứ tự `elif` từ chặt - rộng:** đếm "Xuất sắc → Giỏi → Khá → ..." nghe như thang điểm tự nhiên.
 * 🔢 **Kiểm tra đầu vào trước:** dùng `if diem < 0 or diem > 10` để chặn dữ liệu rác sớm.
 * 🥓 **`if ... and ...` thay cho if lồng** khi hai điều kiện độc lập — gọn hơn.
-* ✏️ **Khối lệnh ngắn gọn:** mỗi nhánh chỉ 1-3 dòng là lý tưởng; dài quá nghĩ cách tách hàm (bài 12).
+* ✏️ **Khối lệnh ngắn gọn:** mỗi nhánh chỉ 1-3 dòng là lý tưởng; dài quá nghĩ cách tách hàm (bài 10).
 * 🔍 **Tự in **test** với các giá trị biên:** 49, 50, 51, 100, 101 kWh để chắc chắn ranh giới bậc tiền điện không sai.
 * ☝️ **Dấu hai chấm là "mạch điện":** dòng nào kết thúc bằng `:` thì dòng kế tiếp **nhất định** phải thụt vào.
 
@@ -606,7 +606,7 @@ print("Chúc mừng!")     # LUÔN chạy, dù tuổi có dưới 18!
   Nhập năm: 2024
   Nam nhuan
   ```
-* **Gợi ý:** Điều kiện `nam % 4 == 0 and (nam % 100 != 0 or nam % 400 == 0)` (công thức từ bài 6).
+* **Gợi ý:** Điều kiện `nam % 4 == 0 and (nam % 100 != 0 or nam % 400 == 0)` (công thức từ bài 5).
 
 ### Bài 12: Máy ATM rút tiền
 
@@ -718,7 +718,7 @@ print("Chúc mừng!")     # LUÔN chạy, dù tuổi có dưới 18!
   Diem trung binh: 7.75
   Xep loai: Gioi
   ```
-* **Gợi ý:** Tính trung bình trước (bài 7), rồi dùng `if - elif - else` xếp loại từ 8.5 → 7 → 5.5 → 4 → else.
+* **Gợi ý:** Tính trung bình trước (bài 6), rồi dùng `if - elif - else` xếp loại từ 8.5 → 7 → 5.5 → 4 → else.
 
 ### Bài 20: Trò chơi đoán số bí mật
 
@@ -741,7 +741,7 @@ Sau 20 bài tập, bạn đã:
 * ✅ Viết thành thạo `if`, `if - else`, `if - elif - else` theo đúng thứ tự ưu tiên.
 * ✅ Kiểm soát thụt lề và tránh các lỗi `SyntaxError`, `IndentationError` điển hình.
 * ✅ Xây dựng chương trình ra quyết định thực tế: xếp loại, tính tiền, ATM, game đoán số.
-* ✅ Kết hợp bài 6 (toán tử) + bài 7 (nhập - ép kiểu) vào các bài toán đời thực.
+* ✅ Kết hợp bài 5 (toán tử) + bài 6 (nhập - ép kiểu) vào các bài toán đời thực.
 
 > 💪 `if` là "bộ não" của mọi chương trình. Càng luyện nhiều tình huống, bạn càng phản xạ nhanh khi đọc yêu cầu: *"Nếu... thì..., ngược lại..."*.
 
@@ -984,7 +984,7 @@ else:
 
 **Giải thích code:**
 * `9 < 12` đúng → in `Chao buoi sang`.
-* Nếu muốn thêm buổi tối, thêm `elif gio >= 18` — bài 9 sẽ là nơi thử điều đó với `match`.
+* Nếu muốn thêm buổi tối, thêm `elif gio >= 18` — mở rộng cho buổi tối.
 
 **Độ phức tạp:** O(1).
 
@@ -1111,7 +1111,7 @@ print(f"So tien phai tra la: {tien} VND")
 **Giải thích code:**
 * `65 <= 50` sai → `65 <= 100` đúng → `don_gia = 2500`.
 * `65 * 2500 = 162500.0` — kết quả số thực vì `kwh` là `float`.
-* Đây là bảng giá **đơn giản** (toàn bộ số kWh tính cùng giá); bảng giá lũy tiến từng phần sẽ khó hơn, chờ vòng lặp ở bài 10–11.
+* Đây là bảng giá **đơn giản** (toàn bộ số kWh tính cùng giá); bảng giá lũy tiến từng phần sẽ khó hơn, chờ vòng lặp ở bài 8–9.
 
 **Độ phức tạp:** O(1).
 
@@ -1124,7 +1124,7 @@ print(f"So tien phai tra la: {tien} VND")
 
 **Phân tích:** Năm nhuận: chia hết cho 4, không chia hết cho 100, trừ khi chia hết cho 400.
 
-**Ý tưởng:** Dùng đúng biểu thức từ bài 6: `nam % 4 == 0 and (nam % 100 != 0 or nam % 400 == 0)`.
+**Ý tưởng:** Dùng đúng biểu thức từ bài 5: `nam % 4 == 0 and (nam % 100 != 0 or nam % 400 == 0)`.
 
 **Thuật toán:**
 1. Nhập năm (int).
@@ -1185,7 +1185,7 @@ else:
 
 **Giải thích code:**
 * `500000 <= 1000000` đúng → thực hiện rút: `so_du = 1000000 - 500000 = 500000.0`.
-* `so_du -= so_rut` là toán tử gán kết hợp của bài 6 — ngắn gọn cho "cập nhật số dư".
+* `so_du -= so_rut` là toán tử gán kết hợp của bài 5 — ngắn gọn cho "cập nhật số dư".
 * Nếu nhập `2000000`, điều kiện sai → không trừ tiền, in `So du khong du!`.
 
 **Độ phức tạp:** O(1).
@@ -1474,7 +1474,7 @@ print(f"Tong tien nuoc: {tong_tien:.2f} VND")
 <details>
 <summary>✅ Bài 19: Điểm trung bình có trọng số + xếp loại</summary>
 
-**Phân tích:** Vừa tính trung bình theo hệ số (bài 7), vừa xếp loại 5 mức (bài này).
+**Phân tích:** Vừa tính trung bình theo hệ số (bài 6), vừa xếp loại 5 mức (bài này).
 
 **Ý tưởng:** Tính `tb` trước, rồi `if - elif - else` xếp loại theo 8.5 / 7 / 5.5 / 4.
 
@@ -1554,7 +1554,7 @@ else:
 **Giải thích code:**
 * `9 == 7` sai → `9 > 7` đúng → in câu gợi ý "lớn hơn".
 * Nếu `n < 7`, cả hai nhánh trước đều sai → `else` in gợi ý "nhỏ hơn".
-* Khi học vòng lặp (bài 10, 11), thêm `while` quanh khối này là bạn có một trò chơi chơi được nhiều lượt — đây là khởi đầu của một mini game thực thụ!
+* Khi học vòng lặp (bài 8, 9), thêm `while` quanh khối này là bạn có một trò chơi chơi được nhiều lượt — đây là khởi đầu của một mini game thực thụ!
 
 **Độ phức tạp:** O(1).
 

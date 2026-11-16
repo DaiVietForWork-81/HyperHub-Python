@@ -1,10 +1,10 @@
 # Bài 15 — Dictionary (Từ Điển) Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 14 — Danh Sách (List) Trong Python](../b12-List/bai.md)
+- [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
 
 ---
 
@@ -18,7 +18,7 @@ Sau bài học này, học viên sẽ:
 * ✅ **Thêm, sửa, xóa** phần tử bằng `del`, `pop`, `clear`.
 * ✅ **Duyệt** từ điển với `keys()`, `values()`, `items()`.
 * ✅ **Kiểm tra** khóa bằng toán tử `in` và lấy số phần tử bằng `len()`.
-* ✅ Làm quen **dict comprehension** cơ bản (sẽ học sâu ở bài 26).
+* ✅ Làm quen **dict comprehension** cơ bản (sẽ học sâu ở bài 21).
 
 ---
 
@@ -777,7 +777,7 @@ print(diem)
 ```
 
 **Giải thích code:**
-* Cùng cú pháp gán như bài 4, nhưng khóa đã có nên đây là **sửa** chứ không phải thêm.
+* Cùng cú pháp gán như bài 3, nhưng khóa đã có nên đây là **sửa** chứ không phải thêm.
 
 **Độ phức tạp:** O(1).
 

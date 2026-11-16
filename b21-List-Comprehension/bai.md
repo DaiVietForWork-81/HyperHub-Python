@@ -1,11 +1,11 @@
 # Bài 21 — List Comprehension – Vòng Lặp "Viết Trong Một Dòng"
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 10 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
-- [Bài 14 — Danh Sách (List) Trong Python](../b12-List/bai.md)
+- [Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
+- [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
 
 ---
 
@@ -26,7 +26,7 @@ Sau bài học này, học viên sẽ:
 
 ### 1. Vấn đề: tạo danh sách bình phương — cách dài
 
-Ở bài 10 (vòng lặp `for`) và bài 14 (list), muốn tạo danh sách bình phương của các số 0..9 ta viết:
+Ở bài 8 (vòng lặp `for`) và bài 12 (list), muốn tạo danh sách bình phương của các số 0..9 ta viết:
 
 ```python
 binh_phuong = []                    # danh sách rỗng
@@ -75,7 +75,7 @@ mang_moi = [bieu_thuc for bien in iterable if dieu_kien]
 
 ### 3. Bộ lọc `if`
 
-Chỉ giữ những phần tử thỏa điều kiện — giống hệt `filter` ở bài 25 nhưng gọn hơn:
+Chỉ giữ những phần tử thỏa điều kiện — giống hệt `filter` ở bài 20 nhưng gọn hơn:
 
 ```python
 so_chan = [x for x in range(1, 11) if x % 2 == 0]
@@ -87,7 +87,7 @@ So sánh các cách viết:
 | Cách viết | Code |
 |---|---|
 | Vòng lặp + `if` + `append` | `so_chan = []; for x in ...: if ...: append(...)` |
-| `filter` + lambda (bài 25) | `list(filter(lambda x: x % 2 == 0, so))` |
+| `filter` + lambda (bài 20) | `list(filter(lambda x: x % 2 == 0, so))` |
 | List comprehension | `[x for x in so if x % 2 == 0]` 👍 |
 
 ### 4. `if...else` bên trong biểu thức
@@ -217,7 +217,7 @@ print(ket)   # [4, 16, 36, 64]
 
 ## 🔬 Ví dụ nâng cao
 
-### Ví dụ 1: Thống kê điểm học sinh (kết hợp dataclass bài 24)
+### Ví dụ 1: Thống kê điểm học sinh (dùng `@dataclass`)
 
 ```python
 from dataclasses import dataclass
@@ -250,7 +250,7 @@ Hoc sinh gioi: ['An', 'Cường']
 Diem trung binh lop: 7.62
 ```
 
-> 💡 Có thể bỏ ngoặc `[]` trong `sum(...)` để thành generator — chi tiết bài 27!
+> 💡 Có thể bỏ ngoặc `[]` trong `sum(...)` để thành generator — chi tiết bài 22!
 
 ### Ví dụ 2: Dict comprehension đếm chữ cái (thống kê tần suất)
 

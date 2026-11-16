@@ -1,10 +1,10 @@
 # Bài 4 — Kiểu Dữ Liệu Cơ Bản
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 4 — Biến Trong Python](../b03-Bien/bai.md)
+- [Bài 3 — Biến Trong Python](../b03-Bien/bai.md)
 
 ---
 

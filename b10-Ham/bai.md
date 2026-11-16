@@ -1,12 +1,12 @@
 # Bài 10 — Hàm (Function) Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 8 — Câu Lệnh If – Cấu Trúc Rẽ Nhánh](../b07-Cau-Lenh-If/bai.md)
-- [Bài 10 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
-- [Bài 11 — Vòng Lặp While – Lặp Cho Đến Khi Điều Kiện Sai](../b09-Vong-Lap-While/bai.md)
+- [Bài 7 — Câu Lệnh If – Cấu Trúc Rẽ Nhánh](../b07-Cau-Lenh-If/bai.md)
+- [Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
+- [Bài 9 — Vòng Lặp While – Lặp Cho Đến Khi Điều Kiện Sai](../b09-Vong-Lap-While/bai.md)
 
 ---
 
@@ -36,7 +36,7 @@ Trong lập trình:
 * **Đầu vào** — nguyên liệu gọi là **tham số / đối số**.
 * **Đầu ra** — bát phở thành phẩm gọi là **giá trị trả về** (`return`).
 
-**Nhìn lại bài 11 (vòng lặp while):** khi phải viết code đếm ngược nhiều lần, bạn phải viết lại từng khối lặp. Với hàm, bạn chỉ cần viết **một lần** và gọi bất cứ khi nào muốn.
+**Nhìn lại bài 9 (vòng lặp while):** khi phải viết code đếm ngược nhiều lần, bạn phải viết lại từng khối lặp. Với hàm, bạn chỉ cần viết **một lần** và gọi bất cứ khi nào muốn.
 
 **Lợi ích của hàm:**
 
@@ -265,7 +265,7 @@ print(tinh_trung_binh())              # 0 — an toàn, không lỗi
 
 ## 🔬 Ví dụ nâng cao
 
-### Ví dụ 1: Máy tính bốn phép tính — dùng hàm cho menu (mở rộng từ bài 11)
+### Ví dụ 1: Máy tính bốn phép tính — dùng hàm cho menu (mở rộng từ bài 9)
 
 ```python
 def cong(a, b):

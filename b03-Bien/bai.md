@@ -1,6 +1,6 @@
 # Bài 3 — Biến Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
@@ -440,7 +440,7 @@ if a = 5:   # ❌ SAI — một dấu = là gán, so sánh phải là ==
 | 🏷️ Biến | Cái nhãn có tên dán lên giá trị để gọi ra dùng |
 | ✍️ Gán giá trị | `ten_bien = gia_tri` — dán nhãn trái lên giá trị phải (`=` là gán, không phải so sánh) |
 | 🔄 Gán lại | Gỡ nhãn khỏi giá trị cũ, dán sang giá trị mới |
-| 👯 `b = a` | Dán thêm nhãn (không copy); số/chuỗi thì a không ảnh hưởng, list thì có (Bài 14) |
+| 👯 `b = a` | Dán thêm nhãn (không copy); số/chuỗi thì a không ảnh hưởng, list thì có (Bài 12) |
 | 📛 Quy tắc tên | Chữ cái, số (không đứng đầu), `_`; không trùng từ khóa; không dấu cách |
 | 🔤 Hoa – thường | Phân biệt: `Ten` ≠ `ten` |
 | 🐍 snake_case | `ho_va_ten`, `so_du` — dễ đọc, chuẩn Python |

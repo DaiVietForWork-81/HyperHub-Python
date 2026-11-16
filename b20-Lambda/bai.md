@@ -1,10 +1,10 @@
 # Bài 20 — Lambda – Hàm Vô Danh Siêu Ngắn Gọn
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
+- [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
 
 ---
 
@@ -246,7 +246,7 @@ Gia VND: [250000, 625000, 1250000, 2500000]
 
 ## 🔬 Ví dụ nâng cao
 
-### Ví dụ 1: Sắp xếp sản phẩm theo giá (kết hợp dataclass bài 24)
+### Ví dụ 1: Sắp xếp sản phẩm theo giá (dùng `@dataclass` của thư viện chuẩn)
 
 ```python
 from dataclasses import dataclass

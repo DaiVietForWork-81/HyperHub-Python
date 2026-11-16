@@ -1,10 +1,10 @@
 # Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 6 — Toán Tử Trong Python](../b05-Toan-Tu/bai.md)
+- [Bài 5 — Toán Tử Trong Python](../b05-Toan-Tu/bai.md)
 
 ---
 
@@ -46,7 +46,7 @@ for i in range(10):
 | Loại | Dùng khi | Số lần lặp |
 |---|---|---|
 | 🔁 `for` (bài này) | **Biết trước** số lần hoặc lặp qua một dãy | Do dãy quyết định |
-| 🔄 `while` (bài 11) | **Chưa biết trước**, lặp tới khi điều kiện sai | Do điều kiện quyết định |
+| 🔄 `while` (bài 9) | **Chưa biết trước**, lặp tới khi điều kiện sai | Do điều kiện quyết định |
 
 ### 2. Cú pháp `for` và hàm `range`
 
@@ -295,7 +295,7 @@ print(f"Tổng các số chẵn từ 0 đến {n} là: {tong}")
 ```
 
 **Giải thích:**
-* `i % 2 == 0` — phép chia lấy dư (bài 6): dư 0 nghĩa là số chẵn.
+* `i % 2 == 0` — phép chia lấy dư (bài 5): dư 0 nghĩa là số chẵn.
 * Với n = 10: 0+2+4+6+8+10 = 30 — khớp ví dụ giáo trình.
 * **Cách gọn hơn:** `for i in range(0, n + 1, 2):` — sinh thẳng dãy số chẵn, khỏi cần `if`.
 

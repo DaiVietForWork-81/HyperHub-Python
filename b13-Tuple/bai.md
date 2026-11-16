@@ -1,10 +1,10 @@
 # Bài 13 — Tuple (Bộ Dữ Liệu) Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 14 — Danh Sách (List) Trong Python](../b12-List/bai.md)
+- [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
 
 ---
 
@@ -170,8 +170,8 @@ print(7 in diem)         # True
 
 * 📍 **Tọa độ / dữ liệu định vị:** `(lat, lon)` là một điểm — đổi một con số là "bay" sang nước khác.
 * 🗓️ **Hằng số:** `(thu, ngay, thang, nam)`, cấu hình cố định, các giá trị mặc định.
-* 🔐 **Khóa của từ điển:** chỉ kiểu bất biến mới làm khóa được (chi tiết bài 17).
-* 🚀 **Trả về nhiều giá trị từ hàm:** hàm chỉ "trả về một thứ", nhưng thứ đó có thể là tuple (bài 12, 23 sẽ gặp).
+* 🔐 **Khóa của từ điển:** chỉ kiểu bất biến mới làm khóa được (chi tiết bài 15).
+* 🚀 **Trả về nhiều giá trị từ hàm:** hàm chỉ "trả về một thứ", nhưng thứ đó có thể là tuple (bài 10, 19 sẽ gặp).
 * 🛡️ **Chống sửa đổi ngẫu nhiên:** dữ liệu đọc chỉ, không cho ai vô tình `append` vào.
 * 📦 **Số lượng phần tử ngầm cố định:** như RGB `(255, 0, 0)` luôn 3 thành phần.
 
@@ -374,7 +374,7 @@ ngay_trong_dong_ho = (1, 2, 3, ...)   # ✅ tuple phù hợp hơn cho dữ liệ
 * 🔄 **`a, b = b, a`** — bạn sẽ gặp lại trong thuật toán sắp xếp; nhớ tuple cho phép hoán đổi một dòng.
 * 📦 **Nhớ dấu phẩy** khi tạo tuple 1 phần tử `(x,)` — đây là "câu đố" hay xuất hiện trong phỏng vấn.
 * ⚡ **Tuple nhanh và nhẹ hơn list** — dùng tuple cho dữ liệu cố định vừa an toàn vừa tối ưu.
-* 🔑 **Tuple có thể làm khóa từ điển**, còn list thì không (bài 17 sẽ thấy).
+* 🔑 **Tuple có thể làm khóa từ điển**, còn list thì không (bài 15 sẽ thấy).
 * 🎯 **Unpacking kết hợp vòng lặp:** `for ten, diem in ds:` rất hay gặp — hãy thành thạo.
 * 🧪 **Kiểm tra kiểu:** `type(x)` in ra `<class 'tuple'>` để chắc chắn không tạo nhầm thành số.
 * 📚 **Chuyển đổi linh hoạt:** `list(tuple)` và `tuple(list)` để đổi qua lại khi cần.
@@ -850,7 +850,7 @@ print("xoai" in trai_cay)
 **Giải thích code:**
 * `"tao" in trai_cay` → `True`.
 * `"xoai" in trai_cay` → `False`.
-* `in` dùng được cho cả list, tuple, set, dict (bài 16, 17 sẽ gặp lại).
+* `in` dùng được cho cả list, tuple, set, dict (bài 14, 15 sẽ gặp lại).
 
 **Độ phức tạp:** O(n) — duyệt qua tuple.
 

@@ -1,12 +1,12 @@
 # Bài 19 — Lập Trình Hướng Đối Tượng (OOP)
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
-- [Bài 14 — Danh Sách (List) Trong Python](../b12-List/bai.md)
-- [Bài 17 — Dictionary (Từ Điển) Trong Python](../b15-Dictionary/bai.md)
+- [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
+- [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
+- [Bài 15 — Dictionary (Từ Điển) Trong Python](../b15-Dictionary/bai.md)
 
 ---
 
@@ -26,9 +26,9 @@ Sau bài học này, học viên sẽ:
 
 ## 📖 Kiến thức
 
-### 1. Nhắc lại Bài 18 — điểm yếu của cách cũ
+### 1. Nhắc lại — điểm yếu của cách cũ
 
-Ở **Bài 22**, mỗi học sinh là một dict: `{"ten": ..., "lop": ..., "diem": [...]}`. Vấn đề:
+Ở các bài trước, mỗi học sinh là một dict: `{"ten": ..., "lop": ..., "diem": [...]}`. Vấn đề:
 
 * 😵 Tên khóa phải gõ lại mỗi lần: `hs["ten"]`, `hs["lop"]` — dễ gõ sai.
 * 🧯 Mọi thao tác (tính TB, xếp loại, in) đều là hàm **tách rời** dữ liệu.
@@ -820,7 +820,7 @@ class SanPham:
   So du hop le: 100000
   `vi.__so_du` gay AttributeError (dang bao mat)
   ```
-* **Gợi ý:** Dùng `try/except` để bắt lỗi truy cập trực tiếp (kiến thức Bài 19).
+* **Gợi ý:** Dùng `try/except` để bắt lỗi truy cập trực tiếp (kiến thức try/except).
 
 ### Bài 14: `@staticmethod` và `@classmethod`
 
@@ -928,7 +928,7 @@ class SanPham:
 * ✅ Bảo vệ dữ liệu bằng đóng gói `_` / `__` và phương thức truy cập.
 * ✅ Áp dụng OOP vào hệ thống nhỏ: trường học, ATM, thư viện, game.
 
-> 💪 OOP là "chân trời mới" — Bài tiếp theo **Dataclass** sẽ giúp viết class ngắn gọn hơn hẳn!
+> 💪 OOP là "chân trời mới" — bạn sẽ dùng nó trong mọi bài phía sau!
 
 ---
 
@@ -2118,7 +2118,7 @@ for gv in truong.giao_vien:
 * Viết `__str__` cho mọi class — cuộc sống dễ thở hơn hẳn khi in đối tượng.
 * Kế thừa cho quan hệ "là một", hợp thành cho "có một" — đừng kế thừa bừa bãi.
 * `_` là quy ước nội bộ, `__` là che giấu — hãy cho người dùng phương thức đúng thay vì sờ vào thuộc tính.
-* Bài sau sẽ gọn nhẹ hơn hẳn với **dataclass** — Python tự sinh `__init__`, `__str__`... cho bạn!
+* Khi viết nhiều class, hãy tìm hiểu `@dataclass` — Python tự sinh `__init__`, `__str__`... giúp code gọn hơn!
 
 👉 Tiếp theo: **[Bài 20 — Lambda – Hàm Vô Danh Siêu Ngắn Gọn](../b20-Lambda/bai.md)**
 

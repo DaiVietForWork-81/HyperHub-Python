@@ -1,11 +1,11 @@
 # Bài 16 — Chuỗi (String) Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 5 — Kiểu Dữ Liệu Cơ Bản](../b04-Kieu-Du-Lieu/bai.md)
-- [Bài 14 — Danh Sách (List) Trong Python](../b12-List/bai.md)
+- [Bài 4 — Kiểu Dữ Liệu Cơ Bản](../b04-Kieu-Du-Lieu/bai.md)
+- [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
 
 ---
 
@@ -298,7 +298,7 @@ print("  a   b  ".split(" "))   # ['', 'a', '', '', 'b', ''] — phần tử r�
 print("  a   b  ".split())      # ['a', 'b'] — mặc định gom nhiều khoảng trắng
 ```
 
-* **Cách sửa:** kiểm tra số thực bằng `float()` trong khối bắt lỗi (bài 19); tách chuỗi dùng `split()` không tham số.
+* **Cách sửa:** kiểm tra số thực bằng `float()` trong khối bắt lỗi (try/except); tách chuỗi dùng `split()` không tham số.
 
 ---
 
@@ -310,7 +310,7 @@ print("  a   b  ".split())      # ['a', 'b'] — mặc định gom nhiều kho�
 * 🎯 **`.strip()` trước khi phân tích** dữ liệu nhập — tránh khoảng trắng ẩn.
 * 📏 `len()` đếm **ký tự**; `len(s.split())` đếm **từ**.
 * ✨ F-string với `:.2f` làm tròn số đẹp khi in bảng giá, điểm số.
-* 🔎 Kiểm tra bằng `isdigit()` trước khi `int()` — bài 19 sẽ học cách chuẩn hơn.
+* 🔎 Kiểm tra bằng `isdigit()` trước khi `int()` — sẽ có cách xử lý lỗi chuẩn hơn ở phần sau.
 
 ---
 
@@ -1313,7 +1313,7 @@ print(ten_dang_nhap)
 
 * Khi nối nhiều chuỗi trong vòng lặp, hãy gom vào list rồi dùng `"".join()` — nhanh và sạch hơn.
 * Chuỗi bất biến — mọi phương thức chỉ trả về chuỗi mới, đừng quên gán lại.
-* Kiểm tra đầu vào bằng `isdigit()`, `isalpha()` trước khi xử lý để tránh lỗi bất ngờ (bài 19 sẽ học cách chuyên nghiệp hơn).
+* Kiểm tra đầu vào bằng `isdigit()`, `isalpha()` trước khi xử lý để tránh lỗi bất ngờ (sẽ học cách xử lý lỗi chuyên nghiệp hơn ở phần sau).
 
 👉 Tiếp theo: **[Bài 17 — Module Trong Python](../b17-Module/bai.md)**
 

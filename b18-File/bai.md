@@ -1,10 +1,10 @@
 # Bài 18 — Đọc Và Ghi File Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 20 — Module Trong Python](../b17-Module/bai.md)
+- [Bài 17 — Module Trong Python](../b17-Module/bai.md)
 
 ---
 
@@ -24,9 +24,9 @@ Sau bài học này, học viên sẽ:
 
 ## 📖 Kiến thức
 
-### 1. Nhắc lại Bài 21 — và vấn đề lớn nhất hiện tại
+### 1. Vấn đề lớn nhất hiện tại
 
-Ở **Bài 21**, dữ liệu (học sinh, điểm số) nằm trong biến, list, dict — tất cả đều **trong bộ nhớ RAM**. Tắt máy là **mất sạch**! Cũng giống như bạn học thuộc lòng thời khóa biểu nhưng không ghi vào sổ — tối nay ngủ dậy là quên.
+Tới lúc này, dữ liệu (học sinh, điểm số) nằm trong biến, list, dict — tất cả đều **trong bộ nhớ RAM**. Tắt máy là **mất sạch**! Cũng giống như bạn học thuộc lòng thời khóa biểu nhưng không ghi vào sổ — tối nay ngủ dậy là quên.
 
 > 💬 **Nói đơn giản:** File giống **cuốn sổ tay** của chương trình: mọi thứ ghi vào sổ sẽ còn nguyên trên đĩa cứng kể cả khi tắt máy.
 
@@ -157,7 +157,7 @@ with open("khong_co.txt", "r", encoding="utf-8") as f:   # ❌ FileNotFoundError
     print(f.read())
 ```
 
-Giải pháp: bọc trong `try/except` (kiến thức **Bài 19**):
+Giải pháp: bọc trong `try/except`:
 
 ```python
 try:
@@ -200,7 +200,7 @@ with open("diem.txt", "r", encoding="utf-8") as f:
         print(f"{ten}: {tb:.2f}")
 ```
 
-> 💡 `float(x)` có thể gây `ValueError` nếu dữ liệu lỗi — kết hợp `try/except` (Bài 19) khi dữ liệu không tin cậy.
+> 💡 `float(x)` có thể gây `ValueError` nếu dữ liệu lỗi — kết hợp `try/except` khi dữ liệu không tin cậy.
 
 ---
 
@@ -406,7 +406,7 @@ Kết quả:
 - Tran Thi Mai (lop 10A1)
 ```
 
-> 💡 Đây chính là **"lưu trữ" thô sơ** — Bài 33 (JSON) và Bài 34 (CSV) sẽ dạy định dạng lưu trữ chuẩn hơn.
+> 💡 Đây chính là **"lưu trữ" thô sơ** — các định dạng chuẩn như JSON, CSV sẽ được dạy kỹ khi làm dự án thật.
 
 ---
 
@@ -1745,4 +1745,4 @@ print("Da ghi ket qua vao tong_ket.txt")
 
 > 🏆 **Thi HSG?** Cách mở file `BAI.INP` / ghi `BAI.OUT` đúng quy ước phòng thi
 > (template redirect + tự test như máy chấm) nằm ở
-> [Bài 42 — Chiến Lược Thi HSG, mục 7](../b42-Chien-Luoc-Thi-HSG/bai.md).
+> [Bài 44 — Chiến Lược Thi HSG, mục 7](../b44-Chien-Luoc-Thi-HSG/bai.md).

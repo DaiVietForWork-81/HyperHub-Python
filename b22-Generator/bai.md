@@ -1,11 +1,11 @@
 # Bài 22 — Generator – Sinh Dữ Liệu "Từng Phần Một"
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
-- [Bài 26 — List Comprehension – Vòng Lặp "Viết Trong Một Dòng"](../b21-List-Comprehension/bai.md)
+- [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
+- [Bài 21 — List Comprehension – Vòng Lặp "Viết Trong Một Dòng"](../b21-List-Comprehension/bai.md)
 
 ---
 
@@ -26,7 +26,7 @@ Sau bài học này, học viên sẽ:
 
 ### 1. Vấn đề: list bình thường nuốt bộ não
 
-Ở bài 26, ta viết `[x*x for x in range(10)]` — toàn bộ kết quả **chất đầy bộ nhớ** ngay lập tức. Nếu cần sinh `range(10_000_000)` (10 triệu số bình phương), máy phải lưu hết 10 triệu số cùng lúc — rất tốn RAM.
+Ở bài 21, ta viết `[x*x for x in range(10)]` — toàn bộ kết quả **chất đầy bộ nhớ** ngay lập tức. Nếu cần sinh `range(10_000_000)` (10 triệu số bình phương), máy phải lưu hết 10 triệu số cùng lúc — rất tốn RAM.
 
 ```python
 # Ngốn bộ nhớ: phải chứa 10 triệu số trong list

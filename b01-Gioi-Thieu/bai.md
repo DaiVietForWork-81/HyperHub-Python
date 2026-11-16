@@ -1,6 +1,6 @@
 # Bài 1 — Giới Thiệu Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
@@ -184,7 +184,7 @@ Kết quả:
 
 ## 🔬 Ví dụ nâng cao
 
-### Ví dụ: Máy chào hỏi thông minh (cần kiến thức bài 7)
+### Ví dụ: Máy chào hỏi thông minh (cần kiến thức bài 6)
 
 > Khi học xong bài về nhập dữ liệu, bạn sẽ viết được chương trình này:
 
@@ -1211,7 +1211,7 @@ print("------------------------------")
 * Mọi lệnh `print()` phải có dấu ngoặc tròn.
 * Chuỗi chữ cần dấu nháy thẳng `"` hoặc `'`; số thì không cần.
 * Python phân biệt hoa – thường: `print` đúng, `Print` sai.
-* Luyện viết **biến** (đã thấy ở bài 15, 17, 19) — bài sau sẽ học kỹ hơn về biến!
+* Luyện viết **biến** — sẽ học kỹ ở **Bài 3 — Biến Trong Python**.
 
 👉 Tiếp theo: **[Bài 2 — Cài Đặt Python](../b02-Cai-Dat-Python/bai.md)**
 

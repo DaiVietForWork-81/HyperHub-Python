@@ -1,6 +1,6 @@
 # Bài 2 — Cài Đặt Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
@@ -175,7 +175,7 @@ python --help
 * `python --version` → xem phiên bản.
 * `python --help` → xem toàn bộ lệnh hỗ trợ.
 
-### Ví dụ: Sử dụng pip cơ bản (học kỹ ở bài 31)
+### Ví dụ: Sử dụng pip cơ bản (dùng khi cần cài thư viện ngoài)
 
 ```bash
 python -m pip --version

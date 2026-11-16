@@ -217,3 +217,47 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | Nhánh Thực chiến tách khỏi Thuật toán | Hai mục tiêu khác nhau: giải thuật vs dùng Python trong dự án thật. Không bắt buộc học 02 trước 03. |
 | Đáp án bọc `<details>` theo từng câu | Người học chỉ mở đúng câu mình bí, không lộ đáp án các câu khác. |
 | PDF giáo trình giữ nguyên ở gốc | Tài liệu tham khảo, không phải nội dung khóa học web. |
+
+---
+
+## 7. Giai đoạn 2 — Rework nội dung 46 bài (đang thực hiện)
+
+### 7.1 Đã làm (đợt 1: cấu trúc)
+
+* **Chèn 2 bài mới** theo yêu cầu "đủ chuyên đề":
+  * **b26 — Vét Cạn (Brute Force)** — sau b25 (Độ phức tạp).
+  * **b30 — Tần Suất (Đếm & Thống Kê)** — sau b29 (Hashing).
+* **Đánh số lại toàn bộ**: 1–25 giữ nguyên; 26–28 → +1; 29–44 → +2 → **tổng 46 bài** liền mạch.
+  * Script: `tools/renumber2.py` (đồng bộ H1, banner, link targets, link labels, dòng "Vị trí", tham chiếu `Bài N` ≥ 26; bảo vệ các sửa đổi đặc biệt bằng placeholder).
+  * Dọn tham chiếu sót từ đợt trước (bài đã lược: VSCode/Match-Case/Exception/Package/Dataclass/Decorator/Iterator) — sửa bằng bảng specials + thuật toán đối chiếu 3 lớp (audit script `tools/audit_refs*.py`).
+* **README viết lại** cho dãy 46 bài + bảng **phân loại nhóm bài**.
+* Đã kiểm tra: `tools/validate_flat.py` — **0 lỗi** (sau khi vá README).
+
+### 7.2 Chuẩn nội dung mới (áp dụng dần cho từng bài — "bản thô trước, hoàn thiện sau")
+
+Mỗi bài `bai.md` hướng tới cấu trúc:
+
+1. **Thẻ phân loại** ngay dưới banner: `> 🏷️ **Nhóm bài:** ... · **Mức độ:** ⭐...`
+2. **🧩 Bài tập: 30 bài/bài** chia đúng **10 Dễ – 10 Trung bình – 10 Khó** (tier header `## 🟢 Dễ (Bài 1 – 10)` v.v.),
+   mỗi bài tập có **đáp án `<details>`** giữ văn phong hiện tại (Phân tích → Ý tưởng → Code → Giải thích → Độ phức tạp).
+   * Hiện trạng: các bài nền tảng ~20 bài, các bài thuật toán ~12 bài → cần bổ sung thêm và chuẩn hóa lại tier.
+3. **🏠 Bài tập về nhà** (mục mới): 3–5 việc giao về nhà, **không kèm đáp án chi tiết** (GV thu vở),
+   chèn ngay trước `## ➡️ Điều hướng`. Mẫu chuẩn: xem `b26-Vet-Can/bai.md` và `b30-Tan-Suat/bai.md`.
+4. **📎 Tra cứu nhanh** (mục mới, đặt cuối bài trước Điều hướng): bảng cú pháp – hàm – phương thức – khuôn mẫu
+   của đúng chủ đề bài học (list/set/dict/string: liệt kê **mọi phương thức** thường dùng kèm ví dụ ngắn).
+5. **Văn phong dễ hiểu hơn**: câu ngắn, ví dụ đời thực trước — định nghĩa sau; cắt bớt thuật ngữ khi chưa cần.
+
+### 7.3 Việc còn lại (dành cho đợt hoàn thiện — có thể giao cho agent mạnh hơn)
+
+- [ ] Nhân bản chuẩn mục 7.2 (**thẻ nhóm + 30 bài tập + Bài tập về nhà + Tra cứu nhanh**) cho **44 bài cũ** (b01–b25, b27–b29, b31–b46).
+- [ ] Mở rộng bộ bài tập của **b26, b30** từ 9 → 30 bài (đáp án đầy đủ).
+- [ ] Rà "độ khó ngôn từ" từng bài: thay câu dài bằng câu ngắn; bổ sung "Giải thích dễ hiểu" cho phần khó.
+- [ ] Kiểm tra chạy thật toàn bộ ví dụ + đáp án code (đặc biệt các bài thuật toán).
+- [ ] Cập nhật badge/bảng thống kê khi số bài tập thay đổi.
+
+### 7.4 Quy tắc kỹ thuật (bắt buộc khi sửa)
+
+* File UTF-8, **LF**, không BOM. Mỗi thư mục bài chỉ chứa đúng `bai.md`.
+* Mọi thay đổi xong phải chạy: `python tools/validate_flat.py` → phải **0 lỗi**.
+* Khi chèn/sửa cấu trúc hàng loạt: viết script trong `tools/`, dry-run trước, đối chiếu báo cáo, rồi mới apply — xem `tools/renumber2.py` làm mẫu (specials + leftover check).
+* Không đánh số lại bài học nữa trừ khi thật cần — nếu cần, dùng lại quy trình `renumber2.py`.

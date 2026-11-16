@@ -1,10 +1,10 @@
 # Bài 14 — Set (Tập Hợp) Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 14 — Danh Sách (List) Trong Python](../b12-List/bai.md)
+- [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
 
 ---
 
@@ -345,7 +345,7 @@ s = {}          # ❌ SAI — đây là dictionary rỗng!
 s = set()       # ✅ ĐÚNG — set rỗng
 ```
 
-* **Nguyên nhân:** `{}` đã được dành riêng cho dictionary (bài 17).
+* **Nguyên nhân:** `{}` đã được dành riêng cho dictionary (bài 15).
 * **Cách kiểm tra:** `type(s)` — `<class 'set'>` mới là đúng.
 
 ### Lỗi 2: Đưa list vào set — TypeError
@@ -1332,7 +1332,7 @@ for x in set(so):
 * `so.count(1)` = 1 → in ra `1` và dừng.
 * Các số khác đếm ra 2 nên bỏ qua.
 
-**Độ phức tạp:** O(n²) với cách `count` lặp lại; cải tiến được bằng dict đếm (bài 17).
+**Độ phức tạp:** O(n²) với cách `count` lặp lại; cải tiến được bằng dict đếm (bài 15).
 
 ---
 

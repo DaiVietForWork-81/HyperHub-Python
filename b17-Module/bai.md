@@ -1,10 +1,10 @@
 # Bài 17 — Module Trong Python
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 12 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
+- [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
 
 ---
 
@@ -24,7 +24,7 @@ Sau bài học này, học viên sẽ:
 
 ### 1. Nhắc lại bài trước
 
-Ở **Bài 19**, chúng ta học cách dùng `try/except` để **xử lý lỗi** mà không làm chương trình sập:
+Nhắc lại một kỹ năng quan trọng: dùng `try/except` để **xử lý lỗi** mà không làm chương trình sập:
 
 ```python
 try:
@@ -151,7 +151,7 @@ import tien_ich   # hoặc: from tien_ich import dien_tich_hinh_tron
 print(tien_ich.dien_tich_hinh_tron(5))   # 78.53975
 ```
 
-> ✔️ Điều kiện duy nhất với người mới: **file module và file dùng nó nằm cùng thư mục**. Bài 21 (Package) và Bài 23 (Virtual Environment) sẽ dạy cách tổ chức chuyên nghiệp hơn.
+> ✔️ Điều kiện duy nhất với người mới: **file module và file dùng nó nằm cùng thư mục**. Cách tổ chức chuyên nghiệp hơn sẽ học khi làm dự án thật.
 
 ### 9. Module chuẩn của Python
 
@@ -163,8 +163,8 @@ Python đi kèm "tủ đồ nghề" khổng lồ gọi là **Thư viện chuẩn
 | `random` | Sinh số ngẫu nhiên | `randint()`, `choice()`, `shuffle()` |
 | `datetime` | Ngày, giờ | `datetime.now()`, `date.today()` |
 | `os` | Tương tác với hệ điều hành | `os.getcwd()`, `os.listdir()` |
-| `json` | Dữ liệu JSON (bài 32) | `json.dumps()`, `json.loads()` |
-| `csv` | File CSV (bài 33) | `csv.reader()`, `csv.writer()` |
+| `json` | Dữ liệu JSON | `json.dumps()`, `json.loads()` |
+| `csv` | File CSV | `csv.reader()`, `csv.writer()` |
 
 * **`math`**: như cuốn sổ tay công thức toán — căn bậc hai, lũy thừa, làm tròn, các hằng số.
 * **`random`**: "máy xào bài" — sinh số/đối tượng ngẫu nhiên cho game, khảo sát, bốc thăm.
@@ -376,7 +376,7 @@ print(random.randint(1, 100))   # ❌ in ra số ngẫu nhiên mỗi lần bị 
 * 🏷️ Dùng `as` để gõ ngắn: `import random as rd`, nhưng giữ tên dễ nhớ, không lạm dụng.
 * 🧪 Mọi file nên có khối `if __name__ == "__main__":` để tự test.
 * 🔍 Gõ `help(math)` hoặc `dir(random)` để xem module có gì.
-* 📚 Trước khi cài thư viện ngoài (Bài 32), hãy kiểm tra thư viện chuẩn đã có chưa.
+* 📚 Trước khi cài thư viện ngoài, hãy kiểm tra thư viện chuẩn đã có chưa.
 
 ---
 
@@ -1161,7 +1161,7 @@ else:
 **Giải thích code:**
 * `input(...)` trả về chuỗi nên phải `int(...)` để so sánh số.
 * `if/else` quyết định thông báo thắng – thua.
-* Lời khuyên: bọc `int(input(...))` trong `try/except` (Bài 19) để an toàn.
+* Lời khuyên: bọc `int(input(...))` trong `try/except` để an toàn.
 
 **Độ phức tạp:** O(1).
 

@@ -1,6 +1,6 @@
 # Bài 24 — Tư Duy Thuật Toán
 
-> 📚 **Dãy phẳng b1–b44 — Nền tảng + Thuật toán**
+> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
 ---
 
@@ -103,12 +103,12 @@ Mỗi bước là một bài Cơ bản bạn đã biết. Thuật toán khó = n
 
 | Thấy dấu hiệu này | Nghĩ ngay tới mẫu |
 |---|---|
-| Dãy đã sắp xếp + cần tìm nhanh | Tìm kiếm nhị phân (Bài 25) |
-| "Dãy con liên tiếp" + tối ưu | Hai con trỏ / cửa sổ trượt (Bài 30) |
-| Lựa chọn từng bước, không quay lui | Tham lam (Bài 31) |
-| Bài toán con lặp lại, "tối ưu" | Quy hoạch động (Bài 32) |
+| Dãy đã sắp xếp + cần tìm nhanh | Tìm kiếm nhị phân (Bài 27) |
+| "Dãy con liên tiếp" + tối ưu | Hai con trỏ / cửa sổ trượt (Bài 33) |
+| Lựa chọn từng bước, không quay lui | Tham lam (Bài 34) |
+| Bài toán con lặp lại, "tối ưu" | Quy hoạch động (Bài 35) |
 | Lưới / mê cung / lan truyền | BFS/DFS trên đồ thị |
-| Số nguyên tố, ước, chia hết | Số học (Bài 33) |
+| Số nguyên tố, ước, chia hết | Số học (Bài 36) |
 
 **c) Trừu tượng hóa (Abstraction) — bỏ chi tiết thừa, giữ cái cốt lõi.**
 
@@ -134,7 +134,7 @@ Một đề thi chuẩn có 5 phần. Đọc **theo thứ tự** này:
 2. OUTPUT  — in ra cái gì, định dạng chính xác (dấu cách? xuống dòng?
              làm tròn mấy chữ số? chữ hoa/thường?)
 3. RÀNG BUỘC — n ≤ ? , a[i] ≤ ? , giới hạn thời gian/bộ nhớ?
-               → QUYẾT ĐỊNH thuật toán nào sống sót (xem Bài 24).
+               → QUYẾT ĐỊNH thuật toán nào sống sót (xem Bài 25).
 4. VÍ DỤ   — chạy tay theo ví dụ để xác nhận mình hiểu đúng đề.
 5. BIÊN    — n = 0? n = 1? số âm? số bằng nhau? input rỗng?
 ```
@@ -249,7 +249,7 @@ main()
 > số phiếu thì in tên; nếu không có, in `KHONG CO`."
 
 **Suy nghĩ theo mẫu:** "hơn nửa" + "tìm phần tử" → đếm tần suất bằng dict
-(mẫu Hashing — Bài 28). Thuật toán "bỏ phiếu Boyer-Moore" nhanh hơn nhưng
+(mẫu Hashing — Bài 29). Thuật toán "bỏ phiếu Boyer-Moore" nhanh hơn nhưng
 dict là cách trực quan, đủ nhanh với n ≤ 10⁶.
 
 ```python
@@ -456,7 +456,7 @@ tra lại ứng viên.*
 **Bài 8 — Đoạn 0-1 cân bằng.** Cho dãy nhị phân (chỉ gồm 0 và 1), tìm độ dài
 đoạn liên tiếp dài nhất có **số 0 bằng số 1**. *Gợi ý: đổi 0 thành −1, bài toán
 thành "đoạn dài nhất có tổng bằng 0"; dùng tổng tiền tố + dict lưu lần đầu
-thấy mỗi tổng (mẫu sẽ học ở Bài 31).*
+thấy mỗi tổng (mẫu sẽ học ở Bài 33).*
 ### ➕ Bài tập bổ sung (Bài 9–12)
 
 **Bài 9 — Phân tích đề xe khách.** Đề: "Nhà xe có n chuyến, chuyến thứ i chở
@@ -524,8 +524,8 @@ Bài "số lớn thứ hai phân biệt", ví dụ dãy `[5, 1, 5, 3]` → 3.
 <details>
 <summary>✅ Bài 4: Nhận diện mẫu</summary>
 
-a) Dãy đã sắp xếp + tìm/đếm → **tìm kiếm nhị phân** (Bài 26).
-b) Chọn nhiều việc không trùng giờ → **tham lam** (Bài 32, bài toán xếp lịch).
+a) Dãy đã sắp xếp + tìm/đếm → **tìm kiếm nhị phân** (Bài 27).
+b) Chọn nhiều việc không trùng giờ → **tham lam** (Bài 34, bài toán xếp lịch).
 c) Fibonacci n ≤ 10¹⁸ → **chia để trị + nhân ma trận** hoặc công thức
    (đệ quy naive O(2ⁿ) chết ngay; quy hoạch động O(n) vẫn quá chậm với 10¹⁸).
 d) Đếm vùng liền nhau trên lưới → **DFS/BFS trên đồ thị lưới**.
