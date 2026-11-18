@@ -39,25 +39,22 @@ HyperHub - HSG Tin/
 
 ---
 
-## 2. Cấu trúc mới — 3 lộ trình
+## 2. Cấu trúc mới — 1 dãy phẳng 46 bài
 
 ```
 PYTHON
-  │
-  ▼
-01. CƠ BẢN  (bắt buộc — nền tảng cho mọi nhánh)
-  │
-  ▼
-Hoàn thành nền tảng
-      /              \
-     ▼                ▼
-02. THUẬT TOÁN    03. THỰC CHIẾN
-  HSG / CP          API / Package / Project
+   │
+   ▼
+b01–b23: NỀN TẢNG (bắt buộc — Python từ số 0)
+   │
+   ▼
+b24–b46: THUẬT TOÁN HSG/CP (tự chọn)
 ```
 
-* **01-Co-Ban**: bắt buộc. Từ số 0 đến OOP + Generator/Decorator/Iterator.
-* **02-Thuat-Toan**: tùy chọn, dành cho HSG / competitive programming. Viết mới hoàn toàn.
-* **03-Thuc-Chien**: tùy chọn, độc lập với 02. Dùng Python trong dự án thật.
+* **b01–b23 (Nền tảng)**: bắt buộc. Từ số 0 đến OOP + Generator/Decorator/Iterator + Regex.
+* **b24–b46 (Thuật toán)**: tùy chọn, dành cho HSG / competitive programming. Viết mới hoàn toàn.
+
+> ⚠️ **Quy tắc:** Học xong **b01–b23 (Nền tảng)** rồi mới sang **b24–b46 (Thuật toán)**.
 
 ### Bản đồ chuyển đổi bài học
 
@@ -180,17 +177,18 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | Phase | Công việc | Trạng thái |
 |---|---|---|
 | 1 | Audit toàn bộ repository | ✅ Xong |
-| 2 | Thiết kế cấu trúc 3 lộ trình + bản đồ chuyển đổi | ✅ Xong (tài liệu này) |
+| 2 | Thiết kế cấu trúc phẳng 46 bài + bản đồ chuyển đổi | ✅ Xong (tài liệu này) |
 | 3 | Script chuyển đổi 41 bài cũ → `bai.md` mới | ✅ Xong |
 | 4 | Xóa cấu trúc cũ sau khi validate | ✅ Xong |
-| 5 | Viết mới 12 bài nhánh Thuật toán | ✅ Xong |
-| 5b | Mở rộng nhánh Thuật toán lên 19 bài (đồ thị, đường ngắn nhất, cây/DSU, segment tree, chuỗi, bitmask, DP nâng cao) | ✅ Xong |
-| 5c | Gộp vật lý 3 mục tự chứa: 01-Co-Ban (gốc) + 02-Thuat-Toan/Phan-1 + 04-Full (3 phần + PDF) | ✅ Xong |
-| 5d | Track Thuật toán lược 7 bài cơ bản không cần cho HSG (03, 09, 19, 21, 24, 28, 29) + sửa link/prereq/văn xuôi + finale riêng | ✅ Xong |
-| 5e | Track Thuật toán phẳng (1)–(41): cơ bản đánh số lại 1–22, thuật toán 1–19 thành 23–41 (giữ exercise/contest numbering) | ✅ Xong |
-| 5f | Mở rộng 21 bài (19 algo + pytest + git) từ 8 lên 12 bài tập/bài (84 bài mới, code đáp án chạy kiểm chứng) | ✅ Xong |
-| 6 | Viết lại README gốc với roadmap 3 nhánh | ✅ Xong |
-| 7 | Validate: link hỏng, file thiếu, tham chiếu cũ | ✅ Xong (script `tools/validate.py`) |
+| 5 | Viết mới 19 bài thuật toán + 2 bài mới (Vét cạn, Tần suất) | ✅ Xong |
+| 5b | Mở rộng thuật toán: đồ thị, đường ngắn nhất, cây/DSU, segment tree, chuỗi, bitmask, DP nâng cao | ✅ Xong |
+| 5c | Gộp vật lý 3 mục tự chứa: 01-Co-Ban + 02-Thuat-Toan/Phan-1 + 04-Full → dãy phẳng 46 bài | ✅ Xong |
+| 5d | Track thuật toán lược 7 bài không cần HSG + sửa link/prereq + finale | ✅ Xong |
+| 5e | Đánh số phẳng 1–46: cơ bản 1–23, thuật toán 24–46 (giữ exercise numbering) | ✅ Xong |
+| 5f | Mở rộng 21 bài (19 algo + pytest + git) từ 8 lên 12 bài tập/bài (84 bài mới) | ✅ Xong |
+| 6 | Viết lại README với roadmap 46 bài phẳng | ✅ Xong |
+| 7 | Validate: link hỏng, file thiếu, tham chiếu cũ | ✅ Xong (`tools/validate_flat.py`) |
+| 8 | **Phase hiện tại**: Đồng bộ tài liệu & chuẩn hóa 30 bài tập/bài | 🔄 Đang thực hiện |
 
 ---
 
@@ -212,9 +210,9 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 | Quyết định | Lý do |
 |---|---|
 | Giữ nội dung cũ, gộp bằng script thay vì viết lại từ đầu | Nội dung cũ chất lượng tốt (~45k dòng). Viết lại tay 41 bài trong một lần sẽ phát sinh lỗi và mất nội dung. Script gộp đảm bảo 0 mất mát, sau đó nâng cấp tay từng bài. |
-| 3 mục tự chứa bằng copy + script đồng bộ (thay vì viết tay 3 lần) | Người học chỉ mở 1 thư mục duy nhất. Copy tay sẽ lệch nhau sau vài lần sửa → `tools/sync_tracks.py` tái tạo toàn bộ copy từ bản chính, `tools/validate.py` kiểm tra link. Quy tắc: chỉ sửa `01-Co-Ban`, `02-Thuat-Toan/*` (trừ `Phan-1`), `03-Thuc-Chien`. |
+| **1 dãy phẳng 46 bài** thay vì 3 mục tự chứa | Người học chỉ mở 1 thư mục duy nhất, học tuần tự b01→b46. Không cần nhảy thư mục. Script `renumber2.py` quản lý đánh số. |
 | Nhánh Thuật toán viết mới hoàn toàn | Thư mục cũ rỗng. Chuẩn HSG cần tư duy giải bài toán, không phải liệt kê định nghĩa. |
-| Nhánh Thực chiến tách khỏi Thuật toán | Hai mục tiêu khác nhau: giải thuật vs dùng Python trong dự án thật. Không bắt buộc học 02 trước 03. |
+| **Thực chiến tách riêng (không trong 46 bài)** | Hai mục tiêu khác nhau: giải thuật vs dự án thật. Có thể bổ sung sau jako phase riêng. |
 | Đáp án bọc `<details>` theo từng câu | Người học chỉ mở đúng câu mình bí, không lộ đáp án các câu khác. |
 | PDF giáo trình giữ nguyên ở gốc | Tài liệu tham khảo, không phải nội dung khóa học web. |
 
@@ -222,15 +220,15 @@ Mỗi bài học = **1 file duy nhất**, cấu trúc:
 
 ## 7. Giai đoạn 2 — Rework nội dung 46 bài (đang thực hiện)
 
-### 7.1 Đã làm (đợt 1: cấu trúc)
+### 7.1 Đã làm (đợt 1: cấu trúc phẳng 46 bài)
 
 * **Chèn 2 bài mới** theo yêu cầu "đủ chuyên đề":
   * **b26 — Vét Cạn (Brute Force)** — sau b25 (Độ phức tạp).
   * **b30 — Tần Suất (Đếm & Thống Kê)** — sau b29 (Hashing).
-* **Đánh số lại toàn bộ**: 1–25 giữ nguyên; 26–28 → +1; 29–44 → +2 → **tổng 46 bài** liền mạch.
+* **Đánh số lại toàn bộ**: 1–25 giữ nguyên; 26–28 → +1; 29–44 → +2 → **tổng 46 bài** liền mạch b01–b46.
   * Script: `tools/renumber2.py` (đồng bộ H1, banner, link targets, link labels, dòng "Vị trí", tham chiếu `Bài N` ≥ 26; bảo vệ các sửa đổi đặc biệt bằng placeholder).
   * Dọn tham chiếu sót từ đợt trước (bài đã lược: VSCode/Match-Case/Exception/Package/Dataclass/Decorator/Iterator) — sửa bằng bảng specials + thuật toán đối chiếu 3 lớp (audit script `tools/audit_refs*.py`).
-* **README viết lại** cho dãy 46 bài + bảng **phân loại nhóm bài**.
+* **README viết lại** cho dãy 46 bài phẳng + bảng **phân loại 7 nhóm bài**.
 * Đã kiểm tra: `tools/validate_flat.py` — **0 lỗi** (sau khi vá README).
 
 ### 7.2 Chuẩn nội dung mới (áp dụng dần cho từng bài — "bản thô trước, hoàn thiện sau")
@@ -249,7 +247,7 @@ Mỗi bài `bai.md` hướng tới cấu trúc:
 
 ### 7.3 Việc còn lại (dành cho đợt hoàn thiện — có thể giao cho agent mạnh hơn)
 
-- [ ] Nhân bản chuẩn mục 7.2 (**thẻ nhóm + 30 bài tập + Bài tập về nhà + Tra cứu nhanh**) cho **44 bài cũ** (b01–b25, b27–b29, b31–b46).
+- [ ] Nhân bản chuẩn mục 7.2 (**thẻ nhóm + 30 bài tập + Bài tập về nhà + Tra cứu nhanh**) cho **44 bài** (b01–b25, b27–b29, b31–b46).
 - [ ] Mở rộng bộ bài tập của **b26, b30** từ 9 → 30 bài (đáp án đầy đủ).
 - [ ] Rà "độ khó ngôn từ" từng bài: thay câu dài bằng câu ngắn; bổ sung "Giải thích dễ hiểu" cho phần khó.
 - [ ] Kiểm tra chạy thật toàn bộ ví dụ + đáp án code (đặc biệt các bài thuật toán).

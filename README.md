@@ -4,7 +4,7 @@
 
 **Khóa học Python hoàn chỉnh từ số 0 — Nền tảng → Thuật toán HSG/CP**
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Lessons](https://img.shields.io/badge/B%C3%A0i%20h%E1%BB%8Dc-46-orange)
 ![Lang](https://img.shields.io/badge/Ti%E1%BA%BFng%20Vi%E1%BB%87t-100%25-red)
@@ -164,7 +164,9 @@ HyperHub-Python/
 
 ## 💻 Yêu cầu cài đặt
 
-- **Python 3.9+**: tải tại [python.org/downloads](https://www.python.org/downloads/) (Windows nhớ tích `Add Python to PATH`). Chi tiết: [b02 — Cài Đặt Python](b02-Cai-Dat-Python/bai.md).
+- **Python 3.10+**: tải tại [python.org/downloads](https://www.python.org/downloads/) (Windows nhớ tích `Add Python to PATH`). Chi tiết: [b02 — Cài Đặt Python](b02-Cai-Dat-Python/bai.md).
+  
+  > ⚠️ **Lưu ý:** Bài học **Match – Case** (b09/b21) yêu cầu **Python 3.10+**. Python 3.9 không hỗ trợ `match-case`.
 - **VS Code** + extension Python (Microsoft).
 - Chưa cài đặt vẫn học được ngay trên [Replit](https://replit.com/), [Google Colab](https://colab.research.google.com/), [Python Tutor](https://pythontutor.com/).
 
