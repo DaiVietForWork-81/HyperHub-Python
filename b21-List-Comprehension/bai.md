@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật Python · List comprehension
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
@@ -1161,6 +1163,34 @@ print("Diem cao nhat:", cao_nhat)
 * Bài tiếp theo dùng **trình tự nạp từng phần tử một** (generator) — sẽ thấy comprehension có "anh em sinh đôi" đó.
 
 👉 Tiếp theo: **[Bài 22 — Generator – Sinh Dữ Liệu "Từng Phần Một"](../b22-Generator/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Chuyển 5 vòng lặp:** lấy 5 vòng lặp for cũ (tạo list), viết lại thành comprehension.
+2. **Ma trận 3×3:** tạo ma trận bằng lồng comprehension, in đường chéo chính và đường chéo phụ.
+3. **Lọc nâng cao:** cho list điểm, in danh sách "Học sinh giỏi" kèm xếp loại từng bạn — 2 dòng comprehension.
+
+---
+
+## 📎 Tra cứu nhanh — Các khuôn mẫu comprehension
+
+| Khuôn mẫu | Cú pháp | Ví dụ |
+|---|---|---|
+| Cơ bản | `[f(x) for x in ds]` | `[x*x for x in ds]` |
+| Lọc | `[x for x in ds if đk]` | `[x for x in ds if x % 2 == 0]` |
+| If-else | `[A if đk else B for x in ds]` | `["chẵn" if x%2==0 else "lẻ" for x in ds]` |
+| Hai vòng | `[(i, j) for i in a for j in b]` | Bộ đôi từ 2 dãy |
+| Lồng (ma trận) | `[[0]*n for _ in range(m)]` | ⚠️ Không dùng `[[0]*n]*m` |
+| Làm phẳng | `[x for hang in mtr for x in hang]` | Ma trận → list |
+| Dict comp | `{k: v for ...}` | `{x: x*x for x in range(3)}` |
+| Set comp | `{x for x in ds}` | Lọc trùng |
+| Generator | `(x*x for x in ds)` | Không lưu list — lười (Bài 22) |
+
+**Khi nào nên/không nên:** 1 biểu thức đơn giản → dùng; logic 2+ lệnh hoặc khó đọc → quay lại vòng lặp thường.
 
 ---
 

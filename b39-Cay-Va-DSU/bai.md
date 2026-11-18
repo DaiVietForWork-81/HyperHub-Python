@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Cây & DSU (Disjoint Set Union)
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -894,6 +896,31 @@ trên cây!) → đếm tần suất mỗi giá trị prefix: C(cnt,2) từng nh
 | 👪 LCA | Binary lifting up[k][v]; khoảng cách qua LCA |
 | 🤝 DSU | Nén đường + hợp theo hạng; hop False = chu trình |
 | 🌐 Kruskal | Sort cạnh + DSU; cut property |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **DSU từ đầu:** cài `find(u)` nén đường + `union(u,v)` theo rank — test 10⁵ thao tác.
+2. **Đường kính cây:** 2-BFS/DFS tìm đường kính cây 10 đỉnh — so với cách tính qua LCA.
+3. **Kruskal MST:** cài Kruskal bằng DSU cho đồ thị 6 đỉnh 10 cạnh — so với Prim (heap).
+
+---
+
+## 📎 Tra cứu nhanh — DSU, LCA, Đường kính, Kruskal, MST
+
+| Kỹ thuật | Template | Ứng dụng |
+|---|---|---|
+| DSU (nén đường) | `def find(u): if p[u]!=u: p[u]=find(p[u]); return p[u]` | Hợp nhất tập rời, Kruskal |
+| DSU (rank) | `if rank[x]<rank[y]: x,y=y,x` | Giữ cây nông |
+| LCA binary lifting | `up[u][k]` tổ tiên 2ᵏ; `find_lca(u,v)` | Đường kính có trọng số, LCA |
+| 2-BFS đường kính | BFS từ node bất kỳ → xa nhất → BFS từ đó | Cây không trọng số |
+| Kruskal | Sort cạnh + DSU | MST, n,m ≤ 2×10⁵ |
+| Prim | heapq `(w, u)` + `used[]` | MST, đồ thị dày đặc |
+
+**Ghi nhớ:** DSU = hợp nhất tập rời — cốt lõi Kruskal & xử lý động; LCA binary lifting = nhảy theo lũy thừa 2^k, log n mỗi truy vấn.
 
 ---
 

@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Công cụ · itertools cho thi đấu
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -561,6 +563,35 @@ treo; (b) O(n).)
 | ➕ accumulate/groupby | Dồn, gom kề (sort trước nếu cần toàn cục!) |
 | ♾️ islice/count/cycle | Vô hạn phải có islice chặn |
 | 🤝 pairwise/zip | Cặp kề (hiệu, tăng, so sánh) |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Liệt kê tổ hợp/hoán vị:** viết 3 bài (tổ hợp chập 3, hoán vị 4 phần tử, tích Descartes 2 dãy) bằng `itertools` 1 dòng.
+2. **Giảm vòng lặp:** viết lại 5 vòng lặp lồng nhau cũ bằng `product`, `permutations`, `combinations`.
+3. **Groupby + sort:** cho list 1000 từ, gom nhóm theo chữ cái đầu — `sorted + groupby` vs dict đếm.
+
+---
+
+## 📎 Tra cứu nhanh — product, permutations, combinations, accumulate, groupby
+
+| Hàm | Việc | Ví dụ |
+|---|---|---|
+| `product(a, b)` | Tích Descartes | `product('ab', '12')` → `a1, a2, b1, b2` |
+| `permutations(a, k)` | Hoán vị k phần tử | `permutations('abc', 2)` |
+| `combinations(a, k)` | Tổ hợp chập k | `combinations('abc', 2)` |
+| `accumulate(a)` | Tổng tiền tố (lazy) | `list(accumulate([1,2,3]))` → `[1,3,6]` |
+| `groupby(a, key=)` | Gom nhóm kề (cần sort trước) | `groupby(sorted(a), key=lambda x: x[0])` |
+| `islice(gen, k)` | Lấy k phần tử đầu (chặn vô hạn) | `islice(count(), 5)` → `0..4` |
+| `count(start, step)` | Số vô hạn | `count(10, -1)` → `10,9,8...` |
+| `cycle(a)` | Lặp vô hạn | `cycle('ab')` → `a,b,a,b...` |
+| `chain(a, b)` | Nối iterator | `chain(a, b)` giống `a+b` cho iter |
+| `pairwise(a)` | Cặp kề (3.10+) | `pairwise([1,3,6])` → `(1,3), (3,6)` |
+
+**Ghi nhớ:** `itertools` là C tối ưu — nhanh hơn vòng lặp Python gấp chục lần; `groupby` **bắt buộc sort trước** nếu muốn gom toàn cục; iterator chỉ dùng **1 lần** — xong là hết!
 
 ---
 

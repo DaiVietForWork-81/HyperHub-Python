@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Hàm · Phạm vi biến (LEGB)
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
@@ -1583,6 +1585,31 @@ print(x)                 # 1 — x không bao giờ bị sửa
 * **Ưu tiên tham số + `return`** — hàm độc lập, dễ kiểm thử, dễ tái sử dụng.
 
 👉 Tiếp theo: **[Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Sơ đồ LEGB:** vẽ 4 tầng Local → Enclosing → Global → Built-in; đặt 1 biến ví dụ vào mỗi tầng.
+2. **Săn bug scope:** cố tình tạo lỗi `UnboundLocalError` rồi sửa — ghi chú vì sao lỗi đó xuất hiện.
+3. **Tranh luận ngắn:** viết 5–7 câu "vì sao nên hạn chế `global`" kèm ví dụ cụ thể của bạn.
+
+---
+
+## 📎 Tra cứu nhanh — Phạm vi biến — quy tắc hoạt động
+
+| Tình huống | Quy tắc | Ví dụ |
+|---|---|---|
+| Đọc biến ngoài hàm | OK | `print(x)` trong hàm |
+| Gán trùng tên trong hàm | Tạo biến LOCAL mới | `x = 5` trong hàm không đổi x ngoài |
+| Đọc + gán cùng tên | Lỗi `UnboundLocalError` | Cần `global` hoặc đổi cách viết |
+| Sửa biến toàn cục | `global x` (hạn chế dùng) | Khai báo 1 lần trong hàm |
+| Hàm lồng nhau | `nonlocal x` | Sửa biến ở hàm cha |
+| Tham số hàm | Thực chất là biến local | Mọi gán trong hàm là cục bộ |
+
+**Cách viết an toàn:** coi hàm như "cỗ máy" — nhận tham số, `return` kết quả; hạn chế đụng biến ngoài.
 
 ---
 

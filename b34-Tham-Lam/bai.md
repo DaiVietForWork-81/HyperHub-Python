@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật tối ưu · Tham lam
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -626,6 +628,29 @@ tham lam còn đúng không? (Trả lời: không — phải DP. Tìm phản ví
 | 📅 Mẫu chuẩn | Xếp lịch (kết thúc sớm), đổi tiền chuẩn, nối cáp (heap) |
 | ❌ Bẫy | Mệnh giá lạ, túi 0/1, trọng số — phải DP/quay lui |
 | 🔍 Thực chiến | 5 phút tìm phản ví dụ trước khi nộp |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Đổi tiền có điều kiện:** hệ tiền [1, 3, 4], tổng 6 — chỉ ra tham lam sai (4+1+1) và đúng (3+3).
+2. **Xếp lịch:** cho 6 việc (bắt đầu, kết thúc), chọn nhiều việc nhất không chồng — sort theo kết thúc.
+3. **5 phút phản ví dụ:** tự nghĩ 1 bài "trông tham lam được" nhưng có phản ví dụ — ghi lại.
+
+---
+
+## 📎 Tra cứu nhanh — Template tham lam & checklist chứng minh
+
+| Bước | Nội dung |
+|---|---|
+| 1. Chọn tiêu chí | thường: sort theo đầu / cuối / tỉ lệ + 1 vòng chọn |
+| 2. Chọn dứt khoát | mỗi bước chọn "tốt nhất hiện tại", không quay lại |
+| 3. Chứng minh | đổi chỗ (exchange argument) hoặc "tham lam không kém gì tối ưu" |
+| 4. Phản ví dụ | 5 phút thử phá — không phá được thì mới dùng |
+
+**Khuôn mẫu hay gặp:** sort theo thời điểm kết thúc (xếp lịch); sort giảm theo giá trị/trọng (túi phân số); duyệt + chọn nếu không xung đột. **Thấy "đổi tiền tổng quát" → tham lam sai, phải DP.**
 
 ---
 

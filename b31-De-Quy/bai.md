@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Đệ quy & quay lui · Đệ quy
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -630,6 +632,36 @@ thứ tự từ điển, dùng đúng O(n) bộ nhớ phụ (không lưu list k�
 | 🐢 Fib naive | O(2ⁿ) vì tính lại — bài học đắt giá |
 | 🧠 Memo | Dict/`lru_cache` → O(n); cầu sang DP |
 | ⚡ Lũy thừa nhanh | Chia đôi mũ → O(log n); mẫu cho mod/matrận |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Ba công thức:** viết đệ quy tính giai thừa, tổng chữ số, in dãy Fibo thứ n — chỉ rõ base + bước.
+2. **Đo độ sâu:** chạy đệ quy sâu n = 10, 100, 1000, 10.000 — ghi lại kết quả và tìm giới hạn của máy.
+3. **Memo hóa:** tính C(n,k) bằng đệ quy + `lru_cache`, đối chiếu `math.comb` — so n từ 5 đến 30.
+
+---
+
+## 📎 Tra cứu nhanh — Template đệ quy & memoization
+
+| Khuôn mẫu | Cú pháp |
+|---|---|
+| Khung chuẩn | `def f(n): if base: return ...; return combine(f(n-1))` |
+| Memo thủ công | `if n in nho: return nho[n]` trước khi tính |
+| Memo 1 dòng | `from functools import lru_cache` + `@lru_cache(maxsize=None)` |
+| Nới giới hạn | `import sys; sys.setrecursionlimit(300000)` |
+
+```python
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def f(n):
+    ...
+```
+**Quy tắc sống còn:** (1) base đúng và "bao" biên, (2) mỗi gọi phải tiến gần base; bài con lặp lại → memo; sâu tuyến tính lớn → vòng lặp.
 
 ---
 

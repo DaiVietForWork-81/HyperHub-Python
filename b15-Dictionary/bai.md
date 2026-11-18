@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cấu trúc dữ liệu · Dictionary (từ điển)
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
@@ -1331,6 +1333,38 @@ print("Xep loai:", loai)
 * `items()` là cách duyệt từ điển sạch đẹp nhất — hãy dùng thường xuyên.
 
 👉 Tiếp theo: **[Bài 16 — Chuỗi (String) Trong Python](../b16-String/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Sổ liên lạc:** tạo dict 5 bạn → số điện thoại; tra 1 tên, thêm 1 bạn, xóa 1 bạn, in tất cả theo `.items()`.
+2. **Điểm môn học:** dict môn → điểm; tính điểm trung bình, in môn cao nhất (dùng `max` với `key`).
+3. **Săn KeyError:** thử `d["khong_co"]` thấy lỗi → sửa bằng `.get()` và bằng `in` — ghi chú 2 cách.
+
+---
+
+## 📎 Tra cứu nhanh — Toàn bộ phương thức & thao tác của Dictionary
+
+| # | Phương thức / thao tác | Việc | Ví dụ |
+|---|---|---|---|
+| 1 | `d[k]` | Đọc — LỖI `KeyError` nếu thiếu k | |
+| 2 | `d.get(k, mac_dinh)` | Đọc an toàn (thiếu → None/mặc định) | `d.get("x", 0)` |
+| 3 | `d[k] = v` | Thêm mới hoặc sửa | |
+| 4 | `keys()` / `values()` / `items()` | Duyệt khóa / giá trị / cả cặp | `for k, v in d.items():` |
+| 5 | `update(d2)` | Gộp d2 vào d (đè trùng khóa) | `d.update({"a": 1})` |
+| 6 | `pop(k)` | Xóa & trả giá trị | |
+| 7 | `popitem()` | Xóa & trả cặp cuối (3.7+) | |
+| 8 | `setdefault(k, v)` | Có thì trả; chưa có thì đặt v | Đếm nhóm gọn |
+| 9 | `fromkeys(ds, v)` | Tạo dict từ danh sách khóa | `dict.fromkeys("abc", 0)` |
+| 10 | `k in d` | Kiểm tra khóa — O(1) | |
+| 11 | `del d[k]` | Xóa khóa | |
+| 12 | `len(d)` / `d.copy()` / `d.clear()` | Đếm / sao chép / xóa sạch | |
+| 13 | `{x: f(x) for x in ds}` | Dict comprehension | `{x: x*x for x in range(3)}` |
+
+**Mẫu vàng:** đếm `d[x] = d.get(x, 0) + 1`; gom nhóm `d.setdefault(khoa, []).append(x)`; tra cứu O(1); khóa phải **bất biến** (str, số, tuple).
 
 ---
 

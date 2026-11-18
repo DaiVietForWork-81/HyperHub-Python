@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật Python · Regex (biểu thức chính quy)
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -584,6 +586,36 @@ viết trình thông dịch — máy tính "đọc" code cũng bắt đầu từ
 | 👥 Nhóm (...) | Lấy mảnh ra, đặt tên càng tốt |
 | 🔄 sub/split | Thay thế, cắt đa dấu |
 | 🦥 Greedy vs lazy | `.+` nuốt hết, `.+?` dừng sớm |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Sổ lọc dữ liệu:** cho câu lộn xộn "AN: 038-1234, binh: 091-9999", trích tất cả số điện thoại dạng `0xx-xxxx` bằng regex.
+2. **Dọn log:** cho 10 dòng log "[SỐ] nội dung", tách riêng số hiệu và nội dung (dùng nhóm đặt tên).
+3. **Kiểm tra mật khẩu:** viết pattern cho mật khẩu ≥ 8 ký tự, có chữ và số; giải thích từng mảnh pattern của bạn.
+
+---
+
+## 📎 Tra cứu nhanh — Regex — cú pháp & hàm thường dùng
+
+| Nhóm | Mẫu | Ý nghĩa | Ví dụ |
+|---|---|---|---|
+| Lớp ký tự | `\d` `\w` `\s` `.` | số / chữ+số / trắng / bất kỳ | `\d+` chuỗi số |
+| Lớp tùy chọn | `[abc]` `[^abc]` `[a-z]` | thuộc / không thuộc / khoảng | |
+| Lượng từ | `*` `+` `?` `{m,n}` | 0+ / 1+ / 0-1 / m..n lần | |
+| Neo | `^` `$` | đầu / cuối | `^0\d{9}$` số ĐT |
+| Nhóm | `(...)` `(?P<ten>...)` | nhóm lấy ra / nhóm đặt tên | |
+| Hoặc | `cat\|dog` | một trong hai | |
+| Hàm | `re.search(p, s)` | Tìm khắp chuỗi, trả match đầu | Kiểm tra tồn tại |
+| Hàm | `re.match / re.fullmatch` | Khớp từ đầu / khớp trọn | |
+| Hàm | `re.findall(p, s)` | List mọi kết quả khớp nhóm | Trích số ĐT |
+| Hàm | `re.sub(p, thay, s)` | Thay thế | Dọn ký tự lạ |
+| Hàm | `re.split(p, s)` | Cắt theo mẫu | Cắt đa dấu |
+
+**Ghi nhớ:** luôn dùng **raw string** `r"..."`; lượng từ mặc định tham lam (greedy) — thêm `?` để lười; `flags=re.IGNORECASE` bỏ phân biệt hoa thường.
 
 ---
 

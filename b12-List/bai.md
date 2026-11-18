@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cấu trúc dữ liệu · List (danh sách)
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
@@ -1599,6 +1601,42 @@ print("Goc (khong doi):", goc)
 * 🧪 Khi gặp `IndexError`, hãy in `len(ds)` ra xem list thực sự có bao nhiêu phần tử.
 
 👉 Tiếp theo: **[Bài 13 — Tuple (Bộ Dữ Liệu) Trong Python](../b13-Tuple/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Quản lý điểm kiểm tra:** tạo list 8 điểm, thêm 1 đầu + 1 cuối, xóa 1 điểm thấp nhất, sắp giảm dần, in ra 3 cao nhất.
+2. **Săn lỗi tham chiếu:** tạo hai list `a`, `b = a`, sửa `b` rồi in `a` — giải thích 1 câu; sau đó sửa lại bằng `copy()`.
+3. **Sổ tay nhanh:** viết 5 dòng chú thích "khi nào dùng gì": `append` vs `extend`, `sort` vs `sorted`, `pop` vs `del`, `remove` vs `pop`.
+
+---
+
+## 📎 Tra cứu nhanh — Toàn bộ phương thức & thao tác của List
+
+| # | Phương thức / thao tác | Việc nó làm | Ví dụ |
+|---|---|---|---|
+| 1 | `append(x)` | Thêm x vào cuối | `[1,2].append(3)` → `[1,2,3]` |
+| 2 | `extend(ds)` | Nối cả list khác vào cuối | `[1,2].extend([3,4])` |
+| 3 | `insert(i, x)` | Chèn x vào vị trí i | `[1,3].insert(1, 2)` → `[1,2,3]` |
+| 4 | `remove(x)` | Xóa phần tử đầu bằng x (lỗi nếu không có) | `[1,2].remove(2)` |
+| 5 | `pop(i=-1)` | Xóa & TRẢ VỀ phần tử vị trí i | `[1,2].pop()` → `2` |
+| 6 | `clear()` | Xóa sạch | `[1,2].clear()` → `[]` |
+| 7 | `index(x)` | Vị trí đầu tiên bằng x (lỗi nếu không có) | `[5,6,7].index(6)` → `1` |
+| 8 | `count(x)` | Đếm số lần xuất hiện | `[1,1,2].count(1)` → `2` |
+| 9 | `sort(key=, reverse=)` | Sắp tại chỗ (đổi gốc) | `[3,1,2].sort()` |
+| 10 | `reverse()` | Đảo tại chỗ | `[1,2].reverse()` → `[2,1]` |
+| 11 | `copy()` | Bản sao nông | `b = a.copy()` |
+| 12 | `ds[i]` / `ds[a:b:c]` | Truy cập / cắt (tạo list mới) | `ds[-1]`, `ds[::-1]` |
+| 13 | `x in ds` | Kiểm tra thuộc (O(n)) | `3 in [1,2,3]` → `True` |
+| 14 | `a + b` / `a * n` | Nối / lặp list | `[1]*3` → `[1,1,1]` |
+| 15 | `len/min/max/sum` | Thống kê nhanh | `sum([1,2,3])` → `6` |
+| 16 | `sorted(ds, key=, reverse=)` | Bản sắp mới (giữ gốc) | `sorted(ds)` |
+| 17 | `enumerate(ds)` / `zip(d1,d2)` | Duyệt kèm chỉ số / song song | |
+
+**Ghi nhớ:** list có thứ tự, cho sửa, cho trùng; `sort()` trả `None` (đổi gốc!), `sorted()` trả list mới; copy an toàn bằng `ds.copy()` / `list(ds)` / `ds[:]` — ĐỪNG dùng `b = a`.
 
 ---
 

@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật cơ bản · Tìm kiếm & chặt nhị phân
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -688,6 +690,34 @@ Yêu cầu O((n + m) log n). *Gợi ý: đáp án = upper_bound(R) − lower_bou
 | 🪤 Off-by-one | `<=`, `mid + 1` / `mid − 1`, một mẫu duy nhất |
 | 📍 lower/upper | `bisect_left` / `bisect_right`; đếm = hiệu hai mốc |
 | 🎯 Chặt đáp số | Kiểm tra đơn điệu O(f) → chặt K: O(f log range) |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Cài từ đầu:** viết `binary_search(a, x)` tay (không dùng `bisect`) — test với 10 mảng ngẫu nhiên đã sort.
+2. **Đếm bằng bisect:** cho dãy đã sort, đếm số phần tử trong đoạn [L, R] chỉ bằng `bisect_left/right`, so tốc độ với cách lọc.
+3. **Chặt nhị phân đáp số:** giải bài "cắt dây" (tìm độ dài lớn nhất cắt được k đoạn) — viết hàm `duoc(x)` + chặt.
+
+---
+
+## 📎 Tra cứu nhanh — Tìm kiếm — template & bisect
+
+| Kỹ thuật | Template | Dùng khi |
+|---|---|---|
+| Tuyến tính | `for x in a: if x == k:` | n nhỏ / không sort |
+| Nhị phân tay | `lo, hi = 0, n-1; while lo <= hi:` | hiểu bản chất |
+| `bisect_left(a, x)` | vị trí đầu tiên ≥ x | đếm số < x |
+| `bisect_right(a, x)` | vị trí đầu tiên > x | đếm số ≤ x |
+| Đếm trong [L, R] | `bisect_right(a,R) - bisect_left(a,L)` | đoạn giá trị |
+| Chặt đáp số | `while lo < hi: mid...; if duoc(mid): lo = mid+1` | "lớn nhất/nhỏ nhất thỏa điều kiện đơn điệu" |
+
+```python
+from bisect import bisect_left, bisect_right
+```
+**Bẫy:** chỉ chặt nhị phân khi dãy đã sort hoặc tính chất **đơn điệu**; cẩn thận biên lo/hi (`lo <= hi` vs `lo < hi`, trả về chỉ số hay giá trị).
 
 ---
 

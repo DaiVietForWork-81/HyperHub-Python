@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Nhập môn thuật toán · Độ phức tạp
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -669,6 +671,33 @@ Big-O — cả hai đều O(n log n)).
 | 🪤 Bẫy Python | `in` trên list, nối chuỗi trong loop, `pop(0)`, `print` trong loop lớn |
 | 💾 Bộ nhớ | List/dict cỡ n → O(n); ma trận lớn → lăn mảng |
 | 📥📤 I/O | Đọc một lần + ghi một lần cho dữ liệu lớn |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Đo thật:** chạy 4 đoạn code O(n), O(n²), O(n log n), O(log n) với n tăng dần — bảng thời gian thực tế của máy bạn.
+2. **Đọc ràng buộc:** sưu tầm 5 đề (sách mạng), ghi lại chỉ `n` tối đa — đoán độ phức tạp "sống sót" cho từng đề.
+3. **Săn bẫy Python:** tìm 3 dòng code của bạn từng viết có độ phức tạp ẩn (in trong vòng lặp, nối chuỗi, `in` trên list).
+
+---
+
+## 📎 Tra cứu nhanh — Bảng chọn thuật toán theo ràng buộc & độ phức tạp thao tác
+
+| n tối đa | Độ phức tạp khả thi | Gợi ý kỹ thuật |
+|---|---|---|
+| ≤ 10 | O(n!), O(2ⁿ·n) | hoán vị, vét cạn hết |
+| ≤ 20–25 | O(2ⁿ), O(n·2ⁿ) | bitmask, quay lui + tỉa |
+| ≤ 500 | O(n³) | DP 3 chiều, Floyd |
+| ≤ 5.000 | O(n²) | vét cạn cặp, DP 2 chiều |
+| ≤ 10⁵–10⁶ | O(n log n) | sort, nhị phân, heap |
+| ≤ 10⁷–10⁸ | O(n) | một lượt, đếm, hai con trỏ |
+| ≤ 10¹² | O(√n) | số học, kiểm tra ước |
+| ≤ 10¹⁸ | O(log n) | lũy thừa nhanh, nhị phân đáp số |
+
+**Độ phức tạp thao tác Python hay quên:** `x in list` O(n) — `x in set/dict` O(1); `pop(0)` trên list O(n) — dùng `deque`; nối chuỗi trong vòng lặp O(n²) — dùng list + `join`; `in` chuỗi con O(n·m) — regex/KMP khi lớn.
 
 ---
 

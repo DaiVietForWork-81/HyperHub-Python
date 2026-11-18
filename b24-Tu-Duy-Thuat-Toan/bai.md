@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Nhập môn thuật toán · Tư duy & quy trình
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -729,6 +731,30 @@ nhau — O(n + k).*
 | 🧹 Trừu tượng hóa | Lột vỏ câu chuyện, giữ Input/Output/Ràng buộc |
 | 📝 Pseudocode trước | Viết thô + chạy tay rồi mới code |
 | 🧪 Bộ test tối thiểu | Ví dụ, biên, trùng, âm, lớn |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Giải 3 đề bằng quy trình 5 bước:** chọn 3 bài dễ bất kỳ, viết đủ: Input/Output/Ràng buộc/Ví dụ/Biên — CHƯA cần code.
+2. **Sổ tay phản ví dụ:** nghĩ ra 5 dữ liệu "quái" để phá code ẩu (n = 1, trùng nhau, âm, rỗng, lớn bất thường).
+3. **Dịch đề:** lấy 1 đề có câu chuyện dài, tóm thành 3 dòng: cho gì — hỏi gì — ràng buộc gì.
+
+---
+
+## 📎 Tra cứu nhanh — Checklist đọc đề & chọn hướng giải
+
+| Bước | Câu hỏi tự hỏi | Ví dụ |
+|---|---|---|
+| 1. Input | Dữ liệu gì, định dạng nào, đọc từ đâu? | Dòng đầu n, dòng sau n số |
+| 2. Output | In gì, đúng định dạng? | Một số nguyên trên dòng riêng |
+| 3. Ràng buộc | `n` tối đa? giới hạn thời gian? | n ≤ 10⁵ → nghĩ O(n log n) |
+| 4. Ví dụ | Chạy tay ví dụ xác nhận hiểu đề | Vẽ bảng nhỏ |
+| 5. Biên | n = 0/1? trùng? âm? rỗng? | 5 loại biên chuẩn |
+
+**Nhận diện mẫu nhanh:** "cặp i<j" → hai vòng/dict; "đoạn liên tiếp" → cửa sổ/tiền tố; "tối ưu lựa chọn" → tham lam/DP; "nhỏ nhất dài nhất" → nhị phân đáp số; "quan hệ/lưới" → đồ thị.
 
 ---
 

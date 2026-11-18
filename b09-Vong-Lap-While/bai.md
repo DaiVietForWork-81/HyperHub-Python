@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Vòng lặp · while
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)
@@ -1660,6 +1662,31 @@ while True:
 * 🧪 Chạy thử với số nhỏ và kiểm tra bằng tay trước khi tin kết quả.
 
 👉 Tiếp theo: **[Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Đoán số:** máy chọn số 1..100, bạn đoán — `while` + gợi ý lớn/nhỏ + đếm số lần đoán.
+2. **Nhập đến khi hợp lệ:** yêu cầu nhập số dương; nhập sai (chữ/số âm) thì bắt nhập lại.
+3. **Tự phân tích:** chọn 2 vòng `while` trong bài, ghi ra giấy 3 thành phần: khởi tạo — điều kiện — cập nhật.
+
+---
+
+## 📎 Tra cứu nhanh — Khuôn mẫu while & so sánh for/while
+
+| Khuôn mẫu | Ví dụ | Dùng khi |
+|---|---|---|
+| Đếm ngược | `while n > 0: n -= 1` | Biết điều kiện dừng theo giá trị |
+| Nhập đến khi hợp lệ | `while True: x = input(...); if ok: break` | Kiểm tra dữ liệu người dùng |
+| Cờ (flag) | `while chua_xong:` | Điều kiện phức tạp |
+| Menu | `while True:` + `break` khi chọn 0 | Ứng dụng dạng menu |
+| `while ... else:` | else chạy khi không gặp `break` | Tìm kiếm thất bại |
+| Tránh vô hạn | Luôn đảm bảo "3 bộ ba": khởi tạo, điều kiện, cập nhật | Bắt buộc |
+
+**So sánh:** `for` khi biết trước số vòng/duyệt dãy — `while` khi lặp đến khi điều kiện sai. Trong `while`, đừng quên cập nhật biến điều khiển!
 
 ---
 

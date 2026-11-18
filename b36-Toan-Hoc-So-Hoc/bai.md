@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Toán học & số học thuật toán
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -758,6 +760,31 @@ chuẩn cho n lớn — cài được thì không còn bài sàng nào làm khó
 | ⚡ Mũ mod | Lũy thừa nhanh O(log n); `pow(x,n,m)` có sẵn |
 | 🔄 Fermat | b⁻¹ = b^(M−2); C(n,k) bằng fact + inv_fact |
 | ⚠️ Bẫy | Float với số lớn — `isqrt`, `//`, int |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Sàng lọc:** viết sàng Eratosthenes tìm số nguyên tố ≤ 10⁶ — so với `is_prime` lặp √n.
+2. **Euclid & lũy thừa nhanh:** cài `gcd` và `pow_mod(a, n, m)` tay (không dùng `math`/`pow`) — test 5 cặp số lớn.
+3. **Tổ hợp C(n,k) mod M:** giải bài chọn k món từ n món, kết quả modulo 10⁹+7 — dùng Fermat + fact/invfact.
+
+---
+
+## 📎 Tra cứu nhanh — Sàng, Euclid, lũy thừa, Fermat, tổ hợp
+
+| Kỹ thuật | Template | Ví dụ |
+|---|---|---|
+| Sàng Eratosthenes | `s = [True]*(n+1); for i in range(2, isqrt(n)+1):` | Liệt kê nguyên tố ≤ 10⁶ |
+| Kiểm tra nguyên tố | Miller-Rabin (n ≤ 10¹⁸) | `pow(a, n-1, n) == 1` |
+| GCD | `def gcd(a,b): return gcd(b, a%b) if b else a` | `gcd(48, 18)` → 6 |
+| Lũy thừa nhanh | `pow_mod(x, n, m)` chia đôi mũ | `pow(x, n, m)` có sẵn |
+| Fermat nhỏ | `a^(p-1) ≡ 1 (mod p)` | Nghịch đảo modulo |
+| Tổ hợp C(n,k) mod p | `fact[n] * invfact[k] * invfact[n-k] % p` | `n, k ≤ 10⁶` |
+
+**Ghi nhớ:** Python có sẵn `math.gcd`, `math.comb`, `pow(x, n, m)` — thi dùng luôn, tự cài chỉ để hiểu bản chất.
 
 ---
 

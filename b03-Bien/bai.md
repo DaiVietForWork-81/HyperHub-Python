@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cú pháp cơ bản · Biến & gán giá trị
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 1 — Giới Thiệu Python](../b01-Gioi-Thieu/bai.md)
@@ -1433,6 +1435,31 @@ print("So keo con lai la so chan:", not so_le)
 * `a, b = b, a` là câu thần chú hoán đổi — hãy dùng thoải mái.
 
 👉 Tiếp theo: **[Bài 4 — Kiểu Dữ Liệu Cơ Bản](../b04-Kieu-Du-Lieu/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Hộ chiếu biến:** tạo 6 biến lưu thông tin cá nhân (đặt tên `snake_case` đúng chuẩn), in thành bảng thẳng cột.
+2. **Đổi nhãn:** viết chương trình hoán đổi 2 biến bằng `a, b = b, a` — giải thích 1 câu vì sao không cần biến tạm.
+3. **Săn lỗi:** đọc lại code đã viết, tìm 3 tên biến "chưa đẹp" và đổi tên lại cho rõ nghĩa.
+
+---
+
+## 📎 Tra cứu nhanh — Quy tắc đặt tên & gán biến
+
+| Cú pháp | Ý nghĩa | Ví dụ |
+|---|---|---|
+| `ten_bien = giá_trị` | Gán (tạo nhãn) | `diem = 8.5` |
+| `a, b = 1, 2` | Gán nhiều biến một dòng | `x, y = 3, 4` |
+| `a, b = b, a` | Hoán đổi không cần biến tạm | `a, b = b, a` |
+| `del ten_bien` | Xóa biến | `del tam` |
+| `type(x)` | Xem kiểu dữ liệu | `type(8.5)` → `float` |
+| `id(x)` | Xem "địa chỉ" đối tượng | `id(a) == id(b)` |
+
+**Quy tắc đặt tên:** chữ cái/số/`_`; không bắt đầu bằng số; không trùng từ khóa (`if`, `for`...); phân biệt hoa–thường; quy ước viết thường + `_` (snake_case).
 
 ---
 

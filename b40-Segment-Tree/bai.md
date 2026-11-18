@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Segment Tree & Fenwick (BIT)
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -884,6 +886,29 @@ của nhóm bài đoạn — làm chủ nó thì không còn bài đoạn nào l
 | 🗺️ Nén tọa độ | Giá trị ≤ 10⁹ → rank 0..m−1 |
 | 🔄 Hiệu phân | Cập nhật đoạn + hỏi điểm = BIT trên diff |
 | 🧭 Chọn lựa | Tổng→BIT; min/max→segment; không cập nhật→tiền tố |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Fenwick từ đầu:** cài BIT 1-based (tổng tiền tố + cập nhật điểm) — test 10⁵ thao tác vs dict tiền tố.
+2. **Segment tree lười:** cài segment tree query tổng đoạn + cập nhật đoạn (lazy propagation) — test 10⁴ thao tác.
+3. **So sánh thực:** chọn 3 bài (tổng đoạn, max đoạn, đếm phần tử ≤ x trong đoạn) — đo thời gian BIT vs Segment Tree vs dict.
+
+---
+
+## 📎 Tra cứu nhanh — Segment Tree, Fenwick, Lazy, Cây đoạn lặp
+
+| Cấu trúc | Template | Dùng khi |
+|---|---|---|
+| Fenwick (BIT) | `tree[i] += x; i += i & -i` (update) | Tổng tiền tố / điểm, query đơn điểm cập nhật điểm — O(log n) |
+| Segment tree (đệ quy) | `build(u,l,r)` + `query(u,l,r,L,R)` + `update(u,l,r,idx,val)` | Query đoạn + cập nhật điểm — O(log n) |
+| Segment tree (lười) | `push(u)` truyền tag con + `update_range` | Cập nhật đoạn + query đoạn — O(log n) |
+| Cây đoạn lặp | `for i in range(n, 2*n): tree[i] = a[i-n]` | Nén tọa độ + query đơn điểm — ngắn gọn, nhanh |
+
+**Ghi nhớ:** Fenwick = ngắn gọn nhất cho tổng tiền tố + cập nhật điểm; Segment tree = linh hoạt query đoạn + cập nhật đoạn; Cây đoạn lặp (iterative) = code ngắn, nhanh, phù hợp thi — nén tọa độ trước khi build.
 
 ---
 

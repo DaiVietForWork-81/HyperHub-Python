@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Đường đi ngắn nhất
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -896,6 +898,30 @@ viết Dijkstra trên −log(w) hay log(w) với heap max? Cẩn thận w = 0 (l
 | ➖ Bellman-Ford | n−1 vòng + vòng bắt chu trình âm; coi chừng INF + âm |
 | 🔢 Floyd | k ngoài cùng; V ≤ 400; song cạnh giữ min |
 | 🧩 Mô hình hóa | Đỉnh = trạng thái (vị trí + mang theo + còn lại) |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Dijkstra từ đầu:** cài Dijkstra với `heapq` cho đồ thị 10 đỉnh 20 cạnh — so với BFS (cạnh bằng nhau).
+2. **Bellman-Ford:** test đồ thị có cạnh âm (không chu trình âm) — phát hiện chu trình âm bằng vòng thứ n.
+3. **Floyd-Warshall:** ma trận 5×5, tìm mọi cặp đường ngắn nhất O(n³) — so với chạy n lần Dijkstra.
+
+---
+
+## 📎 Tra cứu nhanh — Dijkstra, Bellman-Ford, Floyd, 0-1 BFS
+
+| Thuật toán | Độ phức tạp | Dùng khi |
+|---|---|---|
+| BFS | O(V+E) | Cạnh bằng nhau (mọi cạnh = 1) |
+| 0-1 BFS | O(V+E) | Cạnh chỉ 0 hoặc 1 | deque |
+| Dijkstra | O(E log V) | Trọng số ≥ 0, 1 nguồn | heapq |
+| Bellman-Ford | O(VE) | Có cạnh âm, 1 nguồn | Phát hiện chu trình âm |
+| Floyd-Warshall | O(V³) | Mọi cặp, V ≤ 400 | Ma trận kề |
+
+**Ghi nhớ:** Dijkstra chỉ đúng khi mọi cạnh ≥ 0; có cạnh âm → Bellman-Ford; mọi cặp → Floyd. Python `heapq` chỉ là min-heap — dùng `(-dist, u)` cho max-heap.
 
 ---
 

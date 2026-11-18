@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cú pháp cơ bản · Toán tử
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 3 — Biến Trong Python](../b03-Bien/bai.md)
@@ -1395,6 +1397,32 @@ print("Cau 5:", cau_5)
 * Bài tiếp theo bạn sẽ học **nhập dữ liệu** bằng `input()` — lúc đó mọi phép tính của bài này sẽ trở nên sống động hơn nhiều!
 
 👉 Tiếp theo: **[Bài 6 — Nhập và Xuất Dữ Liệu](../b06-Input-Output/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Máy tính 6 phép:** nhập 2 số, in kết quả của `+ - * / // % **` — mỗi kết quả có nhãn.
+2. **Biểu thức đời thực:** viết 3 biểu thức tính tiền (điện, nước, gửi xe) — ghi rõ thứ tự ưu tiên từng biểu thức.
+3. **Săn bẫy:** chạy thử `0.1 + 0.2` và so với `0.3`; ghi lại nhận xét ngắn (số thực trong máy tính).
+
+---
+
+## 📎 Tra cứu nhanh — Toàn bộ toán tử trong Python
+
+| Nhóm | Toán tử | Ví dụ | Ghi chú |
+|---|---|---|---|
+| Số học | `+ - * /` | `7 / 2` → `3.5` | `/` luôn ra `float` |
+| Số học | `// % **` | `7 // 2`→`3`; `7 % 2`→`1`; `2 ** 10`→`1024` | chia nguyên, dư, lũy thừa |
+| So sánh | `== != < <= > >=` | `3 != 4` → `True` | Trả về `bool` |
+| Logic | `and or not` | `a > 0 and a < 10` | Học đủ bảng chân trị |
+| Gán kết hợp | `+= -= *= //= %=` | `x += 1` | Ngắn cho `x = x + 1` |
+| `in` | Kiểm tra thuộc | `"a" in "cat"` → `True` | Chuỗi, list, dict... |
+| `is` | Cùng đối tượng? | `a is b` | Khác `==` (so giá trị) |
+
+**Thứ tự ưu tiên (cao → thấp):** `**` → `* / // %` → `+ -` → so sánh → `not` → `and` → `or`. Không chắc thì cứ thêm ngoặc tròn.
 
 ---
 

@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật Python · Lambda (hàm vô danh)
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
@@ -1233,6 +1235,33 @@ print("Tong luong:", tong_luong)
 * Khi cùng một lambda dùng nhiều nơi, hãy đặt tên + `def` cho dễ bảo trì.
 
 👉 Tiếp theo: **[Bài 21 — List Comprehension – Vòng Lặp "Viết Trong Một Dòng"](../b21-List-Comprehension/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Sắp xếp 3 kiểu:** cho list 6 sản phẩm `(ten, gia, so_luong)` — sắp theo giá tăng, giá giảm, rồi theo tên.
+2. **Lambda cho khóa phụ:** sắp chuỗi theo "số nguyên âm giảm dần rồi từ điển" — một dòng `key=lambda`.
+3. **Chuyển hóa:** viết lại 2 vòng lặp cũ bằng `map`/`filter` + lambda; so sánh độ dài code.
+
+---
+
+## 📎 Tra cứu nhanh — Lambda & các hàm bậc cao
+
+| Cú pháp | Việc | Ví dụ |
+|---|---|---|
+| `lambda x: biểu_thức` | Hàm vô danh 1 dòng | `lambda x: x * 2` |
+| `lambda x, y: ...` | Nhiều tham số | `lambda a, b: a + b` |
+| `sorted(ds, key=lambda x: ...)` | Sắp theo tiêu chí | `key=lambda sp: sp[1]` |
+| `key=lambda x: (-x[1], x[0])` | Tần suất giảm + tên tăng | Sắp hỗn hợp |
+| `min(ds, key=lambda ...)` / `max(...)` | Nhỏ/lớn theo tiêu chí | |
+| `map(f, ds)` | Áp dụng hàm (lazy) | `map(lambda x: x*x, ds)` |
+| `filter(f, ds)` | Lọc theo hàm | `filter(lambda x: x > 0, ds)` |
+| `functools.reduce(f, ds)` | Gộp dãy | `reduce(lambda a,b: a+b, ds)` |
+
+**Ghi nhớ:** lambda = "công thức nhỏ dùng 1 lần" — không có `return`, không nhiều lệnh; thấy lambda dài hơn ~2 phép tính → viết hàm thường cho dễ đọc.
 
 ---
 

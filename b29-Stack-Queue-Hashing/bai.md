@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Bảng băm & ngăn xếp · Ứng dụng
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -683,6 +685,33 @@ in sang out (đảo thứ tự đúng thành FIFO). Phân tích khấu hao vì s
 | ↔️ Deque đơn điệu | Cửa sổ trượt min/max O(n) |
 | #️⃣ Hashing | set/dict/Counter O(1); đếm, tra cứu, tiền tố |
 | ⛰️ Heap | `heapq` min-heap; max bằng số âm; top-k |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Ngoặc hợp lệ:** kiểm tra chuỗi ngoặc `()[]{}` hợp lệ bằng stack — test 6 chuỗi đúng/sai.
+2. **Hàng đợi cửa hàng:** mô phỏng hàng đợi bằng `deque` — thêm khách, phục vụ, in trạng thái mỗi bước.
+3. **Nhiệm vụ trùng:** cho list mã nhiệm vụ, in mã XUẤT HIỆN ĐẦU TIÊN hai lần (một lượt + set).
+
+---
+
+## 📎 Tra cứu nhanh — collections & heapq — hộp đồ nghề ngăn xếp/hàng đợi/băm
+
+| Công cụ | Import | Việc | Ví dụ |
+|---|---|---|---|
+| `deque` | `from collections import deque` | Hàng đợi 2 đầu O(1) | `d.appendleft/popleft/append/pop` |
+| `Counter` | `from collections import Counter` | Đếm tần suất | `Counter(ds).most_common(k)` |
+| `defaultdict` | `from collections import defaultdict` | Dict tự giá trị mặc định | `defaultdict(list)` gom nhóm |
+| `heapq.heappush(h, x)` | `import heapq` | Thêm vào heap | Hàng đợi ưu tiên |
+| `heapq.heappop(h)` | | Lấy phần tử NHỎ nhất | Dijkstra |
+| `heapq.heapify(ds)` | | Biến list thành heap tại chỗ | O(n) |
+| `heapq.nlargest(k, ds)` | | K phần tử lớn nhất | Top-K nhanh |
+| Stack | list | `append` / `pop` | LIFO |
+
+**Bẫy:** `list.pop(0)` là O(n) — hàng đợi thật phải dùng `deque.popleft()`; heapq chỉ là min-heap — muốn max-heap thì thêm dấu âm.
 
 ---
 

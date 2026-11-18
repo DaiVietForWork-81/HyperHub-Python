@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Vòng lặp · for và range
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 5 — Toán Tử Trong Python](../b05-Toan-Tu/bai.md)
@@ -1526,6 +1528,33 @@ print(f"Số tiền sau {n} tháng: {round(tien, 2)} triệu đồng")
 * 🧪 Chạy thử với n nhỏ và tự kiểm tra bằng tay trước khi tin kết quả.
 
 👉 Tiếp theo: **[Bài 9 — Vòng Lặp While – Lặp Cho Đến Khi Điều Kiện Sai](../b09-Vong-Lap-While/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Bảng cửu chương cá nhân:** in bảng cửu chương của số bạn chọn — mỗi dòng một phép tính.
+2. **Thống kê điểm:** nhập n điểm vào list, in lớn nhất / nhỏ nhất / trung bình chỉ với các vòng lặp.
+3. **Kim tự tháp sao:** in tam giác sao `n` tầng (gợi ý: tầng thứ i có 2i−1 dấu sao).
+
+---
+
+## 📎 Tra cứu nhanh — range, enumerate, zip & điều khiển vòng lặp
+
+| Cú pháp | Việc | Ví dụ kết quả |
+|---|---|---|
+| `range(n)` | 0..n−1 | `range(3)` → 0,1,2 |
+| `range(a, b)` | a..b−1 | `range(2,5)` → 2,3,4 |
+| `range(a, b, s)` | Bước nhảy s | `range(0,10,2)` → 0,2,4,6,8 |
+| `range(n, 0, -1)` | Đếm ngược | n..1 |
+| `for x in ds:` | Duyệt giá trị | |
+| `for i, x in enumerate(ds):` | Kèm chỉ số | `enumerate(ds, start=1)` bắt đầu từ 1 |
+| `for a, b in zip(d1, d2):` | Duyệt song song | |
+| `break` | Thoát vòng lặp | Tìm thấy là dừng |
+| `continue` | Bỏ qua lượt này | |
+| `for ... else:` | else chạy khi KHÔNG break | Mẫu "tìm kiếm thất bại" |
 
 ---
 

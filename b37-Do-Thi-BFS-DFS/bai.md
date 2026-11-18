@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Đồ thị BFS & DFS
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -1078,6 +1080,30 @@ BFS/DFS từ biên vào trong (đi lên chỗ cao hơn hoặc bằng), giao hai 
 | 🕳️ DFS | Đệ quy/vòng lặp; chu trình, topo, flood fill |
 | 🎨 Tô màu | Hai phía (2 màu), thăm (đánh dấu khi push) |
 | 📐 Topo | Kahn: bậc vào + queue; None = chu trình |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **BFS tìm đường:** giải bài "đường đi ngắn nhất trong mê cung 0/1" bằng BFS + queue — so với DFS không đảm bảo ngắn nhất.
+2. **DFS topo:** viết DFS tìm thứ tự topo của DAG 10 đỉnh — kiểm tra không có chu trình.
+3. **Hai phía:** cho đồ thị 2 màu có thể tô, kiểm tra bằng BFS tô 2 màu — test 3 đồ thị đúng/sai.
+
+---
+
+## 📎 Tra cứu nhanh — BFS, DFS, Topo, Hai phía, Flood fill
+
+| Kỹ thuật | Template | Dùng khi |
+|---|---|---|
+| BFS (queue) | `deque([s]); while q: u = q.popleft()` | Đồ thị không trọng số, đường ngắn nhất |
+| DFS (stack/đệ quy) | `stack = [s]; while stack:` | Duyệt sâu, topo, flood fill |
+| Topo (Kahn) | `deque(u for u if deg[u]==0)` | DAG, sắp xếp phụ thuộc |
+| Hai phía | `color[u] = 1 - color[v]` | Đồ thị hai phía? |
+| Flood fill | BFS/DFS trên lưới | Mê cung, địa hình |
+
+**Ghi nhớ:** BFS = hàng đợi (deque), DFS = ngăn xếp/list; cả hai đều dùng `visited` set; đồ thị dùng list kề `adj[u] = [(v, w)]` cho trọng số hoặc `[v]` cho không trọng số.
 
 ---
 

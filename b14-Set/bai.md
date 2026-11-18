@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cấu trúc dữ liệu · Set (tập hợp)
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
@@ -1467,6 +1469,41 @@ print("Tong ky nang duy nhat:", tong)
 * 🔍 Duyệt set không đảm bảo thứ tự — dùng `sorted()` khi cần.
 
 👉 Tiếp theo: **[Bài 15 — Dictionary (Từ Điển) Trong Python](../b15-Dictionary/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Lọc trùng lớp học:** cho list 20 tên (có lặp), in danh sách khách mời KHÔNG trùng theo 2 cách: `set()` và vòng lặp + `in`.
+2. **Điểm danh:** hai set A (sáng), B (chiều) — in: đi cả hai buổi, chỉ sáng, chỉ chiều, tổng số bạn (4 phép toán tập hợp).
+3. **Nhật ký giao thông:** đếm số biển số xe KHÁC NHAU trong ngày từ một list biển số (dùng set, 2 dòng).
+
+---
+
+## 📎 Tra cứu nhanh — Toàn bộ phương thức & phép toán của Set
+
+| # | Phương thức / phép toán | Việc | Ví dụ |
+|---|---|---|---|
+| 1 | `add(x)` | Thêm (bỏ trùng tự động) | `{1,2}.add(3)` |
+| 2 | `remove(x)` | Xóa x — LỖI nếu không có | `{1}.remove(1)` |
+| 3 | `discard(x)` | Xóa x — KHÔNG lỗi nếu thiếu | `{1}.discard(5)` |
+| 4 | `pop()` | Xóa & trả 1 phần tử bất kỳ | `{1,2}.pop()` |
+| 5 | `clear()` | Xóa hết | |
+| 6 | `A \| B` / `A.union(B)` | Hợp | `{1,2} \| {2,3}` → `{1,2,3}` |
+| 7 | `A & B` / `A.intersection(B)` | Giao | `{1,2} & {2,3}` → `{2}` |
+| 8 | `A - B` / `A.difference(B)` | Hiệu (có trong A, không trong B) | `{1,2} - {2,3}` → `{1}` |
+| 9 | `A ^ B` / `symmetric_difference` | Hiệu đối xứng | `{1,2} ^ {2,3}` → `{1,3}` |
+| 10 | `A.update(B)` | Thêm cả B vào A | |
+| 11 | `A.issubset(B)` / `A <= B` | A nằm trong B? | |
+| 12 | `A.issuperset(B)` / `A >= B` | A chứa B? | |
+| 13 | `A.isdisjoint(B)` | Rời nhau? | |
+| 14 | `x in A` | Kiểm tra thuộc — O(1) | `5 in {1,5}` |
+| 15 | `len(A)` | Số phần tử | |
+| 16 | `frozenset(A)` | Tập hợp bất biến (làm khóa được) | |
+
+**Ghi nhớ:** set KHÔNG có thứ tự, KHÔNG trùng, tra cứu O(1); `{}` trống là **dict** — set rỗng dùng `set()`.
 
 ---
 

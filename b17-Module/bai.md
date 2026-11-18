@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Tổ chức mã · Module & thư viện chuẩn
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
@@ -1532,6 +1534,39 @@ else:
 **Độ phức tạp:** O(1).
 
 </details>
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Tủ đồ nghề riêng:** viết `tien_ich.py` chứa 4 hàm tiện ích; tạo file `main.py` import và dùng 3 trong 4 hàm.
+2. **Khám phá thư viện chuẩn:** dùng `math` tính diện tích hình tròn, `random` chọn 1 bạn trong lớp (giả lập), `datetime` in giờ hiện tại.
+3. **Ghi nhớ import:** viết 3 kiểu import khác nhau cho cùng thư viện `math` (import / from / alias) — ghi chú khác nhau chỗ nào.
+
+---
+
+## 📎 Tra cứu nhanh — Import & các module chuẩn thường dùng
+
+| Cú pháp import | Ví dụ | Ghi chú |
+|---|---|---|
+| `import mod` | `import math` → `math.sqrt(9)` | Gọi qua tên module |
+| `from mod import ten` | `from math import sqrt` → `sqrt(9)` | Gọi trực tiếp |
+| `import mod as alias` | `import math as m` → `m.sqrt(9)` | Đặt bí danh |
+| `from mod import *` | — | ❌ hạn chế (rối tên) |
+
+**Module chuẩn hay dùng:**
+
+| Module | Hàm hay dùng | Ví dụ |
+|---|---|---|
+| `math` | `sqrt, ceil, floor, gcd, pi` | `math.gcd(12, 18)` → `6` |
+| `random` | `randint, choice, shuffle, random` | `random.randint(1, 6)` xúc xắc |
+| `datetime` | `datetime.now()` | `now.strftime("%d/%m %H:%M")` |
+| `os` | `os.path.exists, os.listdir` | Kiểm tra file tồn tại |
+| `sys` | `sys.exit, sys.setrecursionlimit` | Dùng khi thi HSG |
+
+**Tự tạo module:** mỗi file `.py` là 1 module; muốn chạy 1 mình được thì bọc `if __name__ == "__main__":`.
 
 ---
 

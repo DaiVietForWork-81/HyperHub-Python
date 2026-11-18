@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật tối ưu · Quy hoạch động
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -780,6 +782,30 @@ cẩn thận đếm trùng khi có số bằng nhau (chỉ `<`, không `<=`).*
 | ⬆️ Bottom-up | Vòng lặp + bảng; chuẩn thi cử |
 | 🎒 Mẫu phải thuộc | Bậc thang, đổi tiền, túi 0/1, LIS, LCS |
 | 🌀 Lăn mảng | Giữ k hàng cần thiết; ngược/xuôi quyết định đúng sai |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **5 bước bằng tay:** lấy bài "bậc thang n bậc", viết đủ 5 bước (định nghĩa → truy hồi → base → thứ tự → đáp án) trước khi code.
+2. **Hai phiên bản:** giải bài đổi tiền ít tờ nhất bằng cả top-down (memo) và bottom-up — so sánh code và tốc độ.
+3. **Lăn mảng:** giải LIS/cái túi bản O(n) bộ nhớ (lăn 1 hàng) — kiểm tra kết quả khớp bản 2 hàng.
+
+---
+
+## 📎 Tra cứu nhanh — 5 bước DP & khuôn mẫu thường gặp
+
+| Bước | Câu hỏi | Ví dụ (bậc thang) |
+|---|---|---|
+| 1. Định nghĩa | `dp[...]` là gì? | `dp[i]` = số cách tới bậc i |
+| 2. Truy hồi | Từ bài nhỏ nào? | `dp[i] = dp[i-1] + dp[i-2]` |
+| 3. Base | Trường hợp nhỏ nhất | `dp[0] = 1` |
+| 4. Thứ tự | Duyệt sao cho bài nhỏ xong trước | i tăng dần |
+| 5. Đáp án | Ô nào? | `dp[n]` |
+
+**Mẫu hay gặp:** bậc thang/đổi tiền (1 chiều); túi 0/1 (2 chiều, duyệt ngược nếu lăn mảng); LIS O(n²); LCS (2 chiều). **Top-down** = đệ quy + memo (dễ nghĩ); **bottom-up** = vòng lặp + bảng (chuẩn thi).
 
 ---
 

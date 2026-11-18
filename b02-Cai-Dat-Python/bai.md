@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Nhập môn · Cài đặt môi trường
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 1 — Giới Thiệu Python](../b01-Gioi-Thieu/bai.md)
@@ -1008,6 +1010,16 @@ print("4) Xem help")
 * Đừng lo nếu thấy nhiều lệnh mới: chúng sẽ lặp lại và bạn sớm nhớ thôi!
 
 👉 Tiếp theo: **[Bài 3 — Biến Trong Python](../b03-Bien/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Cài đặt & kiểm tra:** cài Python + VS Code theo bài; chạy `python --version` rồi ghi lại kết quả vào vở.
+2. **Chạy hai nơi:** chạy cùng một file `hello.py` bằng cửa sổ terminal và bằng nút Run của VS Code — ghi lại 2 cách.
+3. **Pip cơ bản:** chạy `pip list` và kể tên 5 thư viện bạn nhận ra (đọc hiểu tên là đủ).
 
 ---
 

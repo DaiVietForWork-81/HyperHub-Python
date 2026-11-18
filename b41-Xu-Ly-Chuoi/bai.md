@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Xử lý chuỗi nâng cao
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -887,6 +889,30 @@ trở thành đồ chơi.*
 | Z | Hộp [l,r] + gương; biên/tuần hoàn/tìm mẫu |
 | #️⃣ Rolling hash | Đa thức + tiền tố; mod đôi; so O(1); chặt + hash |
 | 🌳 Trie | Tiền tố O(L); nhị phân cho XOR max O(32) |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **KMP từ đầu:** cài `compute_pi(p)` + `kmp_search(s, p)` — test tìm pattern trong text 10⁵ ký tự.
+2. **Z-function:** cài Z-function tìm pattern — so thời gian với KMP.
+3. **Rolling hash:** cài hash đa thức (base 31, mod 2⁶⁴ hoặc 10⁹+7) — tìm chuỗi con chung dài nhất 2 xâu.
+
+---
+
+## 📎 Tra cứu nhanh — KMP, Z-function, Rolling hash, Trie
+
+| Kỹ thuật | Template | Ứng dụng |
+|---|---|---|
+| KMP (pi) | `pi[i] = độ dài tiền tố = hậu tố dài nhất của p[:i+1]` | Tìm pattern O(n+m) |
+| Z-function | `z[i] = độ dài tiền tố chung của s[i:] và s` | Tìm pattern O(n+m) |
+| Rolling hash | `h[i+1] = (h[i]*base + ord(s[i])) % mod` | So sánh xâu con O(1) |
+| Trie | Node: `con = {}`, `is_end` | Tìm prefix, đếm từ điển |
+| Aho-Corasick | Trie + fail link | Tìm nhiều pattern cùng lúc |
+
+**Ghi nhớ:** KMP/Z = tìm pattern chuẩn; Rolling hash = so sánh xâu con (khó so sánh trực tiếp O(L)); Trie = tiền tố / từ điển; Python có `hashlib` nhưng rolling hash tự cài nhanh hơn cho xâu con. Base thường dùng 31/131/911, mod 2⁶⁴ (unsigned) hoặc prime lớn.
 
 ---
 

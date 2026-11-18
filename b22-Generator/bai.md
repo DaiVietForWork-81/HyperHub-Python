@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật Python · Generator
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
@@ -1402,6 +1404,32 @@ print("So loi phat hien:", so_loi)
 **Độ phức tạp:** O(số dòng) thời gian, O(1) bộ nhớ.
 
 </details>
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Dãy Fibo lười:** viết generator fibonacci không giới hạn; lấy 15 số đầu bằng vòng for.
+2. **Đọc file khổng lồ:** sinh dữ liệu giả 100.000 dòng ra file rồi "đọc lười" từng dòng (không `read()` cả file).
+3. **Đo lợi ích:** so sánh `list(...)` 10 triệu bình phương vs generator — ghi lại khác biệt bộ nhớ/thời gian.
+
+---
+
+## 📎 Tra cứu nhanh — Generator — cú pháp & khuôn mẫu
+
+| Cú pháp | Việc | Ví dụ |
+|---|---|---|
+| `yield x` | Sinh từng giá trị | Trong `def` |
+| `(f(x) for x in ds)` | Generator expression (lười) | `sum(x*x for x in ds)` |
+| `next(gen)` | Lấy 1 giá trị kế tiếp | Hết → `StopIteration` |
+| Duyệt `for x in gen:` | Duyệt lười | 1 lần rồi hết! |
+| `sum/any/all/max/min(gen)` | "Kéo" toàn bộ | `any(x < 0 for x in ds)` |
+| `itertools.islice(gen, n)` | Lấy n phần tử đầu | Vô hạn → cần chặn |
+| `itertools.count/cycle/chain` | Hộp đồ nghề | Bài 45 |
+
+**Ghi nhớ:** generator sinh từng giá trị khi cần — O(1) bộ nhớ; dùng 1 lần rồi cạn (muốn dùng lại phải tạo mới); thay thế tốt cho trung gian khi xử lý dữ liệu lớn.
 
 ---
 

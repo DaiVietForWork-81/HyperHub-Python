@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cấu trúc dữ liệu · Tuple (bộ dữ liệu)
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 12 — Danh Sách (List) Trong Python](../b12-List/bai.md)
@@ -1445,6 +1447,34 @@ else:
 * 🧮 Trung bình cộng, max, min, sum đều dùng được cho tuple như list.
 
 👉 Tiếp theo: **[Bài 14 — Set (Tập Hợp) Trong Python](../b14-Set/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Hộp quà tuple:** tạo tuple tọa độ 5 điểm; in điểm đầu, cuối, cắt 2 điểm giữa bằng slice.
+2. **Mở gói:** viết hàm trả `(min, max, tb)` của một list — gọi và nhận cả ba bằng một dòng.
+3. **Bảng so sánh:** kẻ bảng 2 cột list vs tuple: sửa được? tốc độ? dùng khi nào? — điền từ kiến thức bài.
+
+---
+
+## 📎 Tra cứu nhanh — Phương thức của Tuple & mở gói
+
+| Cú pháp | Việc | Ví dụ |
+|---|---|---|
+| `(a, b, c)` | Tạo tuple | `diem = (8, 9, 7)` |
+| `t[i]` / `t[a:b]` | Truy cập / cắt | `diem[0]`, `diem[:2]` |
+| `x in t` | Kiểm tra thuộc | `9 in diem` |
+| `t.count(x)` | Đếm số lần | `(1,1,2).count(1)` → `2` |
+| `t.index(x)` | Vị trí đầu tiên | `(5,6).index(6)` → `1` |
+| `a, b = t` | Mở gói (unpack) | `x, y = (3, 4)` |
+| `a, *phan_con = t` | Mở gói một phần | `dau, *giua, cuoi = t` |
+| `return a, b` | Hàm trả nhiều giá trị (tuple) | `return min(ds), max(ds)` |
+| `tuple(ds)` | List → tuple | `tuple([1,2])` |
+
+**Vì sao dùng tuple:** bất biến (an toàn), nhanh hơn list chút, làm được **khóa dict** (list thì không), tự nhiên cho "bộ cố định" (tọa độ, RGB, ngày-tháng-năm, kết quả trả về nhiều giá trị).
 
 ---
 

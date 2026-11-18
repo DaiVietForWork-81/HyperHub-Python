@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Quy hoạch động nâng cao
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -955,6 +957,36 @@ khi lớn hơn thì cnt[v] = cnt[u]. Cẩn thận mod chỉ cho đếm, không c
 | 🌳 Tree | DFS lá→gốc; reroot cho đáp án mọi gốc |
 | ✂️ Interval | Độ dài tăng dần; thử nhát cắt cuối |
 | ⚖️ Tham vs DP | Chứng minh quyết định, không phải cảm giác |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **DP trên DAG:** viết DP topo + `dp[v] = max(dp[u] + w)` cho đồ thị 10 đỉnh có trọng số — so với Bellman-Ford.
+2. **Digit DP:** đếm số ≤ N có đúng K chữ số chẵn — 3 trạng thái (pos, tight, cnt).
+3. **Tree DP:** tìm đường kính cây có trọng số bằng `dfs(u, p)` trả `(đường kính, chiều cao tối đa)`.
+
+---
+
+## 📎 Tra cứu nhanh — DAG DP, Digit DP, Tree DP, Interval DP
+
+| Loại DP nâng cao | Template | Ứng dụng |
+|---|---|---|
+| DAG DP | Topo sort + `dp[v] = max(dp[u] + w)` | Đường dài nhất, số cách |
+| Digit DP | `pos, tight, started, cnt` + memo | Đếm số thỏa điều kiện chữ số |
+| Tree DP | `dfs(u, p) → (ans, height)` + reroot | Đường kính, tập độc lập, MST trên cây |
+| Interval DP | Độ dài tăng dần, thử cắt cuối | Ma trận chuỗi, polygon triangulation |
+
+| Mẫu | Trạng thái | Chuyển trạng thái |
+|---|---|---|
+| DAG | `dp[v]` | `dp[v] = max(dp[u] + w(u,v))` |
+| Digit | `dp[pos][tight][cnt]` | Thử chữ số 0..9, cập nhật tight/started/cnt |
+| Tree | `dfs(u) → (ans, height)` | `ans = max(ans_con, h1 + h2)` |
+| Interval | `dp[l][r]` độ dài tăng dần | Thử cắt giữa: `dp[l][r] = max(dp[l][k] + dp[k+1][r] + cost)` |
+
+**Ghi nhớ:** DP nâng cao = "DP 1 chiều không đủ" → mở rộng trạng thái hoặc cấu trúc dữ liệu. DAG = topo sort; Digit = pos/tight/started; Tree = lá→gốc + reroot; Interval = độ dài tăng dần.
 
 ---
 

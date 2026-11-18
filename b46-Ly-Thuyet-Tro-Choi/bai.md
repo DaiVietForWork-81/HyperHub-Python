@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Lý thuyết trò chơi (Nim & Grundy)
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -583,6 +585,30 @@ tính đến 200, tìm chu kỳ — đây là bài Grundy "hàng thật" trong O
 | ➕ Nim | XOR ≠ 0 thắng; nước đi: giảm về XOR 0 |
 | 🔢 Grundy/mex | Số nhỏ nhất vắng mặt; XOR nhiều trò con |
 | ⚠️ Misère | Lấy cuối thua — đọc đề, đừng áp mù! |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Nim cài từ đầu:** viết `grundy(n)` bằng `lru_cache` (mex) — test Nim 3 cọc [3,4,5].
+2. **Misère Nim:** sửa bản Nim cho luật "người lấy cuối THUA" — test [1,1] (người đầu thắng).
+3. **Sprague-Grundy:** 2 trò chơi con (cọc đá + ô cờ), tính Grundy mỗi trò rồi XOR — test 3 cặp trạng thái.
+
+---
+
+## 📎 Tra cứu nhanh — Nim, Grundy, Mex, Sprague-Grundy, Misère
+
+| Khái niệm | Template | Ứng dụng |
+|---|---|---|
+| Nim position | `xor` tất cả cọc = 0 → P-position (thua) | Nim chuẩn |
+| Grundy | `mex({grundy(v) for v in next})` | Tách trò chơi thành trạng thái |
+| Mex | `min(i for i in range(...) if i not in S)` | Số nhỏ nhất không trong tập |
+| Sprague-Grundy | `grundy_total = grundy(game1) ^ grundy(game2)` | Gộp nhiều trò chơi con |
+| Misère | `if all(c == 1): return not xor; else return xor` | Nim misère |
+
+**Ghi nhớ:** impartial game = 2 người, biết hết thông tin, không may rủi; Grundy biến mọi trò chơi thành "cọc Nim ảo" — XOR là toán tử thống nhất. Misère chỉ khác khi TẤT CẢ cọc đều còn 1 đá.
 
 ---
 

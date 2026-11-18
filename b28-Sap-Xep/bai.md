@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật cơ bản · Sắp xếp
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -629,6 +631,33 @@ sift-down từ n//2 về 0, rồi lặp lấy gốc đổi về cuối + sift-do
 | 🐍 `sorted` / `.sort` | Timsort O(n log n) ổn định — vũ khí thi thật |
 | 🔑 key | Tuple key + số âm cho đa tiêu chí |
 | ⚖️ Ổn định | sorted ổn định; selection không |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Tam kiếm:** cho list 10 chuỗi tên, sắp theo: thứ tự từ điển; độ dài; độ dài giảm dần rồi từ điển.
+2. **Bảng xếp hạng:** cho (tên, điểm, số lỗi), xếp hạng theo điểm giảm, lỗi tăng, tên tăng — một `sorted`.
+3. **Cài merge sort:** viết bản merge sort đệ quy 15 dòng, test với mảng ngẫu nhiên so `sorted`.
+
+---
+
+## 📎 Tra cứu nhanh — Sắp xếp — sorted & khuôn mẫu khóa
+
+| Cú pháp | Việc | Ví dụ |
+|---|---|---|
+| `sorted(ds)` | Bản mới, giữ gốc | |
+| `ds.sort()` | Sắp tại chỗ (trả None) | |
+| `key=len` | Theo độ dài | `sorted(ds, key=len)` |
+| `key=lambda x: x[1]` | Theo phần tử thứ 2 | |
+| `key=lambda x: (-x[1], x[0])` | Số giảm, tên tăng | Bảng xếp hạng |
+| `reverse=True` | Đảo chiều | |
+| `key=str.lower` | Không phân biệt hoa thường | |
+| `key=lambda x: (x % 2, x)` | Chẵn trước, rồi tăng | Khóa tổ hợp bất kỳ |
+
+**Ghi nhớ:** Python `sort` là Timsort — **ổn định** (ổn định: phần bằng nhau giữ thứ tự cũ), viết bằng C, rất nhanh; cần tự cài chỉ để học (merge/quick/counting). Đếm phân phối khi giá trị nhỏ: mảng đếm size giá trị.
 
 ---
 

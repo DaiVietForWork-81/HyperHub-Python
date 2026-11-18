@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cấu trúc dữ liệu · String (chuỗi)
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 4 — Kiểu Dữ Liệu Cơ Bản](../b04-Kieu-Du-Lieu/bai.md)
@@ -1316,6 +1318,43 @@ print(ten_dang_nhap)
 * Kiểm tra đầu vào bằng `isdigit()`, `isalpha()` trước khi xử lý để tránh lỗi bất ngờ (sẽ học cách xử lý lỗi chuyên nghiệp hơn ở phần sau).
 
 👉 Tiếp theo: **[Bài 17 — Module Trong Python](../b17-Module/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Hộ chiếu chuỗi:** nhập họ tên đầy đủ dạng "nguyen  van AN", in ra tên chuẩn hóa "Nguyen Van An" (dùng split + title/join).
+2. **Thống kê câu:** đếm số từ, số nguyên âm, in câu đảo ngược `[::-1]`.
+3. **Mật khẩu vui:** kiểm tra "mật khẩu" đủ 8 ký tự, có chữ và số — kết quả ĐẠT/CHƯA ĐẠT (dùng các hàm `is...`).
+
+---
+
+## 📎 Tra cứu nhanh — Toàn bộ phương thức String thường dùng
+
+| # | Phương thức | Việc | Ví dụ |
+|---|---|---|---|
+| 1 | `upper()` / `lower()` | HOA / thường | `"An".upper()` → `"AN"` |
+| 2 | `strip()` | Bỏ khoảng trắng 2 đầu | `"  a  ".strip()` → `"a"` |
+| 3 | `lstrip()` / `rstrip()` | Bỏ trái / phải | |
+| 4 | `split(sep)` | Cắt thành list | `"a,b".split(",")` → `['a','b']` |
+| 5 | `"sep".join(ds)` | Nối list thành chuỗi | `"-".join(['a','b'])` → `"a-b"` |
+| 6 | `replace(a, b)` | Thay thế | `"ana".replace("a","o")` |
+| 7 | `find(x)` / `rfind(x)` | Vị trí đầu/cuối (−1 nếu thiếu) | |
+| 8 | `x in s` | Chứa? | `"an" in "banana"` |
+| 9 | `count(x)` | Đếm | `"banana".count("an")` → `2` |
+| 10 | `startswith(x)` / `endswith(x)` | Bắt đầu / kết thúc | Lọc file `.py` |
+| 11 | `isdigit()` / `isalpha()` / `isspace()` | Toàn số / chữ / khoảng trắng? | Kiểm tra nhập liệu |
+| 12 | `title()` / `capitalize()` | Viết hoa đầu từ / đầu câu | |
+| 13 | `zfill(n)` | Đệm 0 bên trái | `"7".zfill(3)` → `"007"` |
+| 14 | `ljust(n)` / `rjust(n)` / `center(n)` | Căn trái/phải/giữa | |
+| 15 | `s[i]` / `s[a:b:c]` | Truy cập / cắt (chuỗi mới) | `s[::-1]` đảo |
+| 16 | `len(s)` | Độ dài | |
+| 17 | `splitlines()` | Cắt theo dòng | |
+| 18 | `ord(c)` / `chr(n)` | Ký tự ↔ mã | `ord("a")` → `97` |
+
+**Ghi nhớ:** chuỗi BẤT BIẾN — mọi `replace/upper...` trả chuỗi MỚI (không sửa gốc); muốn sửa thì gán lại.
 
 ---
 

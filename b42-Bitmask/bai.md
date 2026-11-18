@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chuyên đề · Bitmask & Tối ưu trên tập hợp
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -807,6 +809,38 @@ dp[mask][i] = rẻ nhất nối tập mask (i là gốc cây Steiner)... mở r�
 | 👷 Phân công | dp[mask], k = popcount ẩn; O(n·2ⁿ) |
 | ✂️ MITM | Chia đôi + sort + nhị phân; n ≤ 34–40 |
 | 📊 SOS | Tổng tập con O(n·2ⁿ); đếm AND/OR |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **TSP bitmask:** giải Traveling Salesman n=12 bằng DP `dp[mask][i]` — so với vét cạn O(n!).
+2. **Meet-in-the-middle:** n=40, chia đôi 20+20, tìm cặp tổng bằng K — O(n·2ⁿ/²).
+3. **SOS DP:** cho 2ⁿ số, tính `sum[mask]` = tổng phần tử tập con `mask` — O(n·2ⁿ).
+
+---
+
+## 📎 Tra cứu nhanh — Bitmask, TSP, Meet-in-the-middle, SOS DP
+
+| Mẹo bit | Cú pháp | Ý nghĩa |
+|---|---|---|
+| Bật bit i | `mask \|= (1 << i)` | Thêm i vào tập |
+| Tắt bit i | `mask &= ~(1 << i)` | Bỏ i |
+| Kiểm tra bit i | `(mask >> i) & 1` | i có trong tập? |
+| lowbit | `x & -x` | Bit 1 thấp nhất |
+| Duyệt tập con | `for s in range(mask): s = (s-1) & mask` | Tất cả tập con |
+
+**Kỹ thuật hàng đầu:**
+| Kỹ thuật | Độ phức tạp | Dùng khi |
+|---|---|---|
+| DP bitmask | O(n²·2ⁿ) | n ≤ 20, trạng thái tập hợp |
+| Meet-in-the-middle | O(n·2ⁿ/²) | n ≤ 40, chia đôi tìm cặp |
+| SOS DP | O(n·2ⁿ) | Tổng tập con, đếm AND/OR |
+| XOR max | Trie 0/1 bit | Tối ưu XOR trên tập |
+
+**Ghi nhớ:** Python int vô hạn — bit thao tác nhanh; n ≤ 20 là ranh giới DP bitmask; n ≤ 40 dùng meet-in-the-middle; n ≤ 20 SOS DP ổn; Trie bit cho XOR max.
 
 ---
 

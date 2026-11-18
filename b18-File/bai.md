@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Tổ chức mã · Làm việc với file
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 17 — Module Trong Python](../b17-Module/bai.md)
@@ -1734,6 +1736,37 @@ print("Da ghi ket qua vao tong_ket.txt")
 * Bài sau đã sẵn sàng: gói dữ liệu học sinh, điểm số thành **class** với lập trình hướng đối tượng!
 
 👉 Tiếp theo: **[Bài 19 — Lập Trình Hướng Đối Tượng (OOP)](../b19-OOP/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Nhật ký học tập:** ghi thêm (mode `a`) một dòng `[ngày] nội dung` mỗi ngày — chạy thử 3 lần.
+2. **Điểm danh từ file:** tạo `diem.txt` 10 dòng "tên điểm", đọc và in tên + điểm TB.
+3. **Săn lỗi FileNotFoundError:** thử mở file không tồn tại → xem lỗi → sửa bằng `try/except` theo mẫu bài.
+
+---
+
+## 📎 Tra cứu nhanh — Mở file & các thao tác đọc/ghi
+
+| Cú pháp | Việc | Ghi chú |
+|---|---|---|
+| `open(ten, "r")` | Mở đọc | Mode mặc định |
+| `open(ten, "w")` | Mở ghi (XOÁ hết file cũ) | Cẩn thận! |
+| `open(ten, "a")` | Mở ghi nối | Giữ nội dung cũ |
+| `open(ten, encoding="utf-8")` | Mở với UTF-8 | Bắt buộc với tiếng Việt |
+| `with open(...) as f:` | Tự đóng file | Luôn dùng cách này |
+| `f.read()` | Đọc cả file (1 chuỗi) | File nhỏ |
+| `f.readline()` | Đọc 1 dòng | Vòng lặp đọc từng dòng |
+| `f.readlines()` | Đọc thành list dòng | File vừa |
+| `for dong in f:` | Duyệt từng dòng | Tiết kiệm bộ nhớ |
+| `f.write(s)` / `f.writelines(ds)` | Ghi chuỗi / list | Tự thêm `\n` nếu cần |
+| `f.seek(0)` / `f.tell()` | Di chuyển / xem vị trí | |
+| `try/except FileNotFoundError` | Bắt lỗi file thiếu | Mẫu chuẩn |
+
+**Ghi nhớ:** luôn `with`; tiếng Việt thì `encoding="utf-8"`; mode `w` xóa sạch file nếu đã tồn tại.
 
 ---
 

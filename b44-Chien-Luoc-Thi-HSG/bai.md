@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Chiến lược · Chiến lược thi HSG & tổng kết
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -770,6 +772,42 @@ cho cả 4 bài (kể cả bài không làm được — ghi editorial học đ�
 | 44. Thi cử | Quy trình, subtask, stress, checklist | "Làm sao AC dưới áp lực?" |
 | 45. itertools | product/permutations/combinations, accumulate, groupby | "Liệt kê/gom có sẵn?" |
 | 46. Trò chơi | Nim, XOR, số Grundy | "Thắng/thua khi chơi tối ưu?" |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Bàn tay mô phỏng:** làm 1 đề HSG tỉnh thật (4 bài, 180 phút) — ghi lại thời gian mỗi bài, điểm đạt được, phân tích SAI ở đâu.
+2. **Sổ mẫu 1 trang:** viết tay 1 trang tóm tắt toàn khóa (theo bảng Bài 44) — mang vào phòng thi (nếu được).
+3. **Tâm lý thi:** viết 5 câu tự nhắc khi bị bí / stress / hết giờ — đọc trước mỗi lần thi.
+
+---
+
+## 📎 Tra cứu nhanh — Quy trình thi, phân loại ràng buộc, sổ mẫu 1 trang
+
+| Bước | Thời gian | Hành động |
+|---|---|---|
+| 1. Đọc 4 đề | 5–10 phút | Khoanh vùng dễ/khó, chọn 2 bài chắc ăn |
+| 2. Code bài dễ | 30–50 phút | Chắc ăn điểm, chạy test ngay |
+| 3. Bài giữa | 50–70 phút | Nghĩ kỹ, cài DP/đồ thị, stress test nhỏ |
+| 4. Bài khó | 60–90 phút | Viết brute force lấy điểm từng phần |
+| 5. Cuối giờ | 15 phút | Kiểm tra I/O, biên, test tự sinh |
+
+**Bảng chọn thuật toán từ ràng buộc (tóm tắt):**
+| n ≤ 10 | Hoán vị, vét cạn mọi thứ | Bài 26 (vét cạn), 32 (quay lui) |
+| ≤ 20–25 | Bitmask, quay lui + tỉa, DP mũ (TSP) | Bài 32, 42 (bitmask) |
+| ≤ 500 | DP O(n³), Floyd | Bài 35 (DP), 38 (Floyd) |
+| ≤ 5.000 | O(n²): DP, LIS O(n²), thử cặp | Bài 33, 35 |
+| ≤ 10⁵–10⁶ | O(n log n): sort, nhị phân, heap | Bài 27, 28, 34, 35 |
+| ≤ 10⁷–10⁸ | O(n): duyệt, hai con trỏ, Counter | Bài 30, 33, 35 |
+| ≤ 10¹² | O(√n): kiểm tra nguyên tố, thừa số | Bài 36 (số học) |
+| ≤ 10¹⁸ | O(log n): nhị phân đáp số, lũy thừa | Bài 27, 31, 36 |
+| Đồ thị 10⁵ | O(n+m): BFS/DFS; O(m log n): Dijkstra | Bài 37, 38 |
+| q truy vấn đoạn 10⁵ | O(log n)/truy vấn: BIT/segment tree | Bài 40 |
+
+**Tâm lý:** giữ bình tĩnh; bài khó → viết brute force lấy điểm từng phần; đừng bỏ trống.
 
 ---
 

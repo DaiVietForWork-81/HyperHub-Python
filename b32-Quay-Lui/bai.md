@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Đệ quy & quay lui · Backtracking
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -710,6 +712,30 @@ không tỉa đối xứng.
 | ✂️ Cắt tỉa | Ràng buộc sớm, cận, đối xứng — cứu TLE |
 | 🎯 Nhận diện | n ≤ 20–25, "liệt kê/tồn tại/đếm cách" |
 | 🪤 Bug #1 | Quên hoàn tác; #2 lưu tham chiếu thay vì copy |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Nhị phân n=3:** viết quay lui in mọi xâu nhị phân độ dài 3, vẽ cây gọi ra giấy.
+2. **Tổ hợp chập k:** liệt kê mọi tổ hợp chập 3 của 1..6 — kiểm tra đủ 20 bộ, đúng thứ tự từ điển.
+3. **N-Queens n=5:** chạy bản bài học với n=5, đếm nghiệm; so với 2-BFS/backtracking tỉa thêm.
+
+---
+
+## 📎 Tra cứu nhanh — Template quay lui (chọn — thử — hoàn tác)
+
+| Bước | Code mẫu |
+|---|---|
+| 1. Chọn | `duong.append(x)` |
+| 2. Đệ quy | `dq(i + 1)` |
+| 3. Hoàn tác | `duong.pop()` |
+| Base | `if i == n: ghi_nhan(duong); return` |
+| Tỉa | `if dieu_kien_sai: return` trước khi đệ quy |
+
+**Checklist tránh bug:** hoàn tác đủ (đối xứng với lúc chọn)? điều kiện tỉa đặt ĐÚNG chỗ (trước vòng for con)? kết quả ghi bằng bản sao `duong[:]` (không lưu tham chiếu)?
 
 ---
 

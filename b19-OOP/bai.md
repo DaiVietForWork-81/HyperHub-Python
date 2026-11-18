@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Tổ chức mã · Lập trình hướng đối tượng
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 10 — Hàm (Function) Trong Python](../b10-Ham/bai.md)
@@ -2121,6 +2123,38 @@ for gv in truong.giao_vien:
 * Khi viết nhiều class, hãy tìm hiểu `@dataclass` — Python tự sinh `__init__`, `__str__`... giúp code gọn hơn!
 
 👉 Tiếp theo: **[Bài 20 — Lambda – Hàm Vô Danh Siêu Ngắn Gọn](../b20-Lambda/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Class Sách:** thuộc tính ten/gia; method `mo_ta()`; tạo 3 sách và in thông tin (có `__str__`).
+2. **Kế thừa:** class `SachGiaoKhoa(Kế thừa Sach)` thêm `lop`; ghi đè `mo_ta()` — in cho cả 2 loại.
+3. **Bắt lỗi thiết kế:** thử tạo `Sach` rồi sửa `gia` thành số âm → thêm kiểm tra (raise lỗi hoặc phương thức `giam_gia` an toàn).
+
+---
+
+## 📎 Tra cứu nhanh — OOP — cú pháp & phương thức đặc biệt
+
+| Cú pháp | Việc | Ví dụ |
+|---|---|---|
+| `class Ten:` | Tạo lớp | `class Sach:` |
+| `__init__(self, ...)` | Hàm khởi tạo | Gán thuộc tính bằng `self.` |
+| `self` | Tham chiếu đối tượng hiện tại | Tham số đầu mọi method |
+| `def method(self):` | Phương thức | |
+| `class Con(Cha):` | Kế thừa | |
+| `super().__init__(...)` | Gọi constructor cha | |
+| `__str__` / `__repr__` | Chuỗi hiển thị khi in | `print(sach)` |
+| `__eq__(self, other)` | So sánh `==` | So theo mã |
+| `__lt__` | So sánh `<` (dùng được với `sorted`) | |
+| `__len__` | Hỗ trợ `len(obj)` | |
+| `_ten` / `__ten` | Quy ước nội bộ / che giấu | |
+| `@property` | Thuộc tính tính toán | `@property def con_lai(self):` |
+| `@staticmethod` / `@classmethod` | Hàm tĩnh / gắn lớp | |
+
+**Bốn chữ cái vàng:** đóng gói (gói dữ liệu + hành vi), kế thừa (cha → con), đa hình (cùng lệnh khác hành vi), trừu tượng (giấu chi tiết).
 
 ---
 

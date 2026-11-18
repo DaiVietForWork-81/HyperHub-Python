@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Kỹ thuật dãy số · Hai con trỏ & tiền tố
+
 ---
 
 ## 🧠 Điều kiện tiên quyết
@@ -652,6 +654,29 @@ tree) đếm số tiền tố cũ ≥ tong − K trong O(log n) mỗi bước �
 | 🪟 Cửa sổ trượt | Cố định: cập nhật O(1); co giãn: số dương + đơn điệu |
 | 📏 Tiền tố | Tổng đoạn O(1); mở rộng 2D cho bảng |
 | ➕ Tiền tố + dict | Số âm: đếm/tìm max đoạn theo tổng O(n) |
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Cặp tổng S:** giải "2 số cộng bằng S" trên dãy đã sort bằng hai con trỏ — so với vét cạn đếm số phép.
+2. **Đoạn dài nhất:** tìm đoạn dài nhất không có phần tử trùng (sliding window + dict vị trí cuối).
+3. **Tiền tố thần tốc:** cho dãy 10⁵ số, trả lời 10⁵ truy vấn tổng đoạn [l, r] — tiền tố O(1)/truy vấn.
+
+---
+
+## 📎 Tra cứu nhanh — Template hai con trỏ & tổng tiền tố
+
+| Khuôn mẫu | Template ngắn | Dùng khi |
+|---|---|---|
+| Hai con trỏ ngược | `l, r = 0, n-1` tiến vào nhau | dãy sort, cặp/tổng |
+| Cửa sổ trượt | `l = 0; for r in range(n): while đk xấu: l += 1` | đoạn liên tiếp thỏa điều kiện |
+| Tiền tố | `P[0]=0; P[i+1]=P[i]+a[i]` → `tong(l,r)=P[r+1]-P[l]` | hỏi tổng đoạn nhiều lần |
+| Tiền tố + dict | `thay[P[i]]` tra "tổng gặp trước" | đoạn tổng K (kể cả số âm) |
+
+**Nhận diện:** đề có chữ "liên tiếp/đoạn con" + "dài nhất/nhỏ nhất/đếm" → nghĩ ngay kỹ thuật dãy. Cửa sổ trượt chỉ chuẩn khi điều kiện **đơn điệu** (thêm phần tử không làm điều kiện tốt lên) — số âm phá điều kiện này.
 
 ---
 

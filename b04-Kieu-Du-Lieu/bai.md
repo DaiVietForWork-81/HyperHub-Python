@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cú pháp cơ bản · Kiểu dữ liệu & ép kiểu
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 3 — Biến Trong Python](../b03-Bien/bai.md)
@@ -1309,6 +1311,31 @@ print("float(x) == 10.0:", float(x) == 10.0)
 * Chữ số trong dấu nháy vẫn là chữ: `"5"` ≠ `5`.
 
 👉 Tiếp theo: **[Bài 5 — Toán Tử Trong Python](../b05-Toan-Tu/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Thẻ căn cước kiểu:** cho 8 giá trị khác loại (số, chuỗi, bool...), đoán `type()` từng giá trị trước khi chạy và đối chiếu.
+2. **Trạm ép kiểu:** nhập điểm dạng chuỗi → ép `float` → in điểm +2; thử nhập chữ để xem lỗi `ValueError` thực tế.
+3. **Ngân hàng mini:** tính tổng tiền 3 món (float), làm tròn 2 chữ số thập phân, đối chiếu kết quả bằng tay.
+
+---
+
+## 📎 Tra cứu nhanh — Ép kiểu & hàm chuyển đổi kiểu
+
+| Hàm | Việc | Ví dụ | Ghi chú |
+|---|---|---|---|
+| `int(x)` | Sang số nguyên | `int("7")` → `7`; `int(3.9)` → `3` | Cắt phần thập phân |
+| `float(x)` | Sang số thực | `float("7.5")` → `7.5` | |
+| `str(x)` | Sang chuỗi | `str(42)` → `"42"` | Dùng để nối chuỗi |
+| `bool(x)` | Sang đúng/sai | `bool(0)` → `False` | 0, "", [], None → False |
+| `type(x)` | Xem kiểu | `type(5)` → `int` | Chỉ đọc, không đổi |
+| `round(x, n)` | Làm tròn n chữ số | `round(3.14159, 2)` → `3.14` | |
+| `abs(x)` | Trị tuyệt đối | `abs(-5)` → `5` | |
+| `chr(n)` / `ord(c)` | Số ↔ ký tự | `ord("A")` → `65` | Bảng mã Unicode |
 
 ---
 

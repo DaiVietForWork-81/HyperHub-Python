@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Nhập môn · Giới thiệu Python
+
 ## 🧠 Điều kiện tiên quyết
 
 Không cần kiến thức lập trình trước đó — bài này là điểm khởi đầu.
@@ -1214,6 +1216,16 @@ print("------------------------------")
 * Luyện viết **biến** — sẽ học kỹ ở **Bài 3 — Biến Trong Python**.
 
 👉 Tiếp theo: **[Bài 2 — Cài Đặt Python](../b02-Cai-Dat-Python/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Tự giới thiệu bằng code:** viết 5 lệnh `print()` in thông tin của bạn (tên, tuổi, lớp, sở thích, mục tiêu) — mỗi thông tin một dòng.
+2. **Phá lỗi:** tự tạo 3 lỗi cú pháp khác nhau (thiếu ngoặc, thiếu nháy, sai hoa/thường), chạy thử để xem thông báo lỗi, rồi sửa từng lỗi.
+3. **Vẽ tay:** vẽ sơ đồ "Python là gì / dùng ở đâu" với 5 nhánh ứng dụng (AI, Web, dữ liệu, tự động hóa, game).
 
 ---
 

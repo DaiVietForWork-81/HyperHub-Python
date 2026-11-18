@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cú pháp cơ bản · Nhập & xuất dữ liệu
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 1 — Giới Thiệu Python](../b01-Gioi-Thieu/bai.md)
@@ -1514,6 +1516,32 @@ print(f"Môn yêu thích: {mon_hoc}")
 * Bài sau bạn sẽ học `if` — lúc đó chương trình biết **tự đưa ra quyết định** dựa trên dữ liệu vừa nhập!
 
 👉 Tiếp theo: **[Bài 7 — Câu Lệnh If – Cấu Trúc Rẽ Nhánh](../b07-Cau-Lenh-If/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Phiếu nhập xinh đẹp:** nhập tên + tuổi + lớp, in lại theo mẫu thẳng cột bằng f-string.
+2. **Máy tính lương:** nhập lương/giờ và số giờ làm, in lương gộp và lương sau thuế 10% (2 chữ số thập phân).
+3. **Sáng tạo:** tự thiết kế "vé xem phim" hoặc "hóa đơn" in ra màn hình — đủ các cột căn chỉnh bằng format.
+
+---
+
+## 📎 Tra cứu nhanh — print, input và định dạng f-string
+
+| Cú pháp | Việc | Ví dụ |
+|---|---|---|
+| `print(a, b, sep="-")` | In nhiều giá trị, ngăn cách tùy chọn | `print(1, 2, sep="-")` → `1-2` |
+| `print(x, end=" ")` | Không xuống dòng cuối | In dãy trên một hàng |
+| `input("nhãn")` | Nhập từ bàn phím (luôn là chuỗi) | `tuoi = int(input("Tuổi: "))` |
+| `f"{x}"` | Chèn giá trị vào chuỗi | `f"Diem: {diem}"` |
+| `f"{x:.2f}"` | 2 chữ số thập phân | `f"{3.14159:.2f}"` → `3.14` |
+| `f"{x:>8}"` / `f"{x:<8}"` | Căn phải / trái, rộng 8 | Bảng thẳng cột |
+| `f"{x:^8}"` | Căn giữa | |
+| `f"{x:,}"` | Dấu phẩy nghìn | `f"{1000000:,}"` → `1,000,000` |
+| `\n \t` | Xuống dòng / tab | `print("a\nb")` |
 
 ---
 

@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Hàm · Xây dựng và gọi hàm
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 7 — Câu Lệnh If – Cấu Trúc Rẽ Nhánh](../b07-Cau-Lenh-If/bai.md)
@@ -1519,6 +1521,32 @@ in_hoa_don(don)
 * Nhớ **gọi hàm** — định nghĩa mà không gọi thì chương trình im lặng.
 
 👉 Tiếp theo: **[Bài 11 — Phạm Vi Biến (Scope) Trong Python](../b11-Scope/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Tủ hàm cá nhân:** viết 5 hàm tiện ích (`dien_tich_hcn`, `chu_vi_hcn`, `tb_3_so`, `dao_chuoi`, `la_chan`) — mỗi hàm 1–3 dòng.
+2. **Refactor:** lấy một đoạn code cũ 15–20 dòng, tách thành 2–3 hàm có tên rõ nghĩa, chạy lại cho đúng kết quả.
+3. **Docstring:** viết docstring (Input/Output) cho 3 hàm ở bài tập 1 theo mẫu trong bài.
+
+---
+
+## 📎 Tra cứu nhanh — Định nghĩa hàm — tham số & trả về
+
+| Cú pháp | Ý nghĩa | Ví dụ |
+|---|---|---|
+| `def f(x):` | Hàm 1 tham số | `def binh(a): return a*a` |
+| `def f(x=5):` | Tham số mặc định | `def chao(ten="bạn"):` |
+| `def f(*args):` | Nhận N tham số vị trí | `def tong(*so): sum(so)` |
+| `def f(**kwargs):` | Nhận N tham số tên | `def in_ra(**kv):` |
+| `return x` | Trả giá trị (kết thúc hàm) | `return a + b` |
+| `return a, b` | Trả nhiều giá trị (tuple) | `return min(a), max(a)` |
+| Không `return` | Trả `None` | Hàm chỉ in ra |
+| `"""Docstring"""` | Mô tả hàm | Đặt ngay sau `def` |
+| Gọi hàm | `f(1, 2)` hoặc `f(x=1)` | Kiểm tra trước khi tin |
 
 ---
 

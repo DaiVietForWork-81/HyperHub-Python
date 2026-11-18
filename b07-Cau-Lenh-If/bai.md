@@ -2,6 +2,8 @@
 
 > 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
 
+> 🏷️ **Nhóm bài:** Cú pháp cơ bản · Rẽ nhánh if/elif/else
+
 ## 🧠 Điều kiện tiên quyết
 
 - [Bài 5 — Toán Tử Trong Python](../b05-Toan-Tu/bai.md)
@@ -1571,6 +1573,31 @@ else:
 * 🚦 `if` là nền tảng của mọi thuật toán ra quyết định — bài sau sẽ giới thiệu `match - case`, bản "nâng cấp" gọn gàng khi cần so khớp nhiều giá trị cố định.
 
 👉 Tiếp theo: **[Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước](../b08-Vong-Lap-For/bai.md)**
+
+---
+
+## 🏠 Bài tập về nhà
+
+> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+
+1. **Xếp loại cả lớp:** nhập điểm (0–10), xếp loại 5 mức bằng `elif` đúng thứ tự (kiểm tra cao → thấp).
+2. **Cây ATM 2 bước:** kiểm tra số dư đủ mới cho rút tiền; chặn số âm và dữ liệu không phải số.
+3. **Nhật ký if:** ghi lại 3 tình huống đời thực mà bạn từng ra quyết định kiểu if (rất ngắn gọn).
+
+---
+
+## 📎 Tra cứu nhanh — Rẽ nhánh — cú pháp & mẹo
+
+| Cú pháp | Ý nghĩa | Ví dụ |
+|---|---|---|
+| `if đk:` | Chạy khi đúng | `if x > 0:` |
+| `elif đk:` | Kiểm tra tiếp | Nhiều mức xếp loại |
+| `else:` | Còn lại | Không cần điều kiện |
+| Giá trị đúng/sai | Bảng truthiness | `if ds:` — list rỗng là sai |
+| Ngoặc đơn dư | OK nhưng không cần | `if (x > 0):` |
+| Chuỗi so sánh | Theo từ điển | `"a" < "b"` → `True` |
+| So sánh chuỗi (chained) | `a < b < c` | `0 < x < 10` |
+| Ba ngôi một dòng | `X if đk else Y` | `"dương" if x > 0 else "âm"` |
 
 ---
 
