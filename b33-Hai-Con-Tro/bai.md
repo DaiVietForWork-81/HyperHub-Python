@@ -680,6 +680,42 @@ tree) đếm số tiền tố cũ ≥ tong − K trong O(log n) mỗi bước �
 
 ---
 
+
+---
+
+## 📌 Cheatsheet — Template hai con trỏ & tổng tiền tố
+
+| Khuôn mẫu | Template ngắn | Dùng khi |
+|---|---|---|
+| Hai con trỏ ngược | `l, r = 0, n-1` tiến vào nhau | dãy sort, cặp/tổng |
+| Cửa sổ trượt | `l = 0; for r in range(n): while đk xấu: l += 1` | đoạn liên tiếp thỏa điều kiện |
+| Tiền tố | `P[0]=0; P[i+1]=P[i]+a[i]` → `tong(l,r)=P[r+1]-P[l]` | hỏi tổng đoạn nhiều lần |
+| Tiền tố + dict | `thay[P[i]]` tra "tổng gặp trước" | đoạn tổng K (kể cả số âm) |
+
+**Nhận diện:** đề có chữ "liên tiếp/đoạn con" + "dài nhất/nhỏ nhất/đếm" → nghĩ ngay kỹ thuật dãy. Cửa sổ trượt chỉ chuẩn khi điều kiện **đơn điệu** (thêm phần tử không làm điều kiện tốt lên) — số âm phá điều kiện này.
+
+---
+
+## 📌 Cheatsheet — Kỹ thuật mảng hiệu (Difference Array) / Mảng hiệu phân
+
+```python
+# Cập nhật đoạn [l, r] += v trong O(1)
+d[l] += v
+d[r + 1] -= v
+
+# Cộng dồn để lấy mảng kết quả
+ra, s = [], 0
+for i in range(n):
+    s += d[i]
+    ra.append(s)
+```
+
+Mỗi truy vấn O(1) + cộng dồn cuối O(n) → O(n+q) thay vì O(n·q).
+
+---
+
+
+
 ## ➡️ Điều hướng
 
 **Vị trí:** `b33-Hai-Con-Tro/bai.md`

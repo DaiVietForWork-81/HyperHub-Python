@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Dữ liệu cho tools/add_sections.py — thẻ nhóm + bài tập về nhà + tra cứu nhanh.
+"""Dữ liệu cho tools/add_sections.py — thẻ nhóm + bài tập về nhà + tra cứu nhanh + điều kiện tiên quyết.
 
 Quy ước: mỗi mục là folder bài (vd "b12-List"). Có thể thêm/sửa dần theo đợt —
 script tự bỏ qua mục đã có sẵn (idempotent). Viết theo "bản thô": gọn, đúng, dễ hiểu.
@@ -190,7 +190,7 @@ DATA_1 = {
             "| `def f(*args):` | Nhận N tham số vị trí | `def tong(*so): sum(so)` |\n"
             "| `def f(**kwargs):` | Nhận N tham số tên | `def in_ra(**kv):` |\n"
             "| `return x` | Trả giá trị (kết thúc hàm) | `return a + b` |\n"
-            "| `return a, b` | Trả nhiều giá trị (tuple) | `return min(a), max(a)` |\n"
+            "| `return a, b` | Trả nhiều giá trị (tuple) | `return min(ds), max(ds)` |\n"
             "| Không `return` | Trả `None` | Hàm chỉ in ra |\n"
             "| `\"\"\"Docstring\"\"\"` | Mô tả hàm | Đặt ngay sau `def` |\n"
             "| Gọi hàm | `f(1, 2)` hoặc `f(x=1)` | Kiểm tra trước khi tin |"
@@ -216,7 +216,9 @@ DATA_1 = {
             "**Cách viết an toàn:** coi hàm như \"cỗ máy\" — nhận tham số, `return` kết quả; hạn chế đụng biến ngoài."
         ),
     },
+}
 
+DATA_2 = {
     # ================= b12–b16: CẤU TRÚC DỮ LIỆU =================
     "b12-List": {
         "tag": "Cấu trúc dữ liệu · List (danh sách)",
@@ -290,7 +292,7 @@ DATA_1 = {
             "| 3 | `discard(x)` | Xóa x — KHÔNG lỗi nếu thiếu | `{1}.discard(5)` |\n"
             "| 4 | `pop()` | Xóa & trả 1 phần tử bất kỳ | `{1,2}.pop()` |\n"
             "| 5 | `clear()` | Xóa hết | |\n"
-            "| 6 | `A \\| B` / `A.union(B)` | Hợp | `{1,2} \\| {2,3}` → `{1,2,3}` |\n"
+            "| 6 | `A | B` / `A.union(B)` | Hợp | `{1,2} | {2,3}` → `{1,2,3}` |\n"
             "| 7 | `A & B` / `A.intersection(B)` | Giao | `{1,2} & {2,3}` → `{2}` |\n"
             "| 8 | `A - B` / `A.difference(B)` | Hiệu (có trong A, không trong B) | `{1,2} - {2,3}` → `{1}` |\n"
             "| 9 | `A ^ B` / `symmetric_difference` | Hiệu đối xứng | `{1,2} ^ {2,3}` → `{1,3}` |\n"
@@ -364,7 +366,9 @@ DATA_1 = {
             "**Ghi nhớ:** chuỗi BẤT BIẾN — mọi `replace/upper...` trả chuỗi MỚI (không sửa gốc); muốn sửa thì gán lại."
         ),
     },
+}
 
+DATA_3 = {
     # ================= b17–b23: TỔ CHỨC MÃ & KỸ THUẬT =================
     "b17-Module": {
         "tag": "Tổ chức mã · Module & thư viện chuẩn",
@@ -530,7 +534,7 @@ DATA_1 = {
             "| Lượng từ | `*` `+` `?` `{m,n}` | 0+ / 1+ / 0-1 / m..n lần | |\n"
             "| Neo | `^` `$` | đầu / cuối | `^0\\d{9}$` số ĐT |\n"
             "| Nhóm | `(...)` `(?P<ten>...)` | nhóm lấy ra / nhóm đặt tên | |\n"
-            "| Hoặc | `cat\\|dog` | một trong hai | |\n"
+            "| Hoặc | `cat|dog` | một trong hai | |\n"
             "| Hàm | `re.search(p, s)` | Tìm khắp chuỗi, trả match đầu | Kiểm tra tồn tại |\n"
             "| Hàm | `re.match / re.fullmatch` | Khớp từ đầu / khớp trọn | |\n"
             "| Hàm | `re.findall(p, s)` | List mọi kết quả khớp nhóm | Trích số ĐT |\n"
@@ -540,7 +544,9 @@ DATA_1 = {
             "`flags=re.IGNORECASE` bỏ phân biệt hoa thường."
         ),
     },
+}
 
+DATA_4 = {
     # ================= b24–b35: THUẬT TOÁN =================
     "b24-Tu-Duy-Thuat-Toan": {
         "tag": "Nhập môn thuật toán · Tư duy & quy trình",
@@ -583,6 +589,28 @@ DATA_1 = {
             "| ≤ 10¹⁸ | O(log n) | lũy thừa nhanh, nhị phân đáp số |\n\n"
             "**Độ phức tạp thao tác Python hay quên:** `x in list` O(n) — `x in set/dict` O(1); `pop(0)` trên list O(n) — dùng `deque`; "
             "nối chuỗi trong vòng lặp O(n²) — dùng list + `join`; `in` chuỗi con O(n·m) — regex/KMP khi lớn."
+        ),
+    },
+    "b26-Vet-Can": {
+        "tag": "Kỹ thuật cơ bản · Vét Cạn (Brute Force)",
+        "homework": (
+            "1. **Tìm max bằng vét cạn.** Cho `n ≤ 1.000` số nguyên. Viết vòng lặp tìm số lớn nhất (không dùng `max()`).\n"
+            "2. **Đếm số chẵn.** Cho dãy `n ≤ 10⁵` số. Đếm số phần tử chẵn bằng 1 vòng lặp.\n"
+            "3. **Kiểm tra tồn tại.** Cho dãy `n ≤ 1.000` và số `K`. Kiểm tra xem `K` có trong dãy không (1 vòng lặp)."
+        ),
+        "tracuu_title": "Khuôn mẫu vét cạn",
+        "tracuu": (
+            "| Khuôn mẫu | Cú pháp | Dùng cho |\n"
+            "|---|---|---|\n"
+            "| 1 vòng — tìm best | `for x in a:` + so sánh cập nhật | max/min/đếm/kiểm tra tồn tại |\n"
+            "| 2 vòng — cặp không thứ tự | `for i in range(n): for j in range(i+1, n):` | \"cặp i<j\", \"hiệu\", \"khoảng cách\" |\n"
+            "| 2 vòng — cặp có thứ tự | `for i: for j != i` | \"điểm a→b\", \"ma trận kề\" |\n"
+            "| 3 vòng — bộ ba | `for i: for j>i: for k>j:` | bộ ba, tổ hợp chập 3 |\n"
+            "| Liệt kê tổ hợp | `from itertools import combinations` → `combinations(a, k)` | chọn k phần tử |\n"
+            "| Liệt kê hoán vị | `from itertools import permutations` → `permutations(a)` | mọi thứ tự (lazy) |\n"
+            "| Lặp vô hạn | `from itertools import count` → `count(10, -1)` → `10,9,8...` | Cần chặn bằng `islice` |\n"
+            "| Duyệt tập con | `for s in range(mask): s = (s-1) & mask` | Tất cả tập con |\n\n"
+            "**Ghi nhớ:** vét cạn = \"thử hết mọi khả năng\" — đúng 100% nhưng chậm; dùng khi n nhỏ hoặc để **stress test** kiểm chứng thuật toán nhanh. `itertools` là C tối ưu — nhanh hơn vòng lặp Python gấp chục lần; iterator chỉ dùng **1 lần** — xong là hết!"
         ),
     },
     "b27-Tim-Kiem": {
@@ -651,6 +679,56 @@ DATA_1 = {
             "| Stack | list | `append` / `pop` | LIFO |\n\n"
             "**Bẫy:** `list.pop(0)` là O(n) — hàng đợi thật phải dùng `deque.popleft()`; "
             "heapq chỉ là min-heap — muốn max-heap thì thêm dấu âm."
+        ),
+    },
+    "b30-Tan-Suat": {
+        "tag": "Cấu trúc dữ liệu · Tần suất (Đếm & Thống Kê)",
+        "homework": (
+            "1. **Đếm đầu tiên.** Cho dãy số `n ≤ 10⁵`. In ra tần suất của giá trị `x` cho trước (dùng dict đếm một lượt).\n"
+            "2. **Bảng chữ cái.** Cho xâu `s` không dấu. Đếm mỗi ký tự xuất hiện bao nhiêu lần bằng `Counter`, in theo thứ tự từ điển.\n"
+            "3. **Xuất hiện đúng 1 lần.** In ra các giá trị xuất hiện đúng 1 lần trong dãy (theo thứ tự tăng dần)."
+        ),
+        "tracuu_title": "Toàn bộ phương thức & công cụ đếm",
+        "tracuu": (
+            "| Công cụ | Cú pháp | Ghi chú |\n"
+            "|---|---|---|\n"
+            "| Dict tự đếm | `dem[x] = dem.get(x, 0) + 1` | Khuôn mẫu chuẩn — học thuộc lòng |\n"
+            "| `defaultdict` | `from collections import defaultdict` → `dem = defaultdict(int)` → `dem[x] += 1` | Tự trả 0 khi thiếu khóa |\n"
+            "| `Counter` | `from collections import Counter` → `Counter(dãy)` | Đếm 1 dòng; `dem[la]` thiếu khóa → 0 |\n"
+            "| Lấy top-K | `dem.most_common(k)` | Trả list `[(giá trị, số lần), ...]` |\n"
+            "| Sắp có khóa phụ | `sorted(dem.items(), key=lambda kv: (-kv[1], kv[0]))` | Tần suất giảm, giá trị tăng |\n"
+            "| Tổng phiếu | `sum(dem.values())` | = độ dài dãy gốc |\n"
+            "| Cộng/trừ bộ đếm | `c1 + c2`, `c1 - c2` | `+` gộp; `-` hiệu (bỏ kết quả ≤ 0) |\n"
+            "| So đảo chữ | `Counter(s1) == Counter(s2)` | Một dòng |\n"
+            "| Đếm cụm sau sort | `sort()` + while đếm cụm kề | O(n log n) — khi cần xử lý theo cụm |\n"
+            "| Một lượt trả \"bạn cần\" | `ans += dem.get(K - x, 0)` trước khi `dem[x] += 1` | Đếm cặp/hai số — O(n) |\n\n"
+            "**Ghi nhớ:** `Counter` là dict đặc biệt — mặc định giá trị 0, có sẵn hàm thống kê; "
+            "`dict.get(x, 0)` là khuôn mẫu đếm chuẩn — học thuộc lòng."
+        ),
+    },
+    "b30-Tan-Suat": {
+        "tag": "Cấu trúc dữ liệu · Tần suất (Đếm & Thống Kê)",
+        "homework": (
+            "1. **Đếm đầu tiên.** Cho dãy số `n ≤ 10⁵`. In ra tần suất của giá trị `x` cho trước (dùng dict đếm một lượt).\n"
+            "2. **Bảng chữ cái.** Cho xâu `s` không dấu. Đếm mỗi ký tự xuất hiện bao nhiêu lần bằng `Counter`, in theo thứ tự từ điển.\n"
+            "3. **Xuất hiện đúng 1 lần.** In ra các giá trị xuất hiện đúng 1 lần trong dãy (theo thứ tự tăng dần)."
+        ),
+        "tracuu_title": "Toàn bộ phương thức & công cụ đếm",
+        "tracuu": (
+            "| Công cụ | Cú pháp | Ghi chú |\n"
+            "|---|---|---|\n"
+            "| Dict tự đếm | `dem[x] = dem.get(x, 0) + 1` | Khuôn mẫu chuẩn — học thuộc lòng |\n"
+            "| `defaultdict` | `from collections import defaultdict` → `dem = defaultdict(int)` → `dem[x] += 1` | Tự trả 0 khi thiếu khóa |\n"
+            "| `Counter` | `from collections import Counter` → `Counter(dãy)` | Đếm 1 dòng; `dem[la]` thiếu khóa → 0 |\n"
+            "| Lấy top-K | `dem.most_common(k)` | Trả list `[(giá trị, số lần), ...]` |\n"
+            "| Sắp có khóa phụ | `sorted(dem.items(), key=lambda kv: (-kv[1], kv[0]))` | Tần suất giảm, giá trị tăng |\n"
+            "| Tổng phiếu | `sum(dem.values())` | = độ dài dãy gốc |\n"
+            "| Cộng/trừ bộ đếm | `c1 + c2`, `c1 - c2` | `+` gộp; `-` hiệu (bỏ kết quả ≤ 0) |\n"
+            "| So đảo chữ | `Counter(s1) == Counter(s2)` | Một dòng |\n"
+            "| Đếm cụm sau sort | `sort()` + while đếm cụm kề | O(n log n) — khi cần xử lý theo cụm |\n"
+            "| Một lượt trả \"bạn cần\" | `ans += dem.get(K - x, 0)` trước khi `dem[x] += 1` | Đếm cặp/hai số — O(n) |\n\n"
+            "**Ghi nhớ:** `Counter` là dict đặc biệt — mặc định giá trị 0, có sẵn hàm thống kê; "
+            "`dict.get(x, 0)` là khuôn mẫu đếm chuẩn — học thuộc lòng."
         ),
     },
     "b31-De-Quy": {
@@ -751,7 +829,9 @@ DATA_1 = {
             "LIS O(n²); LCS (2 chiều). **Top-down** = đệ quy + memo (dễ nghĩ); **bottom-up** = vòng lặp + bảng (chuẩn thi)."
         ),
     },
+}
 
+DATA_5 = {
     # ================= b36–b46: CHUYÊN ĐỀ THUẬT TOÁN NÂNG CAO =================
     "b36-Toan-Hoc-So-Hoc": {
         "tag": "Chuyên đề · Toán học & số học thuật toán",
@@ -883,7 +963,7 @@ DATA_1 = {
         "tracuu": (
             "| Mẹo bit | Cú pháp | Ý nghĩa |\n"
             "|---|---|---|\n"
-            "| Bật bit i | `mask \|= (1 << i)` | Thêm i vào tập |\n"
+            "| Bật bit i | `mask |= (1 << i)` | Thêm i vào tập |\n"
             "| Tắt bit i | `mask &= ~(1 << i)` | Bỏ i |\n"
             "| Kiểm tra bit i | `(mask >> i) & 1` | i có trong tập? |\n"
             "| lowbit | `x & -x` | Bit 1 thấp nhất |\n"
@@ -1000,4 +1080,55 @@ DATA_1 = {
             "Misère chỉ khác khi TẤT CẢ cọc đều còn 1 đá."
         ),
     },
+}
+
+# ================= PREREQUISITES FOR ALL 46 LESSONS =================
+
+DATA_PREREQS = {
+    "b01-Gioi-Thieu": ["Không cần kiến thức lập trình trước đó — bài này là điểm khởi đầu."],
+    "b02-Cai-Dat-Python": ["Bài 1 — Giới Thiệu Python"],
+    "b03-Bien": ["Bài 1 — Giới Thiệu Python", "Bài 2 — Cài Đặt Python"],
+    "b04-Kieu-Du-Lieu": ["Bài 3 — Biến Trong Python"],
+    "b05-Toan-Tu": ["Bài 3 — Biến Trong Python", "Bài 4 — Kiểu Dữ Liệu Cơ Bản"],
+    "b06-Input-Output": ["Bài 1 — Giới Thiệu Python", "Bài 3 — Biến Trong Python"],
+    "b07-Cau-Lenh-If": ["Bài 5 — Toán Tử Trong Python", "Bài 6 — Nhập và Xuất Dữ Liệu"],
+    "b08-Vong-Lap-For": ["Bài 5 — Toán Tử Trong Python"],
+    "b09-Vong-Lap-While": ["Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước"],
+    "b10-Ham": ["Bài 7 — Câu Lệnh If – Cấu Trúc Rẽ Nhánh", "Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước", "Bài 9 — Vòng Lặp While – Lặp Cho Đến Khi Điều Kiện Sai"],
+    "b11-Scope": ["Bài 10 — Hàm (Function) Trong Python"],
+    "b12-List": ["Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước", "Bài 10 — Hàm (Function) Trong Python"],
+    "b13-Tuple": ["Bài 12 — Danh Sách (List) Trong Python"],
+    "b14-Set": ["Bài 12 — Danh Sách (List) Trong Python"],
+    "b15-Dictionary": ["Bài 12 — Danh Sách (List) Trong Python"],
+    "b16-String": ["Bài 4 — Kiểu Dữ Liệu Cơ Bản", "Bài 12 — Danh Sách (List) Trong Python"],
+    "b17-Module": ["Bài 10 — Hàm (Function) Trong Python"],
+    "b18-File": ["Bài 17 — Module Trong Python"],
+    "b19-OOP": ["Bài 10 — Hàm (Function) Trong Python", "Bài 12 — Danh Sách (List) Trong Python", "Bài 15 — Dictionary (Từ Điển) Trong Python"],
+    "b20-Lambda": ["Bài 10 — Hàm (Function) Trong Python"],
+    "b21-List-Comprehension": ["Bài 8 — Vòng Lặp For – Lặp Lại Một Số Lần Biết Trước", "Bài 12 — Danh Sách (List) Trong Python"],
+    "b22-Generator": ["Bài 10 — Hàm (Function) Trong Python", "Bài 21 — List Comprehension – Vòng Lặp \"Viết Trong Một Dòng\""],
+    "b23-Regex": ["Bài 16 — Chuỗi (String)", "Bài 8 — Vòng Lặp For"],
+    "b24-Tu-Duy-Thuat-Toan": ["Bài 10 — Hàm (Function)", "Bài 8 — Vòng Lặp For", "Bài 9 — Vòng Lặp While", "Bài 12 — List"],
+    "b25-Do-Phuc-Tap": ["Bài 24 — Tư Duy Thuật Toán", "Bài 10 — Hàm (Function)", "Bài 8 — Vòng Lặp For"],
+    "b26-Vet-Can": ["Bài 24 — Tư Duy Thuật Toán", "Bài 25 — Độ Phức Tạp & Big-O", "Bài 8 — Vòng Lặp For", "Bài 12 — Danh Sách (List)"],
+    "b27-Tim-Kiem": ["Bài 25 — Độ Phức Tạp & Big-O", "Bài 8 — Vòng Lặp For", "Bài 9 — Vòng Lặp While", "Bài 12 — List"],
+    "b28-Sap-Xep": ["Bài 27 — Tìm Kiếm", "Bài 25 — Độ Phức Tạp", "Bài 8 — Vòng Lặp For", "Bài 12 — List"],
+    "b29-Stack-Queue-Hashing": ["Bài 25 — Độ Phức Tạp", "Bài 12 — List", "Bài 15 — Dictionary"],
+    "b30-Tan-Suat": ["Bài 29 — Stack, Queue & Hashing", "Bài 15 — Dictionary (Từ Điển)", "Bài 14 — Set (Tập Hợp)", "Bài 8 — Vòng Lặp For"],
+    "b31-De-Quy": ["Bài 10 — Hàm", "Bài 29 — Stack, Queue & Hashing", "Bài 28 — Sắp Xếp"],
+    "b32-Quay-Lui": ["Bài 31 — Đệ Quy", "Bài 10 — Hàm", "Bài 12 — List"],
+    "b33-Hai-Con-Tro": ["Bài 27 — Tìm Kiếm", "Bài 28 — Sắp Xếp", "Bài 29 — Stack, Queue & Hashing"],
+    "b34-Tham-Lam": ["Bài 28 — Sắp Xếp", "Bài 25 — Độ Phức Tạp", "Bài 24 — Tư Duy Thuật Toán"],
+    "b35-Quy-Hoach-Dong": ["Bài 31 — Đệ Quy (đặc biệt memoization + lru_cache)", "Bài 32 — Quay Lui", "Bài 34 — Tham Lam (biết khi tham lam sai → DP)", "Bài 12 — List"],
+    "b36-Toan-Hoc-So-Hoc": ["Bài 31 — Đệ Quy (lũy thừa nhanh, Euclid đệ quy)", "Bài 25 — Độ Phức Tạp", "Bài 8 — Vòng Lặp For"],
+    "b37-Do-Thi-BFS-DFS": ["Bài 29 — Stack, Queue & Hashing (deque, visited-set)", "Bài 31 — Đệ Quy", "Bài 25 — Độ Phức Tạp"],
+    "b38-Duong-Di-Ngan-Nhat": ["Bài 37 — Đồ Thị: BFS & DFS", "Bài 29 — Stack, Queue & Hashing (heapq, deque)", "Bài 25 — Độ Phức Tạp"],
+    "b39-Cay-Va-DSU": ["Bài 37 — Đồ Thị: BFS & DFS", "Bài 38 — Đường Đi Ngắn Nhất (Dijkstra, heap)", "Bài 28 — Sắp Xếp"],
+    "b40-Segment-Tree": ["Bài 31 — Đệ Quy", "Bài 25 — Độ Phức Tạp", "Bài 28 — Sắp Xếp (đếm nghịch thế — sẽ làm lại bằng BIT)"],
+    "b41-Xu-Ly-Chuoi": ["Bài 16 — String (cơ bản chuỗi Python)", "Bài 25 — Độ Phức Tạp", "Bài 29 — Stack, Queue & Hashing (dict, hashing)"],
+    "b42-Bitmask": ["Bài 32 — Quay Lui (bitmask duyệt tập con)", "Bài 35 — Quy Hoạch Động", "Bài 25 — Độ Phức Tạp"],
+    "b43-DP-Nang-Cao": ["Bài 35 — Quy Hoạch Động (5 bước, lăn mảng)", "Bài 37 — Đồ Thị (topo DAG)", "Bài 39 — Cây & DSU (DFS cây, tập độc lập)", "Bài 31 — Đệ Quy (memo, lru_cache)"],
+    "b44-Chien-Luoc-Thi-HSG": ["Toàn bộ Bài 24–46 phần Thuật Toán (đặc biệt Bài 24 — tư duy, Bài 25 — Big-O)"],
+    "b45-Itertools": ["Bài 33 — Hai Con Trỏ (duyệt thông minh)", "Bài 32 — Quay Lui (liệt kê thủ công — giờ học cách liệt kê có sẵn!)", "Bài 10 — Hàm"],
+    "b46-Ly-Thuyet-Tro-Choi": ["Bài 35 — Quy Hoạch Động (truy hồi + memo — Grundy chính là DP!)", "Bài 42 — Bitmask (XOR ^ dùng hằng ngày ở đây)", "Bài 31 — Đệ Quy"],
 }

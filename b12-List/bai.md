@@ -1640,6 +1640,79 @@ print("Goc (khong doi):", goc)
 
 ---
 
+
+---
+
+## 📌 Cheatsheet — Mảng / List (Buổi 1, 3)
+
+| Thao tác | Cú pháp | Ví dụ | Kết quả |
+|---|---|---|---|
+| Tạo list | `[1, 2, 3]` / `list()` | `[1,2,3]` | List |
+| Truy xuất đầu/cuối | `a[0]`, `a[-1]` | `a[0]`, `a[-1]` | Phần tử đầu/cuối |
+| Slice | `a[start:stop:step]` | `a[1:4]`, `a[::-1]` | List mới |
+| Thêm cuối | `append(x)` | `[1,2].append(3)` | `[1,2,3]` |
+| Nối list | `extend(other)` | `[1,2].extend([3,4])` | `[1,2,3,4]` |
+| Chèn | `insert(i, x)` | `[1,3].insert(1,2)` | `[1,2,3]` |
+| Xóa theo giá trị | `remove(x)` | `[1,2].remove(2)` | `[1]` |
+| Xóa theo vị trí | `pop(i)` | `[1,2].pop()` → `2` | Trả về giá trị |
+| Xóa sạch | `clear()` | | |
+| Tìm vị trí | `index(x)` | `[5,6,7].index(6)` → `1` | Lỗi nếu không có |
+| Đếm | `count(x)` | `[1,1,2].count(1)` → `2` | |
+| Sắp xếp tại chỗ | `sort(key=, reverse=)` | `[3,1,2].sort()` | Trả `None`, đổi gốc |
+| Sắp xếp bản mới | `sorted(ds, key=, reverse=)` | `sorted(ds)` | List mới |
+| Đảo tại chỗ | `reverse()` | `[1,2].reverse()` | `[2,1]` |
+| Đảo bản mới | `ds[::-1]` | | List mới |
+| Copy an toàn | `ds.copy()` / `list(ds)` / `ds[:]` | `b = a.copy()` | Tránh bẫy `b = a` |
+| Kiểm tra thuộc | `x in ds` | `3 in [1,2,3]` | `True` (O(n)) |
+| Nối list | `a + b` | `[1]+[2]` → `[1,2]` | |
+| Lặp list | `a * n` | `[1]*3` → `[1,1,1]` | |
+| Thống kê | `len/min/max/sum` | `sum([1,2,3])` → `6` | Chỉ list số |
+| Duyệt kèm chỉ số | `enumerate(ds)` | `enumerate(ds, start=1)` | Bắt đầu từ 1 |
+| Duyệt song song | `zip(d1, d2)` | `zip(a, b)` | Cặp phần tử |
+
+**Ghi nhớ quan trọng:**
+- `sort()` trả `None` (đổi gốc!), `sorted()` trả list mới
+- Copy an toàn: `ds.copy()` / `list(ds)` / `ds[:]` — **ĐỪNG** dùng `b = a`
+- `x in list` là O(n); `x in set/dict` là O(1)
+- `pop(0)` trên list là O(n) — dùng `deque.popleft()` cho queue
+
+---
+
+## ⚡ Kỹ thuật 2 con trỏ (Two Pointers) — Buổi 3
+
+```python
+# Dùng khi mảng ĐÃ SẮP XẾP hoặc cần tìm cặp thỏa điều kiện
+left, right = 0, n - 1
+while left < right:
+    s = a[left] + a[right]
+    if s == target: ...
+    elif s < target: left += 1
+    else: right -= 1
+```
+
+| Khuôn mẫu | Khi dùng |
+|---|---|
+| Hai con trỏ ngược (`l, r = 0, n-1`) | Dãy sort, tìm cặp/tổng |
+| Cửa sổ trượt (`l = 0; for r in range(n): while đk xấu: l += 1`) | Đoạn liên tiếp thỏa điều kiện |
+| Tiền tố + dict (`thay[P[i]]` tra "tổng gặp trước") | Đoạn tổng K (kể cả số âm) |
+
+**Nhận diện:** đề có "liên tiếp/đoạn con" + "dài nhất/nhỏ nhất/đếm" → nghĩ ngay kỹ thuật dãy. Cửa sổ trượt chỉ chuẩn khi điều kiện **đơn điệu** (thêm phần tử không làm điều kiện tốt lên) — số âm phá điều kiện này.
+
+---
+
+## 📌 Cheatsheet — Mảng lớn (n ≤ 10⁶)
+
+| Vấn đề | Giải pháp |
+|---|---|
+| Mảng index out of range | Khai báo size = n + 6 hoặc 1_000_006 |
+| Đệ quy Fibonacci → Stack overflow | Dùng vòng lặp hoặc mảng DP |
+| Kiểm tra SNT lặp nhiều lần | Dùng Sieve một lần, truy vấn O(1) |
+| `a^2` trong Python là XOR, không phải bình phương | Dùng `a**2` hoặc `a*a` |
+
+---
+
+
+
 ## ➡️ Điều hướng
 
 **Vị trí:** `b12-List/bai.md`

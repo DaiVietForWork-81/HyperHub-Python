@@ -665,6 +665,50 @@ def f(n):
 
 ---
 
+
+---
+
+## 📌 Cheatsheet — Template đệ quy & memoization
+
+| Khuôn mẫu | Cú pháp |
+|---|---|
+| Khung chuẩn | `def f(n): if base: return ...; return combine(f(n-1))` |
+| Memo thủ công | `if n in nho: return nho[n]` trước khi tính |
+| Memo 1 dòng | `from functools import lru_cache` + `@lru_cache(maxsize=None)` |
+| Nới giới hạn | `import sys; sys.setrecursionlimit(300000)` |
+
+```python
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def f(n):
+    ...
+```
+
+**Quy tắc sống còn:** (1) base đúng và "bao" biên, (2) mỗi gọi phải tiến gần base; bài con lặp lại → memo; sâu tuyến tính lớn → vòng lặp.
+
+---
+
+## 📌 Cheatsheet — Fibonacci lặp (O(n), không đệ quy)
+
+```python
+# Cách 1: 2 biến (tối ưu bộ nhớ)
+a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+print(a)  # F(n)
+
+# Cách 2: Mảng (khi cần truy xuất nhiều lần, n ≤ 10^6)
+f = [0] * 1_000_006
+f[1] = f[2] = 1
+for i in range(3, n+1):
+    f[i] = f[i-1] + f[i-2]
+```
+
+---
+
+
+
 ## ➡️ Điều hướng
 
 **Vị trí:** `b31-De-Quy/bai.md`

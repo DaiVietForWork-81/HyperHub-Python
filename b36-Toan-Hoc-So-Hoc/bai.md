@@ -788,6 +788,110 @@ chuẩn cho n lớn — cài được thì không còn bài sàng nào làm khó
 
 ---
 
+
+---
+
+## 📌 Cheatsheet — Sàng, Euclid, lũy thừa, Fermat, tổ hợp
+
+| Kỹ thuật | Template | Ví dụ |
+|---|---|---|
+| Sàng Eratosthenes | `s = [True]*(n+1); for i in range(2, isqrt(n)+1):` | Liệt kê nguyên tố ≤ 10⁶ |
+| Kiểm tra nguyên tố | Miller-Rabin (n ≤ 10¹⁸) | `pow(a, n-1, n) == 1` |
+| GCD | `def gcd(a,b): return gcd(b, a%b) if b else a` | `gcd(48, 18)` → 6 |
+| Lũy thừa nhanh | `pow_mod(x, n, m)` chia đôi mũ | `pow(x, n, m)` có sẵn |
+| Fermat nhỏ | `a^(p-1) ≡ 1 (mod p)` | Nghịch đảo modulo |
+| Tổ hợp C(n,k) mod p | `fact[n] * invfact[k] * invfact[n-k] % p` | `n, k ≤ 10⁶` |
+
+**Ghi nhớ:** Python có sẵn `math.gcd`, `math.comb`, `pow(x, n, m)` — thi dùng luôn, tự cài chỉ để hiểu bản chất.
+
+---
+
+## 📌 Cheatsheet — Số chính phương
+
+```python
+import math
+def is_square(n):
+    r = int(math.isqrt(n))  # Python 3.8+
+    return r * r == n
+# hoặc không dùng math:
+x = 0
+while x * x <= n:
+    if x * x == n: return True
+    x += 1
+```
+
+---
+
+## 📌 Cheatsheet — Fibonacci lặp (O(n), không đệ quy)
+
+```python
+# Cách 1: 2 biến (tối ưu bộ nhớ)
+a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+print(a)  # F(n)
+
+# Cách 2: Mảng (khi cần truy xuất nhiều lần, n ≤ 10^6)
+f = [0] * 1_000_006
+f[1] = f[2] = 1
+for i in range(3, n+1):
+    f[i] = f[i-1] + f[i-2]
+```
+
+---
+
+## 📌 Cheatsheet — Kiểm tra SNT (3 mức độ)
+
+```python
+# Cách 1: O(n) - cơ bản
+def is_prime_basic(n):
+    if n < 2: return False
+    for i in range(2, n):
+        if n % i == 0: return False
+    return True
+
+# Cách 2: O(√n) - TỐI ƯU (cần nhớ!)
+def is_prime(n):
+    if n < 2: return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0: return False
+    return True
+
+# Cách 3: Sieve (Eratosthenes) - cho nhiều truy vấn, n ≤ 10^6
+N = 1_000_006
+is_prime = [True] * N
+is_prime[0] = is_prime[1] = False
+for i in range(2, int(N**0.5)+1):
+    if is_prime[i]:
+        for j in range(i*i, N, i):
+            is_prime[j] = False
+```
+
+---
+
+## 📌 Cheatsheet — Phân tích thừa số nguyên tố
+
+```python
+x = int(input())
+y = 1
+d = 2
+while d * d <= x:
+    cnt = 0
+    while x % d == 0:
+        x //= d
+        cnt += 1
+    if cnt % 2 == 1:      # số mũ lẻ → nhân vào kết quả
+        y *= d
+    d += 1
+if x > 1:                 # thừa số nguyên tố lớn cuối cùng
+    y *= x
+print(y)
+```
+
+---
+
+
+
 ## ➡️ Điều hướng
 
 **Vị trí:** `b36-Toan-Hoc-So-Hoc/bai.md`

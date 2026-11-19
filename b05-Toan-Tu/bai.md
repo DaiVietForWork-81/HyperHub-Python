@@ -1426,6 +1426,41 @@ print("Cau 5:", cau_5)
 
 ---
 
+
+---
+
+## 📌 Cheatsheet — Toán tử & thứ tự ưu tiên
+
+| Nhóm | Toán tử | Ví dụ | Ghi chú |
+|---|---|---|---|
+| Số học | `+ - * /` | `7 / 2` → `3.5` | `/` luôn ra `float` |
+| Số học | `// % **` | `7 // 2`→`3`; `7 % 2`→`1`; `2 ** 10`→`1024` | chia nguyên, dư, lũy thừa |
+| So sánh | `== != < <= > >=` | `3 != 4` → `True` | Trả về `bool` |
+| Logic | `and or not` | `a > 0 and a < 10` | Học đủ bảng chân trị |
+| Gán kết hợp | `+= -= *= //= %=` | `x += 1` | Ngắn cho `x = x + 1` |
+| `in` | Kiểm tra thuộc | `"a" in "cat"` → `True` | Chuỗi, list, dict... |
+| `is` | Cùng đối tượng? | `a is b` | Khác `==` (so giá trị) |
+
+**Thứ tự ưu tiên (cao → thấp):** `**` → `* / // %` → `+ -` → so sánh → `not` → `and` → `or`. Không chắc thì cứ thêm ngoặc tròn.
+
+---
+
+## 📌 Cheatsheet — Cú pháp hay nhầm (Python)
+
+| Sai | Đúng | Giải thích |
+|---|---|---|
+| `a^2 + b^2 == c^2` | `a**2 + b**2 == c**2` | `^` là XOR bitwise, `**` là lũy thừa |
+| `10^8` | `10**8` | `10^8` = 2 (XOR) |
+| `if -10^8 <= a <= 10^18` | `if -10**8 <= a <= 10**18` | `^` là XOR |
+| `a^2` | `a**2` hoặc `a*a` | `^` là XOR bitwise |
+| `a % 2 == 0` (check chẵn) | ✅ Đúng | Cách chuẩn kiểm tra chẵn/lẻ |
+
+**Quy tắc:** Luôn dùng `**` cho lũy thừa, `*` cho nhân, `a*a` cho bình phương.
+
+---
+
+
+
 ## ➡️ Điều hướng
 
 **Vị trí:** `b05-Toan-Tu/bai.md`

@@ -1358,6 +1358,53 @@ print(ten_dang_nhap)
 
 ---
 
+
+---
+
+## 📌 Cheatsheet — Xử lý chuỗi (Buổi 1)
+
+| Thao tác | Cú pháp | Ví dụ | Kết quả |
+|---|---|---|---|
+| Tạo chuỗi | `"..."`, `'...'`, `"""..."""` | `"Xin chao"` | Chuỗi |
+| Nối chuỗi | `+` | `"A" + "B"` | `"AB"` |
+| Lặp chuỗi | `*` | `"A" * 3` | `"AAA"` |
+| Xóa trắng 2 đầu | `.strip()` | `"  a  ".strip()` | `"a"` |
+| Xóa trắng trái/phải | `.lstrip()` / `.rstrip()` | | |
+| Cắt theo dấu phân cách | `.split(sep)` | `"a,b".split(",")` | `["a","b"]` |
+| Nối list thành chuỗi | `"sep".join(list)` | `"-".join(['a','b'])` | `"a-b"` |
+| Thay thế | `.replace(cũ, mới)` | `"ana".replace("a","o")` | `"ono"` |
+| Tìm vị trí đầu/cuối | `.find(x)` / `.rfind(x)` | | `-1` nếu thiếu |
+| Kiểm tra chứa | `x in s` | `"an" in "banana"` | `True` |
+| Đếm | `.count(x)` | `"banana".count("an")` | `2` |
+| Bắt đầu / kết thúc | `.startswith(x)` / `.endswith(x)` | Lọc file `.py` | |
+| Toàn số / chữ / trắng | `.isdigit()` / `.isalpha()` / `.isspace()` | Kiểm tra nhập liệu | |
+| Viết hoa đầu từ / câu | `.title()` / `.capitalize()` | | |
+| Đệm 0 bên trái | `.zfill(n)` | `"7".zfill(3)` | `"007"` |
+| Căn trái/phải/giữa | `.ljust(n)` / `.rjust(n)` / `.center(n)` | | |
+| Truy cập / cắt | `s[i]` / `s[a:b:c]` | `s[::-1]` đảo | Chuỗi mới |
+| Độ dài | `len(s)` | | |
+| Ký tự ↔ mã | `ord(c)` / `chr(n)` | `ord("a")` → `97` | |
+
+**Ghi nhớ:** chuỗi BẤT BIẾN — mọi `replace/upper...` trả chuỗi MỚI (không sửa gốc); muốn sửa thì gán lại.
+
+---
+
+## 📌 Cheatsheet — Lưu ý cú pháp hay nhầm (Python)
+
+| Sai | Đúng | Giải thích |
+|---|---|---|
+| `a^2 + b^2 == c^2` | `a**2 + b**2 == c**2` | `^` là XOR bitwise, `**` là lũy thừa |
+| `10^8` | `10**8` | `10^8` = 2 (XOR) |
+| `if -10^8 <= a <= 10^18` | `if -10**8 <= a <= 10**18` | `^` là XOR |
+| `a^2` | `a**2` hoặc `a*a` | `^` là XOR bitwise |
+| `a % 2 == 0` (check chẵn) | ✅ Đúng | Cách chuẩn kiểm tra chẵn/lẻ |
+
+**Quy tắc:** Luôn dùng `**` cho lũy thừa, `*` cho nhân, `a*a` cho bình phương.
+
+---
+
+
+
 ## ➡️ Điều hướng
 
 **Vị trí:** `b16-String/bai.md`

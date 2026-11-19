@@ -701,6 +701,32 @@ Big-O — cả hai đều O(n log n)).
 
 ---
 
+
+---
+
+## 📌 Cheatsheet — Bảng chọn thuật toán theo ràng buộc & độ phức tạp thao tác
+
+| n tối đa | Độ phức tạp khả thi | Gợi ý kỹ thuật |
+|---|---|---|
+| ≤ 10 | O(n!), O(2ⁿ·n) | hoán vị, vét cạn hết |
+| ≤ 20–25 | O(2ⁿ), O(n·2ⁿ) | bitmask, quay lui + tỉa |
+| ≤ 500 | O(n³) | DP 3 chiều, Floyd |
+| ≤ 5.000 | O(n²) | vét cạn cặp, DP 2 chiều |
+| ≤ 10⁵–10⁶ | O(n log n) | sort, nhị phân, heap |
+| ≤ 10⁷–10⁸ | O(n) | một lượt, đếm, hai con trỏ |
+| ≤ 10¹² | O(√n) | số học, kiểm tra ước |
+| ≤ 10¹⁸ | O(log n) | lũy thừa nhanh, nhị phân đáp số |
+
+**Độ phức tạp thao tác Python hay quên:**
+- `x in list` O(n) — `x in set/dict` O(1)
+- `pop(0)` trên list O(n) — dùng `deque`
+- Nối chuỗi trong vòng lặp O(n²) — dùng list + `join`
+- `in` chuỗi con O(n·m) — regex/KMP khi lớn
+
+---
+
+
+
 ## ➡️ Điều hướng
 
 **Vị trí:** `b25-Do-Phuc-Tap/bai.md`

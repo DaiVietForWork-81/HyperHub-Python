@@ -1601,6 +1601,37 @@ else:
 
 ---
 
+
+---
+
+## 📌 Cheatsheet — Rẽ nhánh & Logic điều kiện
+
+| Cú pháp | Ý nghĩa | Ví dụ |
+|---|---|---|
+| `if đk:` | Chạy khi đúng | `if x > 0:` |
+| `elif đk:` | Kiểm tra tiếp | Nhiều mức xếp loại |
+| `else:` | Còn lại | Không cần điều kiện |
+| Giá trị đúng/sai | Bảng truthiness | `if ds:` — list rỗng là sai |
+| Ngoặc đơn dư | OK nhưng không cần | `if (x > 0):` |
+| Chuỗi so sánh | Theo từ điển | `"a" < "b"` → `True` |
+| So sánh chuỗi (chained) | `a < b < c` | `0 < x < 10` |
+| Ba ngôi một dòng | `X if đk else Y` | `"dương" if x > 0 else "âm"` |
+
+---
+
+## 📌 Cheatsheet — Cú pháp hay nhầm (Logic điều kiện)
+
+| Sai | Đúng | Giải thích |
+|---|---|---|
+| `if -10^8 <= a <= 10^18` | `if -10**8 <= a <= 10**18` | `^` là XOR |
+| `a^2 + b^2 == c^2` | `a**2 + b**2 == c**2` | `^` là XOR |
+| `a > 0 & b > 0` | `a > 0 and b > 0` | `&` là bitwise AND |
+| `a == b or c` | `(a == b) or c` | `==` ưu tiên hơn `or` |
+
+---
+
+
+
 ## ➡️ Điều hướng
 
 **Vị trí:** `b07-Cau-Lenh-If/bai.md`

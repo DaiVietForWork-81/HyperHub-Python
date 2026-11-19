@@ -8,9 +8,10 @@
 
 ## 🧠 Điều kiện tiên quyết
 
-- [Bài 35 — Quy Hoạch Động](../b35-Quy-Hoach-Dong/bai.md) (truy hồi + memo — Grundy chính là DP!)
-- [Bài 42 — Bitmask](../b42-Bitmask/bai.md) (XOR `^` dùng hằng ngày ở đây)
+- [Bài 35 — Quy Hoạch Động (truy hồi + memo — Grundy chính là DP!)](../b35-Quy-Hoach-Dong/bai.md)
+- [Bài 42 — Bitmask (XOR ^ dùng hằng ngày ở đây)](../b42-Bitmask/bai.md)
 - [Bài 31 — Đệ Quy](../b31-De-Quy/bai.md)
+
 
 ---
 
