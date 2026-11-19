@@ -349,60 +349,216 @@ trái cho kết quả âm thầm sai. Test với k = 1 (kết quả phải bằn
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Two Pointers Two Pointers
 
-**Bài 1 — Chạy tay.** `a = [2, 1, 5, 3, 4]`. Tính mảng tiền tố p. Dùng p tính
-tổng đoạn [0, 2] và [2, 4] (0-based). Kiểm chứng bằng cộng tay.
+* **Đề bài:** Viết hàm Two Pointers_basic thực hiện tìm cặp tổng S.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Trượt cố định.** `a = [4, 2, 6, 1, 5]`, k = 2. Chạy tay thuật toán
-trượt, ghi s sau mỗi bước. Tổng các cửa sổ là gì?
+### Bài 2: Trace code Two Pointers Two Pointers
 
-**Bài 3 — Cặp tổng S.** Dãy đã xếp `[1, 3, 5, 7, 9]`, S = 12. Chạy tay hai con
-trỏ, ghi (l, r, tổng) mỗi bước.
+* **Đề bài:** Trace code: cho đoạn code mẫu Two Pointers, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Two Pointers Two Pointers
 
-**Bài 4 — Ba tổng 0.** Cho dãy n ≤ 10³, đếm bộ ba (i < j < k) có tổng bằng 0.
-*Gợi ý: sort O(n log n), cố định i, hai con trỏ trên phần còn lại — O(n²)
-tổng. Vì sao không O(n³)?*
+* **Đề bài:** Hoàn thiện hàm Two Pointers đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Đoạn nhiều nhất K phân biệt.** Dãy số nguyên dương, tìm độ dài đoạn
-liên tiếp dài nhất chứa **không quá K** giá trị phân biệt. *Gợi ý: cửa sổ co
-giãn + dict đếm trong cửa sổ; vượt K thì co trái đến khi đủ.*
+### Bài 4: So sánh Two Pointers Two Pointers
 
-**Bài 6 — Ma trận tiền tố.** Bảng n×m (≤ 500×500), q ≤ 10⁵ truy vấn tổng hình
-chữ nhật con. *Gợi ý: P[i][j] = tổng từ (0,0) đến (i−1,j−1); công thức cộng–trừ
-4 góc: S = P[x2][y2] − P[x1−1][y2] − P[x2][y1−1] + P[x1−1][y1−1].*
+* **Đề bài:** So sánh 2 cách giải cho Hai con trỏ.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Two Pointers Two Pointers
 
-**Bài 7 — Đoạn 0-1 cân bằng (ôn Bài 1).** Cài lại bằng tiền tố + dict với n ≤
-10⁵, test với dãy xen kẽ dài và dãy toàn 0. Giải thích vì sao cửa sổ co giãn
-không giải được bài này.
+* **Đề bài:** Áp dụng thuật toán Two Pointers trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Đếm đoạn có không quá K số lẻ.** Dãy n ≤ 10⁵ số nguyên, đếm số đoạn
-liên tiếp chứa **không quá K** số lẻ. *Gợi ý: với mỗi r, tìm l nhỏ nhất sao cho
-đoạn [l, r] thỏa → mọi l' ≥ l đều thỏa → cộng (r − l + 1). Cửa sổ co giãn đếm
-thay vì tìm max.*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Two Pointers Two Pointers
 
-**Bài 9 — Mảng đối xứng?** Kiểm tra dãy có đối xứng không (đọc xuôi = đọc ngược)
-bằng hai con trỏ hai đầu. Code + test (`[1,2,3,2,1]` → True, `[1,2,3]` → False,
-`[]` → True). So sánh với `a == a[::-1]` (khi nào 2 con trỏ thắng?).
+* **Đề bài:** Viết biến thể đơn giản của Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Tổng lớn nhất k liên tiếp.** Cho dãy và k, tìm tổng lớn nhất của k
-phần tử liên tiếp (cửa sổ rộng cố định). Code trượt O(n) + test
-([1,4,2,10,23,3,1,0,20], k=4 → 39). So với naive O(n·k).
+### Bài 7: Debug Two Pointers Two Pointers
 
-**Bài 11 — Lật tối đa K số 0.** Dãy nhị phân, được đổi tối đa K số 0 thành 1.
-Đoạn toàn số 1 dài nhất là bao nhiêu? Cửa sổ co giãn đếm số 0 trong cửa sổ.
-Test ([1,1,0,0,1,1,1,0,1], K=2 → 7).
+* **Đề bài:** Sửa lỗi trong code Two Pointers cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Mảng hiệu.** n phần tử 0, q truy vấn cộng v vào đoạn [l, r].
-Trả mảng cuối cùng trong O(n+q) bằng mảng hiệu (d[l] += v, d[r+1] −= v rồi cộng
-dồn). Test (n=5, [(0,2,10),(1,3,5)] → [10,15,15,5,0]).
+### Bài 8: Độ phức tạp Two Pointers Two Pointers
 
----
+* **Đề bài:** Tính độ phức tạp O() của Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Two Pointers Two Pointers
+
+* **Đề bài:** Giải thích bước quan trọng của Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Two Pointers Two Pointers
+
+* **Đề bài:** Mở rộng Two Pointers cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Two Pointers
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Two Pointers
+
+* **Đề bài:** Sửa thuật toán Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Two Pointers
+
+* **Đề bài:** Cải tiến độ phức tạp của Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Two Pointers
+
+* **Đề bài:** Kết hợp Two Pointers với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Two Pointers
+
+* **Đề bài:** Chạy trace thủ công cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Two Pointers
+
+* **Đề bài:** Tìm input từ output cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Two Pointers
+
+* **Đề bài:** Xử lý n lớn cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Two Pointers
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Two Pointers
+
+* **Đề bài:** Mở rộng Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Two Pointers
+
+* **Đề bài:** Áp dụng Two Pointers vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Two Pointers
+
+* **Đề bài:** Thiết kế thuật toán O() cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Two Pointers
+
+* **Đề bài:** Chứng minh đúng đắn cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Two Pointers
+
+* **Đề bài:** Chứng minh lower bound cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Two Pointers
+
+* **Đề bài:** Tối ưu Two Pointers chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Two Pointers
+
+* **Đề bài:** Viết biến thể của Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Two Pointers
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Two Pointers
+
+* **Đề bài:** Viết generator test phá Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Two Pointers
+
+* **Đề bài:** Mở rộng định lý cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Two Pointers
+
+* **Đề bài:** Cài Two Pointers production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Two Pointers
+
+* **Đề bài:** Đề xuất cải tiến mới cho Two Pointers.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

@@ -419,72 +419,216 @@ flowchart TD
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Contest Strategy Contest Strategy
 
-**Bài 1 — Lập kế hoạch.** Kỳ thi 180 phút, 3 bài (dễ, trung bình, khó). Viết
-bảng phân bổ thời gian của bạn (đọc chung + từng bài + dự phòng + kiểm tra
-cuối). Giải thích.
+* **Đề bài:** Viết hàm Contest Strategy_basic thực hiện phân loại bài.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Tra bảng.** Với mỗi ràng buộc, khoanh mẫu + độ phức tạp mục tiêu:
-a) n ≤ 20, "đếm số cách"
-b) n ≤ 10⁵, "đoạn liên tiếp dài nhất"
-c) n ≤ 10¹⁸, "tính F(n) mod M"
-d) q ≤ 10⁵ truy vấn tổng đoạn, n ≤ 10⁵
+### Bài 2: Trace code Contest Strategy Contest Strategy
 
-**Bài 3 — Checklist cá nhân.** Từ 10 lỗi mục 5, chọn 3 lỗi bạn hay mắc nhất,
-viết thành checklist riêng dán vào vở (ví dụ: "☐ reset biến giữa test?
-☐ I/O nhanh? ☐ test n=1?").
+* **Đề bài:** Trace code: cho đoạn code mẫu Contest Strategy, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-**Bài 3b — Chạy file .INP/.OUT thật.** Lấy template redirect ở mục 7, đổi
-`TEN_BAI = "TONG"`, viết `solve()` đọc n rồi đọc n số, in ra tổng. Tự tạo
-`TONG.inp` với nội dung `4\n1 2 3 4\n`, chạy chương trình, mở `TONG.out`
-kiểm tra bằng 10. Sau đó xóa file `.inp` và chạy lại với gõ tay stdin —
-chương trình vẫn chạy đúng. (Đây chính là quy trình 4 bước ở mục 7c.)
+### Bài 3: Điền khuyết Contest Strategy Contest Strategy
 
-### 🟡 Hiểu sâu (4–6)
+* **Đề bài:** Hoàn thiện hàm Contest Strategy đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 4 — Brute force có chủ đích.** Bài "cặp tổng chia hết cho k" (ví dụ 2):
-với n ≤ 2000, brute force O(n²) = 4×10⁶ phép có AC không (Python, 1s)?
-Tính và kết luận khi nào nên giữ nhánh brute.
+### Bài 4: So sánh Contest Strategy Contest Strategy
 
-**Bài 5 — Viết stress test.** Cho bài "đếm đoạn tổng K" (Bài 5 — ví dụ 3),
-viết file stress đầy đủ: brute O(n²) + code tối ưu + 3000 test ngẫu nhiên
-(n ≤ 12, số âm). Chạy và báo kết quả.
+* **Đề bài:** So sánh 2 cách giải cho Chiến lược thi HSG.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-**Bài 6 — Debug chia đôi.** Đoạn code LIS cho đáp án sai với một test mà bạn
-không biết sai ở đâu. Mô tả các bước chia đôi cụ thể (in gì, ở đâu, kết luận
-gì sau mỗi lần chạy).
+### Bài 5: Áp dụng trực tiếp Contest Strategy Contest Strategy
 
-### 🔴 Vận dụng (7–8)
+* **Đề bài:** Áp dụng thuật toán Contest Strategy trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 7 — Thi thử mini.** Tự ra 3 bài (dễ: O(n); trung bình: O(n log n);
-khó: DP), bấm giờ 90 phút làm nghiêm túc, rồi tự chấm + viết review
-(mẫu nào dùng, bug nào gặp, lần sau tránh sao). Nộp review cho bạn/mentor.
+### Bài 6: Biến thể đơn giản Contest Strategy Contest Strategy
 
-**Bài 8 — Sổ mẫu.** Tổng hợp từ Bài 24–46 thành "sổ tay 1 trang": mỗi mẫu một
-dòng (dấu hiệu → kỹ thuật → độ phức tạp). Đây là tài liệu duy nhất bạn đọc
-trước giờ thi.
-### ➕ Bài tập bổ sung (Bài 9–12)
+* **Đề bài:** Viết biến thể đơn giản của Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 9 — Đọc đề 5 dòng.** Đề mini: "Cho n và dãy a. Đếm số cặp (i<j) mà a[i]+a[j]
-chia hết cho k. n ≤ 10⁵." Trích ra Input / Output / Ràng buộc / Ví dụ tự đặt /
-2 test biên. Ước lượng subtask (n ≤ 500 brute được bao nhiêu %?).
+### Bài 7: Debug Contest Strategy Contest Strategy
 
-**Bài 10 — Bắt 3 lỗi checklist.** Đoạn code giải "cặp tổng chẵn" có 3 lỗi thuộc
-checklist 10 lỗi: đọc bằng `input()` trong vòng lặp 10⁵ lần, biến `dem` không
-reset giữa các test, quên `if __name__`. Tìm đủ 3 + sửa từng cái (nêu số mục
-checklist tương ứng).
+* **Đề bài:** Sửa lỗi trong code Contest Strategy cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 11 — Stress bắt bug người khác.** Code tối ưu SAI cho "cặp tổng chẵn":
-chỉ tính `c*(c-1)//2` (quên số lẻ!). Brute force đúng đã có. Viết stress test
-2000 case ngẫu nhiên (n ≤ 12) tìm counterexample đầu tiên + giải thích vì sao
-test nhỏ đã bắt được (gợi ý: [1, 3]!).
+### Bài 8: Độ phức tạp Contest Strategy Contest Strategy
 
-**Bài 12 — Viết editorial mini.** Viết editorial 5 dòng cho bài "cặp tổng chẵn":
-phát biểu lại → ý tưởng (cùng chẵn/lẻ) → công thức → Big-O → bẫy thường gặp.
-So với đáp án mẫu: editorial tốt khác code tốt ở chỗ nào?
+* **Đề bài:** Tính độ phức tạp O() của Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
 
----
+### Bài 9: Kiểm tra hiểu Contest Strategy Contest Strategy
+
+* **Đề bài:** Giải thích bước quan trọng của Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Contest Strategy Contest Strategy
+
+* **Đề bài:** Mở rộng Contest Strategy cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Contest Strategy
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Contest Strategy
+
+* **Đề bài:** Sửa thuật toán Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Contest Strategy
+
+* **Đề bài:** Cải tiến độ phức tạp của Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Contest Strategy
+
+* **Đề bài:** Kết hợp Contest Strategy với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Contest Strategy
+
+* **Đề bài:** Chạy trace thủ công cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Contest Strategy
+
+* **Đề bài:** Tìm input từ output cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Contest Strategy
+
+* **Đề bài:** Xử lý n lớn cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Contest Strategy
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Contest Strategy
+
+* **Đề bài:** Mở rộng Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Contest Strategy
+
+* **Đề bài:** Áp dụng Contest Strategy vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Contest Strategy
+
+* **Đề bài:** Thiết kế thuật toán O() cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Contest Strategy
+
+* **Đề bài:** Chứng minh đúng đắn cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Contest Strategy
+
+* **Đề bài:** Chứng minh lower bound cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Contest Strategy
+
+* **Đề bài:** Tối ưu Contest Strategy chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Contest Strategy
+
+* **Đề bài:** Viết biến thể của Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Contest Strategy
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Contest Strategy
+
+* **Đề bài:** Viết generator test phá Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Contest Strategy
+
+* **Đề bài:** Mở rộng định lý cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Contest Strategy
+
+* **Đề bài:** Cài Contest Strategy production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Contest Strategy
+
+* **Đề bài:** Đề xuất cải tiến mới cho Contest Strategy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

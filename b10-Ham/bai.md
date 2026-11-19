@@ -753,6 +753,126 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Def cơ bản Function
+
+* **Đề bài:** def greet(name): return f'Hello {name}'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** def + return.
+
+### Bài 22: Default arg Function
+
+* **Đề bài:** def pow(x, n=2): return x**n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Default parameter.
+
+### Bài 24: *args/**kwargs Function
+
+* **Đề bài:** def sum_all(*a): return sum(a)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** *args, **kwargs.
+
+### Bài 25: Lambda Function
+
+* **Đề bài:** square = lambda x: x*x..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Lambda expression.
+
+### Bài 26: Decorator Function
+
+* **Đề bài:** @timer def f(): pass -> in thời gian chạy..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Closure + wrapper.
+
+### Bài 27: Recursion limit Function
+
+* **Đề bài:** sys.setrecursionlimit(10**6)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Stack frame.
+
+
+
+
+### Bài 21: Def cơ bản Function
+
+* **Đề bài:** def greet(name): return f'Hello {name}'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** def + return.
+
+### Bài 22: Default arg Function
+
+* **Đề bài:** def pow(x, n=2): return x**n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Default parameter.
+
+### Bài 23: Docstring Function
+
+* **Đề bài:** def f():
+    '''Docstring'''
+    return 1.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Documentation.
+
+### Bài 24: *args/**kwargs Function
+
+* **Đề bài:** def sum_all(*a): return sum(a)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** *args, **kwargs.
+
+### Bài 25: Lambda Function
+
+* **Đề bài:** square = lambda x: x*x..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Lambda expression.
+
+### Bài 26: Type hints Function
+
+* **Đề bài:** def f(x: int) -> int: return x+1..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Type annotation.
+
+### Bài 27: Decorator Function
+
+* **Đề bài:** @timer def f(): pass -> in thời gian chạy..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Closure + wrapper.
+
+### Bài 28: Recursion limit Function
+
+* **Đề bài:** sys.setrecursionlimit(10**6)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Stack frame.
+
+### Bài 29: Closure Function
+
+* **Đề bài:** def make_adder(n): return lambda x: x+n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Closure captures.
+
+### Bài 30: Generator func Function
+
+* **Đề bài:** def gen(): yield 1; yield 2..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** yield vs return.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

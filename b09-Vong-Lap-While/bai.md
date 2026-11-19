@@ -810,6 +810,124 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Đếm ngược While
+
+* **Đề bài:** while n > 0: print(n); n -= 1..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Điều kiện dừng.
+
+### Bài 22: Input loop While
+
+* **Đề bài:** while True: x=input(); if x=='q': break..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** while True + break.
+
+### Bài 24: Đoán số While
+
+* **Đề bài:** Random 1-100, nhập đến khi đúng..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** random + while.
+
+### Bài 25: Menu While
+
+* **Đề bài:** Menu 1-3, nhập 0 để thoát..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** while True + if/elif.
+
+### Bài 26: Sieve While
+
+* **Đề bài:** Sàng Eratosthenes tìm SNT <= n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** while + list bool.
+
+### Bài 27: Collatz While
+
+* **Đề bài:** n -> n/2 (chẵn), 3n+1 (lẻ), dừng ở 1..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Unsolved problem.
+
+
+
+
+### Bài 21: Đếm ngược While
+
+* **Đề bài:** while n > 0: print(n); n -= 1..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Countdown.
+
+### Bài 22: Input loop While
+
+* **Đề bài:** while True: x=input(); if x=='q': break..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** while True + break.
+
+### Bài 23: Counter While
+
+* **Đề bài:** i=1; while i<=10: print(i); i+=1..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Counter pattern.
+
+### Bài 24: Đoán số While
+
+* **Đề bài:** Random 1-100, nhập đến khi đúng..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** random + while.
+
+### Bài 25: Menu While
+
+* **Đề bài:** Menu 1-3, nhập 0 để thoát..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** while True + if/elif.
+
+### Bài 26: Flag While
+
+* **Đề bài:** done=False; while not done: ... if ok: done=True..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Flag pattern.
+
+### Bài 27: Sieve While
+
+* **Đề bài:** Sàng Eratosthenes tìm SNT <= n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** while + list bool.
+
+### Bài 28: Collatz While
+
+* **Đề bài:** n -> n/2 (chẵn), 3n+1 (lẻ), dừng ở 1..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Unsolved problem.
+
+### Bài 29: Euclid GCD While
+
+* **Đề bài:** while b: a, b = b, a%b; return a..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Euclidean algorithm.
+
+### Bài 30: Bisection While
+
+* **Đề bài:** Tìm nghiệm f(x)=0 bằng chia đôi đoạn..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Binary search on continuous.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

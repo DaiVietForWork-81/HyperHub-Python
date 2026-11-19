@@ -777,6 +777,124 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Nhập tên tuổi I/O
+
+* **Đề bài:** input() tên, int(input()) tuổi..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** input() luôn trả str.
+
+### Bài 22: Print format I/O
+
+* **Đề bài:** print('Tên:', ten, 'Tuổi:', tuoi, sep=' | ')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** sep, end.
+
+### Bài 24: Nhập nhiều I/O
+
+* **Đề bài:** Nhập '1 2 3' -> list map(int, input().split())..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** split().
+
+### Bài 25: File I/O I/O
+
+* **Đề bài:** Đọc file.txt, in dòng đầu..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** open().readline().
+
+### Bài 26: Fast I/O I/O
+
+* **Đề bài:** sys.stdin.buffer.read() vs input()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Performance.
+
+### Bài 27: Parse phức tạp I/O
+
+* **Đề bài:** Parse '1,2;3,4' -> list tuple int..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** split + map.
+
+
+
+
+### Bài 21: Nhập tên tuổi I/O
+
+* **Đề bài:** input() tên, int(input()) tuổi..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** input() luôn trả str.
+
+### Bài 22: Print format I/O
+
+* **Đề bài:** print('Tên:', ten, 'Tuổi:', tuoi, sep=' | ')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** sep, end.
+
+### Bài 23: Multi input I/O
+
+* **Đề bài:** a, b = input().split(); a=int(a); b=int(b)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Multiple assignment.
+
+### Bài 24: Nhập nhiều I/O
+
+* **Đề bài:** Nhập '1 2 3' -> list map(int, input().split())..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** split().
+
+### Bài 25: File I/O I/O
+
+* **Đề bài:** Đọc file.txt, in dòng đầu..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** open().readline().
+
+### Bài 26: Fast output I/O
+
+* **Đề bài:** sys.stdout.write() vs print()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Performance.
+
+### Bài 27: Fast I/O I/O
+
+* **Đề bài:** sys.stdin.buffer.read() vs input()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Performance.
+
+### Bài 28: Parse phức tạp I/O
+
+* **Đề bài:** Parse '1,2;3,4' -> list tuple int..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** split + map.
+
+### Bài 29: Binary I/O I/O
+
+* **Đề bài:** struct.pack/unpack cho binary..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** struct module.
+
+### Bài 30: Custom format I/O
+
+* **Đề bài:** f'{x:.2%}' format phần trăm..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Format spec.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

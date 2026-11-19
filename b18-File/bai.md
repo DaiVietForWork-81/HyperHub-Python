@@ -808,6 +808,124 @@ f.close()
 
 ---
 
+
+
+### Bài 21: read() File
+
+* **Đề bài:** f.read() đọc cả file..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Small file.
+
+### Bài 22: readline File
+
+* **Đề bài:** f.readline() đọc 1 dòng..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Line by line.
+
+### Bài 24: write File
+
+* **Đề bài:** f.write('text') - ghi đè; f.write('\n')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mode w/a.
+
+### Bài 25: with File
+
+* **Đề bài:** with open() as f: - tự đóng..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Context manager.
+
+### Bài 26: Binary File
+
+* **Đề bài:** wb/rb + struct.pack/unpack..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Binary I/O.
+
+### Bài 27: Mmap File
+
+* **Đề bài:** mmap.mmap - map file vào memory..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Large file.
+
+
+
+
+### Bài 21: read() File
+
+* **Đề bài:** f.read() đọc cả file..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Small file.
+
+### Bài 22: readline File
+
+* **Đề bài:** f.readline() đọc 1 dòng..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Line by line.
+
+### Bài 23: write File
+
+* **Đề bài:** f.write('text') - ghi đè; f.write('\n')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mode w/a.
+
+### Bài 24: with File
+
+* **Đề bài:** with open() as f: - tự đóng..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Context manager.
+
+### Bài 25: readlines File
+
+* **Đề bài:** f.readlines() -> list lines..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** All lines.
+
+### Bài 26: encoding File
+
+* **Đề bài:** open(..., encoding='utf-8')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** UTF-8 required.
+
+### Bài 27: Binary File
+
+* **Đề bài:** wb/rb + struct.pack/unpack..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Binary I/O.
+
+### Bài 28: Mmap File
+
+* **Đề bài:** mmap.mmap - map file vào memory..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Large file.
+
+### Bài 29: Temp file File
+
+* **Đề bài:** tempfile.NamedTemporaryFile()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Temporary file.
+
+### Bài 30: Seek/tell File
+
+* **Đề bài:** f.seek(0), f.tell() - vị trí con trỏ..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Random access.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

@@ -544,65 +544,216 @@ Trie các từ {he, her, hi}:
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản KMP/Z/Hash KMP/Z/Hash
 
-**Bài 1 — Pi tay.** Tính pi cho "ababaca" từng bước (ghi j sau mỗi i).
-(Chú ý vị trí i = 5 ('c') — co mấy lần? Đáp án kiểm bằng code ở phần đáp án.)
+* **Đề bài:** Viết hàm KMP/Z/Hash_basic thực hiện KMP tìm pattern.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Z tay.** Tính z cho "aabxaayaab" (chỉ 5 vị trí đầu là đủ hiểu).
-(Đáp án z[1]=1, z[4]=2 ("aa"), z[7]=3 ("aab")...)
+### Bài 2: Trace code KMP/Z/Hash KMP/Z/Hash
 
-**Bài 3 — Chồng lấn.** Mẫu "aba" trong "ababa" xuất hiện mấy lần?
-Chạy tay KMP nối chuỗi, ghi các vị trí pi == 3. (Đáp án: 2 — tại 2 và 4.)
+* **Đề bài:** Trace code: cho đoạn code mẫu KMP/Z/Hash, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết KMP/Z/Hash KMP/Z/Hash
 
-**Bài 4 — Biên dài nhất.** Cho xâu s, tìm tiền tố dài nhất (không phải cả xâu)
-đồng thời là hậu tố. *Gợi ý: pi[n−1] chính là đáp án — giải thích vì sao.*
+* **Đề bài:** Hoàn thiện hàm KMP/Z/Hash đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Tuần hoàn nhỏ nhất.** Tìm chu kỳ ngắn nhất lặp lại thành s
-(|s| ≤ 10⁶). *Gợi ý: k = n − pi[n−1]; nếu n % k == 0 thì k là chu kỳ
-(ví dụ "abcabc" → pi cuối 3, k = 3, 6 % 3 == 0 ✔). Chứng minh: biên dài n−k
-nghĩa là s[i] = s[i+k] mọi i → tuần hoàn k; k nhỏ nhất vì biên dài nhất.*
+### Bài 4: So sánh KMP/Z/Hash KMP/Z/Hash
 
-**Bài 6 — Palindrome dài nhất (Manacher sơ cấp).** Xâu dài nhất đối xứng LIÊN
-TIẾP, n ≤ 10⁶. *Gợi ý khó: Manacher O(n) — d1 (lẻ) + d2 (chẵn), giữ [l, r]
-phải nhất, copy gương như Z. Hoặc hash + chặt nhị phân O(n log n) dễ cài hơn
-(hash xuôi + hash đảo, chặt độ dài, kiểm tra palindrome O(1)). Chọn 1 trong 2
-để cài.*
+* **Đề bài:** So sánh 2 cách giải cho Xử lý chuỗi.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp KMP/Z/Hash KMP/Z/Hash
 
-**Bài 7 — Đếm xâu con phân biệt.** Đếm số xâu con (liên tiếp) phân biệt của s
-(|s| ≤ 10⁵). *Gợi ý: sort các hậu tố (suffix array O(n log²n) đơn giản hoặc
-thư viện) + mảng LCP: đáp án = n(n+1)/2 − Σ LCP kề nhau. Mỗi hậu tố đóng góp
-các tiền tố của nó, trừ phần trùng với hậu tố trước đó (= LCP).*
+* **Đề bài:** Áp dụng thuật toán KMP/Z/Hash trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Từ điển + wildcard.** n ≤ 10⁵ từ (tổng dài ≤ 10⁶). q ≤ 10⁵ truy vấn
-dạng "h?llo" (? = đúng 1 ký tự bất kỳ). Đếm từ khớp. *Gợi ý: Trie + DFS nhánh
-khi gặp '?': mỗi '?' nhân nhánh ≤ 26... xấu nhất mũ! Tối ưu: tiền xử lý theo
-độ dài + vị trí ký tự (dict (độ_dài, vị_trí, ký_tự) → bitset/set từ) — giao các
-điều kiện. Vì sao Trie thuần + DFS có thể TLE với nhiều '?'?*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản KMP/Z/Hash KMP/Z/Hash
 
-**Bài 9 — KMP tay mới.** Tính pi("ababc") từng bước (đáp án [0,0,1,2,0]) rồi
-chạy tay tìm "ababc" trong "abababc" (tìm thấy ở vị trí 2). Ghi rõ chỗ khớp,
-chỗ lệch và pi giúp nhảy thế nào (so với naive quay về đầu).
+* **Đề bài:** Viết biến thể đơn giản của KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Đếm mẫu bằng Z.** Viết hàm đếm số lần mẫu P xuất hiện trong T (kể cả
-chồng lấn) bằng Z trên `P + "#" + T`. Code + test ("ababa"/"aba" → 2,
-"aaaa"/"aa" → 3). So sánh với bản KMP (khi nào dùng cái nào?).
+### Bài 7: Debug KMP/Z/Hash KMP/Z/Hash
 
-**Bài 11 — Xâu con bằng nhau?** Tiền xử lý rolling hash cho xâu S (|S| ≤ 10⁵).
-Trả lời q ≤ 10⁵ truy vấn "đoạn [l1, r1] có bằng đoạn [l2, r2] không?" O(1) mỗi
-truy vấn. Code class + test. Phân tích tổng Big-O (tiền xử lý + truy vấn).
+* **Đề bài:** Sửa lỗi trong code KMP/Z/Hash cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Tiền tố chung N xâu.** Tìm tiền tố chung dài nhất của n xâu (tổng
-dài ≤ 10⁶) bằng quét cột (so từng vị trí từ trái). Code + test
-(["flower","flow","flight"] → "fl", ["dog","car"] → "", [] → ""). Khi nào
-Trie thắng cách này? (Gợi ý: truy vấn động, thêm từ dần dần.)
+### Bài 8: Độ phức tạp KMP/Z/Hash KMP/Z/Hash
 
----
+* **Đề bài:** Tính độ phức tạp O() của KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu KMP/Z/Hash KMP/Z/Hash
+
+* **Đề bài:** Giải thích bước quan trọng của KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng KMP/Z/Hash KMP/Z/Hash
+
+* **Đề bài:** Mở rộng KMP/Z/Hash cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ KMP/Z/Hash
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể KMP/Z/Hash
+
+* **Đề bài:** Sửa thuật toán KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa KMP/Z/Hash
+
+* **Đề bài:** Cải tiến độ phức tạp của KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp KMP/Z/Hash
+
+* **Đề bài:** Kết hợp KMP/Z/Hash với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp KMP/Z/Hash
+
+* **Đề bài:** Chạy trace thủ công cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược KMP/Z/Hash
+
+* **Đề bài:** Tìm input từ output cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn KMP/Z/Hash
+
+* **Đề bài:** Xử lý n lớn cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế KMP/Z/Hash
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng KMP/Z/Hash
+
+* **Đề bài:** Mở rộng KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế KMP/Z/Hash
+
+* **Đề bài:** Áp dụng KMP/Z/Hash vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán KMP/Z/Hash
+
+* **Đề bài:** Thiết kế thuật toán O() cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh KMP/Z/Hash
+
+* **Đề bài:** Chứng minh đúng đắn cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới KMP/Z/Hash
+
+* **Đề bài:** Chứng minh lower bound cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn KMP/Z/Hash
+
+* **Đề bài:** Tối ưu KMP/Z/Hash chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu KMP/Z/Hash
+
+* **Đề bài:** Viết biến thể của KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao KMP/Z/Hash
+
+* **Đề bài:** Kết hợp 3 thuật toán cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng KMP/Z/Hash
+
+* **Đề bài:** Viết generator test phá KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết KMP/Z/Hash
+
+* **Đề bài:** Mở rộng định lý cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production KMP/Z/Hash
+
+* **Đề bài:** Cài KMP/Z/Hash production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở KMP/Z/Hash
+
+* **Đề bài:** Đề xuất cải tiến mới cho KMP/Z/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

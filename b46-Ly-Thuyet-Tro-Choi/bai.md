@@ -314,62 +314,216 @@ XOR = 010 (bit 1 lẻ!) -> giảm đống có bit 1 (đống 3: 011 -> 001) -> c
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–4)
+### Bài 1: Cài đặt cơ bản Game Theory Game Theory
 
-**Bài 1 — Truy hồi tay.** Tính `thang(n)` với bốc 1–2 viên (không phải 1–3!),
-n = 0..6, bằng tay. Quy luật thua là gì? (Đáp án: thua khi n % 3 == 0.)
+* **Đề bài:** Viết hàm Game Theory_basic thực hiện Nim game.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — XOR tay.** Tính XOR và kết luận ai thắng: [2, 2], [5, 5, 5],
-[7, 8, 9]. (Đáp án: thua (0), thắng (5), thắng (7^8^9 = 6).)
+### Bài 2: Trace code Game Theory Game Theory
 
-**Bài 3 — Nước đi Nim.** [7, 8, 9] (XOR = 6): tìm nước thắng (đống nào, để lại
-bao nhiêu). Kiểm chứng XOR sau nước đi = 0.
+* **Đề bài:** Trace code: cho đoạn code mẫu Game Theory, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-**Bài 4 — 1 đống đặc biệt.** Nim 1 đống n viên, mỗi lượt chỉ được lấy **số lẻ**
-viên. Ai thắng theo n? (Không cần XOR — suy luận trực tiếp! Đáp án: First luôn
-thắng với n ≥ 1? Kiểm: n=1 lấy 1 thắng; n=2 lấy 1 → còn 1 (lẻ) đối thủ lấy hết
-thắng?? — tính lại cẩn thận!)
+### Bài 3: Điền khuyết Game Theory Game Theory
 
-### 🟡 Hiểu sâu (5–8)
+* **Đề bài:** Hoàn thiện hàm Game Theory đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — mex tay.** Tính Grundy bốc 1–2 viên (n = 0..6) bằng định nghĩa mex.
-So với truy hồi thắng/thua (Grundy ≠ 0 ⟺ thắng?). (Đáp án: [0,1,2,0,1,2,0].)
+### Bài 4: So sánh Game Theory Game Theory
 
-**Bài 6 — Đối xứng song sinh.** Chứng minh: Nim 2 đống bằng nhau (a, a) là thế
-thua (người sau luôn thắng) bằng chiến thuật "copy" (đối thủ lấy k ở đống này,
-mình lấy k ở đống kia). Vì sao chiến thuật này luôn làm được?
+* **Đề bài:** So sánh 2 cách giải cho Lý thuyết trò chơi.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-**Bài 7 — Bốc tối đa k viên.** n đá, mỗi lượt bốc 1..k viên, lấy cuối thắng.
-Chứng minh người thắng ⟺ n % (k+1) != 0 (quy hoạch + quan sát chu kỳ!).
-Code DP kiểm chứng n ≤ 100, k = 5.
+### Bài 5: Áp dụng trực tiếp Game Theory Game Theory
 
-**Bài 8 — Misère 1 đống nhiều?** Nim misère 2 đống [1, 5] (lấy cuối thua).
-Phân tích tay ai thắng (đừng áp XOR mù!). (Đáp án: First thắng? Thử: First lấy
-hết đống 5 → còn [1], Second buộc lấy 1 → Second thua → First thắng ✔. Nhưng
-[2, 2] misère thì sao? First lấy 1 ở 1 đống → [1,2]... phân tích tiếp!)
+* **Đề bài:** Áp dụng thuật toán Game Theory trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-### 🔴 Vận dụng (9–12)
+### Bài 6: Biến thể đơn giản Game Theory Game Theory
 
-**Bài 9 — Grundy 2 trò gộp.** Đống A bốc 1–2 viên, đống B bốc 1–3 viên, mỗi lượt
-chọn 1 đống. Tính Grundy từng loại (mex) rồi XOR, kết luận với A=5, B=7.
-Code kiểm chứng bằng đệ quy thắng/thua trực tiếp trên trạng thái (a, b)!
+* **Đề bài:** Viết biến thể đơn giản của Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Green Hackenbush tre.** (Bài đọc-hiểu kinh điển.) Cây tre có các đốt,
-mỗi lượt chặt 1 đoạn (cả phần trên rơi theo). Grundy của đoạn tre dài n là n.
-Suy ra: nhiều cây tre độc lập ⟺ Nim với đống = chiều cao! Giải thích vì sao
-(cây tre dài n tương đương đống Nim n viên).
+### Bài 7: Debug Game Theory Game Theory
 
-**Bài 11 — Đố chữ số.** 2 người viết số có n chữ số (không bắt đầu bằng 0),
-người viết xong... (đề mở — tự ra luật thắng đơn giản: tổng các chữ số chẵn thì
-First thắng?). Mô hình hóa thành game impartial + phân tích ai thắng với n = 1
-(trò này mỗi "nước đi" là viết 1 chữ số — có bao nhiêu trạng thái?).
+* **Đề bài:** Sửa lỗi trong code Game Theory cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Viết editorial Nim.** Viết editorial 5 dòng cho bài Nim cơ bản
-(phát biểu → XOR → nước đi → chứng minh 3 dòng → bẫy misère). So với editorial
-bài "cặp tổng chẵn" (Bài 44 — bài 12 đáp án): editorial game khác editorial
-tìm kiếm ở chỗ nào?
+### Bài 8: Độ phức tạp Game Theory Game Theory
 
----
+* **Đề bài:** Tính độ phức tạp O() của Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Game Theory Game Theory
+
+* **Đề bài:** Giải thích bước quan trọng của Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Game Theory Game Theory
+
+* **Đề bài:** Mở rộng Game Theory cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Game Theory
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Game Theory
+
+* **Đề bài:** Sửa thuật toán Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Game Theory
+
+* **Đề bài:** Cải tiến độ phức tạp của Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Game Theory
+
+* **Đề bài:** Kết hợp Game Theory với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Game Theory
+
+* **Đề bài:** Chạy trace thủ công cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Game Theory
+
+* **Đề bài:** Tìm input từ output cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Game Theory
+
+* **Đề bài:** Xử lý n lớn cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Game Theory
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Game Theory
+
+* **Đề bài:** Mở rộng Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Game Theory
+
+* **Đề bài:** Áp dụng Game Theory vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Game Theory
+
+* **Đề bài:** Thiết kế thuật toán O() cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Game Theory
+
+* **Đề bài:** Chứng minh đúng đắn cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Game Theory
+
+* **Đề bài:** Chứng minh lower bound cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Game Theory
+
+* **Đề bài:** Tối ưu Game Theory chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Game Theory
+
+* **Đề bài:** Viết biến thể của Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Game Theory
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Game Theory
+
+* **Đề bài:** Viết generator test phá Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Game Theory
+
+* **Đề bài:** Mở rộng định lý cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Game Theory
+
+* **Đề bài:** Cài Game Theory production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Game Theory
+
+* **Đề bài:** Đề xuất cải tiến mới cho Game Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

@@ -713,6 +713,117 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Tạo set Set
+
+* **Đề bài:** s = {1,2,3} hoặc set([1,2,2])..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Auto dedup.
+
+### Bài 22: in check Set
+
+* **Đề bài:** 1 in {1,2,3} -> True. O(1)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Membership O(1).
+
+### Bài 24: Set ops Set
+
+* **Đề bài:** A|B, A&B, A-B, A^B..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Union, inter, diff, symdiff.
+
+### Bài 25: Dict from set Set
+
+* **Đề bài:** dict.fromkeys(s, 0) -> đếm..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** fromkeys.
+
+### Bài 26: Frozenset Set
+
+* **Đề bài:** fs = frozenset([1,2]) -> hashable..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dict key.
+
+### Bài 27: Dedup giữ thứ tự Set
+
+* **Đề bài:** list(dict.fromkeys([1,2,1,3])) -> [1,2,3]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ordered dedup.
+
+
+
+
+### Bài 21: Tạo set Set
+
+* **Đề bài:** s = {1,2,3} hoặc set([1,2,2])..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Auto dedup.
+
+### Bài 22: in check Set
+
+* **Đề bài:** 1 in {1,2,3} -> True. O(1)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Membership O(1).
+
+### Bài 23: add/discard Set
+
+* **Đề bài:** s.add(4); s.discard(2)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Add/remove.
+
+### Bài 24: Set ops Set
+
+* **Đề bài:** A|B, A&B, A-B, A^B..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Union, inter, diff, symdiff.
+
+### Bài 25: Counter Set
+
+* **Đề bài:** Counter(['a','a','b']) -> {'a':2, 'b':1}..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Count elements.
+
+### Bài 26: Frozenset Set
+
+* **Đề bài:** frozenset([1,2]) -> hashable..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dict key.
+
+### Bài 27: Ordered dedup Set
+
+* **Đề bài:** list(dict.fromkeys([1,2,1,3])) -> [1,2,3]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ordered dedup.
+
+### Bài 28: Bitset Set
+
+* **Đề bài:** int bitmask cho set nhỏ..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Bit manipulation.
+
+### Bài 29: Set comp Set
+
+* **Đề bài:** {x*x for x in range(5)} -> {0,1,4,9,16}..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Set comprehension.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

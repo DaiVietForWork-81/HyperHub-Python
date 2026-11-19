@@ -395,59 +395,216 @@ if n > 1:
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Number Theory Number Theory
 
-**Bài 1 — Sàng tay.** Sàng đến 50, ghi các số bị loại ở bước p = 2, 3, 5, 7.
-Có bao nhiêu số nguyên tố ≤ 50? (Đáp án: 15.)
+* **Đề bài:** Viết hàm Number Theory_basic thực hiện kiểm tra nguyên tố.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Euclid tay.** Tính gcd(270, 192) từng bước. Viết lại bằng vòng lặp
-`while` và kiểm chứng bằng `math.gcd`.
+### Bài 2: Trace code Number Theory Number Theory
 
-**Bài 3 — Rút gọn.** Rút gọn 1071/462 (dùng kết quả Euclid ở phần minh họa:
-gcd = 21 → 51/22). Viết hàm `rut_gon(a, b)` trả chuỗi "tu/mau".
+* **Đề bài:** Trace code: cho đoạn code mẫu Number Theory, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Number Theory Number Theory
 
-**Bài 4 — Đếm nguyên tố đoạn [l, r].** l, r ≤ 10¹² nhưng r − l ≤ 10⁶.
-*Gợi ý: sàng đoạn (segmented sieve) — sàng bội của các nguyên tố ≤ √r trên
-đoạn [l, r] thay vì từ 2. Vì sao chỉ cần nguyên tố ≤ √r?*
+* **Đề bài:** Hoàn thiện hàm Number Theory đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Fibonacci mod M.** Tính F(n) mod 10⁹+7 với n ≤ 10¹⁸.
-*Gợi ý: nhân ma trận [[1,1],[1,0]]^n bằng lũy thừa nhanh ma trận 2×2 O(log n)
-— F(n) nằm ở góc ma trận. (Mẫu "lũy thừa nhanh cấu trúc".)*
+### Bài 4: So sánh Number Theory Number Theory
 
-**Bài 6 — C(n,k) mod.** n ≤ 10⁶, q ≤ 10⁵ truy vấn. Cài tiền xử lý giai thừa +
-trả lời O(1) (code mục 6). Test C(10, 3) = 120, C(100, 50) mod 10⁹+7.
+* **Đề bài:** So sánh 2 cách giải cho Toán học/Số học.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Number Theory Number Theory
 
-**Bài 7 — Tổng ước (ôn ví dụ 3).** n = 360 = 2³·3²·5. Tính số ước và tổng ước
-bằng công thức, kiểm chứng bằng liệt kê code (brute force đến √n).
+* **Đề bài:** Áp dụng thuật toán Number Theory trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Mũ tháp (power tower).** Tính 2^(2^(2^...)) (n số 2) mod M
-(M không nguyên tố, n ≤ 10⁹). *Gợi ý khó: Euler totient + đệ quy "số mũ đủ
-lớn thì cộng φ(M)" (khái niệm overflow-cap). Đây là bài HSG quốc gia —
-làm được thì số học của bạn đã rất vững.*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Number Theory Number Theory
 
-**Bài 9 — Gặp lại sau bao lâu.** 2 đèn: đèn A chớp mỗi a giây, đèn B mỗi b giây,
-cùng chớp lúc 0. Sau bao nhiêu giây gặp lại (cùng chớp)? Mở rộng 3 đèn a, b, c.
-Code dùng `math.gcd`/`math.lcm` + test (a=4, b=6 → 12; thêm c=8 → 24).
+* **Đề bài:** Viết biến thể đơn giản của Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Đếm ước 2 cách.** Viết đếm ước bằng duyệt tới n và bằng duyệt tới
-√n (+ cặp ước). Đo thời gian với n = 999983 × 999979 (≈ 10¹², tích 2 nguyên tố).
-Giải thích vì sao cách 1 không bao giờ xong còn cách 2 chớp mắt.
+### Bài 7: Debug Number Theory Number Theory
 
-**Bài 11 — Tổ hợp 1 truy vấn.** Không tiền xử lý cả bảng: tính C(n, k) mod
-10⁹+7 cho 1 truy vấn bằng công thức tử/mẫu + `pow(mau, MOD-2, MOD)`. Code +
-kiểm chứng với `math.comb` (n=100, k=50). Khi nào dùng cách này thay vì bảng
-giai thừa? (Gợi ý: q nhỏ, n lớn.)
+* **Đề bài:** Sửa lỗi trong code Number Theory cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Hàm phi Euler.** Cài `phi(n)` bằng phân tích thừa số
-(n = ∏p^e → phi = ∏p^(e−1)(p−1)). Test (phi(36) = 12, phi(10⁹+7) = 10⁹+6,
-phi(1) = 1). Giải thích 1 dòng: phi đếm số 1 ≤ k ≤ n nguyên tố cùng nhau với n.
+### Bài 8: Độ phức tạp Number Theory Number Theory
 
----
+* **Đề bài:** Tính độ phức tạp O() của Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Number Theory Number Theory
+
+* **Đề bài:** Giải thích bước quan trọng của Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Number Theory Number Theory
+
+* **Đề bài:** Mở rộng Number Theory cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Number Theory
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Number Theory
+
+* **Đề bài:** Sửa thuật toán Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Number Theory
+
+* **Đề bài:** Cải tiến độ phức tạp của Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Number Theory
+
+* **Đề bài:** Kết hợp Number Theory với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Number Theory
+
+* **Đề bài:** Chạy trace thủ công cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Number Theory
+
+* **Đề bài:** Tìm input từ output cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Number Theory
+
+* **Đề bài:** Xử lý n lớn cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Number Theory
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Number Theory
+
+* **Đề bài:** Mở rộng Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Number Theory
+
+* **Đề bài:** Áp dụng Number Theory vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Number Theory
+
+* **Đề bài:** Thiết kế thuật toán O() cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Number Theory
+
+* **Đề bài:** Chứng minh đúng đắn cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Number Theory
+
+* **Đề bài:** Chứng minh lower bound cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Number Theory
+
+* **Đề bài:** Tối ưu Number Theory chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Number Theory
+
+* **Đề bài:** Viết biến thể của Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Number Theory
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Number Theory
+
+* **Đề bài:** Viết generator test phá Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Number Theory
+
+* **Đề bài:** Mở rộng định lý cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Number Theory
+
+* **Đề bài:** Cài Number Theory production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Number Theory
+
+* **Đề bài:** Đề xuất cải tiến mới cho Number Theory.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

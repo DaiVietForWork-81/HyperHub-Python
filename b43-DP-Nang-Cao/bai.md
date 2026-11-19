@@ -564,74 +564,216 @@ A1·(A2·A3): 30·5·60 + 10·30·60 = 9000 + 18000 = 27000
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Advanced DP Advanced DP
 
-**Bài 1 — DAG tay.** DAG: 0→1, 0→2, 1→3, 2→3, trọng số đỉnh [5,1,2,4].
-Topo + dp đường tổng lớn nhất từ 0. (Đáp án: 0→2→3 = 5+2+4 = 11.)
+* **Đề bài:** Viết hàm Advanced DP_basic thực hiện DP trên cây.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Digit tay.** Đếm số ≤ 25 có tổng chữ số = 5 bằng lắp tay
-(chục 0/1/2). (Đáp án: 5, 14, 23 → 3 số. Kiểm bằng code.)
+### Bài 2: Trace code Advanced DP Advanced DP
 
-**Bài 3 — Interval tay.** Ma trận p = [10,30,5,60]. Tính cả 2 cách nhân,
-xác nhận 4500 < 27000. (Xem minh họa.)
+* **Đề bài:** Trace code: cho đoạn code mẫu Advanced DP, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Advanced DP Advanced DP
 
-**Bài 4 — Đếm số đối xứng ≤ N.** N ≤ 10¹⁸. *Gợi ý digit DP: nửa trái tự do,
-nửa phải = đảo của nửa trái (tight chỉ ràng buộc nửa trái!); hoặc lắp cả xâu
-với trạng thái "đang khớp đảo"? Cách 1 gọn hơn: sinh nửa trái L (≤ nửa của N),
-so sánh số hoàn chỉnh ≤ N. Cài cách lắp thẳng với memo (pos, tight, ...).*
+* **Đề bài:** Hoàn thiện hàm Advanced DP đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Tree DP đường dài nhất qua mỗi nút (rerooting sơ cấp).** Tính với
-mọi u: đường xuống dài nhất trong subtree u (làm rồi) VÀ đáp án toàn cây cho
-subtree u. *Gợi ý: 2 lần DFS — lần 1 tính xuống (như mục 3), lần 2 truyền "đáp
-án từ phía cha" xuống con (lấy tốt nhất trong các hướng trừ hướng con đó).
-O(n). (Kỹ thuật rerooting — chuẩn HSG cây khó.)*
+### Bài 4: So sánh Advanced DP Advanced DP
 
-**Bài 6 — Cắt thanh (rod cutting) vs nhân ma trận.** Thanh dài n, giá bán
-đoạn dài i là p[i]. Chặt tối ưu? Viết truy hồi + code. So sánh với nhân ma
-trận: cùng "thử điểm chia" nhưng khác gì? (Gợi ý: cắt thanh chỉ chia 1 đầu
-(dp[i] = max(p[j] + dp[i−j])) — O(n²), đơn giản hơn vì chi phí cộng tuyến tính,
-không có "phép nhân 2 khối" phụ thuộc cả hai phía.)
+* **Đề bài:** So sánh 2 cách giải cho DP nâng cao.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Advanced DP Advanced DP
 
-**Bài 7 — Xóa hộp (Remove Boxes / Strange Printer biến thể).** Hộp màu theo
-dãy, xóa nhóm liên tiếp cùng màu được (độ dài nhóm)² điểm (nhóm tách ra có thể
-nhập lại sau khi xóa giữa!). n ≤ 200. *Gợi ý: dp[l][r][k] = điểm tốt nhất đoạn
-[l,r] với k hộp cùng màu a[l] dính thêm bên trái; thử xóa a[l] với nhóm (k+1),
-hoặc gộp a[l] với a[m] cùng màu (l<m≤r): dp[l][r][k] = max(dp[l+1][r][0] +
-(k+1)², dp[l+1][m−1][0] + dp[m][r][k+1]). O(n⁴) → n ≤ 200 cần tối ưu... bản
-n ≤ 50 chạy được. (Bài interval DP khó nhất nhóm này.)*
+* **Đề bài:** Áp dụng thuật toán Advanced DP trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Trạm xăng vs tập độc lập.** So sánh ví dụ 3 (tham lam đúng) với tập
-độc lập (phải DP): cùng trên cây, vì sao bài này tham lam được mà bài kia
-không? Viết lập luận exchange cho trạm xăng và phản ví dụ tham lam cho tập
-độc lập (lấy lá tham lam: cây sao 1 trung tâm + 5 lá — tham lam lấy 5 lá = 5
-đúng; tìm cây mà tham lam "lấy lá" sai: trung tâm nối 2 lá + mỗi lá nối thêm...
-gợi ý: tham lam "lấy nút sâu nhất" trên đường dài có thể chặn 2 nút tốt hơn).
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Advanced DP Advanced DP
 
-**Bài 9 — Đếm đường DAG.** DAG n ≤ 10⁵, đếm số đường đi từ s đến t (không cần
-dài nhất, chỉ cần đếm!). DP: topo + `dp[v] += dp[u]`. Code + test (4 đỉnh,
-cạnh (0,1),(0,2),(1,3),(2,3), s=0, t=3 → 2 đường). So với bài đường dài nhất
-(Bài 1 đáp án): khác nhau đúng phép gộp (cộng vs max)!
+* **Đề bài:** Viết biến thể đơn giản của Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Số không chứa 7.** Đếm số trong [0, 100] không chứa chữ số 7 (làm
-tay + digit DP + brute check 3 cách, đáp án 82). Mở rộng: code digit DP tổng
-quát nhận N ≤ 10¹⁸ (đã kiểm: khớp brute với N nhỏ).
+### Bài 7: Debug Advanced DP Advanced DP
 
-**Bài 11 — Đường tổng lớn nhất (có âm!).** Cây có trọng số đỉnh (âm được!).
-Tìm tổng lớn nhất của đường đi bất kỳ (đi qua/hoặc không qua gốc, 1 đỉnh cũng
-tính). Tree DP: `xuong[u]`, đáp án qua u = w[u] + 2 nhánh dương tốt nhất.
-Code + test ([10,−5,4,3,2] → 14; toàn âm [−5,−2,−9] → −2).
+* **Đề bài:** Sửa lỗi trong code Advanced DP cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Triangulation (Catalan).** Đếm cách chia đa giác lồi n đỉnh thành
-tam giác bằng đường chéo không cắt nhau. Interval DP: `dp[l][r] = Σ
-dp[l][k]·dp[k][r]`. Code + test (n=3..8 → 1, 2, 5, 14, 42, 132). Nhận ra dãy
-Catalan!
+### Bài 8: Độ phức tạp Advanced DP Advanced DP
 
----
+* **Đề bài:** Tính độ phức tạp O() của Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Advanced DP Advanced DP
+
+* **Đề bài:** Giải thích bước quan trọng của Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Advanced DP Advanced DP
+
+* **Đề bài:** Mở rộng Advanced DP cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Advanced DP
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Advanced DP
+
+* **Đề bài:** Sửa thuật toán Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Advanced DP
+
+* **Đề bài:** Cải tiến độ phức tạp của Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Advanced DP
+
+* **Đề bài:** Kết hợp Advanced DP với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Advanced DP
+
+* **Đề bài:** Chạy trace thủ công cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Advanced DP
+
+* **Đề bài:** Tìm input từ output cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Advanced DP
+
+* **Đề bài:** Xử lý n lớn cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Advanced DP
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Advanced DP
+
+* **Đề bài:** Mở rộng Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Advanced DP
+
+* **Đề bài:** Áp dụng Advanced DP vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Advanced DP
+
+* **Đề bài:** Thiết kế thuật toán O() cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Advanced DP
+
+* **Đề bài:** Chứng minh đúng đắn cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Advanced DP
+
+* **Đề bài:** Chứng minh lower bound cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Advanced DP
+
+* **Đề bài:** Tối ưu Advanced DP chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Advanced DP
+
+* **Đề bài:** Viết biến thể của Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Advanced DP
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Advanced DP
+
+* **Đề bài:** Viết generator test phá Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Advanced DP
+
+* **Đề bài:** Mở rộng định lý cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Advanced DP
+
+* **Đề bài:** Cài Advanced DP production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Advanced DP
+
+* **Đề bài:** Đề xuất cải tiến mới cho Advanced DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

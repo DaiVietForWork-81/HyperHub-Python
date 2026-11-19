@@ -641,6 +641,124 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: bool() Kiểu dữ liệu
+
+* **Đề bài:** In bool(0), bool(1), bool(''), bool('a')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** False, True, False, True.
+
+### Bài 22: None Kiểu dữ liệu
+
+* **Đề bài:** x = None; in type(x), x is None..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** NoneType.
+
+### Bài 24: Ép kiểu an toàn Kiểu dữ liệu
+
+* **Đề bài:** Nhập '123abc', ép int trong try/except..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** try/except ValueError.
+
+### Bài 25: isinstance Kiểu dữ liệu
+
+* **Đề bài:** Kiểm tra x là int, float, str, list..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** isinstance(x, int).
+
+### Bài 26: Duck typing Kiểu dữ liệu
+
+* **Đề bài:** Viết hàm nhận 'bất cứ gì có .append()'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** hasattr(x, 'append').
+
+### Bài 27: Type hint Kiểu dữ liệu
+
+* **Đề bài:** Viết hàm có type hint đầy đủ cho list[int] -> int..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** typing.List.
+
+
+
+
+### Bài 21: bool() Kiểu dữ liệu
+
+* **Đề bài:** In bool(0), bool(1), bool(''), bool('a')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** False, True, False, True.
+
+### Bài 22: None Kiểu dữ liệu
+
+* **Đề bài:** x = None; in type(x), x is None..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** NoneType.
+
+### Bài 23: Complex Kiểu dữ liệu
+
+* **Đề bài:** z = 3+4j; in z.real, z.imag, abs(z)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Complex number.
+
+### Bài 24: Ép kiểu an toàn Kiểu dữ liệu
+
+* **Đề bài:** Nhập '123abc', ép int trong try/except..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** try/except ValueError.
+
+### Bài 25: isinstance Kiểu dữ liệu
+
+* **Đề bài:** Kiểm tra x là int, float, str, list..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** isinstance(x, int).
+
+### Bài 26: Type conversion Kiểu dữ liệu
+
+* **Đề bài:** int('3.14') -> lỗi; float('3.14') -> OK..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** int() chỉ nhận int string.
+
+### Bài 27: Duck typing Kiểu dữ liệu
+
+* **Đề bài:** Viết hàm nhận 'bất cứ gì có .append()'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** hasattr(x, 'append').
+
+### Bài 28: Type hint Kiểu dữ liệu
+
+* **Đề bài:** Viết hàm có type hint đầy đủ cho list[int] -> int..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** typing.List.
+
+### Bài 29: Mutable default Kiểu dữ liệu
+
+* **Đề bài:** def f(x=[]): x.append(1); return x -> bug..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mutable default argument.
+
+### Bài 30: Dataclass Kiểu dữ liệu
+
+* **Đề bài:** @dataclass class Point: x: int; y: int..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Python 3.7+.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

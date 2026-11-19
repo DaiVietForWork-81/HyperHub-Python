@@ -717,63 +717,216 @@ if ... and not tham[nx][ny]:
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản BFS/DFS BFS/DFS
 
-**Bài 1 — Chạy tay BFS.** Đồ thị: 0 nối 1, 2; 1 nối 3; 2 nối 3; 3 nối 4.
-BFS từ 0: ghi thứ tự pop và dist mỗi đỉnh.
+* **Đề bài:** Viết hàm BFS/DFS_basic thực hiện BFS đường ngắn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Đếm đảo.** Lưới 4×4 cho trước (tự vẽ 3 đảo). Chạy tay flood fill,
-đếm = 3. Viết code hoàn chỉnh đọc input.
+### Bài 2: Trace code BFS/DFS BFS/DFS
 
-**Bài 3 — Hai phía?** Đồ thị tam giác (0-1-2-0) có hai phía không? Đồ thị vuông
-(0-1-2-3-0) thì sao? Chạy tay thuật toán tô màu. Rút ra quy luật: chu trình lẻ
-↔ không hai phía.
+* **Đề bài:** Trace code: cho đoạn code mẫu BFS/DFS, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết BFS/DFS BFS/DFS
 
-**Bài 4 — 0-1 BFS (mở rộng).** Cạnh trọng số chỉ 0 hoặc 1. BFS thường sai,
-Dijkstra thì nặng — dùng deque: cạnh 0 → appendleft, cạnh 1 → appendright.
-Cài đặt + giải thích vì sao đúng (bất biến deque đơn điệu theo dist).
+* **Đề bài:** Hoàn thiện hàm BFS/DFS đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Đảo lớn nhất.** Lưới nhị phân n×m ≤ 10³×10³. Tìm diện tích đảo
-(ô 1 liền nhau 4 hướng) lớn nhất. *Chú ý bộ nhớ + tốc độ: BFS vòng lặp,
-đánh dấu khi push.*
+### Bài 4: So sánh BFS/DFS BFS/DFS
 
-**Bài 6 — Topo + DP sơ khai.** DAG có trọng số đỉnh (điểm thưởng). Tìm đường
-(tổng điểm) lớn nhất từ đỉnh 0. *Gợi ý: topo xong duyệt theo thứ tự,
-dp[v] = max(dp[v], dp[u] + diem[v]) — tiền đề Bài 43 (DP trên DAG).*
+* **Đề bài:** So sánh 2 cách giải cho Đồ thị BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp BFS/DFS BFS/DFS
 
-**Bài 7 — Mê cung nhiều lối thoát.** Lưới n×m ≤ 10³×10³, nhiều điểm S (xuất
-phát) và nhiều điểm E (thoát). Mỗi S tìm E gần nhất. *Gợi ý: đừng BFS từ từng
-S — BFS đa nguồn từ TẤT CẢ E cùng lúc (đồ thị vô hướng, khoảng cách đối xứng),
-mỗi ô ghi E gần nhất + dist. O(n·m) một lần.*
+* **Đề bài:** Áp dụng thuật toán BFS/DFS trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Chu trình trong đồ thị có hướng.** Cài DFS 3 màu (trắng/xám/đen):
-gặp cạnh tới đỉnh xám → chu trình. So với Kahn: khi nào dùng cái nào?
-*Gợi ý: cần liệt kê chu trình cụ thể → DFS 3 màu (truy vết qua stack);
-chỉ cần thứ tự/kiểm tra → Kahn gọn hơn.*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản BFS/DFS BFS/DFS
 
-**Bài 9 — DFS tay + độ sâu.** Đồ thị: 0 nối 1, 2; 1 nối 3; 2 nối 3; 3 nối 4.
-Chạy tay DFS đệ quy từ 0 (hàng xóm theo thứ tự tăng dần), ghi thứ tự thăm và
-độ sâu ngăn xếp lớn nhất. So với thứ tự BFS (Bài 1 đáp án).
+* **Đề bài:** Viết biến thể đơn giản của BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Thành phần lớn nhất.** Đồ thị vô hướng n ≤ 10⁵. Tìm kích thước thành
-phần liên thông lớn nhất (số đỉnh). Code BFS/DFS + test (6 đỉnh, cạnh
-(0,1),(1,2),(3,4) → 3). Phân tích Big-O.
+### Bài 7: Debug BFS/DFS BFS/DFS
 
-**Bài 11 — Đảo 8 hướng.** Sửa flood fill 4 hướng thành 8 hướng (kể cả chéo).
-Test lưới 3×3 (góc + tâm = 1, còn lại 0): 4 hướng → 5 đảo, 8 hướng → 1 đảo.
-Giải thích vì sao đề phải ghi rõ 4 hay 8 hướng!
+* **Đề bài:** Sửa lỗi trong code BFS/DFS cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Có phải cây?** Cho n đỉnh và danh sách cạnh. Kiểm tra có phải cây
-không (đủ n−1 cạnh + liên thông). Code + 3 test: cây thật, thiếu cạnh (rời),
-đủ cạnh nhưng có chu trình (tam giác + đỉnh treo). Giải thích vì sao thiếu 1
-trong 2 điều kiện là sai.
+### Bài 8: Độ phức tạp BFS/DFS BFS/DFS
 
----
+* **Đề bài:** Tính độ phức tạp O() của BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu BFS/DFS BFS/DFS
+
+* **Đề bài:** Giải thích bước quan trọng của BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng BFS/DFS BFS/DFS
+
+* **Đề bài:** Mở rộng BFS/DFS cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ BFS/DFS
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể BFS/DFS
+
+* **Đề bài:** Sửa thuật toán BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa BFS/DFS
+
+* **Đề bài:** Cải tiến độ phức tạp của BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp BFS/DFS
+
+* **Đề bài:** Kết hợp BFS/DFS với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp BFS/DFS
+
+* **Đề bài:** Chạy trace thủ công cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược BFS/DFS
+
+* **Đề bài:** Tìm input từ output cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn BFS/DFS
+
+* **Đề bài:** Xử lý n lớn cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế BFS/DFS
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng BFS/DFS
+
+* **Đề bài:** Mở rộng BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế BFS/DFS
+
+* **Đề bài:** Áp dụng BFS/DFS vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán BFS/DFS
+
+* **Đề bài:** Thiết kế thuật toán O() cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh BFS/DFS
+
+* **Đề bài:** Chứng minh đúng đắn cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới BFS/DFS
+
+* **Đề bài:** Chứng minh lower bound cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn BFS/DFS
+
+* **Đề bài:** Tối ưu BFS/DFS chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu BFS/DFS
+
+* **Đề bài:** Viết biến thể của BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao BFS/DFS
+
+* **Đề bài:** Kết hợp 3 thuật toán cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng BFS/DFS
+
+* **Đề bài:** Viết generator test phá BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết BFS/DFS
+
+* **Đề bài:** Mở rộng định lý cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production BFS/DFS
+
+* **Đề bài:** Cài BFS/DFS production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở BFS/DFS
+
+* **Đề bài:** Đề xuất cải tiến mới cho BFS/DFS.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

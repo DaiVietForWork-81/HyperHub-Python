@@ -749,6 +749,124 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: If đơn If
+
+* **Đề bài:** Nhập số, in 'dương'/'âm'/'không'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** if/elif/else.
+
+### Bài 22: So sánh chuỗi If
+
+* **Đề bài:** 'a' < 'b', 'abc' == 'abc'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh chuỗi.
+
+### Bài 24: Nested if If
+
+* **Đề bài:** Xếp loại điểm: >=8 giỏi, >=6.5 khá, >=5 trung bình..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** elif chain.
+
+### Bài 25: Logic phức tạp If
+
+* **Đề bài:** Năm nhuận: chia 400 hoặc (chia 4 và không chia 100)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Logic phức hợp.
+
+### Bài 26: Ternary If
+
+* **Đề bài:** max = a if a>b else b..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ternary operator.
+
+### Bài 27: Guard clause If
+
+* **Đề bài:** Viết hàm return sớm thay vì nested if..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Guard clause pattern.
+
+
+
+
+### Bài 21: If đơn If
+
+* **Đề bài:** Nhập số, in 'dương'/'âm'/'không'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** if/elif/else.
+
+### Bài 22: Chuỗi If
+
+* **Đề bài:** 'a' < 'b', 'abc' == 'abc'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** String compare.
+
+### Bài 23: Boolean If
+
+* **Đề bài:** if x: print('True') else: print('False')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Truthiness.
+
+### Bài 24: Nested if If
+
+* **Đề bài:** Xếp loại điểm: >=8 giỏi, >=6.5 khá, >=5 trung bình..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** elif chain.
+
+### Bài 25: Logic phức tạp If
+
+* **Đề bài:** Năm nhuận: chia 400 hoặc (chia 4 và không chia 100)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Logic phức hợp.
+
+### Bài 26: Pass If
+
+* **Đề bài:** if x > 0: pass  # placeholder..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Pass statement.
+
+### Bài 27: Ternary If
+
+* **Đề bài:** max = a if a>b else b..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ternary operator.
+
+### Bài 28: Guard clause If
+
+* **Đề bài:** Viết hàm return sớm thay vì nested if..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Guard clause pattern.
+
+### Bài 29: Match-case If
+
+* **Đề bài:** match x: case 1: ... case _: ... (Py 3.10+)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Pattern matching.
+
+### Bài 30: Walrus if If
+
+* **Đề bài:** if (n := len(s)) > 5: print(n)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Walrus operator.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

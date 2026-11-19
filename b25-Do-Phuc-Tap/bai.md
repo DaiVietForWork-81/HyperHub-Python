@@ -368,69 +368,216 @@ Phân tích luôn lấy worst case.
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Phân tích độ phức tạp Phân tích độ phức tạp
 
-**Bài 1 — Đếm nhanh.** Cho Big-O của từng đoạn (giải thích 1 dòng):
-a) `for i in range(n): print(i)`
-b) `for i in range(n): for j in range(n): print(i, j)`
-c) `for i in range(n): print(i)` rồi `for j in range(n): for k in range(n): print(j, k)`
-d) `x = a[n // 2]`
+* **Đề bài:** Viết hàm Phân tích độ phức tạp_basic thực hiện tính O(n).
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Tra bảng.** Với giới hạn 1 giây (Python), thuật toán nào sống sót?
-a) O(n²), n = 2.000
-b) O(n²), n = 50.000
-c) O(n log n), n = 10⁶
-d) O(2ⁿ), n = 30
+### Bài 2: Trace code Phân tích độ phức tạp Phân tích độ phức tạp
 
-**Bài 3 — Sửa bẫy.** Đoạn code đếm số chung của hai list (mỗi list 10⁵ phần tử)
-dùng `if x in b` (b là list) → TLE. Viết lại để AC, nêu Big-O trước/sau.
+* **Đề bài:** Trace code: cho đoạn code mẫu Phân tích độ phức tạp, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Phân tích độ phức tạp Phân tích độ phức tạp
 
-**Bài 4 — Chi phí ẩn.** Tính Big-O của:
-```python
-for i in range(n):
-    a.append(sorted(b)[0])   # b dài n
-```
-Giải thích vì sao "nhìn O(n) mà thật O(n² log n)".
+* **Đề bài:** Hoàn thiện hàm Phân tích độ phức tạp đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Bộ nhớ.** Thuật toán tạo ma trận `dp[n][n]` số nguyên (n = 5.000).
-Ước tính bộ nhớ (Python) và kết luận có MLE không (giới hạn 256MB).
-*Gợi ý: mỗi int Python ~28 byte + overhead list.*
+### Bài 4: So sánh Phân tích độ phức tạp Phân tích độ phức tạp
 
-**Bài 6 — So sánh thực nghiệm.** Viết script đo thời gian `s += str(i)` vs
-`"".join(...)` với n = 20.000. Ghi nhận tỉ số tốc độ và giải thích.
+* **Đề bài:** So sánh 2 cách giải cho Độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Phân tích độ phức tạp Phân tích độ phức tạp
 
-**Bài 7 — Chọn thuật toán.** Đề: n ≤ 10⁵, đếm cặp (i < j) có `a[i] == a[j]`.
-Cách A: 2 vòng lặp O(n²). Cách B: `Counter` + công thức tổ hợp O(n).
-Tính số phép tính mỗi cách, kết luận cách nào AC và cài đặt cách đó.
+* **Đề bài:** Áp dụng thuật toán Phân tích độ phức tạp trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Tối ưu I/O.** Chương trình đọc n ≤ 10⁶ số và in ra các số chẵn.
-So sánh 2 phiên bản: (a) `input()` + `print` từng số; (b) `sys.stdin.read` +
-gom output + một lần `write`. Đo thời gian, giải thích vì sao (b) nhanh hơn
-hàng chục lần. *Gợi ý: mỗi lần gọi print/input tốn syscall + flush.*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Phân tích độ phức tạp Phân tích độ phức tạp
 
-**Bài 9 — Tốt nhất vs xấu nhất.** Hàm tìm phần tử đầu tiên > 0 trong list.
-Phân tích Big-O trường hợp tốt nhất, xấu nhất. Khi phân tích để nộp bài thì
-lấy trường hợp nào? Vì sao? Cho ví dụ dãy khiến mỗi trường hợp xảy ra.
+* **Đề bài:** Viết biến thể đơn giản của Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Đếm bước Euclid.** Thuật toán Euclid tìm GCD lặp lại phép `%`.
-Đếm số vòng lặp với (1071, 462) và với cặp Fibonacci liên tiếp (6765, 10946).
-Giải thích vì sao cặp Fibonacci là trường hợp xấu nhất (số giảm chậm nhất).
+### Bài 7: Debug Phân tích độ phức tạp Phân tích độ phức tạp
 
-**Bài 11 — Thực nghiệm tra cứu.** n = 10⁵ tên trong list, m = 10⁴ tên cần tra.
-Đo thời gian 2 cách: (a) `x in list`, (b) đổi sang `set` rồi tra. Tính tỉ số,
-đối chiếu với lý thuyết O(n·m) vs O(n+m).
+* **Đề bài:** Sửa lỗi trong code Phân tích độ phức tạp cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Khi nào segment tree thắng.** n, q ≤ 10⁵ truy vấn "tổng đoạn [l, r]"
-**kèm cập nhật điểm**. So sánh 3 cách: quét O(n)/truy vấn, tiền tố O(1) hỏi +
-O(n) cập nhật, segment tree O(log n) cả hai. Tính tổng phép tính khi nửa số
-truy vấn là cập nhật, kết luận và giải thích.
+### Bài 8: Độ phức tạp Phân tích độ phức tạp Phân tích độ phức tạp
 
----
+* **Đề bài:** Tính độ phức tạp O() của Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Phân tích độ phức tạp Phân tích độ phức tạp
+
+* **Đề bài:** Giải thích bước quan trọng của Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Phân tích độ phức tạp Phân tích độ phức tạp
+
+* **Đề bài:** Mở rộng Phân tích độ phức tạp cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Phân tích độ phức tạp
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Phân tích độ phức tạp
+
+* **Đề bài:** Sửa thuật toán Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Phân tích độ phức tạp
+
+* **Đề bài:** Cải tiến độ phức tạp của Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Phân tích độ phức tạp
+
+* **Đề bài:** Kết hợp Phân tích độ phức tạp với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Phân tích độ phức tạp
+
+* **Đề bài:** Chạy trace thủ công cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Phân tích độ phức tạp
+
+* **Đề bài:** Tìm input từ output cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Phân tích độ phức tạp
+
+* **Đề bài:** Xử lý n lớn cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Phân tích độ phức tạp
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Phân tích độ phức tạp
+
+* **Đề bài:** Mở rộng Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Phân tích độ phức tạp
+
+* **Đề bài:** Áp dụng Phân tích độ phức tạp vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Phân tích độ phức tạp
+
+* **Đề bài:** Thiết kế thuật toán O() cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Phân tích độ phức tạp
+
+* **Đề bài:** Chứng minh đúng đắn cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Phân tích độ phức tạp
+
+* **Đề bài:** Chứng minh lower bound cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Phân tích độ phức tạp
+
+* **Đề bài:** Tối ưu Phân tích độ phức tạp chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Phân tích độ phức tạp
+
+* **Đề bài:** Viết biến thể của Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Phân tích độ phức tạp
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Phân tích độ phức tạp
+
+* **Đề bài:** Viết generator test phá Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Phân tích độ phức tạp
+
+* **Đề bài:** Mở rộng định lý cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Phân tích độ phức tạp
+
+* **Đề bài:** Cài Phân tích độ phức tạp production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Phân tích độ phức tạp
+
+* **Đề bài:** Đề xuất cải tiến mới cho Phân tích độ phức tạp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

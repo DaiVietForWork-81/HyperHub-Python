@@ -522,68 +522,216 @@ bit[8] quản 8 ô.
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Segment Tree Segment Tree
 
-**Bài 1 — Chạy tay segment.** Dựng cây tổng cho [3, 1, 4, 1, 5] (N = 8).
-Hỏi [1, 3] (nửa khoảng [1, 4)): ghi các node ghép. Rồi cập nhật a[2] = 0,
-ghi đường lên gốc.
+* **Đề bài:** Viết hàm Segment Tree_basic thực hiện Segment tree sum.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — BIT tay.** BIT rỗng n = 8. `them(2, 5)`, `them(5, 3)`. Ghi mảng bit
-sau mỗi lần. Rồi `tong(5)` = ? (Đáp án: 8.)
+### Bài 2: Trace code Segment Tree Segment Tree
 
-**Bài 3 — Nghịch thế nhỏ.** `a = [3, 1, 2]`. Chạy tay thuật toán BIT mục 5
-(duyệt phải→trái), ghi dem sau mỗi bước. (Đáp án: 2.)
+* **Đề bài:** Trace code: cho đoạn code mẫu Segment Tree, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Segment Tree Segment Tree
 
-**Bài 4 — Range add + range sum (2 BIT).** Mở rộng ví dụ 3: hỏi tổng đoạn
-(không chỉ điểm). *Gợi ý: tổng tiền tố sau cập nhật đoạn = ... cần 2 BIT
-(B1 cho hệ số, B2 cho hằng số): prefix(i) = sum(B1,i)·i − sum(B2,i);
-cập nhật [l,r]+=v: B1.them(l,v), B1.them(r+1,−v), B2.them(l,v·(l−1)),
-B2.them(r+1,−v·r). Tự chứng minh công thức bằng khai triển.*
+* **Đề bài:** Hoàn thiện hàm Segment Tree đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Hạng real-time.** Dòng sự kiện: `1 x` (người mới điểm x), `2 x`
-(hỏi có bao nhiêu người điểm > x). Điểm ≤ 10⁹, q ≤ 10⁶. *Gợi ý: nén toàn bộ
-điểm xuất hiện (đọc hết input trước!) + BIT tần suất; đáp án = tổng − tiền tố.*
+### Bài 4: So sánh Segment Tree Segment Tree
 
-**Bài 6 — Đếm đoạn con tổng K bằng BIT?** Suy nghĩ: vì sao bài "đếm dãy con
-tổng K" (Bài 29) dùng dict O(n) mà không cần BIT? Khi nào cần BIT thay dict?
-*Gợi ý: dict đủ khi chỉ cần bằng nhau chính xác; BIT cần khi hỏi bất đẳng thức
-(≤ K, trong [L, R]) trên tiền tố — xem Thử thách Bài 33.*
+* **Đề bài:** So sánh 2 cách giải cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Segment Tree Segment Tree
 
-**Bài 7 — LIS mỗi tiền tố.** n ≤ 10⁵. Với mỗi i, tính độ dài LIS của a[0..i].
-*Gợi ý: LIS O(n log n) bằng `duoi` + bisect (Bài 35 — bài 6) duyệt trái→phải
-chính là đáp án từng tiền tố! Hiểu vì sao `len(duoi)` sau bước i = LIS prefix i.*
+* **Đề bài:** Áp dụng thuật toán Segment Tree trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Xếp hàng (queue reconstruction).** n người, mỗi người (cao h, k:
-có đúng k người cao ≥ mình đứng trước). Dựng hàng ban đầu. n ≤ 10⁵.
-*Gợi ý: sort cao giảm dần (cao trước); người đang xét: k người cao-hơn-đã đặt
-→ chèn vào vị trí k trong cấu trúc "danh sách có chèn O(log n)" (BIT tìm vị
-trí trống thứ k! + mảng kết quả). Vì sao sort giảm dần đúng? (Người sau thấp
-hơn/ bằng, không ảnh hưởng k của người trước.)*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Segment Tree Segment Tree
 
-**Bài 9 — Segtree min.** Đổi class tổng ở ví dụ 1 thành range-min-query + cập
-nhật điểm: phần tử trung hòa `e` là gì? Phép `op` là gì? Code + test (nêu rõ 2
-chỗ đổi so với bản tổng). *Gợi ý: e = +∞, op = min.*
+* **Đề bài:** Viết biến thể đơn giản của Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — BIT tìm prefix.** Cho BIT tần suất, tìm chỉ số nhỏ nhất mà tổng tiền
-tố ≥ S (binary lifting trên BIT: đi từ bit cao xuống thấp). Code + test
-([1,0,3,0,2], S=1→0, S=2→2, S=5→4, S=6→4). Ứng dụng: tìm phần tử thứ k còn lại!
+### Bài 7: Debug Segment Tree Segment Tree
 
-**Bài 11 — Cặp đảo ngược (reverse pairs).** Đếm cặp (i<j) mà `a[i] > 2*a[j]`.
-Dùng BIT + nén tọa độ, duyệt phải→trái, hỏi số đã thấy mà `< x/2` (cẩn thận
-chia nguyên: y ≤ (x−1)//2!). Code + test ([1,3,2,3,1] → 2) + stress 200 test
-ngẫu nhiên so brute force.
+* **Đề bài:** Sửa lỗi trong code Segment Tree cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Max subarray + cập nhật điểm.** Segment tree mỗi node lưu 4 số
-(tổng, max tiền tố, max hậu tố, đáp án), gộp: `tong = L+R`, `tien = max(L.tien,
-L.tong+R.tien)`... Code đầy đủ + test ([−2,1,−3,4,−1,2,1,−5,4] → 6). Đây là
-"segtree khó nhất nhóm cơ bản" — làm được thì lazy không còn sợ!
+### Bài 8: Độ phức tạp Segment Tree Segment Tree
 
----
+* **Đề bài:** Tính độ phức tạp O() của Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Segment Tree Segment Tree
+
+* **Đề bài:** Giải thích bước quan trọng của Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Segment Tree Segment Tree
+
+* **Đề bài:** Mở rộng Segment Tree cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Segment Tree
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Segment Tree
+
+* **Đề bài:** Sửa thuật toán Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Segment Tree
+
+* **Đề bài:** Cải tiến độ phức tạp của Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Segment Tree
+
+* **Đề bài:** Kết hợp Segment Tree với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Segment Tree
+
+* **Đề bài:** Chạy trace thủ công cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Segment Tree
+
+* **Đề bài:** Tìm input từ output cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Segment Tree
+
+* **Đề bài:** Xử lý n lớn cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Segment Tree
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Segment Tree
+
+* **Đề bài:** Mở rộng Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Segment Tree
+
+* **Đề bài:** Áp dụng Segment Tree vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Segment Tree
+
+* **Đề bài:** Thiết kế thuật toán O() cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Segment Tree
+
+* **Đề bài:** Chứng minh đúng đắn cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Segment Tree
+
+* **Đề bài:** Chứng minh lower bound cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Segment Tree
+
+* **Đề bài:** Tối ưu Segment Tree chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Segment Tree
+
+* **Đề bài:** Viết biến thể của Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Segment Tree
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Segment Tree
+
+* **Đề bài:** Viết generator test phá Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Segment Tree
+
+* **Đề bài:** Mở rộng định lý cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Segment Tree
+
+* **Đề bài:** Cài Segment Tree production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Segment Tree
+
+* **Đề bài:** Đề xuất cải tiến mới cho Segment Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

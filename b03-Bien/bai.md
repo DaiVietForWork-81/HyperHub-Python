@@ -740,6 +740,124 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Đổi giá trị Biến
+
+* **Đề bài:** a=5, b=10 -> hoán đổi không dùng biến tạm..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** a, b = b, a.
+
+### Bài 22: Kiểu dữ liệu Biến
+
+* **Đề bài:** In type() của 5, 5.0, 'hello', True..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** type().
+
+### Bài 24: Đổi kiểu Biến
+
+* **Đề bài:** Nhập chuỗi '123', ép thành int, nhân 2..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** int(), float().
+
+### Bài 25: Naming Biến
+
+* **Đề bài:** Đặt tên biến cho: điểm toán, tên học sinh, có đỗ không..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** snake_case.
+
+### Bài 26: Reference Biến
+
+* **Đề bài:** a=[1,2]; b=a; b.append(3); in a -> giải thích..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham chiếu.
+
+### Bài 27: Deep copy Biến
+
+* **Đề bài:** Sao chép list lồng nhau không dùng copy.deepcopy..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** List comprehension hoặc pickle.
+
+
+
+
+### Bài 21: Đổi giá trị Biến
+
+* **Đề bài:** a=5, b=10 -> hoán đổi không dùng biến tạm..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** a, b = b, a.
+
+### Bài 22: Kiểu dữ liệu Biến
+
+* **Đề bài:** In type() của 5, 5.0, 'hello', True..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** type().
+
+### Bài 23: Naming Biến
+
+* **Đề bài:** Đặt tên biến cho: điểm toán, tên học sinh, có đỗ không..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** snake_case.
+
+### Bài 24: Đổi kiểu Biến
+
+* **Đề bài:** Nhập chuỗi '123', ép thành int, nhân 2..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** int(), float().
+
+### Bài 25: Copy list Biến
+
+* **Đề bài:** a=[1,2]; b=a.copy(); b.append(3); in a..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Shallow copy.
+
+### Bài 26: F-string Biến
+
+* **Đề bài:** ten='An'; tuoi=15; print(f'{ten} {tuoi} tuoi')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** f-string.
+
+### Bài 27: Reference Biến
+
+* **Đề bài:** a=[1,2]; b=a; b.append(3); in a -> giải thích..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham chiếu.
+
+### Bài 28: Deep copy Biến
+
+* **Đề bài:** Sao chép list lồng nhau không dùng copy.deepcopy..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** List comprehension hoặc pickle.
+
+### Bài 29: Mutable default Biến
+
+* **Đề bài:** def f(x=[]): x.append(1); return x -> giải thích bug..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mutable default argument.
+
+### Bài 30: Global vs nonlocal Biến
+
+* **Đề bài:** x=1; def f(): global x; x=2 -> giải thích..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** LEGB rule.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

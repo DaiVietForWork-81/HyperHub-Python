@@ -549,67 +549,216 @@ Chốt: 0(0) → 2(1) → 1(3) → 3(4) → 4(7)
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Dijkstra Dijkstra
 
-**Bài 1 — Chạy tay.** Đồ thị ví dụ 1 nhưng thêm cạnh (0,3,2). Chạy tay Dijkstra
-từ 0, ghi thứ tự pop và dist. Đáp án đổi thế nào? (Đáp án: dist = [0,3,1,2,5].)
+* **Đề bài:** Viết hàm Dijkstra_basic thực hiện Dijkstra cơ bản.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — BFS vs Dijkstra.** Lưới 3×3 toàn chi phí 1, trừ ô giữa chi phí 100.
-BFS (đếm bước) và Dijkstra cho đáp án khác nhau thế nào? Vẽ 2 đường.
+### Bài 2: Trace code Dijkstra Dijkstra
 
-**Bài 3 — Floyd tay.** 3 đỉnh, cạnh: 0→1 (5), 1→2 (3), 0→2 (10). Chạy 3 vòng k
-(k = 0, 1, 2), ghi ma trận d sau mỗi vòng. (Đáp án cuối d[0][2] = 8.)
+* **Đề bài:** Trace code: cho đoạn code mẫu Dijkstra, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Dijkstra Dijkstra
 
-**Bài 4 — Đường thứ hai.** Tìm đường ngắn thứ hai (có thể lặp đỉnh) từ s đến t,
-cạnh không âm. *Gợi ý: Dijkstra mở rộng — mỗi đỉnh lưu 2 dist tốt nhất
-(dist1, dist2); nới lỏng lan cả hai. Vì sao đủ? (Đường thứ hai chỉ rẽ khỏi
-đường nhất tại một chỗ.)*
+* **Đề bài:** Hoàn thiện hàm Dijkstra đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Đổi chuyến ít nhất.** n tuyến xe, mỗi tuyến là danh sách trạm (lên
-bất kỳ trạm nào của tuyến = "lên tuyến đó", đi miễn phí trong tuyến, đổi tuyến
-tốn 1). Từ trạm A đến B ít lần đổi nhất? *Gợi ý: đồ thị 2 lớp (trạm–tuyến):
-trạm→tuyến tốn 1 (lên xe), tuyến→trạm tốn 0 (xuống/xe chạy) — 0-1 BFS (Bài 37)!*
+### Bài 4: So sánh Dijkstra Dijkstra
 
-**Bài 6 — Chu trình âm cụ thể.** Sửa Bellman-Ford để không chỉ báo CÓ mà còn
-in ra một chu trình âm (danh sách đỉnh). *Gợi ý: vòng n ghi lại `cha[v] = u`
-mỗi lần nới; đỉnh bị nới ở vòng n nằm trên/gần chu trình — đi ngược cha n lần
-để chắc chắn vào vòng, rồi đi tiếp đến lặp.*
+* **Đề bài:** So sánh 2 cách giải cho Đường đi ngắn nhất.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Dijkstra Dijkstra
 
-**Bài 7 — K cạnh rẻ nhất.** Đồ thị không âm, tìm đường từ s đến t dùng **không
-quá K cạnh** (K ≤ 100, V ≤ 10⁴). *Gợi ý: DP kiểu Bellman-Ford giới hạn vòng:
-dp[k][v] = rẻ nhất đến v dùng ≤ k cạnh; dp[k][v] = min(dp[k−1][v],
-min(dp[k−1][u] + w)). O(K·E). Vì sao Dijkstra thường không ép được số cạnh?*
+* **Đề bài:** Áp dụng thuật toán Dijkstra trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Min-max (minimax path).** Tìm đường từ s đến t sao cho cạnh **lớn
-nhất** trên đường là nhỏ nhất có thể (đường ống chịu áp lực). *Gợi ý: Dijkstra
-biến thể — dist[v] = min độ cao cực đại; nới lỏng: max(dist[u], w) thay vì
-dist[u] + w. Chứng minh: tính đơn điệu max vẫn giữ bất biến heap. (Còn gọi là
-"đường minimax" — ra đề HSG rất nhiều.)*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Dijkstra Dijkstra
 
-**Bài 9 — Bellman-Ford tay.** Đồ thị 4 đỉnh, cạnh: 0→1 (4), 0→2 (2), 2→1 (−1),
-1→3 (2), 2→3 (5), nguồn 0. Ghi dist sau mỗi vòng, chỉ ra vòng nào dừng sớm.
-Giải thích vì sao cạnh âm 2→1 không phá được đáp án (không có chu trình âm!).
+* **Đề bài:** Viết biến thể đơn giản của Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Dijkstra tay mới.** Đồ thị vô hướng: (0,1,2), (0,2,6), (1,2,1),
-(1,3,7), (2,3,1), nguồn 0. Chạy tay Dijkstra (ghi heap sau mỗi pop), đáp án
-dist = ? (Đáp án: [0, 2, 3, 4].)
+### Bài 7: Debug Dijkstra Dijkstra
 
-**Bài 11 — Đếm cặp tới được.** n ≤ 100, đồ thị có hướng. Đếm số cặp (u, v) mà
-u tới được v (kể cả u = v). Floyd boolean O(n³). Test (n=4, cạnh (0,1),(2,3)
-→ 6 cặp). Khi nào dùng Floyd thay vì BFS từ mỗi đỉnh? (Gợi ý: V nhỏ + hỏi nhiều.)
+* **Đề bài:** Sửa lỗi trong code Dijkstra cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Phí vào đỉnh.** Mỗi đỉnh v có phí vào f[v]; đi cạnh (u,v) tốn w +
-f[v] (kể cả đỉnh xuất phát tốn f[s]). Tìm đường rẻ nhất s→t. Mẹo: tách mỗi đỉnh
-v thành v_in → v_out tốn f[v] (mô hình hóa trạng thái — ôn Bài 12 mục 5!).
-Code Dijkstra trên 2n đỉnh + test (n=3, cạnh (0,1,1),(1,2,1),(0,2,1),
-phí [5,1,10], 0→2 → 16).
+### Bài 8: Độ phức tạp Dijkstra Dijkstra
 
----
+* **Đề bài:** Tính độ phức tạp O() của Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Dijkstra Dijkstra
+
+* **Đề bài:** Giải thích bước quan trọng của Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Dijkstra Dijkstra
+
+* **Đề bài:** Mở rộng Dijkstra cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Dijkstra
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Dijkstra
+
+* **Đề bài:** Sửa thuật toán Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Dijkstra
+
+* **Đề bài:** Cải tiến độ phức tạp của Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Dijkstra
+
+* **Đề bài:** Kết hợp Dijkstra với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Dijkstra
+
+* **Đề bài:** Chạy trace thủ công cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Dijkstra
+
+* **Đề bài:** Tìm input từ output cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Dijkstra
+
+* **Đề bài:** Xử lý n lớn cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Dijkstra
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Dijkstra
+
+* **Đề bài:** Mở rộng Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Dijkstra
+
+* **Đề bài:** Áp dụng Dijkstra vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Dijkstra
+
+* **Đề bài:** Thiết kế thuật toán O() cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Dijkstra
+
+* **Đề bài:** Chứng minh đúng đắn cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Dijkstra
+
+* **Đề bài:** Chứng minh lower bound cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Dijkstra
+
+* **Đề bài:** Tối ưu Dijkstra chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Dijkstra
+
+* **Đề bài:** Viết biến thể của Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Dijkstra
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Dijkstra
+
+* **Đề bài:** Viết generator test phá Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Dijkstra
+
+* **Đề bài:** Mở rộng định lý cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Dijkstra
+
+* **Đề bài:** Cài Dijkstra production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Dijkstra
+
+* **Đề bài:** Đề xuất cải tiến mới cho Dijkstra.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

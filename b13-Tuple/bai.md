@@ -690,6 +690,117 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Tạo tuple Tuple
+
+* **Đề bài:** t = (1, 2, 3) hoặc t = 1, 2, 3..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Packing.
+
+### Bài 22: Unpacking Tuple
+
+* **Đề bài:** a, b, c = (1, 2, 3) hoặc x, *y = (1,2,3,4)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Unpacking.
+
+### Bài 24: Named tuple Tuple
+
+* **Đề bài:** from collections import namedtuple; Point = namedtuple('Point', 'x y')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Named access.
+
+### Bài 25: Dict key Tuple
+
+* **Đề bài:** d = {(1,2): 'a'} - tuple làm key..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Immutable key.
+
+### Bài 26: Packing Tuple
+
+* **Đề bài:** def f(): return 1, 2, 3; a,b,c = f()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Multiple return.
+
+### Bài 27: Immutable Tuple
+
+* **Đề bài:** Thử t[0]=1 -> TypeError -> convert list(t)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Immutability.
+
+
+
+
+### Bài 21: Tạo tuple Tuple
+
+* **Đề bài:** t = (1, 2, 3) hoặc t = 1, 2, 3..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Packing.
+
+### Bài 22: Index Tuple
+
+* **Đề bài:** t[0], t[-1], t[1:3]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Index/slice.
+
+### Bài 23: Unpack Tuple
+
+* **Đề bài:** a, b, c = (1, 2, 3)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Unpacking.
+
+### Bài 24: Named tuple Tuple
+
+* **Đề bài:** from collections import namedtuple; Point = namedtuple('Point', 'x y')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Named access.
+
+### Bài 25: Dict key Tuple
+
+* **Đề bài:** d = {(1,2): 'a'} - tuple làm key..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Immutable key.
+
+### Bài 26: Return multi Tuple
+
+* **Đề bài:** return a, b -> tuple..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Multiple return.
+
+### Bài 27: Namedtuple defaults Tuple
+
+* **Đề bài:** Point = namedtuple('P', 'x y', defaults=[0,0])..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Defaults.
+
+### Bài 28: Immutable Tuple
+
+* **Đề bài:** t[0]=1 -> TypeError -> list(t)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Immutability.
+
+### Bài 29: Dataclass Tuple
+
+* **Đề bài:** @dataclass class Point: x: int; y: int..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Modern alternative.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

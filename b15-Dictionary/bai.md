@@ -621,6 +621,117 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Tạo dict Dict
+
+* **Đề bài:** d = {'a':1, 'b':2} hoặc dict(a=1, b=2)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Key-value.
+
+### Bài 22: get() Dict
+
+* **Đề bài:** d.get('x', 0) tránh KeyError..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Default value.
+
+### Bài 24: update() Dict
+
+* **Đề bài:** d1.update(d2) - ghi đè key trùng..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Merge dict.
+
+### Bài 25: items() Dict
+
+* **Đề bài:** for k,v in d.items(): print(k,v)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Iterate pairs.
+
+### Bài 26: Dict comp Dict
+
+* **Đề bài:** {x: x*x for x in range(5)}..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Comprehension.
+
+### Bài 27: Merge deep Dict
+
+* **Đề bài:** def merge(d1,d2): ... đệ quy merge nested..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Recursive merge.
+
+
+
+
+### Bài 21: Tạo dict Dict
+
+* **Đề bài:** d = {'a':1, 'b':2} hoặc dict(a=1, b=2)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Key-value.
+
+### Bài 22: get() Dict
+
+* **Đề bài:** d.get('x', 0) tránh KeyError..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Default value.
+
+### Bài 23: keys/values Dict
+
+* **Đề bài:** d.keys(), d.values(), d.items()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** View objects.
+
+### Bài 24: update() Dict
+
+* **Đề bài:** d1.update(d2) - ghi đè key trùng..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Merge dict.
+
+### Bài 25: setdefault Dict
+
+* **Đề bài:** d.setdefault(k, []).append(x)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Group by key.
+
+### Bài 26: pop Dict
+
+* **Đề bài:** d.pop('x') trả giá trị rồi xóa..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Pop returns value.
+
+### Bài 27: Dict comp Dict
+
+* **Đề bài:** {x: x*x for x in range(5)}..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Comprehension.
+
+### Bài 28: Merge deep Dict
+
+* **Đề bài:** def merge(d1,d2): ... đệ quy merge nested..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Recursive merge.
+
+### Bài 29: Defaultdict Dict
+
+* **Đề bài:** defaultdict(list) - auto create list..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Auto init.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

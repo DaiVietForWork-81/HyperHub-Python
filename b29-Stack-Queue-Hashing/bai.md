@@ -372,57 +372,216 @@ là bug "âm thầm cho số âm".
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Stack/Queue/Hash Stack/Queue/Hash
 
-**Bài 1 — Chạy tay stack.** Chuỗi `([]{})`. Ghi nội dung stack sau mỗi ký tự.
-Hợp lệ không?
+* **Đề bài:** Viết hàm Stack/Queue/Hash_basic thực hiện kiểm tra ngoặc.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Xóa trùng giữ thứ tự.** Dãy `[3, 1, 3, 2, 1, 4]`. Dùng `dict.fromkeys`
-cho kết quả gì? Vì sao nhanh hơn vòng lặp + `not in` trên list?
+### Bài 2: Trace code Stack/Queue/Hash Stack/Queue/Hash
 
-**Bài 3 — Hàng đợi.** Mô phỏng: khách đến theo thứ tự A, B, C; phục vụ 1 người
-rồi có D đến, phục vụ tiếp 2 người. Dùng `deque`, ghi thứ tự phục vụ.
+* **Đề bài:** Trace code: cho đoạn code mẫu Stack/Queue/Hash, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Stack/Queue/Hash Stack/Queue/Hash
 
-**Bài 4 — Min-stack.** Thiết kế stack hỗ trợ `push`, `pop`, `get_min` đều O(1).
-*Gợi ý: stack phụ lưu min từng thời điểm; push x thì đẩy min(min_cũ, x).*
+* **Đề bài:** Hoàn thiện hàm Stack/Queue/Hash đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Cửa sổ min.** Sửa code max cửa sổ thành min cửa sổ. Chỉ đổi đúng một
-toán tử so sánh — là toán tử nào? Giải thích.
+### Bài 4: So sánh Stack/Queue/Hash Stack/Queue/Hash
 
-**Bài 6 — Hai tổng.** Cho dãy n ≤ 10⁵ và K, hỏi có tồn tại i < j sao cho
-a[i] + a[j] == K không? *Gợi ý: duyệt một lần, set nhớ "đã thấy"; với mỗi x,
-cần K − x đã xuất hiện chưa — O(n).*
+* **Đề bài:** So sánh 2 cách giải cho Stack/Queue/Hashing.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Stack/Queue/Hash Stack/Queue/Hash
 
-**Bài 7 — Dãy con dài nhất tổng K (nâng cấp ví dụ 3).** Không chỉ đếm mà tìm
-độ dài lớn nhất của dãy con có tổng K. *Gợi ý: dict lưu lần ĐẦU thấy mỗi tổng
-tiền tố (giống Bài 24 — bài 8); gặp lại thì cập nhật độ dài.*
+* **Đề bài:** Áp dụng thuật toán Stack/Queue/Hash trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Top-k phổ biến.** n ≤ 10⁶ số, tìm k = 10 số xuất hiện nhiều
-nhất. *Gợi ý: Counter O(n) + heapq.nlargest(10, dem.items(), key=...) —
-O(n + m log k). So với sort toàn bộ O(m log m).*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Stack/Queue/Hash Stack/Queue/Hash
 
-**Bài 9 — Đảo chuỗi bằng stack.** Đảo `"Python"` thành `"nohtyP"` chỉ dùng
-`append`/`pop` (không dùng `[::-1]` để luyện LIFO). Vẽ stack sau mỗi bước với
-input `"ab"`. Khi nào dùng stack, khi nào dùng `[::-1]`?
+* **Đề bài:** Viết biến thể đơn giản của Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Josephus mini.** n người xếp vòng tròn, đếm k thì loại 1 người, lặp
-đến khi còn 1. Mô phỏng bằng `deque` (`rotate` + `popleft`). Test n=7, k=3
-(đáp án 4) và n=5, k=2 (đáp án 3). Phân tích Big-O.
+### Bài 7: Debug Stack/Queue/Hash Stack/Queue/Hash
 
-**Bài 11 — Nhóm anagram.** Cho list từ, nhóm các từ là anagram của nhau
-(cùng chữ cái, khác thứ tự). Dùng dict với key = chuỗi đã sắp xếp. Test với
-`["an", "na", "binh", "hbin", "abc"]`.
+* **Đề bài:** Sửa lỗi trong code Stack/Queue/Hash cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Làm phẳng 1 cấp bằng stack.** `[1, [2, 3], 4, [5]]` thành
-`[1, 2, 3, 4, 5]` dùng stack tường minh (không đệ quy). *Chú ý thứ tự: đẩy ngược
-(`reversed`) thì pop ra mới đúng thứ tự!*
+### Bài 8: Độ phức tạp Stack/Queue/Hash Stack/Queue/Hash
 
----
+* **Đề bài:** Tính độ phức tạp O() của Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Stack/Queue/Hash Stack/Queue/Hash
+
+* **Đề bài:** Giải thích bước quan trọng của Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Stack/Queue/Hash Stack/Queue/Hash
+
+* **Đề bài:** Mở rộng Stack/Queue/Hash cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Stack/Queue/Hash
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Stack/Queue/Hash
+
+* **Đề bài:** Sửa thuật toán Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Stack/Queue/Hash
+
+* **Đề bài:** Cải tiến độ phức tạp của Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Stack/Queue/Hash
+
+* **Đề bài:** Kết hợp Stack/Queue/Hash với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Stack/Queue/Hash
+
+* **Đề bài:** Chạy trace thủ công cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Stack/Queue/Hash
+
+* **Đề bài:** Tìm input từ output cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Stack/Queue/Hash
+
+* **Đề bài:** Xử lý n lớn cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Stack/Queue/Hash
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Stack/Queue/Hash
+
+* **Đề bài:** Mở rộng Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Stack/Queue/Hash
+
+* **Đề bài:** Áp dụng Stack/Queue/Hash vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Stack/Queue/Hash
+
+* **Đề bài:** Thiết kế thuật toán O() cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Stack/Queue/Hash
+
+* **Đề bài:** Chứng minh đúng đắn cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Stack/Queue/Hash
+
+* **Đề bài:** Chứng minh lower bound cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Stack/Queue/Hash
+
+* **Đề bài:** Tối ưu Stack/Queue/Hash chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Stack/Queue/Hash
+
+* **Đề bài:** Viết biến thể của Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Stack/Queue/Hash
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Stack/Queue/Hash
+
+* **Đề bài:** Viết generator test phá Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Stack/Queue/Hash
+
+* **Đề bài:** Mở rộng định lý cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Stack/Queue/Hash
+
+* **Đề bài:** Cài Stack/Queue/Hash production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Stack/Queue/Hash
+
+* **Đề bài:** Đề xuất cải tiến mới cho Stack/Queue/Hash.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

@@ -463,65 +463,216 @@ if not (mask >> j & 1): ...  # chưa thăm → xét
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Bitmask DP Bitmask DP
 
-**Bài 1 — Bit tay.** mask = 0b10110 (22). Tính: bật bit 0, tắt bit 4, kiểm tra
-bit 2, `mask & -mask`, `mask & (mask-1)`, số bit 1. (Đáp án: 23, 6, có (=1),
-2, 20, 3.)
+* **Đề bài:** Viết hàm Bitmask DP_basic thực hiện DP bitmask TSP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Liệt kê.** n = 4, liệt kê mọi mask có đúng 2 bit 1 (C(4,2) = 6 mask).
-Viết vòng lặp + kiểm tra popcount.
+### Bài 2: Trace code Bitmask DP Bitmask DP
 
-**Bài 3 — TSP tay.** Ma trận ví dụ 3. Chạy tay dp: dp[{0,1}][1] = ?, dp[{0,1,3}][3]
-= ? (Đáp án: 10; min qua 1: 10+25 = 35.)
+* **Đề bài:** Trace code: cho đoạn code mẫu Bitmask DP, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Bitmask DP Bitmask DP
 
-**Bài 4 — Popcount nhanh.** Tiền xử lý mảng `pop[mask]` mọi mask < 2ⁿ trong
-O(2ⁿ) bằng truy hồi `pop[mask] = pop[mask >> 1] + (mask & 1)`. Cài + dùng cho
-phân công (thay `bin().count()`).
+* **Đề bài:** Hoàn thiện hàm Bitmask DP đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Chia nhóm chênh lệch bằng bitmask (ôn Bài 7).** n ≤ 20. So sánh 2
-cách: đệ quy quay lui vs duyệt mask + tính tổng bằng DP bit thấp
-(`tong[mask] = tong[mask ^ lowbit] + a[bit]`). Cài bản nhanh, đo thời gian.
+### Bài 4: So sánh Bitmask DP Bitmask DP
 
-**Bài 6 — Đếm tập con tổng S với n = 34.** Cài meet-in-the-middle hoàn chỉnh
-+ test với brute force ở n = 20 (so đáp án). *Chú ý tối ưu liệt kê (lỗi 5).*
+* **Đề bài:** So sánh 2 cách giải cho Bitmask.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Bitmask DP Bitmask DP
 
-**Bài 7 — TSP có deadline.** n ≤ 15 thành phố, mỗi thành phố có deadline d[i]
-(phải thăm không muộn hơn d[i], xuất phát giờ 0). Đường ngắn nhất thỏa deadline?
-*Gợi ý: dp[mask][i] = giờ đến SỚM nhất (thay vì đường ngắn nhất); chuyển chỉ
-khi đến ≤ deadline[j]. Đáp án min giờ về. Vì sao "sớm nhất" đúng mà "ngắn nhất"
-sai? (Đến sớm luôn tốt hơn cho tương lai — tính đơn điệu thời gian.)*
+* **Đề bài:** Áp dụng thuật toán Bitmask DP trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — SOS đếm cặp AND bằng 0.** Cho n ≤ 20 bit, mảng a (m ≤ 10⁵ số).
-Đếm cặp (i < j) sao cho (a[i] & a[j]) == 0. *Gợi ý: freq[mask] = số lần xuất
-hiện; SOS trên freq → g[mask] = số phần tử là tập con của mask; với mỗi x,
-số y sao cho x & y == 0 = g[~x & ((1<<n)−1)]; cộng dồn / 2 (đếm đôi) và trừ
-tự cặp (0 & 0 == 0 — cặp (i,i) bị tính!). O(n·2ⁿ + m).*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Bitmask DP Bitmask DP
 
-**Bài 9 — Khoảng cách Hamming.** Đếm số bit khác nhau giữa 2 số (XOR rồi đếm
-bit 1). Viết 3 cách (bin.count, bit_count, vòng lowbit) + test (0b10110 vs
-0b10001 → 3). Ứng dụng: so sánh chuỗi DNA, phát hiện lỗi truyền tin!
+* **Đề bài:** Viết biến thể đơn giản của Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Liệt kê tập con của mask.** Cho mask (ví dụ 0b1010), liệt kê mọi tập
-con bằng `sub = (sub-1) & mask`. Code + test (ra [0, 2, 8, 10]). Giải thích vì
-sao công thức này vét đúng hết mà không sót/trùng.
+### Bài 7: Debug Bitmask DP Bitmask DP
 
-**Bài 11 — TSP đường (không về).** Sửa code TSP (ví dụ 3): thăm hết n thành phố
-nhưng **không cần quay về** điểm xuất phát. Đáp án = min dp[full][i] (không cộng
-đường về). Code + test (ma trận cũ → 65, thay vì 80). Khi nào bản đường hữu ích
-hơn bản vòng? (Gợi ý: giao hàng 1 chiều!)
+* **Đề bài:** Sửa lỗi trong code Bitmask DP cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Mã Gray.** Sinh mọi số n bit sao cho 2 số liên tiếp khác đúng 1 bit,
-bằng công thức `g[i] = i ^ (i >> 1)`. Code + test (n=3 ra 8 số, kiểm tra tính
-kề). Ứng dụng thật: encoder quay (xoay 1 nấc chỉ đổi 1 bit → không đọc nhầm
-trạng thái trung gian!).
+### Bài 8: Độ phức tạp Bitmask DP Bitmask DP
 
----
+* **Đề bài:** Tính độ phức tạp O() của Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Bitmask DP Bitmask DP
+
+* **Đề bài:** Giải thích bước quan trọng của Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Bitmask DP Bitmask DP
+
+* **Đề bài:** Mở rộng Bitmask DP cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Bitmask DP
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Bitmask DP
+
+* **Đề bài:** Sửa thuật toán Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Bitmask DP
+
+* **Đề bài:** Cải tiến độ phức tạp của Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Bitmask DP
+
+* **Đề bài:** Kết hợp Bitmask DP với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Bitmask DP
+
+* **Đề bài:** Chạy trace thủ công cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Bitmask DP
+
+* **Đề bài:** Tìm input từ output cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Bitmask DP
+
+* **Đề bài:** Xử lý n lớn cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Bitmask DP
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Bitmask DP
+
+* **Đề bài:** Mở rộng Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Bitmask DP
+
+* **Đề bài:** Áp dụng Bitmask DP vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Bitmask DP
+
+* **Đề bài:** Thiết kế thuật toán O() cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Bitmask DP
+
+* **Đề bài:** Chứng minh đúng đắn cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Bitmask DP
+
+* **Đề bài:** Chứng minh lower bound cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Bitmask DP
+
+* **Đề bài:** Tối ưu Bitmask DP chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Bitmask DP
+
+* **Đề bài:** Viết biến thể của Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Bitmask DP
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Bitmask DP
+
+* **Đề bài:** Viết generator test phá Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Bitmask DP
+
+* **Đề bài:** Mở rộng định lý cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Bitmask DP
+
+* **Đề bài:** Cài Bitmask DP production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Bitmask DP
+
+* **Đề bài:** Đề xuất cải tiến mới cho Bitmask DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

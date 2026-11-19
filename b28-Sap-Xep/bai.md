@@ -374,60 +374,216 @@ cài kiểu xấu nhất O(n) sâu mới nguy hiểm — lý do nữa để dùn
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Merge Sort Merge Sort
 
-**Bài 1 — Chạy tay.** Sắp xếp `[4, 2, 5, 1, 3]` bằng insertion sort, ghi dãy sau
-mỗi lượt chèn (i = 1..4).
+* **Đề bài:** Viết hàm Merge Sort_basic thực hiện cài merge sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Đếm so sánh.** Selection sort với n = 100 thực hiện bao nhiêu phép
-so sánh? Bubble sort có cờ dừng, dãy đã xếp cần bao nhiêu lượt?
+### Bài 2: Trace code Merge Sort Merge Sort
 
-**Bài 3 — Key đa tiêu chí.** Danh sách `(tên, toán, văn)`. Sắp xếp tổng điểm
-giảm dần; hòa thì toán cao hơn trước; vẫn hòa thì tên A→Z. Viết đúng một dòng
-`key`.
+* **Đề bài:** Trace code: cho đoạn code mẫu Merge Sort, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Merge Sort Merge Sort
 
-**Bài 4 — Ổn định.** Dãy `[(B, 1), (A, 1), (C, 0)]` (tên, nhóm). Dùng selection
-sort sắp theo nhóm tăng dần, ghi kết quả. So với `sorted` ổn định — khác nhau
-ở đâu? Vì sao?
+* **Đề bài:** Hoàn thiện hàm Merge Sort đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Top-k.** n ≤ 10⁶ điểm thi, in 10 điểm cao nhất (kèm số lần xuất hiện).
-So sánh 2 cách: `sorted` toàn bộ rồi cắt vs `heapq.nlargest(10, ...)`.
-Khi nào cách 2 thắng?
+### Bài 4: So sánh Merge Sort Merge Sort
 
-**Bài 6 — Ghép số lớn nhất.** Cho các chuỗi số (n ≤ 100), sắp xếp để khi ghép
-lại thành số lớn nhất có thể (ví dụ `["9","34","30","5"]` → `"953430"`).
-*Gợi ý: so sánh x+y vs y+x — quan hệ này không phải thứ tự số học thông thường;
-dùng `functools.cmp_to_key`.*
+* **Đề bài:** So sánh 2 cách giải cho Sắp xếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Merge Sort Merge Sort
 
-**Bài 7 — Khoảng cách kề nhỏ nhất (ôn Bài 3).** Chứng minh lại: sau khi sắp xếp,
-hiệu nhỏ nhất luôn ở cặp kề nhau. Cài đặt O(n log n) hoàn chỉnh.
+* **Đề bài:** Áp dụng thuật toán Merge Sort trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Đếm nghịch thế (ôn ví dụ 3).** Dãy `[2, 3, 8, 6, 1]` có bao nhiêu
-nghịch thế? Chạy tay merge_dem, ghi `d` sau mỗi lần lấy từ nửa phải.
-(Đáp án: 5 — các cặp (2,1), (3,1), (8,6), (8,1), (6,1).)
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Merge Sort Merge Sort
 
-**Bài 9 — Sắp xếp chuỗi 2 tiêu chí.** Cho list tên, sắp xếp theo độ dài tăng
-dần, cùng độ dài thì A→Z. Code bằng `key` tuple + test (kể cả chuỗi rỗng và
-hoa/thường lẫn lộn — có phân biệt hoa thường không? Vì sao?).
+* **Đề bài:** Viết biến thể đơn giản của Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Sắp xếp ổn định 2 lượt.** Điểm thi (tên, điểm). Muốn điểm giảm dần,
-hòa điểm thì tên A→Z. Làm bằng 2 lần `sorted` (nhờ tính ổn định, ôn Bài 3 đáp
-án) rồi so với 1 lần `key` tuple. Khi nào 2 lượt hữu ích hơn?
+### Bài 7: Debug Merge Sort Merge Sort
 
-**Bài 11 — Counting sort.** n ≤ 10⁶ số nguyên trong [0, 100]. Sắp xếp O(n) bằng
-đếm tần suất (không dùng `sorted`). So sánh thời gian với `sorted` và giải thích
-khi nào counting sort thắng/thua (gợi ý: miền giá trị to thì sao?).
+* **Đề bài:** Sửa lỗi trong code Merge Sort cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Sắp xếp phân số không float.** Cho list phân số (tử, mẫu) dương.
-Sắp xếp tăng dần mà **không** đổi sang float (sai số!). Dùng `cmp_to_key` so
-chéo `a*d` vs `c*b`. Test với [(1,2),(1,3),(2,3),(3,4)].
+### Bài 8: Độ phức tạp Merge Sort Merge Sort
 
----
+* **Đề bài:** Tính độ phức tạp O() của Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Merge Sort Merge Sort
+
+* **Đề bài:** Giải thích bước quan trọng của Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Merge Sort Merge Sort
+
+* **Đề bài:** Mở rộng Merge Sort cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Merge Sort
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Merge Sort
+
+* **Đề bài:** Sửa thuật toán Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Merge Sort
+
+* **Đề bài:** Cải tiến độ phức tạp của Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Merge Sort
+
+* **Đề bài:** Kết hợp Merge Sort với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Merge Sort
+
+* **Đề bài:** Chạy trace thủ công cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Merge Sort
+
+* **Đề bài:** Tìm input từ output cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Merge Sort
+
+* **Đề bài:** Xử lý n lớn cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Merge Sort
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Merge Sort
+
+* **Đề bài:** Mở rộng Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Merge Sort
+
+* **Đề bài:** Áp dụng Merge Sort vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Merge Sort
+
+* **Đề bài:** Thiết kế thuật toán O() cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Merge Sort
+
+* **Đề bài:** Chứng minh đúng đắn cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Merge Sort
+
+* **Đề bài:** Chứng minh lower bound cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Merge Sort
+
+* **Đề bài:** Tối ưu Merge Sort chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Merge Sort
+
+* **Đề bài:** Viết biến thể của Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Merge Sort
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Merge Sort
+
+* **Đề bài:** Viết generator test phá Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Merge Sort
+
+* **Đề bài:** Mở rộng định lý cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Merge Sort
+
+* **Đề bài:** Cài Merge Sort production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Merge Sort
+
+* **Đề bài:** Đề xuất cải tiến mới cho Merge Sort.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

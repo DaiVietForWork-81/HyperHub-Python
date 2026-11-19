@@ -779,6 +779,110 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Local vs Global Scope
+
+* **Đề bài:** x=1; def f(): x=2; print(x); f(); print(x)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** LEGB.
+
+### Bài 22: nonlocal Scope
+
+* **Đề bài:** def outer(): x=1; def inner(): nonlocal x; x=2..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** nonlocal keyword.
+
+### Bài 24: Closure Scope
+
+* **Đề bài:** def make_adder(n): return lambda x: x+n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Closure captures.
+
+### Bài 25: Global mutability Scope
+
+* **Đề bài:** list.append() trong hàm không cần global..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mutable vs immutable.
+
+### Bài 26: Descriptor Scope
+
+* **Đề bài:** Viết class Property quản lý attribute..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** __get__/__set__.
+
+### Bài 27: __slots__ Scope
+
+* **Đề bài:** class A: __slots__=['x'] -> tiết kiệm memory..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Memory optimization.
+
+
+
+
+### Bài 21: Local vs Global Scope
+
+* **Đề bài:** x=1; def f(): x=2; print(x); f(); print(x)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** LEGB.
+
+### Bài 22: global Scope
+
+* **Đề bài:** x=1; def f(): global x; x=2..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** global keyword.
+
+### Bài 23: Built-in Scope
+
+* **Đề bài:** print(len) - built-in len()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Built-in scope.
+
+### Bài 24: nonlocal Scope
+
+* **Đề bài:** def outer(): x=1; def inner(): nonlocal x; x=2..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** nonlocal keyword.
+
+### Bài 25: Mutable default Scope
+
+* **Đề bài:** def f(x=[]): x.append(1); return x -> bug..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mutable default.
+
+### Bài 27: Closure Scope
+
+* **Đề bài:** def make_adder(n): return lambda x: x+n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Closure captures.
+
+### Bài 28: Descriptor Scope
+
+* **Đề bài:** class Property: __get__/__set__..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Descriptor protocol.
+
+### Bài 29: __slots__ Scope
+
+* **Đề bài:** class A: __slots__=['x'] -> tiết kiệm memory..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Memory optimization.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

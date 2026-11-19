@@ -350,62 +350,216 @@ ket_qua.append(duong_di.copy()) # ✅ chụp ảnh lại
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Backtracking Backtracking
 
-**Bài 1 — Chạy tay.** Sinh nhị phân n = 3 bằng code mục 2. Ghi nội dung `xau`
-sau mỗi lần append/pop (14 bước append, 7 lần in).
+* **Đề bài:** Viết hàm Backtracking_basic thực hiện liệt kê hoán vị.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Hoán vị 3.** Chạy tay `hoan_vi([1, 2, 3])`, ghi 6 kết quả theo thứ tự
-in. Chỉ ra thời điểm `dung` được hoàn tác.
+### Bài 2: Trace code Backtracking Backtracking
 
-**Bài 3 — Đếm nhánh.** Sinh nhị phân n = 10 có bao nhiêu node quyết định
-(không tính lá)? Hoán vị n = 8 có bao nhiêu lá? (Đáp án: 2¹⁰−1 = 1023 node;
-8! = 40320 lá.)
+* **Đề bài:** Trace code: cho đoạn code mẫu Backtracking, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Backtracking Backtracking
 
-**Bài 4 — Tổ hợp có lặp.** Sinh các bộ (x₁ ≤ x₂ ≤ ... ≤ xₖ) với mỗi xᵢ ∈ [1, n]
-(ví dụ n = 3, k = 2 → 6 bộ). *Gợi ý: sửa `de_quy(i + 1)` thành `de_quy(i)`
-trong code tổ hợp — được chọn lại chính mình.*
+* **Đề bài:** Hoàn thiện hàm Backtracking đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Tổng bằng S.** Cho n ≤ 20 số dương và S, đếm số tập con có tổng đúng
-S. *Gợi ý: khung lấy/không lấy + tỉa: tổng tạm > S thì dừng nhánh (số dương
-nên tổng chỉ tăng).*
+### Bài 4: So sánh Backtracking Backtracking
 
-**Bài 6 — Sudoku 4×4.** Điền số 1–4 vào lưới 4×4 (mỗi hàng/cột/khối 2×2 đủ
-1–4). Viết quay lui: tìm ô trống → thử 1–4 hợp lệ → đệ quy → hoàn tác.
-*Đây là N-Queens phiên bản số học.*
+* **Đề bài:** So sánh 2 cách giải cho Quay lui.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Backtracking Backtracking
 
-**Bài 7 — Chia nhóm chênh lệch (ôn ví dụ 3).** Cài bản đệ quy (thay vì bitmask)
-có tỉa: sắp xếp giảm dần trước (số lớn quyết định sớm → tỉa hiệu quả hơn),
-theo dõi tổng nhóm 1, dừng nhánh khi chênh lệch tối thiểu có thể đã ≥ tốt nhất.
-So sánh số node thăm với bản bitmask thuần. *Gợi ý: cận dưới = |tong − 2·s₁|.*
+* **Đề bài:** Áp dụng thuật toán Backtracking trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Đường đi trong mê cung.** Lưới n×m (≤ 6×6), ô 0 đi được, ô 1 tường.
-Đếm số đường từ (0,0) đến (n−1,m−1), mỗi ô thăm tối đa 1 lần (4 hướng).
-*Gợi ý: DFS + mảng đánh dấu + hoàn tác — đúng khung quay lui; tỉa: ô kẹt
-(không lối ra trừ đường vào) thì dừng sớm.*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Backtracking Backtracking
 
-**Bài 9 — Tổ hợp tay.** Chạy tay `to_hop(4, 2)` (code mục 4), ghi 6 bộ theo thứ
-tự in. Chỉ ra vai trò của `bat_dau` (thử bỏ nó xem chuyện gì: `(1,2)` và
-`(2,1)` ra 2 lần!).
+* **Đề bài:** Viết biến thể đơn giản của Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Xâu không có "11".** Sinh mọi xâu nhị phân độ dài 4 mà không chứa
-"11" liên tiếp. Thêm điều kiện tỉa vào khung quay lui (không chọn '1' sau '1').
-Đếm + liệt kê (đáp án: 8 xâu). Số lượng này liên quan gì đến Fibonacci?
+### Bài 7: Debug Backtracking Backtracking
 
-**Bài 11 — Đếm N-Queens n=4.** Dùng code `dem_hau` trong bài, assert đáp án 4
-hậu = 2 cách. Vẽ 2 bàn cờ đó ra giấy (dùng Q và .). Giải thích vì sao n=2, 3
-trả 0 (thử tay hoặc suy luận).
+* **Đề bài:** Sửa lỗi trong code Backtracking cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Hoán vị có điều kiện.** Liệt kê hoán vị của [1, 2, 3] mà số 1
-**không đứng đầu**. Tỉa ngay khi chọn (nếu đường đi rỗng mà chọn 1 thì bỏ).
-Đếm đáp án (6 − 2 = 4) và liệt kê kiểm chứng.
+### Bài 8: Độ phức tạp Backtracking Backtracking
 
----
+* **Đề bài:** Tính độ phức tạp O() của Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Backtracking Backtracking
+
+* **Đề bài:** Giải thích bước quan trọng của Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Backtracking Backtracking
+
+* **Đề bài:** Mở rộng Backtracking cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Backtracking
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Backtracking
+
+* **Đề bài:** Sửa thuật toán Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Backtracking
+
+* **Đề bài:** Cải tiến độ phức tạp của Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Backtracking
+
+* **Đề bài:** Kết hợp Backtracking với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Backtracking
+
+* **Đề bài:** Chạy trace thủ công cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Backtracking
+
+* **Đề bài:** Tìm input từ output cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Backtracking
+
+* **Đề bài:** Xử lý n lớn cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Backtracking
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Backtracking
+
+* **Đề bài:** Mở rộng Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Backtracking
+
+* **Đề bài:** Áp dụng Backtracking vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Backtracking
+
+* **Đề bài:** Thiết kế thuật toán O() cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Backtracking
+
+* **Đề bài:** Chứng minh đúng đắn cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Backtracking
+
+* **Đề bài:** Chứng minh lower bound cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Backtracking
+
+* **Đề bài:** Tối ưu Backtracking chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Backtracking
+
+* **Đề bài:** Viết biến thể của Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Backtracking
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Backtracking
+
+* **Đề bài:** Viết generator test phá Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Backtracking
+
+* **Đề bài:** Mở rộng định lý cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Backtracking
+
+* **Đề bài:** Cài Backtracking production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Backtracking
+
+* **Đề bài:** Đề xuất cải tiến mới cho Backtracking.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

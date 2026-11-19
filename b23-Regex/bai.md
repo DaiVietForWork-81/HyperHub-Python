@@ -299,55 +299,216 @@ if m:
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–4)
+### Bài 1: Cài đặt cơ bản Regex Regex
 
-**Bài 1 — search/match/fullmatch.** Với `"abc123"`, cho biết kết quả
-(`group()` hoặc `None`) của: `search(r"\d+")`, `match(r"\d+")`,
-`fullmatch(r"\d+")`, `match(r"[a-z]+")`, `fullmatch(r"[a-z]+\d+")`.
+* **Đề bài:** Viết hàm Regex_basic thực hiện trích xuất số điện thoại.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — findall số.** Từ `"Ngủ 8h, dậy 6h30, chạy 5km"`, trích mọi số
-(kể cả số thập phân? `[\d.]+` có bẫy gì với "6h30" — kiểm tra!).
+### Bài 2: Trace code Regex Regex
 
-**Bài 3 — Raw string.** Giải thích vì sao `"\b"` và `r"\b"` khác nhau (in thử
-`repr()` cả hai). Viết lại pattern tìm từ "cat" đứng riêng bằng raw string.
+* **Đề bài:** Trace code: cho đoạn code mẫu Regex, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-**Bài 4 — Lớp ký tự.** Viết pattern khớp: (a) mã lớp "10A1" (2 số + chữ hoa +
-số), (b) biển số "51F-1234" (2 số + chữ hoa + `-` + 4 số). Test cả case sai.
+### Bài 3: Điền khuyết Regex Regex
 
-### 🟡 Hiểu sâu (5–8)
+* **Đề bài:** Hoàn thiện hàm Regex đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Nhóm đặt tên.** Từ `"DT: 0912-345-678 (Viettel)"`, trích số và nhà
-mạng bằng 2 nhóm đặt tên. Code + test.
+### Bài 4: So sánh Regex Regex
 
-**Bài 6 — sub dọn văn bản.** `"Tôi   có    2   quả táo!!!"` → `"Tôi có 2 quả
-táo!"` (gộp khoảng trắng + gộp dấu `!` lặp). Dùng 2 lần `sub`. Test.
+* **Đề bài:** So sánh 2 cách giải cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-**Bài 7 — split đa dấu.** `"a, b; c  d\te"` tách thành từ (dấu `,;` khoảng trắng
-tab). So với `split()` thường (khi nào regex thắng?).
+### Bài 5: Áp dụng trực tiếp Regex Regex
 
-**Bài 8 — Tham lam vs lười.** Với `"<div><p>Hi</p></div>"`, so kết quả
-`<.+>` và `<.+?>`. Giải thích từng bước engine (tham lam nuốt hết rồi nhả).
+* **Đề bài:** Áp dụng thuật toán Regex trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-### 🔴 Vận dụng (9–12)
+### Bài 6: Biến thể đơn giản Regex Regex
 
-**Bài 9 — Validate CCCD.** CCCD 12 chữ số. Viết hàm kiểm tra (fullmatch +
-đúng 12 số). Test (đúng, thiếu số, thừa số, lẫn chữ). Mở rộng: tách 3 phần
-(tỉnh/huyện/xã theo quy ước? — tự đặt 3 nhóm `(\d{3})(\d{3})(\d{6})`).
+* **Đề bài:** Viết biến thể đơn giản của Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Tách bảng điểm.** Văn bản nhiều dòng `"Toan: 8.5, Van: 7"`.
-Trích dict {môn: điểm} bằng `findall` nhóm (môn là chữ, điểm là số thập phân).
-Test 3 môn.
+### Bài 7: Debug Regex Regex
 
-**Bài 11 — Chống ReDoS mini.** Pattern `(a+)+$` với chuỗi `"aaaa...ab"` (30 chữ
-a + b) — đo thời gian (sẽ rất chậm!). Giải thích backtracking bùng nổ và viết
-lại an toàn (`^a+$` + kiểm tra riêng). *Cảnh báo: đừng chạy với 50 chữ a!*
+* **Đề bài:** Sửa lỗi trong code Regex cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Mini project: dọn log.** File log các dòng `"[2026-01-01 10:00]
-USER An LOGIN"`. Viết chương trình đọc file, trích (ngày, giờ, user, hành động)
-bằng regex nhóm đặt tên, in bảng + đếm mỗi user login mấy lần (kết hợp
-Counter — ôn Bài 4 nhánh Thuật toán!).
+### Bài 8: Độ phức tạp Regex Regex
 
----
+* **Đề bài:** Tính độ phức tạp O() của Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Regex Regex
+
+* **Đề bài:** Giải thích bước quan trọng của Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Regex Regex
+
+* **Đề bài:** Mở rộng Regex cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Regex
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Regex
+
+* **Đề bài:** Sửa thuật toán Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Regex
+
+* **Đề bài:** Cải tiến độ phức tạp của Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Regex
+
+* **Đề bài:** Kết hợp Regex với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Regex
+
+* **Đề bài:** Chạy trace thủ công cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Regex
+
+* **Đề bài:** Tìm input từ output cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Regex
+
+* **Đề bài:** Xử lý n lớn cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Regex
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Regex
+
+* **Đề bài:** Mở rộng Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Regex
+
+* **Đề bài:** Áp dụng Regex vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Regex
+
+* **Đề bài:** Thiết kế thuật toán O() cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Regex
+
+* **Đề bài:** Chứng minh đúng đắn cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Regex
+
+* **Đề bài:** Chứng minh lower bound cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Regex
+
+* **Đề bài:** Tối ưu Regex chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Regex
+
+* **Đề bài:** Viết biến thể của Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Regex
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Regex
+
+* **Đề bài:** Viết generator test phá Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Regex
+
+* **Đề bài:** Mở rộng định lý cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Regex
+
+* **Đề bài:** Cài Regex production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Regex
+
+* **Đề bài:** Đề xuất cải tiến mới cho Regex.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

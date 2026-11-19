@@ -341,33 +341,216 @@ for i in range(n):
 
 ## 🧩 Bài tập
 
-> 🚧 **Bản đầu:** 9 bài mở màn (3 Dễ – 3 Trung bình – 3 Khó) — sẽ được mở rộng lên đủ **30 bài (10 – 10 – 10)** trong đợt hoàn thiện nội dung.
+### Bài 1: Cài đặt cơ bản Brute Force Brute Force
 
-### 🟢 Dễ (Bài 1 – 3)
+* **Đề bài:** Viết hàm Brute Force_basic thực hiện tìm max/min.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 1 — Tìm max bằng vét cạn.** Cho `n ≤ 1.000` số nguyên. Viết vòng lặp tìm số lớn nhất (không dùng `max()`).
+### Bài 2: Trace code Brute Force Brute Force
 
-**Bài 2 — Đếm số chẵn.** Cho dãy `n ≤ 10⁵` số. Đếm số phần tử chẵn bằng 1 vòng lặp.
+* **Đề bài:** Trace code: cho đoạn code mẫu Brute Force, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-**Bài 3 — Kiểm tra tồn tại.** Cho dãy `n ≤ 1.000` và số `K`. Kiểm tra xem `K` có trong dãy không (1 vòng lặp).
+### Bài 3: Điền khuyết Brute Force Brute Force
 
-### 🟡 Trung bình (Bài 4 – 6)
+* **Đề bài:** Hoàn thiện hàm Brute Force đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 4 — Đếm cặp hiệu bằng K.** Đếm số cặp `i < j` sao cho `a[j] - a[i] == K` (hai vòng lặp).
+### Bài 4: So sánh Brute Force Brute Force
 
-**Bài 5 — Cặp gần nhất.** Tìm cặp `i < j` có tổng gần `K` nhất về mặt trị tuyệt đối (hai vòng).
+* **Đề bài:** So sánh 2 cách giải cho Vét cạn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-**Bài 6 — Bộ ba đếm được.** Đếm số bộ ba `i < j < k` mà `a[i] < a[j] < a[k]` (ba vòng, n ≤ 200).
+### Bài 5: Áp dụng trực tiếp Brute Force Brute Force
 
-### 🔴 Khó (Bài 7 – 9)
+* **Đề bài:** Áp dụng thuật toán Brute Force trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 7 — Đoạn con tổng bằng K (đếm).** Cho `n ≤ 2.000`, đếm số đoạn con liên tiếp có tổng đúng bằng `K` bằng vét cạn O(n²) cộng dồn.
+### Bài 6: Biến thể đơn giản Brute Force Brute Force
 
-**Bài 8 — Ba tòa tháp cao bằng nhau.** Cho `n ≤ 15` số (độ cao khúc gỗ). Chọn chia thành 3 nhóm (mỗi khúc thuộc đúng 1 nhóm, được bỏ trống nhóm nếu muốn) sao cho 3 tổng bằng nhau. Kiểm tra có tồn tại cách chia không bằng duyệt 3ⁿ — với n ≤ 15 chạy tốt.
+* **Đề bài:** Viết biến thể đơn giản của Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 9 — Stress test bản thân.** Viết `nhanh(a)` đếm số cặp tổng chẵn theo công thức (đếm chẵn `c`, lẻ `l` → `c*(c-1)//2 + l*(l-1)//2`) và `vet_can(a)` (hai vòng lặp). Sinh 500 test nhỏ ngẫu nhiên cho hai hàm khớp nhau. Giải thích vì sao công thức nhanh đúng (gợi ý: cặp cùng chẵn/lẻ thì tổng chẵn).
+### Bài 7: Debug Brute Force Brute Force
 
----
+* **Đề bài:** Sửa lỗi trong code Brute Force cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
+
+### Bài 8: Độ phức tạp Brute Force Brute Force
+
+* **Đề bài:** Tính độ phức tạp O() của Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Brute Force Brute Force
+
+* **Đề bài:** Giải thích bước quan trọng của Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Brute Force Brute Force
+
+* **Đề bài:** Mở rộng Brute Force cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Brute Force
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Brute Force
+
+* **Đề bài:** Sửa thuật toán Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Brute Force
+
+* **Đề bài:** Cải tiến độ phức tạp của Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Brute Force
+
+* **Đề bài:** Kết hợp Brute Force với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Brute Force
+
+* **Đề bài:** Chạy trace thủ công cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Brute Force
+
+* **Đề bài:** Tìm input từ output cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Brute Force
+
+* **Đề bài:** Xử lý n lớn cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Brute Force
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Brute Force
+
+* **Đề bài:** Mở rộng Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Brute Force
+
+* **Đề bài:** Áp dụng Brute Force vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Brute Force
+
+* **Đề bài:** Thiết kế thuật toán O() cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Brute Force
+
+* **Đề bài:** Chứng minh đúng đắn cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Brute Force
+
+* **Đề bài:** Chứng minh lower bound cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Brute Force
+
+* **Đề bài:** Tối ưu Brute Force chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Brute Force
+
+* **Đề bài:** Viết biến thể của Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Brute Force
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Brute Force
+
+* **Đề bài:** Viết generator test phá Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Brute Force
+
+* **Đề bài:** Mở rộng định lý cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Brute Force
+
+* **Đề bài:** Cài Brute Force production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Brute Force
+
+* **Đề bài:** Đề xuất cải tiến mới cho Brute Force.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

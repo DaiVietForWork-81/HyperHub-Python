@@ -420,65 +420,216 @@ Tư duy phân rã + nhận diện mẫu không chỉ dùng trong thi:
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Phân rã bài toán Phân rã bài toán
 
-**Bài 1 — Lột vỏ câu chuyện.** Đề: "Bà Lan bán n rổ cam, rổ thứ i có a[i] quả.
-Bà muốn chọn một số rổ liên tiếp để số cam là nhiều nhất." Viết lại đề bằng
-ngôn ngữ Input/Output/Ràng buộc (giả sử n ≤ 10⁵, a[i] có thể âm). Không cần code.
+* **Đề bài:** Viết hàm Phân rã bài toán_basic thực hiện phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Dry run.** Cho pseudocode tính tổng dãy bằng vòng lặp. Chạy tay với
-`[5, -2, 7]`, ghi giá trị biến `tong` sau mỗi vòng lặp.
+### Bài 2: Trace code Phân rã bài toán Phân rã bài toán
 
-**Bài 3 — Bộ test tối thiểu.** Bài "tìm số lớn thứ hai trong dãy" (phân biệt).
-Liệt kê 5 test bạn sẽ tự tạo (ví dụ + 4 loại), kèm kết quả mong đợi.
+* **Đề bài:** Trace code: cho đoạn code mẫu Phân rã bài toán, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Phân rã bài toán Phân rã bài toán
 
-**Bài 4 — Nhận diện mẫu.** Mỗi đề sau thuộc mẫu nào (trong bảng mục 2b)?
-a) Dãy đã sắp xếp, đếm số lần xuất hiện của x.
-b) Chọn các công việc không trùng giờ để làm được nhiều nhất.
-c) Tính số Fibonacci thứ n với n ≤ 10¹⁸.
-d) Cho lưới ký tự, đếm số "ốc đảo" (vùng đất liền nhau).
+* **Đề bài:** Hoàn thiện hàm Phân rã bài toán đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Cặp tổng lẻ.** Sửa ví dụ 3: đếm cặp (i < j) sao cho a[i] + a[j] là
-số **lẻ**. Viết pseudocode + code O(n), chạy tay với `[1, 2, 3, 4, 5]` (đáp án: 6).
+### Bài 4: So sánh Phân rã bài toán Phân rã bài toán
 
-**Bài 6 — Đọc ràng buộc.** Đề A: n ≤ 10³, giới hạn 1 giây. Đề B: n ≤ 10⁶,
-giới hạn 1 giây. Với mỗi đề, thuật toán O(n²) có sống được không? Vì sao?
-(Giả sử máy chạy ~10⁸ phép tính đơn giản/giây. Chi tiết ở Bài 25.)
+* **Đề bài:** So sánh 2 cách giải cho Tư duy thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Phân rã bài toán Phân rã bài toán
 
-**Bài 7 — Số trội (nâng cao ví dụ 2).** Không dùng `Counter`, chỉ dùng O(1)
-bộ nhớ phụ (không dict, không list thêm): tìm phần tử xuất hiện hơn nửa dãy
-(nếu có). *Gợi ý: thuật toán bỏ phiếu — giữ một ứng viên và một bộ đếm;
-gặp giống ứng viên thì +1, khác thì −1; hết thì đổi ứng viên. Cuối cùng kiểm
-tra lại ứng viên.*
+* **Đề bài:** Áp dụng thuật toán Phân rã bài toán trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Đoạn 0-1 cân bằng.** Cho dãy nhị phân (chỉ gồm 0 và 1), tìm độ dài
-đoạn liên tiếp dài nhất có **số 0 bằng số 1**. *Gợi ý: đổi 0 thành −1, bài toán
-thành "đoạn dài nhất có tổng bằng 0"; dùng tổng tiền tố + dict lưu lần đầu
-thấy mỗi tổng (mẫu sẽ học ở Bài 33).*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Phân rã bài toán Phân rã bài toán
 
-**Bài 9 — Phân tích đề xe khách.** Đề: "Nhà xe có n chuyến, chuyến thứ i chở
-được a[i] khách và tốn xăng b[i] lít. Cần chở ít nhất K khách, tổng xăng ít
-nhất là bao nhiêu? Mỗi chuyến đi tối đa 1 lần." Viết Input/Output/Ràng buộc
-(giả sử n ≤ 20) + pseudocode. Không cần code chạy.
+* **Đề bài:** Viết biến thể đơn giản của Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Tìm bug bằng chạy tay.** Pseudocode tìm max: `lon_nhat = 0; với mỗi
-x: nếu x > lon_nhat: lon_nhat = x`. Chạy tay với `[−5, −2, −9]`, chỉ ra kết quả
-sai, giải thích vì sao, và sửa đúng 1 chỗ (khởi tạo).
+### Bài 7: Debug Phân rã bài toán Phân rã bài toán
 
-**Bài 11 — Đếm số lẻ không duyệt.** Đếm số lẻ trong đoạn [L, R] với
-L, R ≤ 10¹⁸ (không được duyệt từng số!). Viết công thức, pseudocode, code
-Python và test với [1, 10] → 5, [3, 7] → 3, [2, 2] → 0.
+* **Đề bài:** Sửa lỗi trong code Phân rã bài toán cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Vòng lặp vs công thức.** Tính tổng 1..n (n = 10⁷) bằng 2 cách:
-vòng lặp cộng dồn và công thức n(n+1)/2. Đo thời gian, tính tỉ số, giải thích
-vì sao chênh lệch và khi nào vòng lặp vẫn cần (gợi ý: tổng có điều kiện lạ).
+### Bài 8: Độ phức tạp Phân rã bài toán Phân rã bài toán
 
----
+* **Đề bài:** Tính độ phức tạp O() của Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Phân rã bài toán Phân rã bài toán
+
+* **Đề bài:** Giải thích bước quan trọng của Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Phân rã bài toán Phân rã bài toán
+
+* **Đề bài:** Mở rộng Phân rã bài toán cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Phân rã bài toán
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Phân rã bài toán
+
+* **Đề bài:** Sửa thuật toán Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Phân rã bài toán
+
+* **Đề bài:** Cải tiến độ phức tạp của Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Phân rã bài toán
+
+* **Đề bài:** Kết hợp Phân rã bài toán với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Phân rã bài toán
+
+* **Đề bài:** Chạy trace thủ công cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Phân rã bài toán
+
+* **Đề bài:** Tìm input từ output cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Phân rã bài toán
+
+* **Đề bài:** Xử lý n lớn cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Phân rã bài toán
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Phân rã bài toán
+
+* **Đề bài:** Mở rộng Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Phân rã bài toán
+
+* **Đề bài:** Áp dụng Phân rã bài toán vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Phân rã bài toán
+
+* **Đề bài:** Thiết kế thuật toán O() cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Phân rã bài toán
+
+* **Đề bài:** Chứng minh đúng đắn cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Phân rã bài toán
+
+* **Đề bài:** Chứng minh lower bound cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Phân rã bài toán
+
+* **Đề bài:** Tối ưu Phân rã bài toán chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Phân rã bài toán
+
+* **Đề bài:** Viết biến thể của Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Phân rã bài toán
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Phân rã bài toán
+
+* **Đề bài:** Viết generator test phá Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Phân rã bài toán
+
+* **Đề bài:** Mở rộng định lý cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Phân rã bài toán
+
+* **Đề bài:** Cài Phân rã bài toán production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Phân rã bài toán
+
+* **Đề bài:** Đề xuất cải tiến mới cho Phân rã bài toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

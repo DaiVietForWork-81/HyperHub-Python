@@ -342,61 +342,216 @@ while l < r:
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Binary Search Binary Search
 
-**Bài 1 — Chạy tay.** Dãy `[2, 5, 8, 12, 16, 23, 38, 56]`, tìm x = 23 bằng nhị
-phân. Ghi (l, r, mid, a[mid]) mỗi bước. Bao nhiêu bước?
+* **Đề bài:** Viết hàm Binary Search_basic thực hiện tìm kiếm nhị phân.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Đếm bước.** n = 10⁶. Tìm kiếm tuyến tính xấu nhất bao nhiêu bước?
-Nhị phân tối đa bao nhiêu bước? (Tính ⌈log₂10⁶⌉ ≈ 20.)
+### Bài 2: Trace code Binary Search Binary Search
 
-**Bài 3 — lower/upper.** Dãy `[1, 3, 3, 3, 5, 7]`. Tính `bisect_left` và
-`bisect_right` của 3, 4, 0, 9. Từ đó suy ra số lần xuất hiện của 3 và 4.
+* **Đề bài:** Trace code: cho đoạn code mẫu Binary Search, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Binary Search Binary Search
 
-**Bài 4 — Tự cài bisect.** Cài `my_bisect_right(a, x)` (vị trí chèn sau các
-phần tử ≤ x) dùng mẫu nửa khoảng, test với dãy có phần tử trùng và dãy rỗng.
+* **Đề bài:** Hoàn thiện hàm Binary Search đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Tìm điểm xoay.** Dãy tăng dần bị xoay (ví dụ `[4, 5, 6, 1, 2, 3]`),
-tìm x trong O(log n). *Gợi ý: ít nhất một nửa luôn sắp xếp; xác định nửa nào,
-kiểm tra x có nằm trong đó không.*
+### Bài 4: So sánh Binary Search Binary Search
 
-**Bài 6 — Căn bậc hai nguyên.** Tính ⌊√n⌋ với n ≤ 10¹⁸ bằng chặt nhị phân
-(không dùng `math.isqrt` để luyện tay). *Gợi ý: kiểm tra mid×mid ≤ n có đơn
-điệu không? Chú ý `mid*mid` có thể rất lớn — Python int vô hạn nên an toàn.*
+* **Đề bài:** So sánh 2 cách giải cho Tìm kiếm.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Binary Search Binary Search
 
-**Bài 7 — Chia kẹo biến thể.** n gói kẹo, chia cho m bạn, mỗi bạn nhận số viên
-bằng nhau **và mỗi bạn chỉ lấy từ đúng một gói, gói không được chia cho 2 bạn**
-(mỗi gói cho tối đa 1 bạn). Hỏi mỗi bạn được nhiều nhất bao nhiêu viên?
-*Gợi ý: hàm kiểm tra khác bài "chia kẹo" gốc — đếm số gói có a[i] ≥ K.*
+* **Đề bài:** Áp dụng thuật toán Binary Search trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Cặp có hiệu nhỏ nhất.** Cho dãy chưa sắp xếp (n ≤ 10⁵), tìm hiệu nhỏ
-nhất giữa hai phần tử phân biệt. *Gợi ý: sắp xếp O(n log n) rồi... hiệu nhỏ
-nhất nhất định nằm ở đâu trong dãy đã sắp xếp?*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Binary Search Binary Search
 
-**Bài 9 — Đếm điểm đạt.** Điểm thi đã sắp xếp tăng dần (n ≤ 10⁵). m ≤ 10⁵ truy
-vấn, mỗi truy vấn cho x, in số bạn đạt điểm ≥ x. Code bằng `bisect_left`, test
-với điểm mẫu và 3 truy vấn (kể cả x lớn hơn mọi điểm, x nhỏ hơn mọi điểm).
+* **Đề bài:** Viết biến thể đơn giản của Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Tìm chỗ treo máy.** Đoạn code nhị phân sai: `while l < r` với
-`l = mid` (thay vì `mid + 1`). Tìm input nhỏ nhất làm treo máy, giải thích vì
-sao kẹt, và sửa đúng 1 dòng.
+### Bài 7: Debug Binary Search Binary Search
 
-**Bài 11 — Photo 2 máy.** Hai máy photo: máy A photo 1 bản tốn x giây, máy B
-tốn y giây (làm song song). Cần n bản, thời gian ít nhất bao nhiêu? Chặt nhị
-phân đáp số T với hàm kiểm tra `T // x + T // y >= n`. Code + test
-(x=3, y=5, n=10 → 20).
+* **Đề bài:** Sửa lỗi trong code Binary Search cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Tìm đỉnh O(log n).** Dãy bất kỳ (phân biệt), "đỉnh" là phần tử lớn
-hơn cả 2 hàng xóm (đầu/cuối dãy chỉ cần lớn hơn 1 hàng xóm). Tìm 1 đỉnh trong
-O(log n) (không phải O(n) quét!). *Gợi ý: so a[mid] với a[mid+1] để quyết định
-bỏ nửa nào — luôn tồn tại đỉnh ở nửa giữ lại.*
+### Bài 8: Độ phức tạp Binary Search Binary Search
 
----
+* **Đề bài:** Tính độ phức tạp O() của Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Binary Search Binary Search
+
+* **Đề bài:** Giải thích bước quan trọng của Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Binary Search Binary Search
+
+* **Đề bài:** Mở rộng Binary Search cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Binary Search
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Binary Search
+
+* **Đề bài:** Sửa thuật toán Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Binary Search
+
+* **Đề bài:** Cải tiến độ phức tạp của Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Binary Search
+
+* **Đề bài:** Kết hợp Binary Search với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Binary Search
+
+* **Đề bài:** Chạy trace thủ công cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Binary Search
+
+* **Đề bài:** Tìm input từ output cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Binary Search
+
+* **Đề bài:** Xử lý n lớn cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Binary Search
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Binary Search
+
+* **Đề bài:** Mở rộng Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Binary Search
+
+* **Đề bài:** Áp dụng Binary Search vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Binary Search
+
+* **Đề bài:** Thiết kế thuật toán O() cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Binary Search
+
+* **Đề bài:** Chứng minh đúng đắn cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Binary Search
+
+* **Đề bài:** Chứng minh lower bound cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Binary Search
+
+* **Đề bài:** Tối ưu Binary Search chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Binary Search
+
+* **Đề bài:** Viết biến thể của Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Binary Search
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Binary Search
+
+* **Đề bài:** Viết generator test phá Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Binary Search
+
+* **Đề bài:** Mở rộng định lý cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Binary Search
+
+* **Đề bài:** Cài Binary Search production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Binary Search
+
+* **Đề bài:** Đề xuất cải tiến mới cho Binary Search.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

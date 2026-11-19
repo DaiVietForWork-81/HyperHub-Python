@@ -300,55 +300,216 @@ print(len(list(p)))   # 0 !!! (không báo lỗi, chỉ rỗng!)
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–4)
+### Bài 1: Cài đặt cơ bản Itertools Itertools
 
-**Bài 1 — Đếm trước khi liệt kê.** Tính tay (không code): P(5,3), C(5,3),
-2⁵ (product repeat=5), C(5+3−1,3). Rồi kiểm bằng `math.perm/comb` + `len(list(...))`.
+* **Đề bài:** Viết hàm Itertools_basic thực hiện liệt kê tổ hợp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Liệt kê mật khẩu.** Liệt kê mọi mật khẩu 2 ký tự từ "AB" (có lặp).
-In ra + đếm. Đổi thành không lặp (`permutations`) thì mất những mật khẩu nào?
+### Bài 2: Trace code Itertools Itertools
 
-**Bài 3 — groupby tay.** Chạy tay `groupby("aaabbc")`, ghi (key, nhóm) mỗi bước.
-Rồi chạy với `"ababa"` — giải thích vì sao 'a' không gộp. Sửa bằng `sorted`?
+* **Đề bài:** Trace code: cho đoạn code mẫu Itertools, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-**Bài 4 — accumulate.** Dùng `accumulate` tính: tổng dồn [1,2,3,4], tích dồn,
-max dồn. So với vòng lặp tay (khi nào accumulate thắng?).
+### Bài 3: Điền khuyết Itertools Itertools
 
-### 🟡 Hiểu sâu (5–8)
+* **Đề bài:** Hoàn thiện hàm Itertools đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Tổ hợp có lặp.** Liệt kê mọi cách đổi 5 đồng bằng xu [1,2,5] (thứ tự
-không quan trọng) bằng `combinations_with_replacement`. So đáp án với Bài 8
-nhóm DP (đếm cách đổi tiền) — liệt kê vs DP khác nhau chỗ nào?
+### Bài 4: So sánh Itertools Itertools
 
-**Bài 6 — Cặp kề.** Viết hàm kiểm tra dãy tăng nghiêm ngặt bằng `pairwise`
-(và bản `zip` cho Python 3.9). Test ([1,2,2,3] → False, [1,2,3] → True, [] → True).
+* **Đề bài:** So sánh 2 cách giải cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-**Bài 7 — Chuỗi con liên tiếp?** `combinations` KHÔNG sinh dãy con liên tiếp!
-Chứng minh bằng ví dụ ([1,2,3,4] chọn 2: combinations ra (1,3) không liên tiếp).
-Viết hàm sinh dãy con liên tiếp đúng (dùng range lồng nhau O(n²)).
+### Bài 5: Áp dụng trực tiếp Itertools Itertools
 
-**Bài 8 — islice + count.** In 10 số chẵn từ 0 bằng `islice(count(0, 2), 10)`
-(không `range`!). Rồi viết lịch xoay ca 3 người 10 ngày bằng `cycle` + `islice`.
+* **Đề bài:** Áp dụng thuật toán Itertools trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-### 🔴 Vận dụng (9–12)
+### Bài 6: Biến thể đơn giản Itertools Itertools
 
-**Bài 9 — TSP brute force.** Cài ví dụ 2 hoàn chỉnh, test ma trận 4 thành phố
-(đáp án 80 — ôn Bài 42!). Đo thời gian n = 10. Giải thích vì sao n = 12 chết.
+* **Đề bài:** Viết biến thể đơn giản của Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — PIN an toàn?** Đếm PIN 4 số phân biệt (P(10,4)) vs PIN 6 số bất kỳ
-(10⁶). Kẻ tấn công thử 10³ PIN/giây: bẻ mỗi loại mất bao lâu? Kết luận về độ
-dài vs không-lặp (bài học bảo mật thật!).
+### Bài 7: Debug Itertools Itertools
 
-**Bài 11 — Stars and bars kiểm chứng.** Với n ≤ 8, liệt kê mọi cách chia kẹo
-bằng `combinations_with_replacement` (mỗi bạn ≥ 1: đặt trước mỗi bạn 1 cái,
-chia n−k cái còn lại tự do!) rồi đếm, so với `math.comb(n−1, k−1)`.
+* **Đề bài:** Sửa lỗi trong code Itertools cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Stress test bằng product.** Viết stress test cho hàm sắp xếp: sinh
-mọi hoán vị của [1,2,3] bằng `permutations` + mọi list 3 phần tử từ {0,1} bằng
-`product`, assert `sorted(a) == my_sort(a)` (viết `my_sort` bằng insertion).
-Bao nhiêu test? (6 + 8 = 14 — nhỏ mà bao phủ biên tốt!)
+### Bài 8: Độ phức tạp Itertools Itertools
 
----
+* **Đề bài:** Tính độ phức tạp O() của Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Itertools Itertools
+
+* **Đề bài:** Giải thích bước quan trọng của Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Itertools Itertools
+
+* **Đề bài:** Mở rộng Itertools cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Itertools
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Itertools
+
+* **Đề bài:** Sửa thuật toán Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Itertools
+
+* **Đề bài:** Cải tiến độ phức tạp của Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Itertools
+
+* **Đề bài:** Kết hợp Itertools với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Itertools
+
+* **Đề bài:** Chạy trace thủ công cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Itertools
+
+* **Đề bài:** Tìm input từ output cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Itertools
+
+* **Đề bài:** Xử lý n lớn cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Itertools
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Itertools
+
+* **Đề bài:** Mở rộng Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Itertools
+
+* **Đề bài:** Áp dụng Itertools vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Itertools
+
+* **Đề bài:** Thiết kế thuật toán O() cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Itertools
+
+* **Đề bài:** Chứng minh đúng đắn cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Itertools
+
+* **Đề bài:** Chứng minh lower bound cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Itertools
+
+* **Đề bài:** Tối ưu Itertools chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Itertools
+
+* **Đề bài:** Viết biến thể của Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Itertools
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Itertools
+
+* **Đề bài:** Viết generator test phá Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Itertools
+
+* **Đề bài:** Mở rộng định lý cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Itertools
+
+* **Đề bài:** Cài Itertools production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Itertools
+
+* **Đề bài:** Đề xuất cải tiến mới cho Itertools.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

@@ -662,6 +662,124 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Modulo Toán tử
+
+* **Đề bài:** 10 % 3, 10 // 3, 2 ** 10..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** %, //, **.
+
+### Bài 22: Logic Toán tử
+
+* **Đề bài:** True and False, not True..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** and, or, not.
+
+### Bài 24: Bitwise Toán tử
+
+* **Đề bài:** 5 & 3, 5 | 3, 5 ^ 3, ~5..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** &, |, ^, ~.
+
+### Bài 25: So sánh chuỗi Toán tử
+
+* **Đề bài:** 'abc' < 'abd', '10' > '2'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh theo từ điển.
+
+### Bài 26: Overflow Toán tử
+
+* **Đề bài:** Giải thích tại sao 0.1 + 0.2 != 0.3..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** IEEE 754 float.
+
+### Bài 27: Short-circuit Toán tử
+
+* **Đề bài:** Viết f() and g() nơi f() trả False, g() không chạy..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Short-circuit evaluation.
+
+
+
+
+### Bài 21: Modulo Toán tử
+
+* **Đề bài:** 10 % 3, 10 // 3, 2 ** 10..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** %, //, **.
+
+### Bài 22: Logic Toán tử
+
+* **Đề bài:** True and False, not True..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** and, or, not.
+
+### Bài 23: Comparison Toán tử
+
+* **Đề bài:** 5 > 3, 5 >= 5, 'a' < 'b'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Comparison operators.
+
+### Bài 24: Bitwise Toán tử
+
+* **Đề bài:** 5 & 3, 5 | 3, 5 ^ 3, ~5..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** &, |, ^, ~.
+
+### Bài 25: String compare Toán tử
+
+* **Đề bài:** 'abc' < 'abd', '10' > '2'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Lexicographic.
+
+### Bài 26: Short-circuit Toán tử
+
+* **Đề bài:** True or print('hi') -> không in hi..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Short-circuit eval.
+
+### Bài 27: Overflow Toán tử
+
+* **Đề bài:** Giải thích tại sao 0.1 + 0.2 != 0.3..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** IEEE 754 float.
+
+### Bài 28: Short-circuit Toán tử
+
+* **Đề bài:** Viết f() and g() nơi f() trả False, g() không chạy..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Short-circuit eval.
+
+### Bài 29: Chained comparison Toán tử
+
+* **Đề bài:** 1 < x < 10 tương đương 1 < x and x < 10..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chained comparison.
+
+### Bài 30: Walrus Toán tử
+
+* **Đề bài:** if (n := len(s)) > 5: print(n)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Walrus operator 3.8+.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

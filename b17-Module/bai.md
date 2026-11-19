@@ -687,6 +687,117 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: import as Module
+
+* **Đề bài:** import math as m; m.sqrt(4)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Alias.
+
+### Bài 22: from import Module
+
+* **Đề bài:** from math import sqrt; sqrt(4)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Direct import.
+
+### Bài 24: __main__ Module
+
+* **Đề bài:** if __name__ == '__main__': test()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Entry point.
+
+### Bài 25: __all__ Module
+
+* **Đề bài:** __all__ = ['func1'] - kiểm soát import *..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Public API.
+
+### Bài 26: Reload Module
+
+* **Đề bài:** importlib.reload(module) - reload runtime..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hot reload.
+
+### Bài 27: Namespace pkg Module
+
+* **Đề bài:** pkg/__init__.py quản lý submodule..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Package structure.
+
+
+
+
+### Bài 21: import as Module
+
+* **Đề bài:** import math as m; m.sqrt(4)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Alias.
+
+### Bài 22: from import Module
+
+* **Đề bài:** from math import sqrt; sqrt(4)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Direct import.
+
+### Bài 23: __main__ Module
+
+* **Đề bài:** if __name__ == '__main__': test()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Entry point.
+
+### Bài 24: __all__ Module
+
+* **Đề bài:** __all__ = ['func1'] - kiểm soát import *..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Public API.
+
+### Bài 25: Package Module
+
+* **Đề bài:** pkg/__init__.py quản lý submodule..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Package structure.
+
+### Bài 26: Relative import Module
+
+* **Đề bài:** from . import sibling..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Relative import.
+
+### Bài 27: Reload Module
+
+* **Đề bài:** importlib.reload(module) - reload runtime..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hot reload.
+
+### Bài 28: Namespace pkg Module
+
+* **Đề bài:** pkg/__init__.py quản lý submodule..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Package structure.
+
+### Bài 29: Dynamic import Module
+
+* **Đề bài:** importlib.import_module('module_name')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Runtime import.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

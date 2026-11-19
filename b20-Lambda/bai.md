@@ -704,6 +704,117 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Lambda cơ bản Lambda
+
+* **Đề bài:** f = lambda x: x*2; f(3) -> 6..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** One-liner.
+
+### Bài 22: key=sorted Lambda
+
+* **Đề bài:** sorted(lst, key=lambda x: -x)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Key function.
+
+### Bài 24: map/filter Lambda
+
+* **Đề bài:** list(map(lambda x: x*2, lst))..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Functional.
+
+### Bài 25: lambda default Lambda
+
+* **Đề bài:** lambda x, y=10: x+y (default arg)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Late binding.
+
+### Bài 26: Partial Lambda
+
+* **Đề bài:** functools.partial(func, arg) -> fix arg..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Currying.
+
+### Bài 27: Closure lambda Lambda
+
+* **Đề bài:** def make_adder(n): return lambda x: x+n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Factory.
+
+
+
+
+### Bài 21: Lambda cơ bản Lambda
+
+* **Đề bài:** f = lambda x: x*2; f(3) -> 6..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** One-liner.
+
+### Bài 22: key=sorted Lambda
+
+* **Đề bài:** sorted(lst, key=lambda x: -x)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Key function.
+
+### Bài 23: lambda arg Lambda
+
+* **Đề bài:** lambda x, y=10: x+y (default arg)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Default arg.
+
+### Bài 24: map/filter Lambda
+
+* **Đề bài:** list(map(lambda x: x*2, lst))..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Functional.
+
+### Bài 25: lambda default Lambda
+
+* **Đề bài:** lambda x, y=10: x+y (default arg)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Late binding.
+
+### Bài 26: Reduce Lambda
+
+* **Đề bài:** functools.reduce(lambda a,b: a+b, lst)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Reduce.
+
+### Bài 27: Partial Lambda
+
+* **Đề bài:** functools.partial(func, arg) -> fix arg..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Currying.
+
+### Bài 28: Closure lambda Lambda
+
+* **Đề bài:** def make_adder(n): return lambda x: x+n..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Factory.
+
+### Bài 29: Callable Lambda
+
+* **Đề bài:** class C: __call__(self, x): return x+1..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Callable object.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

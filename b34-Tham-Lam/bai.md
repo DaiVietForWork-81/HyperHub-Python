@@ -347,68 +347,216 @@ viec.sort(key=lambda v: v[1])
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Greedy Greedy
 
-**Bài 1 — Chạy tay.** Việc: (1,4), (3,5), (0,6), (5,7), (8,9), (5,9). Xếp lịch
-tham lam: sort theo kết thúc, ghi việc được chọn và `het` sau mỗi bước.
+* **Đề bài:** Viết hàm Greedy_basic thực hiện đổi tiền.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Đổi tiền Việt.** S = 576 (nghìn), mệnh giá chuẩn Việt Nam. Chạy tay
-tham lam, ghi số tờ mỗi mệnh giá và tổng số tờ.
+### Bài 2: Trace code Greedy Greedy
 
-**Bài 3 — Phản ví dụ.** Mệnh giá [1, 3, 4], S = 6. Chạy tay tham lam (3 tờ) và
-chỉ ra đáp án tối ưu (2 tờ). Kết luận.
+* **Đề bài:** Trace code: cho đoạn code mẫu Greedy, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Greedy Greedy
 
-**Bài 4 — Nối cáp.** `[4, 3, 2, 6]`. Chạy tay heap từng bước (ghi heap + tổng),
-kiểm chứng đáp án 29.
+* **Đề bài:** Hoàn thiện hàm Greedy đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Lịch có lợi nhuận.** Mỗi việc (deadline, lợi nhuận), mỗi việc tốn 1
-đơn vị thời gian. n ≤ 10⁵, tối đa hóa lợi nhuận. *Gợi ý: sort lợi nhuận giảm
-dần; mỗi việc đặt vào slot trống muộn nhất ≤ deadline (dùng set các slot trống
-hoặc DSU). Vì sao tham lam này đúng?*
+### Bài 4: So sánh Greedy Greedy
 
-**Bài 6 — Số lượng trạm xăng.** D = 100, K = 30, trạm [20, 40, 50, 70, 90].
-Chạy tay thuật toán ví dụ 3. Đáp án mấy lần dừng? (Đáp án: 4 — 20? Không!
-Chạy đúng: từ 0 tầm tới 30 → xa nhất là 20 → từ 20 tầm tới 50 → xa nhất 50 →
-từ 50 tầm tới 80 → xa nhất 70 → từ 70 tầm tới 100 = D → dừng. Tổng 4 lần
-tại 20, 50, 70... kiểm lại: 0→20 (1), 20→50 (2), 50→70? tầm 50+30=80, xa nhất
-≤ 80 là 70 (3), 70+30=100 ≥ D → xong. Tổng **3 lần** tại 20, 50, 70.)
+* **Đề bài:** So sánh 2 cách giải cho Tham lam.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Greedy Greedy
 
-**Bài 7 — Phủ đoạn.** Cho đoạn [0, M] và n đoạn con [lᵢ, rᵢ]. Dùng ít đoạn con
-nhất để phủ kín [0, M] (được nối tiếp: đoạn sau bắt đầu ≤ điểm đang phủ tới).
-*Gợi ý: tham lam — trong các đoạn bắt đầu ≤ điểm phủ, chọn đoạn vươn xa nhất;
-lặp lại. Chứng minh bằng exchange như trạm xăng.*
+* **Đề bài:** Áp dụng thuật toán Greedy trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Xóa k chữ số.** Cho chuỗi số dài n ≤ 10⁵ và k, xóa đúng k chữ số để
-số còn lại **nhỏ nhất** (giữ thứ tự). *Gợi ý: stack đơn điệu — duyệt từng chữ
-số, trong khi k > 0 và đỉnh stack > chữ số hiện tại thì pop (xóa) đỉnh;
-đẩy chữ số hiện tại; cuối còn dư k thì cắt đuôi. Vì sao đúng? (Xóa chữ số trái
-lớn hơn chữ số phải luôn tốt hơn — exchange tại vị trí đầu tiên khác nhau.)*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Greedy Greedy
 
-**Bài 9 — Đổi tiền Mỹ.** Mệnh giá [1, 5, 10, 25], S = 63. Chạy tay tham lam,
-ghi số tờ mỗi loại + tổng. Chứng minh (miệng) vì sao mệnh giá Mỹ tham lam đúng
-nhưng [1, 3, 4] thì sai (gợi ý: 25 là bội của 5, 10 là bội của 5...).
+* **Đề bài:** Viết biến thể đơn giản của Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Số phòng họp tối thiểu.** n cuộc họp [bắt đầu, kết thúc). Cần ít
-nhất mấy phòng để không trùng? (KHÁC xếp lịch: ở đây được dùng nhiều phòng,
-muốn ít phòng nhất!) Dùng heap theo dõi giờ kết thúc. Test [(0,30),(5,10),
-(15,20)] → 2.
+### Bài 7: Debug Greedy Greedy
 
-**Bài 11 — Túi phân số (tham lam ĐÚNG).** n món (giá trị, khối lượng), túi chịu
-W, **được xẻ nhỏ** món. Tham lam theo tỉ số giá trị/khối lượng. Code + test
-([(60,10),(100,20),(120,30)], W=50 → 240). Đối chiếu Bài 4 mục 5: khác đúng 1
-chữ "xẻ được" mà đúng↔sai đảo ngược!
+* **Đề bài:** Sửa lỗi trong code Greedy cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Chứng minh phân kẹo.** Viết lập luận exchange 3–4 dòng cho bài phân
-kẹo (ví dụ 1): vì sao "em dễ tính nhất nhận gói vừa đủ nhỏ nhất" không bao giờ
-sai? (Gợi ý: giả sử đáp án tối ưu cho em đó gói to hơn → đổi sang gói nhỏ có
-hỏng gì không?)
+### Bài 8: Độ phức tạp Greedy Greedy
 
----
+* **Đề bài:** Tính độ phức tạp O() của Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Greedy Greedy
+
+* **Đề bài:** Giải thích bước quan trọng của Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Greedy Greedy
+
+* **Đề bài:** Mở rộng Greedy cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Greedy
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Greedy
+
+* **Đề bài:** Sửa thuật toán Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Greedy
+
+* **Đề bài:** Cải tiến độ phức tạp của Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Greedy
+
+* **Đề bài:** Kết hợp Greedy với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Greedy
+
+* **Đề bài:** Chạy trace thủ công cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Greedy
+
+* **Đề bài:** Tìm input từ output cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Greedy
+
+* **Đề bài:** Xử lý n lớn cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Greedy
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Greedy
+
+* **Đề bài:** Mở rộng Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Greedy
+
+* **Đề bài:** Áp dụng Greedy vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Greedy
+
+* **Đề bài:** Thiết kế thuật toán O() cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Greedy
+
+* **Đề bài:** Chứng minh đúng đắn cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Greedy
+
+* **Đề bài:** Chứng minh lower bound cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Greedy
+
+* **Đề bài:** Tối ưu Greedy chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Greedy
+
+* **Đề bài:** Viết biến thể của Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Greedy
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Greedy
+
+* **Đề bài:** Viết generator test phá Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Greedy
+
+* **Đề bài:** Mở rộng định lý cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Greedy
+
+* **Đề bài:** Cài Greedy production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Greedy
+
+* **Đề bài:** Đề xuất cải tiến mới cho Greedy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

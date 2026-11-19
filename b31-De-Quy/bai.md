@@ -342,58 +342,216 @@ Lệnh **trước** gọi đệ quy chạy khi "đi xuống"; lệnh **sau** ch�
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản Recursion Recursion
 
-**Bài 1 — Chạy tay ngăn xếp.** Vẽ ngăn xếp gọi và kết quả từng bước quay về
-của `giai_thua(4)`.
+* **Đề bài:** Viết hàm Recursion_basic thực hiện tính giai thừa.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Đảo chuỗi.** Viết `dao(s)` đệ quy trả chuỗi đảo ngược (không dùng
-`[::-1]` để luyện). Base là gì? Bước đệ quy là gì?
+### Bài 2: Trace code Recursion Recursion
 
-**Bài 3 — Đếm node.** Cây thư mục mini: root chứa file a, thư mục X (chứa file
-b, c). Dùng tư duy đệ quy đếm tổng số file (không code, viết pseudocode).
+* **Đề bài:** Trace code: cho đoạn code mẫu Recursion, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết Recursion Recursion
 
-**Bài 4 — Đếm bước fib naive.** Gọi C(n) là số cuộc gọi hàm khi tính `fib(n)`
-naive. Lập công thức truy hồi của C(n), tính C(6) bằng tay (đáp án: 25).
+* **Đề bài:** Hoàn thiện hàm Recursion đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Lũy thừa modulo.** Viết `pow_mod(x, n, m)` đệ quy O(log n) tính
-xⁿ mod m (n ≤ 10¹⁸, m ≤ 10⁹). *Chú ý: `(a*b) % m` an toàn trong Python
-(int vô hạn); lấy mod sau mỗi phép nhân để số không phình.*
+### Bài 4: So sánh Recursion Recursion
 
-**Bài 6 — Palindrome đệ quy.** Viết `doi_xung(s)` kiểm tra chuỗi đối xứng bằng
-đệ quy (so hai đầu, thu hẹp dần). Phân tích độ sâu đệ quy.
+* **Đề bài:** So sánh 2 cách giải cho Đệ quy.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp Recursion Recursion
 
-**Bài 7 — Tổ hợp C(n,k) đệ quy + memo.** Dùng công thức Pascal
-C(n,k) = C(n−1,k−1) + C(n−1,k) với base C(n,0) = C(n,n) = 1, thêm `lru_cache`.
-Tính C(100, 50) (kết quả ~10²⁹ — naive không memo sẽ treo). Giải thích vì sao
-memo cứu được (mỗi cặp (n,k) tính 1 lần → O(n·k)).
+* **Đề bài:** Áp dụng thuật toán Recursion trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Độ sâu an toàn.** Merge sort đệ quy sâu bao nhiêu với n = 10⁶?
-Duyệt list bằng đệ quy sâu bao nhiêu? Kết luận cái nào an toàn với limit 1000,
-cái nào phải viết vòng lặp.
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản Recursion Recursion
 
-**Bài 9 — Vẽ cây gọi fib(4).** Vẽ toàn bộ cây gọi của `fib(4)` naive (giống hình
-fib(5) trong bài), đếm số node. Kiểm chứng công thức C(4) = 9 ở Bài 3. Chỉ ra
-node nào bị tính lại nhiều nhất.
+* **Đề bài:** Viết biến thể đơn giản của Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Chẵn lẻ tương hỗ.** Viết `chan(n)`/`le(n)` gọi lẫn nhau
-(`chan(0) = True`, `le(0) = False`). Test n = 0..10. Cảnh báo: độ sâu đệ quy
-bao nhiêu với n = 10⁵? Sửa sao cho an toàn? (Gợi ý: `n % 2 == 0`.)
+### Bài 7: Debug Recursion Recursion
 
-**Bài 11 — Quicksort tay + bẫy.** Cài quicksort đệ quy (chọn pivot giữa, chia
-3 nhóm <, =, >). Test đúng. Rồi phân tích: input đã sắp xếp thì độ sâu và thời
-gian ra sao? Vì sao `sorted()` (Timsort) an toàn hơn quicksort tự cài?
+* **Đề bài:** Sửa lỗi trong code Recursion cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Liệt kê hoán vị chuỗi.** Liệt kê mọi hoán vị của `"abc"` (6 xâu)
-bằng đệ quy quay lui mini (chọn 1 ký tự + đệ quy phần còn lại). In theo thứ tự
-từ điển. Đếm số node lá của cây gọi với n = 4 (đáp án: 24 = 4!).
+### Bài 8: Độ phức tạp Recursion Recursion
 
----
+* **Đề bài:** Tính độ phức tạp O() của Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Recursion Recursion
+
+* **Đề bài:** Giải thích bước quan trọng của Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Recursion Recursion
+
+* **Đề bài:** Mở rộng Recursion cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Recursion
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Recursion
+
+* **Đề bài:** Sửa thuật toán Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Recursion
+
+* **Đề bài:** Cải tiến độ phức tạp của Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Recursion
+
+* **Đề bài:** Kết hợp Recursion với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Recursion
+
+* **Đề bài:** Chạy trace thủ công cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Recursion
+
+* **Đề bài:** Tìm input từ output cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Recursion
+
+* **Đề bài:** Xử lý n lớn cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Recursion
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Recursion
+
+* **Đề bài:** Mở rộng Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Recursion
+
+* **Đề bài:** Áp dụng Recursion vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Recursion
+
+* **Đề bài:** Thiết kế thuật toán O() cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Recursion
+
+* **Đề bài:** Chứng minh đúng đắn cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Recursion
+
+* **Đề bài:** Chứng minh lower bound cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Recursion
+
+* **Đề bài:** Tối ưu Recursion chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Recursion
+
+* **Đề bài:** Viết biến thể của Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Recursion
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Recursion
+
+* **Đề bài:** Viết generator test phá Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Recursion
+
+* **Đề bài:** Mở rộng định lý cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Recursion
+
+* **Đề bài:** Cài Recursion production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Recursion
+
+* **Đề bài:** Đề xuất cải tiến mới cho Recursion.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

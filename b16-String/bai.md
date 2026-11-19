@@ -627,6 +627,117 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: f-string String
+
+* **Đề bài:** f'{x:.2f}' format 2 chữ số..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Format spec.
+
+### Bài 22: split/join String
+
+* **Đề bài:** 'a,b,c'.split(',') -> list; '-'.join(lst)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Split/join.
+
+### Bài 24: replace String
+
+* **Đề bài:** 'hello'.replace('l','L') -> 'heLLo'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Replace all.
+
+### Bài 25: Regex String
+
+* **Đề bài:** re.sub(r'\d+', '*', 'a1b2') -> 'a*b*'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** re.sub.
+
+### Bài 26: Template String
+
+* **Đề bài:** string.Template('$x $y').substitute(x=1,y=2)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Safe subst.
+
+### Bài 27: Encoding String
+
+* **Đề bài:** s.encode('utf-8') -> bytes; b.decode('utf-8')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Bytes/str.
+
+
+
+
+### Bài 21: f-string String
+
+* **Đề bài:** f'{x:.2f}' format 2 chữ số..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Format spec.
+
+### Bài 22: split/join String
+
+* **Đề bài:** 'a,b,c'.split(',') -> list; '-'.join(lst)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Split/join.
+
+### Bài 23: strip String
+
+* **Đề bài:** '  a  '.strip() -> 'a'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Strip whitespace.
+
+### Bài 24: replace String
+
+* **Đề bài:** 'hello'.replace('l','L') -> 'heLLo'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Replace all.
+
+### Bài 25: Regex String
+
+* **Đề bài:** re.sub(r'\d+', '*', 'a1b2') -> 'a*b*'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** re.sub.
+
+### Bài 26: Format String
+
+* **Đề bài:** '{:>10}'.format(42) -> '        42'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Alignment.
+
+### Bài 27: Template String
+
+* **Đề bài:** string.Template('$x $y').substitute(x=1,y=2)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Safe subst.
+
+### Bài 28: Encoding String
+
+* **Đề bài:** s.encode('utf-8') -> bytes; b.decode('utf-8')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Bytes/str.
+
+### Bài 29: IO StringIO String
+
+* **Đề bài:** io.StringIO() - file-like string buffer..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** In-memory file.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

@@ -479,6 +479,124 @@ pip 26.1.2 from C:\Python314\Lib\site-packages\pip
 
 ---
 
+
+
+### Bài 21: Kiểm tra cài đặt Cài đặt
+
+* **Đề bài:** Chạy python --version và pip --version..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc output..
+
+### Bài 22: Hello World Cài đặt
+
+* **Đề bài:** Tạo file hello.py in 'Hello World'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy bằng python hello.py..
+
+### Bài 24: Virtual env Cài đặt
+
+* **Đề bài:** Tạo venv, kích hoạt, cài requests..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** python -m venv venv..
+
+### Bài 25: Requirements Cài đặt
+
+* **Đề bài:** Tạo requirements.txt từ pip freeze..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** pip freeze > requirements.txt.
+
+### Bài 26: Quản lý package Cài đặt
+
+* **Đề bài:** Viết script cài package từ requirements.txt tự động..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** subprocess.run pip install..
+
+### Bài 27: Đa phiên bản Cài đặt
+
+* **Đề bài:** Giải thích cách quản lý nhiều phiên bản Python (pyenv)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tìm hiểu pyenv..
+
+
+
+
+### Bài 21: Kiểm tra cài đặt Cài đặt
+
+* **Đề bài:** Chạy python --version và pip --version..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc output..
+
+### Bài 22: Hello World Cài đặt
+
+* **Đề bài:** Tạo file hello.py in 'Hello World'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy bằng python hello.py..
+
+### Bài 23: Thử pip Cài đặt
+
+* **Đề bài:** Chạy pip list để xem các thư viện có sẵn..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** pip list.
+
+### Bài 24: Virtual env Cài đặt
+
+* **Đề bài:** Tạo venv, kích hoạt, cài requests..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** python -m venv venv..
+
+### Bài 25: Requirements Cài đặt
+
+* **Đề bài:** Tạo requirements.txt từ pip freeze..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** pip freeze > requirements.txt.
+
+### Bài 26: Pip upgrade Cài đặt
+
+* **Đề bài:** Nâng cấp pip lên phiên bản mới nhất..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** python -m pip install --upgrade pip.
+
+### Bài 27: Quản lý package Cài đặt
+
+* **Đề bài:** Viết script cài package từ requirements.txt tự động..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** subprocess.run pip install..
+
+### Bài 28: Đa phiên bản Cài đặt
+
+* **Đề bài:** Giải thích cách quản lý nhiều phiên bản Python (pyenv)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tìm hiểu pyenv..
+
+### Bài 29: Virtualenv so sánh Cài đặt
+
+* **Đề bài:** So sánh venv vs virtualenv vs conda..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu/nhược điểm.
+
+### Bài 30: Dockerfile Cài đặt
+
+* **Đề bài:** Viết Dockerfile cài Python + requirements.txt..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** FROM python:3.10-slim.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

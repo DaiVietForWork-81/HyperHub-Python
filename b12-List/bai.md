@@ -834,6 +834,124 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Tạo list List
+
+* **Đề bài:** ds = [1,2,3] + [4,5]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nối list.
+
+### Bài 22: Index List
+
+* **Đề bài:** ds[-1], ds[1:3], ds[::-1]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Index âm, slice.
+
+### Bài 24: Mutability List
+
+* **Đề bài:** a=[1,2]; b=a; b.append(3); print(a)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham chiếu.
+
+### Bài 25: Sort vs sorted List
+
+* **Đề bài:** ds.sort() vs sorted(ds)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** In-place vs new list.
+
+### Bài 26: List comp List
+
+* **Đề bài:** Ma trận 3x3: [[0]*3 for _ in range(3)]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nested comprehension.
+
+### Bài 27: Sort key List
+
+* **Đề bài:** sorted(ds, key=lambda x: (x[1], -x[0]))..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tuple key.
+
+
+
+
+### Bài 21: Tạo list List
+
+* **Đề bài:** ds = [1,2,3] + [4,5]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nối list.
+
+### Bài 22: Index List
+
+* **Đề bài:** ds[-1], ds[1:3], ds[::-1]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Index âm, slice.
+
+### Bài 23: append List
+
+* **Đề bài:** ds.append(4) -> [1,2,3,4]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Append one.
+
+### Bài 24: Mutability List
+
+* **Đề bài:** a=[1,2]; b=a; b.append(3); print(a)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham chiếu.
+
+### Bài 25: Sort vs sorted List
+
+* **Đề bài:** ds.sort() vs sorted(ds)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** In-place vs new list.
+
+### Bài 26: Copy List
+
+* **Đề bài:** b = a.copy() hoặc b = a[:]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Shallow copy.
+
+### Bài 27: List comp List
+
+* **Đề bài:** Ma trận 3x3: [[0]*3 for _ in range(3)]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nested comprehension.
+
+### Bài 28: Sort key List
+
+* **Đề bài:** sorted(ds, key=lambda x: (x[1], -x[0]))..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tuple key.
+
+### Bài 29: Heapq List
+
+* **Đề bài:** import heapq; heapq.heappush/pop..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Priority queue.
+
+### Bài 30: Deque List
+
+* **Đề bài:** from collections import deque; dq.appendleft(1)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Double-ended queue.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

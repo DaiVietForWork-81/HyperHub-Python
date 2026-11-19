@@ -580,6 +580,131 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: In ra thông tin Python cơ bản
+
+* **Đề bài:** Viết chương trình in ra tên, tuổi, lớp của bạn..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng print() nhiều lần..
+
+### Bài 22: Tính tuổi Python cơ bản
+
+* **Đề bài:** Nhập năm sinh, in ra tuổi hiện tại..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng 2024 - năm_sinh..
+
+### Bài 23: Chào hỏi Python cơ bản
+
+* **Đề bài:** Nhập tên, in 'Xin chào [tên]!'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng input() và f-string..
+
+### Bài 24: Máy tính đơn giản Python cơ bản
+
+* **Đề bài:** Nhập 2 số, in ra tổng, hiệu, tích, thương..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng float() và các phép toán..
+
+### Bài 25: Đổi đơn vị Python cơ bản
+
+* **Đề bài:** Nhập số mét, in ra cm, km..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nhân 100 cho cm, chia 1000 cho km..
+
+### Bài 26: Tìm ước chung lớn nhất Python cơ bản
+
+* **Đề bài:** Nhập 2 số, tìm UCLN (không dùng math.gcd)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thuật toán Euclid..
+
+### Bài 27: Số nguyên tố Python cơ bản
+
+* **Đề bài:** Kiểm tra số n có phải nguyên tố không (O(√n))..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Duyệt từ 2 đến √n..
+
+
+
+
+### Bài 21: In ra thông tin Python cơ bản
+
+* **Đề bài:** Viết chương trình in ra tên, tuổi, lớp của bạn..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng print() nhiều lần..
+
+### Bài 22: Tính tuổi Python cơ bản
+
+* **Đề bài:** Nhập năm sinh, in ra tuổi hiện tại..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng 2024 - năm_sinh..
+
+### Bài 23: Chào hỏi Python cơ bản
+
+* **Đề bài:** Nhập tên, in 'Xin chào [tên]!'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng input() và f-string..
+
+### Bài 24: Máy tính đơn giản Python cơ bản
+
+* **Đề bài:** Nhập 2 số, in ra tổng, hiệu, tích, thương..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng float() và các phép toán..
+
+### Bài 25: Đổi đơn vị Python cơ bản
+
+* **Đề bài:** Nhập số mét, in ra cm, km..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nhân 100 cho cm, chia 1000 cho km..
+
+### Bài 26: Hộp số Python cơ bản
+
+* **Đề bài:** Nhập 3 số, in ra số lớn nhất, nhỏ nhất, trung bình..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng max(), min(), sum()/3..
+
+### Bài 27: Tìm ước chung lớn nhất Python cơ bản
+
+* **Đề bài:** Nhập 2 số, tìm UCLN (không dùng math.gcd)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thuật toán Euclid..
+
+### Bài 28: Số nguyên tố Python cơ bản
+
+* **Đề bài:** Kiểm tra số n có phải nguyên tố không (O(√n))..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Duyệt từ 2 đến √n..
+
+### Bài 29: Fibonacci Python cơ bản
+
+* **Đề bài:** In 20 số Fibonacci đầu tiên (không đệ quy)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng vòng lặp a, b = b, a+b..
+
+### Bài 30: Bảng cửu chương Python cơ bản
+
+* **Đề bài:** In bảng cửu chương 2-9 (dùng nested loop)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nested loop range(2,10) và range(1,10)..
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

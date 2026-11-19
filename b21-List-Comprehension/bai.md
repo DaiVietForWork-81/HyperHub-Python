@@ -655,6 +655,117 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: Basic ListComp
+
+* **Đề bài:** [x*2 for x in range(5)] -> [0,2,4,6,8]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Basic syntax.
+
+### Bài 22: Filter ListComp
+
+* **Đề bài:** [x for x in lst if x%2==0]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Filter clause.
+
+### Bài 24: Nested ListComp
+
+* **Đề bài:** [[i*j for j in range(3)] for i in range(3)]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Matrix.
+
+### Bài 25: Dict comp ListComp
+
+* **Đề bài:** {x: x*x for x in range(5)}..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dict comprehension.
+
+### Bài 26: Walrus ListComp
+
+* **Đề bài:** [y for x in data if (y:=f(x)) > 0]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Walrus operator.
+
+### Bài 27: Flatten ListComp
+
+* **Đề bài:** [x for row in matrix for x in row]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Flatten 2D.
+
+
+
+
+### Bài 21: Basic ListComp
+
+* **Đề bài:** [x*2 for x in range(5)] -> [0,2,4,6,8]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Basic syntax.
+
+### Bài 22: Filter ListComp
+
+* **Đề bài:** [x for x in lst if x%2==0]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Filter clause.
+
+### Bài 23: If-else ListComp
+
+* **Đề bài:** ['chẵn' if x%2==0 else 'lẻ' for x in lst]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** If-else expr.
+
+### Bài 24: Nested ListComp
+
+* **Đề bài:** [[i*j for j in range(3)] for i in range(3)]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Matrix.
+
+### Bài 25: Dict comp ListComp
+
+* **Đề bài:** {x: x*x for x in range(5)}..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dict comprehension.
+
+### Bài 26: Set comp ListComp
+
+* **Đề bài:** {x for x in lst if x>0}..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Set comprehension.
+
+### Bài 27: Walrus ListComp
+
+* **Đề bài:** [y for x in data if (y:=f(x)) > 0]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Walrus operator.
+
+### Bài 28: Flatten ListComp
+
+* **Đề bài:** [x for row in matrix for x in row]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Flatten 2D.
+
+### Bài 29: Generator ListComp
+
+* **Đề bài:** (x*x for x in range(5)) -> generator..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Gen expression.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

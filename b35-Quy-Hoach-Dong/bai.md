@@ -399,60 +399,216 @@ for c in range(w[i], W + 1):
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản DP DP
 
-**Bài 1 — Bậc thang biến thể.** Mỗi bước đi 1, 2 hoặc 3 bậc. Viết truy hồi +
-code O(n). Tính dp[4] tay (đáp án: 7 — 1111, 112, 121, 211, 22, 13, 31).
+* **Đề bài:** Viết hàm DP_basic thực hiện bậc thang DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — Top-down vs bottom-up.** Viết `fib` cả hai cách (lru_cache và vòng
-lặp lăn mảng). Đo thời gian n = 10.000, giải thích chênh lệch.
+### Bài 2: Trace code DP DP
 
-**Bài 3 — Dãy con liên tiếp tổng lớn nhất (ôn Bài 1).** Viết lại bằng ngôn ngữ
-DP: định nghĩa dp[i], truy hồi, base. (Đáp án: dp[i] = tổng lớn nhất của đoạn
-kết thúc tại i; dp[i] = max(a[i], dp[i−1] + a[i]).)
+* **Đề bài:** Trace code: cho đoạn code mẫu DP, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết DP DP
 
-**Bài 4 — Edit distance.** Biến xâu s thành t bằng chèn/xóa/thay (mỗi phép tốn
-1). Viết truy hồi dp[i][j] + code lăn mảng. Test "kitten" → "sitting" (đáp án 3).
+* **Đề bài:** Hoàn thiện hàm DP đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Túi unbounded.** Mỗi món lấy **nhiều lần** tùy thích. Sửa code túi 0/1
-thành unbounded (đổi chiều vòng lặp!) và giải thích vì sao một chiều vòng lặp
-đổi cả bài toán.
+### Bài 4: So sánh DP DP
 
-**Bài 6 — LIS O(n log n).** Duy trì mảng `duoi` (đuôi nhỏ nhất của LIS độ dài
-k+1); mỗi a[i] nhị phân tìm vị trí thay thế. Cài đặt + test. Giải thích vì sao
-`duoi` luôn tăng (bất biến cốt lõi).
+* **Đề bài:** So sánh 2 cách giải cho Quy hoạch động.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp DP DP
 
-**Bài 7 — Xâu con đối xứng (ôn ví dụ 3).** Cài + test với "character" (LPS = 5:
-"carac"). Sau đó truy vết in ra xâu đối xứng (dùng bảng dp đầy đủ, không lăn).
+* **Đề bài:** Áp dụng thuật toán DP trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Chia kẹo công bằng (partition).** n ≤ 100, a[i] ≤ 10³. Hỏi có chia
-được 2 nhóm bằng nhau không? *Gợi ý: DP túi — dp[s] = có tạo được tổng s?
-dp[s] |= dp[s − a[i]] (duyệt ngược!); đáp án dp[tong//2] khi tổng chẵn.
-O(n·tổng) — "giả đa thức", đủ với tổng ≤ 10⁵.*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản DP DP
 
-**Bài 9 — Chạy tay DP đổi tiền.** Mệnh giá [1, 3, 4], S = 6. Điền tay dp[0..6]
-theo truy hồi `dp[x] = 1 + min(dp[x−c])` (dp[0] = 0). Ghi bảng đầy đủ và chỉ ra
-dp[6] = 2 ứng với cách đổi nào.
+* **Đề bài:** Viết biến thể đơn giản của DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Đếm cách đổi (khác ít tờ nhất!).** Vẫn mệnh giá và S, nhưng đếm **số
-cách** đổi (thứ tự không quan trọng). DP: `dp[x] += dp[x−c]` duyệt mệnh giá
-ngoài, số tiền trong. Code + test (S=5, [1,2,5] → 4; S=6, [1,3,4] → 4). Giải
-thích vì sao đảo vòng lặp (tiền ngoài, mệnh giá trong) sẽ đếm trùng do thứ tự!
+### Bài 7: Debug DP DP
 
-**Bài 11 — Tổng lớn nhất dãy con tăng.** Giống LIS nhưng tối đa **tổng** thay vì
-độ dài: `dp[i] = a[i] + max(dp[j])` với j < i, a[j] < a[i]. Code O(n²) + test
-([1,101,2,3,100,4,5] → 106). Chỉ ra ví dụ mà LIS dài nhất ≠ tổng lớn nhất.
+* **Đề bài:** Sửa lỗi trong code DP cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Truy vết edit distance.** Mở rộng Bài 4: không chỉ in số phép mà in
-ra **từng phép** (thay/chèn/xóa gì). Đi ngược bảng dp từ (n,m) về (0,0). Code +
-test ("kitten" → "sitting" in đúng 3 phép: thay k→s, thay e→i, chèn g).
+### Bài 8: Độ phức tạp DP DP
 
----
+* **Đề bài:** Tính độ phức tạp O() của DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu DP DP
+
+* **Đề bài:** Giải thích bước quan trọng của DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng DP DP
+
+* **Đề bài:** Mở rộng DP cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ DP
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể DP
+
+* **Đề bài:** Sửa thuật toán DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa DP
+
+* **Đề bài:** Cải tiến độ phức tạp của DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp DP
+
+* **Đề bài:** Kết hợp DP với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp DP
+
+* **Đề bài:** Chạy trace thủ công cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược DP
+
+* **Đề bài:** Tìm input từ output cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn DP
+
+* **Đề bài:** Xử lý n lớn cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế DP
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng DP
+
+* **Đề bài:** Mở rộng DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế DP
+
+* **Đề bài:** Áp dụng DP vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán DP
+
+* **Đề bài:** Thiết kế thuật toán O() cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh DP
+
+* **Đề bài:** Chứng minh đúng đắn cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới DP
+
+* **Đề bài:** Chứng minh lower bound cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn DP
+
+* **Đề bài:** Tối ưu DP chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu DP
+
+* **Đề bài:** Viết biến thể của DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao DP
+
+* **Đề bài:** Kết hợp 3 thuật toán cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng DP
+
+* **Đề bài:** Viết generator test phá DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết DP
+
+* **Đề bài:** Mở rộng định lý cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production DP
+
+* **Đề bài:** Cài DP production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở DP
+
+* **Đề bài:** Đề xuất cải tiến mới cho DP.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

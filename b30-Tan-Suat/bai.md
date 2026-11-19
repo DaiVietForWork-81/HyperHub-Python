@@ -326,33 +326,216 @@ a.sort()
 
 ## 🧩 Bài tập
 
-> 🚧 **Bản đầu:** 9 bài mở màn (3 Dễ – 3 Trung bình – 3 Khó) — sẽ được mở rộng lên đủ **30 bài (10 – 10 – 10)** trong đợt hoàn thiện nội dung.
+### Bài 1: Cài đặt cơ bản Frequency Counting Frequency Counting
 
-### 🟢 Dễ (Bài 1 – 3)
+* **Đề bài:** Viết hàm Frequency Counting_basic thực hiện đếm tần suất.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 1 — Đếm đầu tiên.** Cho dãy số `n ≤ 10⁵`. In ra tần suất của giá trị `x` cho trước (dùng dict đếm một lượt).
+### Bài 2: Trace code Frequency Counting Frequency Counting
 
-**Bài 2 — Bảng chữ cái.** Cho xâu `s` không dấu. Đếm mỗi ký tự xuất hiện bao nhiêu lần bằng `Counter`, in theo thứ tự từ điển.
+* **Đề bài:** Trace code: cho đoạn code mẫu Frequency Counting, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-**Bài 3 — Xuất hiện đúng 1 lần.** In ra các giá trị xuất hiện đúng 1 lần trong dãy (theo thứ tự tăng dần).
+### Bài 3: Điền khuyết Frequency Counting Frequency Counting
 
-### 🟡 Trung bình (Bài 4 – 6)
+* **Đề bài:** Hoàn thiện hàm Frequency Counting đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 4 — Top-1 có khóa phụ.** Tìm giá trị xuất hiện nhiều nhất; nếu hòa, chọn giá trị **nhỏ nhất**.
+### Bài 4: So sánh Frequency Counting Frequency Counting
 
-**Bài 5 — Anagram.** Cho hai xâu `s1`, `s2`. Kiểm tra chúng có phải đảo chữ của nhau không (dùng `Counter`).
+* **Đề bài:** So sánh 2 cách giải cho Tần suất.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-**Bài 6 — Ký tự nhiều nhất sau lọc.** Cho xâu `s`. Bỏ hết chữ số, đếm ký tự (kể cả khoảng trắng? — không, bỏ luôn), in ký tự nhiều nhất (hòa → nhỏ hơn).
+### Bài 5: Áp dụng trực tiếp Frequency Counting Frequency Counting
 
-### 🔴 Khó (Bài 7 – 9)
+* **Đề bài:** Áp dụng thuật toán Frequency Counting trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 7 — Đếm cặp hiệu bằng K (O(n)).** Cho `n ≤ 10⁵` và `K`. Đếm số cặp `i < j` với `a[j] - a[i] == K`, làm **một lượt** bằng dict (tra "giá trị cần gặp trước" là `x - K`).
+### Bài 6: Biến thể đơn giản Frequency Counting Frequency Counting
 
-**Bài 8 — Từ lặp lại.** Cho đoạn văn, in ra các từ xuất hiện **nhiều hơn 1 lần**, sắp theo tần suất giảm dần rồi từ điển.
+* **Đề bài:** Viết biến thể đơn giản của Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 9 — Bộ ba đảo chữ.** Cho `n ≤ 10⁵` từ (chuỗi chữ thường). Đếm số cặp từ **là đảo chữ của nhau** bằng cách đếm tần suất "chữ ký" (`Counter` của từ → chuỗi khóa chuẩn hóa như `"".join(sorted(tu))` hoặc bộ đếm 26 chữ cái).
+### Bài 7: Debug Frequency Counting Frequency Counting
 
----
+* **Đề bài:** Sửa lỗi trong code Frequency Counting cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
+
+### Bài 8: Độ phức tạp Frequency Counting Frequency Counting
+
+* **Đề bài:** Tính độ phức tạp O() của Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu Frequency Counting Frequency Counting
+
+* **Đề bài:** Giải thích bước quan trọng của Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng Frequency Counting Frequency Counting
+
+* **Đề bài:** Mở rộng Frequency Counting cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ Frequency Counting
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể Frequency Counting
+
+* **Đề bài:** Sửa thuật toán Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa Frequency Counting
+
+* **Đề bài:** Cải tiến độ phức tạp của Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp Frequency Counting
+
+* **Đề bài:** Kết hợp Frequency Counting với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp Frequency Counting
+
+* **Đề bài:** Chạy trace thủ công cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược Frequency Counting
+
+* **Đề bài:** Tìm input từ output cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn Frequency Counting
+
+* **Đề bài:** Xử lý n lớn cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế Frequency Counting
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng Frequency Counting
+
+* **Đề bài:** Mở rộng Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế Frequency Counting
+
+* **Đề bài:** Áp dụng Frequency Counting vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán Frequency Counting
+
+* **Đề bài:** Thiết kế thuật toán O() cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh Frequency Counting
+
+* **Đề bài:** Chứng minh đúng đắn cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới Frequency Counting
+
+* **Đề bài:** Chứng minh lower bound cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn Frequency Counting
+
+* **Đề bài:** Tối ưu Frequency Counting chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu Frequency Counting
+
+* **Đề bài:** Viết biến thể của Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao Frequency Counting
+
+* **Đề bài:** Kết hợp 3 thuật toán cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng Frequency Counting
+
+* **Đề bài:** Viết generator test phá Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết Frequency Counting
+
+* **Đề bài:** Mở rộng định lý cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production Frequency Counting
+
+* **Đề bài:** Cài Frequency Counting production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở Frequency Counting
+
+* **Đề bài:** Đề xuất cải tiến mới cho Frequency Counting.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 

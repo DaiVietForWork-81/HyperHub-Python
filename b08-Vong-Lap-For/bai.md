@@ -784,6 +784,124 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: range() For
+
+* **Đề bài:** In 1..10, 10..1, 0..9..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** range(start, stop, step).
+
+### Bài 22: Duyệt list For
+
+* **Đề bài:** for x in ds: print(x)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Duyệt giá trị.
+
+### Bài 24: enumerate For
+
+* **Đề bài:** In '1. An', '2. Binh' từ list ['An','Binh']..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** enumerate(start=1).
+
+### Bài 25: zip For
+
+* **Đề bài:** Ghép 2 list tên, điểm -> 'An: 9'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** zip().
+
+### Bài 26: List comp For
+
+* **Đề bài:** [x*x for x in range(10) if x%2==0]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Filter + map.
+
+### Bài 27: Nested loop For
+
+* **Đề bài:** In tam giác sao n=5 (2 vòng lặp)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nested loop control.
+
+
+
+
+### Bài 21: range() For
+
+* **Đề bài:** In 1..10, 10..1, 0..9..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** range(start, stop, step).
+
+### Bài 22: Duyệt list For
+
+* **Đề bài:** for x in ds: print(x)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Iterate values.
+
+### Bài 23: enumerate For
+
+* **Đề bài:** for i, x in enumerate(ds, 1): print(i, x)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Index + value.
+
+### Bài 24: zip For
+
+* **Đề bài:** for a, b in zip(a_list, b_list): print(a, b)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Parallel iterate.
+
+### Bài 25: Nested For
+
+* **Đề bài:** Ma trận 3x3: for i in range(3): for j in range(3)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Nested loop.
+
+### Bài 26: List comp For
+
+* **Đề bài:** [x*x for x in range(5) if x%2==0]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Filter + map.
+
+### Bài 27: Nested comp For
+
+* **Đề bài:** [[i*j for j in range(3)] for i in range(3)]..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Matrix comp.
+
+### Bài 28: Zip longest For
+
+* **Đề bài:** itertools.zip_longest cho list khác độ dài..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** itertools.
+
+### Bài 29: Generator For
+
+* **Đề bài:** (x*x for x in range(1000000)) - lazy..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Memory efficient.
+
+### Bài 30: Else for For
+
+* **Đề bài:** for...else: else chạy khi không break..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Search pattern.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

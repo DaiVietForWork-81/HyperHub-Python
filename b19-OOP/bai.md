@@ -934,6 +934,124 @@ class SanPham:
 
 ---
 
+
+
+### Bài 21: Class cơ bản OOP
+
+* **Đề bài:** class Dog: def __init__(self,name): self.name=name..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Constructor.
+
+### Bài 22: Method OOP
+
+* **Đề bài:** def bark(self): print('Woof')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Instance method.
+
+### Bài 24: Inheritance OOP
+
+* **Đề bài:** class Cat(Animal): def sound(): 'Meow'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Super().
+
+### Bài 25: Property OOP
+
+* **Đề bài:** @property def age(self): return self._age..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Getter/setter.
+
+### Bài 26: MRO OOP
+
+* **Đề bài:** class A(B,C): print(A.__mro__)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Diamond problem.
+
+### Bài 27: ABC OOP
+
+* **Đề bài:** from abc import ABC, abstractmethod..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Abstract base class.
+
+
+
+
+### Bài 21: Class cơ bản OOP
+
+* **Đề bài:** class Dog: def __init__(self,name): self.name=name..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Constructor.
+
+### Bài 22: Method OOP
+
+* **Đề bài:** def bark(self): print('Woof')..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Instance method.
+
+### Bài 23: Attribute OOP
+
+* **Đề bài:** self.name = name - instance attribute..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Instance attr.
+
+### Bài 24: Inheritance OOP
+
+* **Đề bài:** class Cat(Animal): def sound(): 'Meow'..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Super().
+
+### Bài 25: Property OOP
+
+* **Đề bài:** @property def age(self): return self._age..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Getter/setter.
+
+### Bài 26: Classmethod OOP
+
+* **Đề bài:** @classmethod def create(cls, name): return cls(name)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Alternative constructor.
+
+### Bài 27: MRO OOP
+
+* **Đề bài:** class A(B,C): print(A.__mro__)..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Diamond problem.
+
+### Bài 28: ABC OOP
+
+* **Đề bài:** from abc import ABC, abstractmethod..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Abstract base class.
+
+### Bài 29: Descriptor OOP
+
+* **Đề bài:** class Prop: __get__/__set__/__delete__..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Descriptor protocol.
+
+### Bài 30: Dataclass OOP
+
+* **Đề bài:** @dataclass class Point: x: int; y: int..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Auto methods.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

@@ -682,6 +682,117 @@ Sau 20 bài tập, bạn đã:
 
 ---
 
+
+
+### Bài 21: yield Generator
+
+* **Đề bài:** def gen(): yield 1; yield 2; yield 3..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** yield keyword.
+
+### Bài 22: gen expr Generator
+
+* **Đề bài:** (x*x for x in range(5)) -> generator..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Gen expression.
+
+### Bài 24: yield from Generator
+
+* **Đề bài:** yield from subgen() - delegate..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Delegation.
+
+### Bài 25: itertools Generator
+
+* **Đề bài:** itertools.count/cycle/islice..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Itertools.
+
+### Bài 26: Coroutine Generator
+
+* **Đề bài:** async/await vs generator..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Async vs sync.
+
+### Bài 27: Pipeline Generator
+
+* **Đề bài:** gen1 | gen2 | gen3 pipeline..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Pipeline pattern.
+
+
+
+
+### Bài 21: yield Generator
+
+* **Đề bài:** def gen(): yield 1; yield 2; yield 3..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** yield keyword.
+
+### Bài 22: gen expr Generator
+
+* **Đề bài:** (x*x for x in range(5)) -> generator..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Gen expression.
+
+### Bài 23: next() Generator
+
+* **Đề bài:** next(gen) -> lấy 1 giá trị..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Manual iteration.
+
+### Bài 24: yield from Generator
+
+* **Đề bài:** yield from subgen() - delegate..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Delegation.
+
+### Bài 25: itertools Generator
+
+* **Đề bài:** itertools.count/cycle/islice..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Itertools.
+
+### Bài 26: send() Generator
+
+* **Đề bài:** gen.send(value) - send vào generator..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Two-way.
+
+### Bài 27: Coroutine Generator
+
+* **Đề bài:** async/await vs generator..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Async vs sync.
+
+### Bài 28: Pipeline Generator
+
+* **Đề bài:** gen1 | gen2 | gen3 pipeline..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Pipeline pattern.
+
+### Bài 29: Async gen Generator
+
+* **Đề bài:** async def gen(): yield await f()..
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Async generator.
+
+
 ## ✅ Đáp án
 
 > 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.

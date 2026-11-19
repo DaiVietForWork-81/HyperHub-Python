@@ -522,65 +522,216 @@ tim(3): 3→2→0, nén: 3→0 luôn (lần sau O(1))
 
 ## 🧩 Bài tập
 
-### 🟢 Cơ bản (1–3)
+### Bài 1: Cài đặt cơ bản DSU/Tree DSU/Tree
 
-**Bài 1 — Chạy tay đường kính.** Cây: 0-1, 0-2, 2-3, 2-4, 4-5. BFS từ 0 được
-đỉnh xa nhất nào? BFS lần 2 từ đó, đường kính bao nhiêu? (Đáp án: lần 1 tới 5
-(hoặc 3); lần 2 từ 5 tới 1 hoặc 3 dài 4 → đường kính 4.)
+* **Đề bài:** Viết hàm DSU/Tree_basic thực hiện DSU cơ bản.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cài đặt theo định nghĩa.
 
-**Bài 2 — DSU tay.** n = 5. Thực hiện hop(0,1), hop(2,3), hop(1,2), tim(3),
-hop(3,4), hop(0,4). Vẽ cây cha sau mỗi bước, ghi kết quả hop (True/False).
+### Bài 2: Trace code DSU/Tree DSU/Tree
 
-**Bài 3 — Kruskal tay.** 4 đỉnh, cạnh (w,u,v): (1,0,1), (4,0,2), (2,1,2),
-(3,1,3), (5,2,3). Sort + duyệt, ghi cạnh lấy/bỏ và tổng MST. (Đáp án: lấy
-1, 2, 3 → tổng 6.)
+* **Đề bài:** Trace code: cho đoạn code mẫu DSU/Tree, hãy viết ra kết quả.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Chạy thủ từng bước.
 
-### 🟡 Hiểu sâu (4–6)
+### Bài 3: Điền khuyết DSU/Tree DSU/Tree
 
-**Bài 4 — Kiểm tra cây.** Cho n đỉnh, m cạnh bất kỳ. Viết hàm trả True nếu là
-cây. *Gợi ý: m == n−1 và liên thông (BFS đếm thăm hết). Thiếu một trong hai
-đều sai — tìm phản ví dụ cho từng chiều.*
+* **Đề bài:** Hoàn thiện hàm DSU/Tree đã cho sẵn.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Hoàn thiện code còn thiếu.
 
-**Bài 5 — Đảo động.** Lưới n×m ban đầu toàn nước. Thêm từng ô đất (q ≤ 10⁵ lần).
-Sau mỗi lần thêm, in số đảo (ô đất liền 4 hướng). *Gợi ý: DSU "thêm dần" —
-mỗi ô mới là 1 nhóm, hợp với hàng xóm đất; số nhóm = số đảo. O(α) mỗi lần
-thay vì flood fill lại O(n·m) — khác biệt giữa AC và TLE.*
+### Bài 4: So sánh DSU/Tree DSU/Tree
 
-**Bài 6 — LCA cạnh max.** Mỗi cạnh cây có trọng số. q truy vấn: cạnh lớn nhất
-trên đường u–v? *Gợi ý: binary lifting mở rộng — up_max[k][v] = max cạnh trên
-2^k bước từ v; nhảy đôi và gom max. O((n+q) log n).*
+* **Đề bài:** So sánh 2 cách giải cho Cây & DSU.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** So sánh ưu nhược điểm.
 
-### 🔴 Vận dụng (7–8)
+### Bài 5: Áp dụng trực tiếp DSU/Tree DSU/Tree
 
-**Bài 7 — MST thứ hai.** Tìm cây khung nhỏ thứ hai (tổng lớn hơn MST tối thiểu).
-*Gợi ý: với mỗi cạnh KHÔNG trong MST (u,v,w): thêm nó tạo đúng 1 chu trình;
-bỏ cạnh lớn nhất trên đường u–v trong MST → ứng viên; đáp án = min ứng viên.
-Cần max-cạnh trên đường đi → LCA max (bài 6) → O(E log V).*
+* **Đề bài:** Áp dụng thuật toán DSU/Tree trực tiếp.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng trực tiếp thuật toán.
 
-**Bài 8 — Tree DP: tập độc lập lớn nhất.** Mỗi đỉnh có trọng số (có thể âm).
-Chọn tập đỉnh không kề nhau sao cho tổng lớn nhất (cây n ≤ 10⁵).
-*Gợi ý: dp0[u] = tốt nhất subtree u khi KHÔNG lấy u (= Σ max(dp0,dp1) con);
-dp1[u] = tốt nhất khi LẤY u (= w[u] + Σ dp0 con). DFS từ gốc, đáp án
-max(dp0,dp1) gốc. O(n). (Tiền đề Bài 43 — tree DP.)*
-### ➕ Bài tập bổ sung (Bài 9–12)
+### Bài 6: Biến thể đơn giản DSU/Tree DSU/Tree
 
-**Bài 9 — 2-BFS tay.** Cây: 0-1, 0-2, 2-3, 2-4, 4-5. BFS từ 0 ghi dist, tìm đỉnh
-xa nhất; BFS lần 2 từ đó, ghi dist, đọc đường kính. (Đáp án: lần 1 tới 5, lần 2
-đường kính 4.)
+* **Đề bài:** Viết biến thể đơn giản của DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thay đổi tham số nhỏ.
 
-**Bài 10 — Đếm nhóm bạn.** n người, m cặp bạn thân (quan hệ 2 chiều). Đếm số
-nhóm bạn (liên thông). Dùng DSU (không dùng BFS!). Code + test (n=6, cặp
-(0,1),(1,2),(3,4) → 3 nhóm). So sánh với cách BFS (khi nào DSU thắng?).
+### Bài 7: Debug DSU/Tree DSU/Tree
 
-**Bài 11 — Kruskal tay mới.** 5 đỉnh, cạnh (w,u,v): (1,0,1), (2,0,2), (3,1,2),
-(4,1,3), (5,2,4), (6,3,4). Sort + duyệt, ghi cạnh lấy/bỏ + tổng. (Đáp án: lấy
-1, 2, 4, 5 → tổng 12.)
+* **Đề bài:** Sửa lỗi trong code DSU/Tree cho trước.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa try/except.
 
-**Bài 12 — Khoảng cách có trọng số.** Cây có trọng số cạnh + q truy vấn khoảng
-cách (u, v). Mở rộng LCA: lưu `dist_root` (khoảng cách từ gốc), đáp án =
-dist_root[u] + dist_root[v] − 2·dist_root[lca]. Code + test.
+### Bài 8: Độ phức tạp DSU/Tree DSU/Tree
 
----
+* **Đề bài:** Tính độ phức tạp O() của DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đếm phép toán.
+
+### Bài 9: Kiểm tra hiểu DSU/Tree DSU/Tree
+
+* **Đề bài:** Giải thích bước quan trọng của DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Giải thích logic.
+
+### Bài 10: Mở rộng DSU/Tree DSU/Tree
+
+* **Đề bài:** Mở rộng DSU/Tree cho trường hợp mới.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Mở rộng tham số.
+
+### Bài 11: Cài đặt đầy đủ DSU/Tree
+
+* **Đề bài:** Viết chương trình hoàn chỉnh cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết full code.
+
+### Bài 12: Biến thể DSU/Tree
+
+* **Đề bài:** Sửa thuật toán DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sửa logic core.
+
+### Bài 13: Tối ưu hóa DSU/Tree
+
+* **Đề bài:** Cải tiến độ phức tạp của DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+
+### Bài 14: Kết hợp DSU/Tree
+
+* **Đề bài:** Kết hợp DSU/Tree với thuật toán khác.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Kết hợp 2 hàm.
+
+### Bài 15: Trace phức tạp DSU/Tree
+
+* **Đề bài:** Chạy trace thủ công cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Viết nhật ký chạy.
+
+### Bài 16: Biến thể ngược DSU/Tree
+
+* **Đề bài:** Tìm input từ output cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Ngược logic.
+
+### Bài 17: Giới hạn lớn DSU/Tree
+
+* **Đề bài:** Xử lý n lớn cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+
+### Bài 18: So sánh thực tế DSU/Tree
+
+* **Đề bài:** So sánh thực tế các thuật toán.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng timeit.
+
+### Bài 19: Mở rộng DSU/Tree
+
+* **Đề bài:** Mở rộng DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Thêm tham số.
+
+### Bài 20: Áp dụng thực tế DSU/Tree
+
+* **Đề bài:** Áp dụng DSU/Tree vào thực tế.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Áp dụng thực tế.
+
+### Bài 21: Thiết kế thuật toán DSU/Tree
+
+* **Đề bài:** Thiết kế thuật toán O() cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo CLRS.
+
+### Bài 22: Chứng minh DSU/Tree
+
+* **Đề bài:** Chứng minh đúng đắn cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng exchange argument.
+
+### Bài 23: Giới hạn dưới DSU/Tree
+
+* **Đề bài:** Chứng minh lower bound cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Dùng adversary argument.
+
+### Bài 24: Tối ưu cực hạn DSU/Tree
+
+* **Đề bài:** Tối ưu DSU/Tree chạy trong time limit.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Profile + tối ưu.
+
+### Bài 25: Biến thể nghiên cứu DSU/Tree
+
+* **Đề bài:** Viết biến thể của DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Tham khảo paper.
+
+### Bài 26: Kết hợp nâng cao DSU/Tree
+
+* **Đề bài:** Kết hợp 3 thuật toán cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Phân chia rõ ràng.
+
+### Bài 27: Đối kháng DSU/Tree
+
+* **Đề bài:** Viết generator test phá DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Sinh test adversarial.
+
+### Bài 28: Mở rộng lý thuyết DSU/Tree
+
+* **Đề bài:** Mở rộng định lý cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Generalize định lý.
+
+### Bài 29: Cài đặt production DSU/Tree
+
+* **Đề bài:** Cài DSU/Tree production-ready.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Production checklist.
+
+### Bài 30: Nghiên cứu mở DSU/Tree
+
+* **Đề bài:** Đề xuất cải tiến mới cho DSU/Tree.
+* **Input:** (theo đề bài)
+* **Output:** (theo đề bài)
+* **Gợi ý:** Đọc paper mới.
+
 
 ## ✅ Đáp án
 
