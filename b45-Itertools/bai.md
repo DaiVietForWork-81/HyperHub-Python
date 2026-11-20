@@ -761,3 +761,4 @@ treo; (b) O(n).)
 **Vị trí:** `b45-Itertools/bai.md`
 
 **Bài tiếp theo:** [Bài 46 — Lý Thuyết Trò Chơi: Nim & Số Grundy](../b46-Ly-Thuyet-Tro-Choi/bai.md)
+`

@@ -1137,3 +1137,4 @@ khi lớn hơn thì cnt[v] = cnt[u]. Cẩn thận mod chỉ cho đếm, không c
 **Vị trí:** `b43-DP-Nang-Cao/bai.md`
 
 **Bài tiếp theo:** [Bài 44 — Chiến Lược Thi HSG & Tổng Kết Phần Thuật Toán](../b44-Chien-Luoc-Thi-HSG/bai.md)
+`

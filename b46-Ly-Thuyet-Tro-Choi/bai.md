@@ -772,3 +772,4 @@ tính đến 200, tìm chu kỳ — đây là bài Grundy "hàng thật" trong O
 **Vị trí:** `b46-Ly-Thuyet-Tro-Choi/bai.md`
 
 🏆 **Bạn đã hoàn thành toàn bộ khóa học Nền tảng + Thuật toán (Bài 1–46)!** Ôn lại [Bài 24 — Tư Duy Thuật Toán](../b24-Tu-Duy-Thuat-Toan/bai.md) với con mắt mới, và bắt đầu luyện đề thi thật nhé!
+`

@@ -914,3 +914,4 @@ nhau — O(n + k).*
 **Vị trí:** `b24-Tu-Duy-Thuat-Toan/bai.md`
 
 **Bài tiếp theo:** [Bài 25 — Độ Phức Tạp & Big-O](../b25-Do-Phuc-Tap/bai.md)
+`

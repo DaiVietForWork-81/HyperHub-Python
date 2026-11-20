@@ -1,68 +1,68 @@
 # Bài 36 — Toán Học & Số Học Thuật Toán
 
-> 📚 **Dãy phẳng b1–b46 — Nền tảng + Thuật toán**
+> Ã°ÂÂÂ **DÃÂ£y phÃ¡ÂºÂ³ng b1Ã¢ÂÂb46 Ã¢ÂÂ NÃ¡Â»Ân tÃ¡ÂºÂ£ng + ThuÃ¡ÂºÂ­t toÃÂ¡n**
 
-> 🏷️ **Nhóm bài:** Chuyên đề · Toán học & số học thuật toán
-
----
-
-## 🧠 Điều kiện tiên quyết
-
-- [Bài 31 — Đệ Quy](../b31-De-Quy/bai.md) (lũy thừa nhanh, Euclid đệ quy)
-- [Bài 25 — Độ Phức Tạp](../b25-Do-Phuc-Tap/bai.md)
-- [Bài 8 — Vòng Lặp For](../b08-Vong-Lap-For/bai.md)
+> Ã°ÂÂÂ·Ã¯Â¸Â **NhÃÂ³m bÃÂ i:** ChuyÃÂªn ÃÂÃ¡Â»Â ÃÂ· ToÃÂ¡n hÃ¡Â»Âc & sÃ¡Â»Â hÃ¡Â»Âc thuÃ¡ÂºÂ­t toÃÂ¡n
 
 ---
 
-## 🎯 Mục tiêu
+## Ã°ÂÂ§Â  ÃÂiÃ¡Â»Âu kiÃ¡Â»Ân tiÃÂªn quyÃ¡ÂºÂ¿t
 
-Sau bài học này, học viên sẽ:
-
-* ✅ Kiểm tra nguyên tố đúng cách: thử đến √n, và sàng Eratosthenes cho nhiều truy vấn.
-* ✅ Hiểu và cài được thuật toán Euclid tìm GCD trong O(log min(a,b)).
-* ✅ Dùng lũy thừa nhanh + modulo cho số mũ khổng lồ (n ≤ 10¹⁸).
-* ✅ Biết định lý Fermat nhỏ để tính nghịch đảo modulo (mod nguyên tố).
-* ✅ Xử lý được bài tổ hợp C(n,k) mod M và đếm ước.
-* ✅ Tránh bẫy float với số lớn (dùng `//`, số nguyên, `math.isqrt`).
+- [BÃÂ i 31 Ã¢ÂÂ ÃÂÃ¡Â»Â Quy](../b31-De-Quy/bai.md) (lÃÂ©y thÃ¡Â»Â«a nhanh, Euclid ÃÂÃ¡Â»Â quy)
+- [BÃÂ i 25 Ã¢ÂÂ ÃÂÃ¡Â»Â PhÃ¡Â»Â©c TÃ¡ÂºÂ¡p](../b25-Do-Phuc-Tap/bai.md)
+- [BÃÂ i 8 Ã¢ÂÂ VÃÂ²ng LÃ¡ÂºÂ·p For](../b08-Vong-Lap-For/bai.md)
 
 ---
 
-## 📖 Mở đầu
+## Ã°ÂÂÂ¯ MÃ¡Â»Â¥c tiÃÂªu
 
-Rất nhiều bài HSG "trá hình số học": sàng, ước, chia hết, đồng dư, tổ hợp...
-Chúng không đòi toán cao siêu — chỉ đòi 6 công cụ trong bài này, dùng đúng
-chỗ. Nắm chắc, bạn "ăn miễn phí" 1–2 bài mỗi kỳ thi.
+Sau bÃÂ i hÃ¡Â»Âc nÃÂ y, hÃ¡Â»Âc viÃÂªn sÃ¡ÂºÂ½:
+
+* Ã¢ÂÂ KiÃ¡Â»Âm tra nguyÃÂªn tÃ¡Â»Â ÃÂÃÂºng cÃÂ¡ch: thÃ¡Â»Â­ ÃÂÃ¡ÂºÂ¿n Ã¢ÂÂn, vÃÂ  sÃÂ ng Eratosthenes cho nhiÃ¡Â»Âu truy vÃ¡ÂºÂ¥n.
+* Ã¢ÂÂ HiÃ¡Â»Âu vÃÂ  cÃÂ i ÃÂÃÂ°Ã¡Â»Â£c thuÃ¡ÂºÂ­t toÃÂ¡n Euclid tÃÂ¬m GCD trong O(log min(a,b)).
+* Ã¢ÂÂ DÃÂ¹ng lÃÂ©y thÃ¡Â»Â«a nhanh + modulo cho sÃ¡Â»Â mÃÂ© khÃ¡Â»Âng lÃ¡Â»Â (n Ã¢ÂÂ¤ 10ÃÂ¹Ã¢ÂÂ¸).
+* Ã¢ÂÂ BiÃ¡ÂºÂ¿t ÃÂÃ¡Â»Ânh lÃÂ½ Fermat nhÃ¡Â»Â ÃÂÃ¡Â»Â tÃÂ­nh nghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o modulo (mod nguyÃÂªn tÃ¡Â»Â).
+* Ã¢ÂÂ XÃ¡Â»Â­ lÃÂ½ ÃÂÃÂ°Ã¡Â»Â£c bÃÂ i tÃ¡Â»Â hÃ¡Â»Â£p C(n,k) mod M vÃÂ  ÃÂÃ¡ÂºÂ¿m ÃÂ°Ã¡Â»Âc.
+* Ã¢ÂÂ TrÃÂ¡nh bÃ¡ÂºÂ«y float vÃ¡Â»Âi sÃ¡Â»Â lÃ¡Â»Ân (dÃÂ¹ng `//`, sÃ¡Â»Â nguyÃÂªn, `math.isqrt`).
 
 ---
 
-## 💡 Ý tưởng trực quan
+## Ã°ÂÂÂ MÃ¡Â»Â ÃÂÃ¡ÂºÂ§u
 
-* **Sàng Eratosthenes:** điểm danh lớp — gọi số 2, mọi bội của 2 đứng lên
-  (hợp số, loại); gọi số tiếp theo còn ngồi (3), loại bội của 3... Cuối giờ,
-  ai còn ngồi là nguyên tố.
-* **Euclid:** GCD(a, b) = GCD(b, a mod b) — "cắt bớt" số lớn bằng phần dư,
-  lặp đến khi một số bằng 0. Như cắt vải: cắt mảnh dài bớt đi đúng phần thừa.
-* **Đồng dư:** đồng hồ 12 giờ — 15 giờ "đồng dư" 3 giờ (mod 12). Chỉ quan tâm
-  phần dư, bỏ phần nguyên.
+RÃ¡ÂºÂ¥t nhiÃ¡Â»Âu bÃÂ i HSG "trÃÂ¡ hÃÂ¬nh sÃ¡Â»Â hÃ¡Â»Âc": sÃÂ ng, ÃÂ°Ã¡Â»Âc, chia hÃ¡ÂºÂ¿t, ÃÂÃ¡Â»Âng dÃÂ°, tÃ¡Â»Â hÃ¡Â»Â£p...
+ChÃÂºng khÃÂ´ng ÃÂÃÂ²i toÃÂ¡n cao siÃÂªu Ã¢ÂÂ chÃ¡Â»Â ÃÂÃÂ²i 6 cÃÂ´ng cÃ¡Â»Â¥ trong bÃÂ i nÃÂ y, dÃÂ¹ng ÃÂÃÂºng
+chÃ¡Â»Â. NÃ¡ÂºÂ¯m chÃ¡ÂºÂ¯c, bÃ¡ÂºÂ¡n "ÃÂn miÃ¡Â»Ân phÃÂ­" 1Ã¢ÂÂ2 bÃÂ i mÃ¡Â»Âi kÃ¡Â»Â³ thi.
+
+---
+
+## Ã°ÂÂÂ¡ ÃÂ tÃÂ°Ã¡Â»Âng trÃ¡Â»Â±c quan
+
+* **SÃÂ ng Eratosthenes:** ÃÂiÃ¡Â»Âm danh lÃ¡Â»Âp Ã¢ÂÂ gÃ¡Â»Âi sÃ¡Â»Â 2, mÃ¡Â»Âi bÃ¡Â»Âi cÃ¡Â»Â¥a 2 ÃÂÃ¡Â»Â©ng lÃÂªn
+  (hÃ¡Â»Â£p sÃ¡Â»Â, loÃ¡ÂºÂ¡i); gÃ¡Â»Âi sÃ¡Â»Â tiÃ¡ÂºÂ¿p theo cÃÂ²n ngÃ¡Â»Âi (3), loÃ¡ÂºÂ¡i bÃ¡Â»Âi cÃ¡Â»Â¥a 3... CuÃ¡Â»Âi giÃ¡Â»Â,
+  ai cÃÂ²n ngÃ¡Â»Âi lÃÂ  nguyÃÂªn tÃ¡Â»Â.
+* **Euclid:** GCD(a, b) = GCD(b, a mod b) Ã¢ÂÂ "cÃ¡ÂºÂ¯t bÃ¡Â»Ât" sÃ¡Â»Â lÃ¡Â»Ân bÃ¡ÂºÂ±ng phÃ¡ÂºÂ§n dÃÂ°,
+  lÃ¡ÂºÂ·p ÃÂÃ¡ÂºÂ¿n khi mÃ¡Â»Ât sÃ¡Â»Â bÃ¡ÂºÂ±ng 0. NhÃÂ° cÃ¡ÂºÂ¯t vÃ¡ÂºÂ£i: cÃ¡ÂºÂ¯t mÃ¡ÂºÂ£nh dÃÂ i bÃ¡Â»Ât ÃÂi ÃÂÃÂºng phÃ¡ÂºÂ§n thÃ¡Â»Â«a.
+* **ÃÂÃ¡Â»Âng dÃÂ°:** ÃÂÃ¡Â»Âng hÃ¡Â»Â 12 giÃ¡Â»Â Ã¢ÂÂ 15 giÃ¡Â»Â "ÃÂÃ¡Â»Âng dÃÂ°" 3 giÃ¡Â»Â (mod 12). ChÃ¡Â»Â quan tÃÂ¢m
+  phÃ¡ÂºÂ§n dÃÂ°, bÃ¡Â»Â phÃ¡ÂºÂ§n nguyÃÂªn.
 
 ```mermaid
 flowchart TD
-    A{"Dạng bài số học?"} -->|Nguyên tố nhiều truy vấn| B["Sàng O(n log log n)"]
-    A -->|Nguyên tố 1 số lớn| C["Thử đến √n O(√n)"]
-    A -->|Ước chung / rút gọn| D["Euclid O(log)"]
-    A -->|Mũ khổng lồ + mod| E["Lũy thừa nhanh O(log n)"]
-    A -->|Chia modulo nguyên tố| F["Fermat: nghịch đảo"]
-    A -->|Đếm / tổ hợp| G["Tiền xử lý giai thừa + nghịch đảo"]
+    A{"DÃ¡ÂºÂ¡ng bÃÂ i sÃ¡Â»Â hÃ¡Â»ÂcÃ¡Â»Â"} -->|NguyÃÂªn tÃ¡Â»Â nhiÃ¡Â»Âu truy vÃ¡ÂºÂ¥n| B["SÃÂ ng O(n log log n)"]
+    A -->|NguyÃÂªn tÃ¡Â»Â 1 sÃ¡Â»Â lÃ¡Â»Ân| C["ThÃ¡Â»Â­ ÃÂÃ¡ÂºÂ¿n Ã¢ÂÂn O(Ã¢ÂÂn)"]
+    A -->|ÃÂ¯Ã¡Â»Âc chung / rÃÂºt gÃ¡Â»Ân| D["Euclid O(log)"]
+    A -->|MÃÂ© khÃ¡Â»Âng lÃ¡Â»Â + mod| E["LÃÂ©y thÃ¡Â»Â«a nhanh O(log n)"]
+    A -->|Chia modulo nguyÃÂªn tÃ¡Â»Â| F["Fermat: nghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o"]
+    A -->|ÃÂÃ¡ÂºÂ¿m / tÃ¡Â»Â hÃ¡Â»Â£p| G["TiÃ¡Â»Ân xÃ¡Â»Â­ lÃÂ½ giai thÃ¡Â»Â«a + nghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o"]
 ```
 
 ---
 
-## 📚 Kiến thức
+## Ã°ÂÂÂ KiÃ¡ÂºÂ¿n thÃ¡Â»Â©c
 
-### 1. Kiểm tra nguyên tố một số — thử đến √n
+### 1. KiÃ¡Â»Âm tra nguyÃÂªn tÃ¡Â»Â mÃ¡Â»Ât sÃ¡Â»Â Ã¢ÂÂ thÃ¡Â»Â­ ÃÂÃ¡ÂºÂ¿n Ã¢ÂÂn
 
-n là hợp số → có ước d ≤ √n (vì nếu cả hai ước đều > √n thì tích > n).
-Chỉ thử đến `isqrt(n)`:
+n lÃÂ  hÃ¡Â»Â£p sÃ¡Â»Â Ã¢ÂÂ cÃÂ³ ÃÂ°Ã¡Â»Âc d Ã¢ÂÂ¤ Ã¢ÂÂn (vÃÂ¬ nÃ¡ÂºÂ¿u cÃ¡ÂºÂ£ hai ÃÂ°Ã¡Â»Âc ÃÂÃ¡Â»Âu > Ã¢ÂÂn thÃÂ¬ tÃÂ­ch > n).
+ChÃ¡Â»Â thÃ¡Â»Â­ ÃÂÃ¡ÂºÂ¿n `isqrt(n)`:
 
 ```python
 import math
@@ -73,22 +73,22 @@ def la_nguyen_to(n):
     if n % 2 == 0:
         return n == 2
     r = math.isqrt(n)
-    for u in range(3, r + 1, 2):   # chỉ thử lẻ
+    for u in range(3, r + 1, 2):   # chÃ¡Â»Â thÃ¡Â»Â­ lÃ¡ÂºÂ»
         if n % u == 0:
             return False
     return True
 ```
 
-O(√n). Đủ cho n ≤ 10¹² (~10⁶ vòng lặp, ~0.5s) và kiểm tra đơn lẻ.
-`math.isqrt` trả căn nguyên chính xác (float `n**0.5` sai số với số lớn!).
+O(Ã¢ÂÂn). ÃÂÃ¡Â»Â§ cho n Ã¢ÂÂ¤ 10ÃÂ¹ÃÂ² (~10Ã¢ÂÂ¶ vÃÂ²ng lÃ¡ÂºÂ·p, ~0.5s) vÃÂ  kiÃ¡Â»Âm tra ÃÂÃÂ¡n lÃ¡ÂºÂ».
+`math.isqrt` trÃ¡ÂºÂ£ cÃÂn nguyÃÂªn chÃÂ­nh xÃÂ¡c (float `n**0.5` sai sÃ¡Â»Â vÃ¡Â»Âi sÃ¡Â»Â lÃ¡Â»Ân!).
 
-> Bẫy float: `int(10**18 ** 0.5)` có thể lệch 1 → bỏ sót ước hoặc lặp thừa.
-> Với số nguyên, luôn dùng `isqrt` và `//`.
+> BÃ¡ÂºÂ«y float: `int(10**18 ** 0.5)` cÃÂ³ thÃ¡Â»Â lÃ¡Â»Âch 1 Ã¢ÂÂ bÃ¡Â»Â sÃÂ³t ÃÂ°Ã¡Â»Âc hoÃ¡ÂºÂ·c lÃ¡ÂºÂ·p thÃ¡Â»Â«a.
+> VÃ¡Â»Âi sÃ¡Â»Â nguyÃÂªn, luÃÂ´n dÃÂ¹ng `isqrt` vÃÂ  `//`.
 
-### 2. Sàng Eratosthenes — nguyên tố đến N, nhiều truy vấn
+### 2. SÃÂ ng Eratosthenes Ã¢ÂÂ nguyÃÂªn tÃ¡Â»Â ÃÂÃ¡ÂºÂ¿n N, nhiÃ¡Â»Âu truy vÃ¡ÂºÂ¥n
 
-Cần liệt kê/đếm nguyên tố đến N (N ≤ 10⁶–10⁷) hoặc trả lời nhiều truy vấn:
-sàng một lần O(n log log n), mỗi truy vấn O(1):
+CÃ¡ÂºÂ§n liÃ¡Â»Ât kÃÂª/ÃÂÃ¡ÂºÂ¿m nguyÃÂªn tÃ¡Â»Â ÃÂÃ¡ÂºÂ¿n N (N Ã¢ÂÂ¤ 10Ã¢ÂÂ¶Ã¢ÂÂ10Ã¢ÂÂ·) hoÃ¡ÂºÂ·c trÃ¡ÂºÂ£ lÃ¡Â»Âi nhiÃ¡Â»Âu truy vÃ¡ÂºÂ¥n:
+sÃÂ ng mÃ¡Â»Ât lÃ¡ÂºÂ§n O(n log log n), mÃ¡Â»Âi truy vÃ¡ÂºÂ¥n O(1):
 
 ```python
 def sang(n):
@@ -97,19 +97,19 @@ def sang(n):
     for i in range(2, math.isqrt(n) + 1):
         if la_nt[i]:
             buoc = i
-            bat_dau = i * i          # bội nhỏ hơn đã bị sàng bởi ước nhỏ hơn
+            bat_dau = i * i          # bÃ¡Â»Âi nhÃ¡Â»Â hÃÂ¡n ÃÂÃÂ£ bÃ¡Â»Â sÃÂ ng bÃ¡Â»Âi ÃÂ°Ã¡Â»Âc nhÃ¡Â»Â hÃÂ¡n
             la_nt[bat_dau:n + 1:buoc] = [False] * ((n - bat_dau) // buoc + 1)
     return la_nt
 
 la_nt = sang(10**6)
-print(sum(la_nt))   # 78498 số nguyên tố ≤ 10^6
+print(sum(la_nt))   # 78498 sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â Ã¢ÂÂ¤ 10^6
 ```
 
-Hai tối ưu quan trọng: chỉ sàng đến √n, và bắt đầu từ `i*i` (bội nhỏ hơn đã
-bị loại bởi ước nhỏ hơn). Gán lát (slice) dùng code C bên dưới → nhanh gấp
-hàng chục lần vòng lặp Python.
+Hai tÃ¡Â»Âi ÃÂ°u quan trÃ¡Â»Âng: chÃ¡Â»Â sÃÂ ng ÃÂÃ¡ÂºÂ¿n Ã¢ÂÂn, vÃÂ  bÃ¡ÂºÂ¯t ÃÂÃ¡ÂºÂ§u tÃ¡Â»Â« `i*i` (bÃ¡Â»Âi nhÃ¡Â»Â hÃÂ¡n ÃÂÃÂ£
+bÃ¡Â»Â loÃ¡ÂºÂ¡i bÃ¡Â»Âi ÃÂ°Ã¡Â»Âc nhÃ¡Â»Â hÃÂ¡n). GÃÂ¡n lÃÂ¡t (slice) dÃÂ¹ng code C bÃÂªn dÃÂ°Ã¡Â»Âi Ã¢ÂÂ nhanh gÃ¡ÂºÂ¥p
+hÃÂ ng chÃ¡Â»Â¥c lÃ¡ÂºÂ§n vÃÂ²ng lÃ¡ÂºÂ·p Python.
 
-### 3. GCD & LCM — Euclid O(log min(a,b))
+### 3. GCD & LCM Ã¢ÂÂ Euclid O(log min(a,b))
 
 ```python
 import math
@@ -119,49 +119,49 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
-# Thực tế dùng luôn:
+# ThÃ¡Â»Â±c tÃ¡ÂºÂ¿ dÃÂ¹ng luÃÂ´n:
 math.gcd(48, 18)      # 6
 math.lcm(4, 6)        # 12 (Python 3.9+)
 ```
 
-**Vì sao nhanh:** `a % b < a / 2` sau tối đa 2 bước (tính chất modulo) → số
-giảm ít nhất một nửa mỗi 2 vòng → O(log). Ví dụ gcd(48, 18): (48,18) →
-(18,12) → (12,6) → (6,0) → **6**, chỉ 3 bước.
+**VÃÂ¬ sao nhanh:** `a % b < a / 2` sau tÃ¡Â»Âi ÃÂa 2 bÃÂ°Ã¡Â»Âc (tÃÂ­nh chÃ¡ÂºÂ¥t modulo) Ã¢ÂÂ sÃ¡Â»Â
+giÃ¡ÂºÂ£m ÃÂ­t nhÃ¡ÂºÂ¥t mÃ¡Â»Ât nÃ¡Â»Â­a mÃ¡Â»Âi 2 vÃÂ²ng Ã¢ÂÂ O(log). VÃÂ­ dÃ¡Â»Â¥ gcd(48, 18): (48,18) Ã¢ÂÂ
+(18,12) Ã¢ÂÂ (12,6) Ã¢ÂÂ (6,0) Ã¢ÂÂ **6**, chÃ¡Â»Â 3 bÃÂ°Ã¡Â»Âc.
 
-Ứng dụng: rút gọn phân số, kiểm tra nguyên tố cùng nhau (`gcd == 1`),
-chu kỳ lặp, LCM tính qua GCD: `lcm = a // gcd * b` (chia trước nhân sau
-tránh số phình — trong Python không tràn nhưng vẫn nhanh hơn).
+Ã¡Â»Â¨ng dÃ¡Â»Â¥ng: rÃÂºt gÃ¡Â»Ân phÃÂ¢n sÃ¡Â»Â, kiÃ¡Â»Âm tra nguyÃÂªn tÃ¡Â»Â cÃÂ¹ng nhau (`gcd == 1`),
+chu kÃ¡Â»Â³ lÃ¡ÂºÂ·p, LCM tÃÂ­nh qua GCD: `lcm = a // gcd * b` (chia trÃÂ°Ã¡Â»Âc nhÃÂ¢n sau
+trÃÂ¡nh sÃ¡Â»Â phÃÂ¬nh Ã¢ÂÂ trong Python khÃÂ´ng trÃÂ n nhÃÂ°ng vÃ¡ÂºÂ«n nhanh hÃÂ¡n).
 
-### 4. Lũy thừa nhanh + modulo (ôn Bài 31, bản vòng lặp)
+### 4. LÃÂ©y thÃ¡Â»Â«a nhanh + modulo (ÃÂ´n BÃÂ i 31, bÃ¡ÂºÂ£n vÃÂ²ng lÃ¡ÂºÂ·p)
 
-Thi cử chuộng bản vòng lặp (không lo đệ quy, hằng số nhỏ):
+Thi cÃ¡Â»Â­ chuÃ¡Â»Âng bÃ¡ÂºÂ£n vÃÂ²ng lÃ¡ÂºÂ·p (khÃÂ´ng lo ÃÂÃ¡Â»Â quy, hÃ¡ÂºÂ±ng sÃ¡Â»Â nhÃ¡Â»Â):
 
 ```python
 def pow_mod(x, n, m):
     kq = 1 % m
     x %= m
     while n:
-        if n & 1:        # bit cuối = 1 → nhân x vào kết quả
+        if n & 1:        # bit cuÃ¡Â»Âi = 1 Ã¢ÂÂ nhÃÂ¢n x vÃÂ o kÃ¡ÂºÂ¿t quÃ¡ÂºÂ£
             kq = kq * x % m
-        x = x * x % m    # bình phương cơ số
-        n >>= 1          # bỏ bit đã xử lý
+        x = x * x % m    # bÃÂ¬nh phÃÂ°ÃÂ¡ng cÃÂ¡ sÃ¡Â»Â
+        n >>= 1          # bÃ¡Â»Â bit ÃÂÃÂ£ xÃ¡Â»Â­ lÃÂ½
     return kq
 
-# Thực tế dùng luôn hàm có sẵn (C, nhanh nhất):
+# ThÃ¡Â»Â±c tÃ¡ÂºÂ¿ dÃÂ¹ng luÃÂ´n hÃÂ m cÃÂ³ sÃ¡ÂºÂµn (C, nhanh nhÃ¡ÂºÂ¥t):
 pow(2, 10**18, 10**9 + 7)
 ```
 
-Mỗi vòng lặp xử lý 1 bit của n → O(log n) ≈ 60 bước với n = 10¹⁸.
-`pow(x, n, m)` có sẵn — trong thi **dùng luôn**, tự cài chỉ để hiểu.
+MÃ¡Â»Âi vÃÂ²ng lÃ¡ÂºÂ·p xÃ¡Â»Â­ lÃÂ½ 1 bit cÃ¡Â»Â¥a n Ã¢ÂÂ O(log n) Ã¢ÂÂ 60 bÃÂ°Ã¡Â»Âc vÃ¡Â»Âi n = 10ÃÂ¹Ã¢ÂÂ¸.
+`pow(x, n, m)` cÃÂ³ sÃ¡ÂºÂµn Ã¢ÂÂ trong thi **dÃÂ¹ng luÃÂ´n**, tÃ¡Â»Â± cÃÂ i chÃ¡Â»Â ÃÂÃ¡Â»Â hiÃ¡Â»Âu.
 
-### 5. Nghịch đảo modulo & Fermat nhỏ
+### 5. NghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o modulo & Fermat nhÃ¡Â»Â
 
-Muốn tính `(a / b) mod M` (M nguyên tố, b không chia hết cho M): không chia
-trực tiếp được (modulo không có phép chia!) → nhân với nghịch đảo:
-b⁻¹ ≡ b^(M−2) (mod M) theo Fermat nhỏ.
+MuÃ¡Â»Ân tÃÂ­nh `(a / b) mod M` (M nguyÃÂªn tÃ¡Â»Â, b khÃÂ´ng chia hÃ¡ÂºÂ¿t cho M): khÃÂ´ng chia
+trÃ¡Â»Â±c tiÃ¡ÂºÂ¿p ÃÂÃÂ°Ã¡Â»Â£c (modulo khÃÂ´ng cÃÂ³ phÃÂ©p chia!) Ã¢ÂÂ nhÃÂ¢n vÃ¡Â»Âi nghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o:
+bÃ¢ÂÂ»ÃÂ¹ Ã¢ÂÂ¡ b^(MÃ¢ÂÂ2) (mod M) theo Fermat nhÃ¡Â»Â.
 
 ```python
-MOD = 10**9 + 7   # số nguyên tố "quốc dân" trong thi cử
+MOD = 10**9 + 7   # sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â "quÃ¡Â»Âc dÃÂ¢n" trong thi cÃ¡Â»Â­
 
 def nghich_dao(b):
     return pow(b, MOD - 2, MOD)
@@ -169,16 +169,16 @@ def nghich_dao(b):
 # (a / b) mod MOD = a * nghich_dao(b) % MOD
 ```
 
-> Vì sao M = 10⁹+7 phổ biến: đủ lớn để đáp án ít va chạm, vừa trong int64
-> (bình phương 2 số < M² ≈ 10¹�8 < 9.2×10¹8 = int64 max) cho C++, nguyên tố
-> để dùng Fermat. Gặp M này trong đề → nghĩ ngay modular.
+> VÃÂ¬ sao M = 10Ã¢ÂÂ¹+7 phÃ¡Â»Â biÃ¡ÂºÂ¿n: ÃÂÃ¡Â»Â§ lÃ¡Â»Ân ÃÂÃ¡Â»Â ÃÂÃÂ¡p ÃÂ¡n ÃÂ­t va chÃ¡ÂºÂ¡m, vÃ¡Â»Â«a trong int64
+> (bÃÂ¬nh phÃÂ°ÃÂ¡ng 2 sÃ¡Â»Â < MÃÂ² Ã¢ÂÂ 10ÃÂ¹Ã¯Â¿Â½8 < 9.2ÃÂ10ÃÂ¹8 = int64 max) cho C++, nguyÃÂªn tÃ¡Â»Â
+> ÃÂÃ¡Â»Â dÃÂ¹ng Fermat. GÃ¡ÂºÂ·p M nÃÂ y trong ÃÂÃ¡Â»Â Ã¢ÂÂ nghÃÂ© ngay modular.
 
-### 6. Tổ hợp C(n,k) mod M — tiền xử lý giai thừa
+### 6. TÃ¡Â»Â hÃ¡Â»Â£p C(n,k) mod M Ã¢ÂÂ tiÃ¡Â»Ân xÃ¡Â»Â­ lÃÂ½ giai thÃ¡Â»Â«a
 
-n ≤ 10⁶, nhiều truy vấn C(n,k) mod M: tiền xử lý `fact[i] = i! mod M` và
-`inv_fact` (giai thừa nghịch đảo) một lần O(N), mỗi truy vấn O(1):
+n Ã¢ÂÂ¤ 10Ã¢ÂÂ¶, nhiÃ¡Â»Âu truy vÃ¡ÂºÂ¥n C(n,k) mod M: tiÃ¡Â»Ân xÃ¡Â»Â­ lÃÂ½ `fact[i] = i! mod M` vÃÂ 
+`inv_fact` (giai thÃ¡Â»Â«a nghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o) mÃ¡Â»Ât lÃ¡ÂºÂ§n O(N), mÃ¡Â»Âi truy vÃ¡ÂºÂ¥n O(1):
 
-C(n,k) = fact[n] · inv_fact[k] · inv_fact[n−k] mod M.
+C(n,k) = fact[n] ÃÂ· inv_fact[k] ÃÂ· inv_fact[nÃ¢ÂÂk] mod M.
 
 ```python
 MOD = 10**9 + 7
@@ -189,7 +189,7 @@ def chuan_bi_to_hop(n_max):
         fact[i] = fact[i - 1] * i % MOD
     inv_fact = [1] * (n_max + 1)
     inv_fact[n_max] = pow(fact[n_max], MOD - 2, MOD)
-    for i in range(n_max, 0, -1):   # đi ngược từ nghịch đảo lớn nhất
+    for i in range(n_max, 0, -1):   # ÃÂi ngÃÂ°Ã¡Â»Â£c tÃ¡Â»Â« nghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o lÃ¡Â»Ân nhÃ¡ÂºÂ¥t
         inv_fact[i - 1] = inv_fact[i] * i % MOD
     return fact, inv_fact
 
@@ -199,20 +199,20 @@ def C(n, k, fact, inv_fact):
     return fact[n] * inv_fact[k] % MOD * inv_fact[n - k] % MOD
 ```
 
-Mẹo `inv_fact` ngược: từ (n!)⁻¹ suy ra ((n−1)!)⁻¹ = (n!)⁻¹ · n — chỉ 1 lần
-lũy thừa thay vì n lần.
+MÃ¡ÂºÂ¹o `inv_fact` ngÃÂ°Ã¡Â»Â£c: tÃ¡Â»Â« (n!)Ã¢ÂÂ»ÃÂ¹ suy ra ((nÃ¢ÂÂ1)!)Ã¢ÂÂ»ÃÂ¹ = (n!)Ã¢ÂÂ»ÃÂ¹ ÃÂ· n Ã¢ÂÂ chÃ¡Â»Â 1 lÃ¡ÂºÂ§n
+lÃÂ©y thÃ¡Â»Â«a thay vÃÂ¬ n lÃ¡ÂºÂ§n.
 
 ---
 
-## 💻 Ví dụ
+## Ã°ÂÂÂ» VÃÂ­ dÃ¡Â»Â¥
 
-### Ví dụ 1 — Dễ: đếm nguyên tố trong đoạn + rút gọn phân số
+### VÃÂ­ dÃ¡Â»Â¥ 1 Ã¢ÂÂ DÃ¡Â»Â: ÃÂÃ¡ÂºÂ¿m nguyÃÂªn tÃ¡Â»Â trong ÃÂoÃ¡ÂºÂ¡n + rÃÂºt gÃ¡Â»Ân phÃÂ¢n sÃ¡Â»Â
 
 ```python
 import sys, math
 
 def sang(n):
-    la_nt = bytearray(b"\x01") * (n + 1)   # bytearray: nhẹ hơn list bool
+    la_nt = bytearray(b"\x01") * (n + 1)   # bytearray: nhÃ¡ÂºÂ¹ hÃÂ¡n list bool
     la_nt[0:2] = b"\x00\x00"
     for i in range(2, math.isqrt(n) + 1):
         if la_nt[i]:
@@ -233,9 +233,9 @@ def main():
 main()
 ```
 
-Input `10 20\n48 18` → nguyên tố 11,13,17,19 = **4**; 48/18 rút gọn **8/3**.
+Input `10 20\n48 18` Ã¢ÂÂ nguyÃÂªn tÃ¡Â»Â 11,13,17,19 = **4**; 48/18 rÃÂºt gÃ¡Â»Ân **8/3**.
 
-### Ví dụ 2 — Thực tế: kiểm tra số nguyên tố lớn + lũy thừa mod
+### VÃÂ­ dÃ¡Â»Â¥ 2 Ã¢ÂÂ ThÃ¡Â»Â±c tÃ¡ÂºÂ¿: kiÃ¡Â»Âm tra sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â lÃ¡Â»Ân + lÃÂ©y thÃ¡Â»Â«a mod
 
 ```python
 import sys, math
@@ -263,20 +263,20 @@ def main():
         return
     n = int(data[0])
     print("YES" if la_nguyen_to(n) else "NO")
-    print(pow(2, n, 10**9 + 7))   # 2^n mod MOD — demo lũy thừa nhanh
+    print(pow(2, n, 10**9 + 7))   # 2^n mod MOD Ã¢ÂÂ demo lÃÂ©y thÃ¡Â»Â«a nhanh
 
 main()
 ```
 
-**Giải thích:** thử ước nhỏ trước (loại nhanh hợp số có ước nhỏ — đa số),
-rồi vòng lẻ đến √n. Với n ≤ 10¹²: ~5×10⁵ vòng → ~0.3s. ✔
+**GiÃ¡ÂºÂ£i thÃÂ­ch:** thÃ¡Â»Â­ ÃÂ°Ã¡Â»Âc nhÃ¡Â»Â trÃÂ°Ã¡Â»Âc (loÃ¡ÂºÂ¡i nhanh hÃ¡Â»Â£p sÃ¡Â»Â cÃÂ³ ÃÂ°Ã¡Â»Âc nhÃ¡Â»Â Ã¢ÂÂ ÃÂa sÃ¡Â»Â),
+rÃ¡Â»Âi vÃÂ²ng lÃ¡ÂºÂ» ÃÂÃ¡ÂºÂ¿n Ã¢ÂÂn. VÃ¡Â»Âi n Ã¢ÂÂ¤ 10ÃÂ¹ÃÂ²: ~5ÃÂ10Ã¢ÂÂµ vÃÂ²ng Ã¢ÂÂ ~0.3s. Ã¢ÂÂ
 
-### Ví dụ 3 — Khó: đếm ước + tổng ước bằng phân tích thừa số
+### VÃÂ­ dÃ¡Â»Â¥ 3 Ã¢ÂÂ KhÃÂ³: ÃÂÃ¡ÂºÂ¿m ÃÂ°Ã¡Â»Âc + tÃ¡Â»Âng ÃÂ°Ã¡Â»Âc bÃ¡ÂºÂ±ng phÃÂ¢n tÃÂ­ch thÃ¡Â»Â«a sÃ¡Â»Â
 
-> n ≤ 10¹². Đếm số ước và tổng các ước của n.
+> n Ã¢ÂÂ¤ 10ÃÂ¹ÃÂ². ÃÂÃ¡ÂºÂ¿m sÃ¡Â»Â ÃÂ°Ã¡Â»Âc vÃÂ  tÃ¡Â»Âng cÃÂ¡c ÃÂ°Ã¡Â»Âc cÃ¡Â»Â¥a n.
 
-Phân tích n = ∏ pᵢ^eᵢ (thử đến √n, còn dư > 1 là một nguyên tố mũ 1).
-Số ước = ∏(eᵢ+1); tổng ước = ∏(pᵢ^(eᵢ+1) − 1)/(pᵢ − 1):
+PhÃÂ¢n tÃÂ­ch n = Ã¢ÂÂ pÃ¡ÂµÂ¢^eÃ¡ÂµÂ¢ (thÃ¡Â»Â­ ÃÂÃ¡ÂºÂ¿n Ã¢ÂÂn, cÃÂ²n dÃÂ° > 1 lÃÂ  mÃ¡Â»Ât nguyÃÂªn tÃ¡Â»Â mÃÂ© 1).
+SÃ¡Â»Â ÃÂ°Ã¡Â»Âc = Ã¢ÂÂ(eÃ¡ÂµÂ¢+1); tÃ¡Â»Âng ÃÂ°Ã¡Â»Âc = Ã¢ÂÂ(pÃ¡ÂµÂ¢^(eÃ¡ÂµÂ¢+1) Ã¢ÂÂ 1)/(pÃ¡ÂµÂ¢ Ã¢ÂÂ 1):
 
 ```python
 import sys, math
@@ -288,7 +288,7 @@ def phan_tich(n):
         while n % d == 0:
             ts[d] = ts.get(d, 0) + 1
             n //= d
-        d += 1 if d == 2 else 2   # 2 rồi chỉ thử lẻ
+        d += 1 if d == 2 else 2   # 2 rÃ¡Â»Âi chÃ¡Â»Â thÃ¡Â»Â­ lÃ¡ÂºÂ»
     if n > 1:
         ts[n] = ts.get(n, 0) + 1
     return ts
@@ -309,324 +309,324 @@ def main():
 main()
 ```
 
-Chạy tay n = 36 = 2²·3²: số ước (2+1)(2+1) = **9**; tổng (2³−1)/(2−1) ×
-(3³−1)/(3−1) = 7 × 13 = **91**. Kiểm chứng: ước của 36 là
-1,2,3,4,6,9,12,18,36 → 9 ước, tổng 91. ✔
+ChÃ¡ÂºÂ¡y tay n = 36 = 2ÃÂ²ÃÂ·3ÃÂ²: sÃ¡Â»Â ÃÂ°Ã¡Â»Âc (2+1)(2+1) = **9**; tÃ¡Â»Âng (2ÃÂ³Ã¢ÂÂ1)/(2Ã¢ÂÂ1) ÃÂ
+(3ÃÂ³Ã¢ÂÂ1)/(3Ã¢ÂÂ1) = 7 ÃÂ 13 = **91**. KiÃ¡Â»Âm chÃ¡Â»Â©ng: ÃÂ°Ã¡Â»Âc cÃ¡Â»Â¥a 36 lÃÂ 
+1,2,3,4,6,9,12,18,36 Ã¢ÂÂ 9 ÃÂ°Ã¡Â»Âc, tÃ¡Â»Âng 91. Ã¢ÂÂ
 
 ---
 
-## 📊 Minh họa
+## Ã°ÂÂÂ Minh hÃ¡Â»Âa
 
-Sàng đến 30 (chỉ ghi số còn lại sau mỗi bước):
+SÃÂ ng ÃÂÃ¡ÂºÂ¿n 30 (chÃ¡Â»Â ghi sÃ¡Â»Â cÃÂ²n lÃ¡ÂºÂ¡i sau mÃ¡Â»Âi bÃÂ°Ã¡Â»Âc):
 
 ```
-Ban đầu: 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
-Loại bội 2: 2 3 5 7 9 11 13 15 17 19 21 23 25 27 29
-Loại bội 3: 2 3 5 7 11 13 17 19 23 25 29
-Loại bội 5: 2 3 5 7 11 13 17 19 23 29  (25 bị loại; 7²=49 > 30 → dừng)
-→ 10 số nguyên tố ≤ 30 ✔
+Ban ÃÂÃ¡ÂºÂ§u: 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+LoÃ¡ÂºÂ¡i bÃ¡Â»Âi 2: 2 3 5 7 9 11 13 15 17 19 21 23 25 27 29
+LoÃ¡ÂºÂ¡i bÃ¡Â»Âi 3: 2 3 5 7 11 13 17 19 23 25 29
+LoÃ¡ÂºÂ¡i bÃ¡Â»Âi 5: 2 3 5 7 11 13 17 19 23 29  (25 bÃ¡Â»Â loÃ¡ÂºÂ¡i; 7ÃÂ²=49 > 30 Ã¢ÂÂ dÃ¡Â»Â«ng)
+Ã¢ÂÂ 10 sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â Ã¢ÂÂ¤ 30 Ã¢ÂÂ
 ```
 
 Euclid gcd(1071, 462):
 
 ```
-1071 % 462 = 147  → (462, 147)
-462 % 147 = 21    → (147, 21)
-147 % 21 = 0      → (21, 0) → đáp án 21 (3 bước!)
+1071 % 462 = 147  Ã¢ÂÂ (462, 147)
+462 % 147 = 21    Ã¢ÂÂ (147, 21)
+147 % 21 = 0      Ã¢ÂÂ (21, 0) Ã¢ÂÂ ÃÂÃÂ¡p ÃÂ¡n 21 (3 bÃÂ°Ã¡Â»Âc!)
 ```
 
 ---
 
-## ⚠️ Những lỗi thường gặp
+## Ã¢ÂÂ Ã¯Â¸Â NhÃ¡Â»Â¯ng lÃ¡Â»Âi thÃÂ°Ã¡Â»Âng gÃ¡ÂºÂ·p
 
-### Lỗi 1: Dùng float cho số nguyên lớn
+### LÃ¡Â»Âi 1: DÃÂ¹ng float cho sÃ¡Â»Â nguyÃÂªn lÃ¡Â»Ân
 
 ```python
-r = int(n ** 0.5)   # ❌ lệch 1 với n ~ 10^18
-r = math.isqrt(n)   # ✅ chính xác tuyệt đối
+r = int(n ** 0.5)   # Ã¢ÂÂ lÃ¡Â»Âch 1 vÃ¡Â»Âi n ~ 10^18
+r = math.isqrt(n)   # Ã¢ÂÂ chÃÂ­nh xÃÂ¡c tuyÃ¡Â»Ât ÃÂÃ¡Â»Âi
 ```
 
-### Lỗi 2: Sàng bắt đầu từ `2*i` thay vì `i*i`
+### LÃ¡Â»Âi 2: SÃÂ ng bÃ¡ÂºÂ¯t ÃÂÃ¡ÂºÂ§u tÃ¡Â»Â« `2*i` thay vÃÂ¬ `i*i`
 
-* Đúng nhưng chậm gấp nhiều lần (sàng lại bội đã bị loại). Với N = 10⁷,
-  khác biệt giữa AC và TLE trong Python.
+* ÃÂÃÂºng nhÃÂ°ng chÃ¡ÂºÂ­m gÃ¡ÂºÂ¥p nhiÃ¡Â»Âu lÃ¡ÂºÂ§n (sÃÂ ng lÃ¡ÂºÂ¡i bÃ¡Â»Âi ÃÂÃÂ£ bÃ¡Â»Â loÃ¡ÂºÂ¡i). VÃ¡Â»Âi N = 10Ã¢ÂÂ·,
+  khÃÂ¡c biÃ¡Â»Ât giÃ¡Â»Â¯a AC vÃÂ  TLE trong Python.
 
-### Lỗi 3: Quên `n > 1` sau vòng phân tích (thừa số nguyên tố lớn còn lại)
+### LÃ¡Â»Âi 3: QuÃÂªn `n > 1` sau vÃÂ²ng phÃÂ¢n tÃÂ­ch (thÃ¡Â»Â«a sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â lÃ¡Â»Ân cÃÂ²n lÃ¡ÂºÂ¡i)
 
 ```python
-# n = 2 × 10^12+39... ví dụ n = 14: vòng lặp xong n còn 7 → phải ghi nhận
+# n = 2 ÃÂ 10^12+39... vÃÂ­ dÃ¡Â»Â¥ n = 14: vÃÂ²ng lÃ¡ÂºÂ·p xong n cÃÂ²n 7 Ã¢ÂÂ phÃ¡ÂºÂ£i ghi nhÃ¡ÂºÂ­n
 if n > 1:
     ts[n] = ts.get(n, 0) + 1
 ```
 
-### Lỗi 4: Chia trước khi mod / chia trong modulo
+### LÃ¡Â»Âi 4: Chia trÃÂ°Ã¡Â»Âc khi mod / chia trong modulo
 
 ```python
-# ❌ (a // b) % M ≠ (a / b) mod M
-# ✅ a * pow(b, M - 2, M) % M  (M nguyên tố)
+# Ã¢ÂÂ (a // b) % M Ã¢ÂÂ  (a / b) mod M
+# Ã¢ÂÂ a * pow(b, M - 2, M) % M  (M nguyÃÂªn tÃ¡Â»Â)
 ```
 
-### Lỗi 5: `gcd(0, x)` và số âm
+### LÃ¡Â»Âi 5: `gcd(0, x)` vÃÂ  sÃ¡Â»Â ÃÂ¢m
 
-* `math.gcd` xử lý đúng (gcd(0, x) = |x|); tự cài vòng `while b` cũng đúng.
-  Nhưng `gcd` số âm trong C++ khác Python — biết khi đọc editorial nước ngoài.
-
----
-
-## 🧪 Trường hợp đặc biệt
-
-* **n < 2** không nguyên tố (kể cả 0, 1, số âm) — kiểm tra đầu hàm.
-* **Sàng N < 2**: `la_nt[0:2]` lỗi nếu list ngắn — đảm bảo N ≥ 2 hoặc xử lý riêng.
-* **mod = 1**: mọi thứ mod 1 = 0 — `pow(x, n, 1)` trả 0, code tự cài `1 % m`
-  cũng ra 0. ✔
-* **b chia hết cho M** (nghịch đảo không tồn tại): Fermat không áp dụng —
-  đề chuẩn tránh trường hợp này hoặc yêu cầu xử lý riêng.
-* **C(n,k) với k > n**: = 0 (không có cách) — kiểm tra biên trong hàm C.
+* `math.gcd` xÃ¡Â»Â­ lÃÂ½ ÃÂÃÂºng (gcd(0, x) = |x|); tÃ¡Â»Â± cÃÂ i vÃÂ²ng `while b` cÃÂ©ng ÃÂÃÂºng.
+  NhÃÂ°ng `gcd` sÃ¡Â»Â ÃÂ¢m trong C++ khÃÂ¡c Python Ã¢ÂÂ biÃ¡ÂºÂ¿t khi ÃÂÃ¡Â»Âc editorial nÃÂ°Ã¡Â»Âc ngoÃÂ i.
 
 ---
 
-## 🚀 Ứng dụng thực tế
+## Ã°ÂÂ§Âª TrÃÂ°Ã¡Â»Âng hÃ¡Â»Â£p ÃÂÃ¡ÂºÂ·c biÃ¡Â»Ât
 
-* Mã hóa RSA (nguyên tố lớn, Euclid mở rộng, lũy thừa mod).
-* Băm, checksum, sinh số ngẫu nhiên (đồng dư tuyến tính).
-* Lịch, chu kỳ, đồng bộ (LCM).
+* **n < 2** khÃÂ´ng nguyÃÂªn tÃ¡Â»Â (kÃ¡Â»Â cÃ¡ÂºÂ£ 0, 1, sÃ¡Â»Â ÃÂ¢m) Ã¢ÂÂ kiÃ¡Â»Âm tra ÃÂÃ¡ÂºÂ§u hÃÂ m.
+* **SÃÂ ng N < 2**: `la_nt[0:2]` lÃ¡Â»Âi nÃ¡ÂºÂ¿u list ngÃ¡ÂºÂ¯n Ã¢ÂÂ ÃÂÃ¡ÂºÂ£m bÃ¡ÂºÂ£o N Ã¢ÂÂ¥ 2 hoÃ¡ÂºÂ·c xÃ¡Â»Â­ lÃÂ½ riÃÂªng.
+* **mod = 1**: mÃ¡Â»Âi thÃ¡Â»Â© mod 1 = 0 Ã¢ÂÂ `pow(x, n, 1)` trÃ¡ÂºÂ£ 0, code tÃ¡Â»Â± cÃÂ i `1 % m`
+  cÃÂ©ng ra 0. Ã¢ÂÂ
+* **b chia hÃ¡ÂºÂ¿t cho M** (nghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o khÃÂ´ng tÃ¡Â»Ân tÃ¡ÂºÂ¡i): Fermat khÃÂ´ng ÃÂ¡p dÃ¡Â»Â¥ng Ã¢ÂÂ
+  ÃÂÃ¡Â»Â chuÃ¡ÂºÂ©n trÃÂ¡nh trÃÂ°Ã¡Â»Âng hÃ¡Â»Â£p nÃÂ y hoÃ¡ÂºÂ·c yÃÂªu cÃ¡ÂºÂ§u xÃ¡Â»Â­ lÃÂ½ riÃÂªng.
+* **C(n,k) vÃ¡Â»Âi k > n**: = 0 (khÃÂ´ng cÃÂ³ cÃÂ¡ch) Ã¢ÂÂ kiÃ¡Â»Âm tra biÃÂªn trong hÃÂ m C.
 
 ---
 
-## 🧩 Bài tập
+## Ã°ÂÂÂ Ã¡Â»Â¨ng dÃ¡Â»Â¥ng thÃ¡Â»Â±c tÃ¡ÂºÂ¿
 
-### Bài 1: Cài đặt cơ bản Number Theory Number Theory
+* MÃÂ£ hÃÂ³a RSA (nguyÃÂªn tÃ¡Â»Â lÃ¡Â»Ân, Euclid mÃ¡Â»Â rÃ¡Â»Âng, lÃÂ©y thÃ¡Â»Â«a mod).
+* BÃÂm, checksum, sinh sÃ¡Â»Â ngÃ¡ÂºÂ«u nhiÃÂªn (ÃÂÃ¡Â»Âng dÃÂ° tuyÃ¡ÂºÂ¿n tÃÂ­nh).
+* LÃ¡Â»Âch, chu kÃ¡Â»Â³, ÃÂÃ¡Â»Âng bÃ¡Â»Â (LCM).
 
-* **Đề bài:** Viết hàm Number Theory_basic thực hiện kiểm tra nguyên tố.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Cài đặt theo định nghĩa.
+---
 
-### Bài 2: Trace code Number Theory Number Theory
+## Ã°ÂÂ§Â© BÃÂ i tÃ¡ÂºÂ­p
 
-* **Đề bài:** Trace code: cho đoạn code mẫu Number Theory, hãy viết ra kết quả.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Chạy thủ từng bước.
+### BÃÂ i 1: CÃÂ i ÃÂÃ¡ÂºÂ·t cÃÂ¡ bÃ¡ÂºÂ£n Number Theory Number Theory
 
-### Bài 3: Điền khuyết Number Theory Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ViÃ¡ÂºÂ¿t hÃÂ m Number Theory_basic thÃ¡Â»Â±c hiÃ¡Â»Ân kiÃ¡Â»Âm tra nguyÃÂªn tÃ¡Â»Â.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** CÃÂ i ÃÂÃ¡ÂºÂ·t theo ÃÂÃ¡Â»Ânh nghÃÂ©a.
 
-* **Đề bài:** Hoàn thiện hàm Number Theory đã cho sẵn.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Hoàn thiện code còn thiếu.
+### BÃÂ i 2: Trace code Number Theory Number Theory
 
-### Bài 4: So sánh Number Theory Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** Trace code: cho ÃÂoÃ¡ÂºÂ¡n code mÃ¡ÂºÂ«u Number Theory, hÃÂ£y viÃ¡ÂºÂ¿t ra kÃ¡ÂºÂ¿t quÃ¡ÂºÂ£.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** ChÃ¡ÂºÂ¡y thÃ¡Â»Â§ tÃ¡Â»Â«ng bÃÂ°Ã¡Â»Âc.
 
-* **Đề bài:** So sánh 2 cách giải cho Toán học/Số học.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** So sánh ưu nhược điểm.
+### BÃÂ i 3: ÃÂiÃ¡Â»Ân khuyÃ¡ÂºÂ¿t Number Theory Number Theory
 
-### Bài 5: Áp dụng trực tiếp Number Theory Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** HoÃÂ n thiÃ¡Â»Ân hÃÂ m Number Theory ÃÂÃÂ£ cho sÃ¡ÂºÂµn.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** HoÃÂ n thiÃ¡Â»Ân code cÃÂ²n thiÃ¡ÂºÂ¿u.
 
-* **Đề bài:** Áp dụng thuật toán Number Theory trực tiếp.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Áp dụng trực tiếp thuật toán.
+### BÃÂ i 4: So sÃÂ¡nh Number Theory Number Theory
 
-### Bài 6: Biến thể đơn giản Number Theory Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** So sÃÂ¡nh 2 cÃÂ¡ch giÃ¡ÂºÂ£i cho ToÃÂ¡n hÃ¡Â»Âc/SÃ¡Â»Â hÃ¡Â»Âc.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** So sÃÂ¡nh ÃÂ°u nhÃÂ°Ã¡Â»Â£c ÃÂiÃ¡Â»Âm.
 
-* **Đề bài:** Viết biến thể đơn giản của Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Thay đổi tham số nhỏ.
+### BÃÂ i 5: ÃÂp dÃ¡Â»Â¥ng trÃ¡Â»Â±c tiÃ¡ÂºÂ¿p Number Theory Number Theory
 
-### Bài 7: Debug Number Theory Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ÃÂp dÃ¡Â»Â¥ng thuÃ¡ÂºÂ­t toÃÂ¡n Number Theory trÃ¡Â»Â±c tiÃ¡ÂºÂ¿p.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** ÃÂp dÃ¡Â»Â¥ng trÃ¡Â»Â±c tiÃ¡ÂºÂ¿p thuÃ¡ÂºÂ­t toÃÂ¡n.
 
-* **Đề bài:** Sửa lỗi trong code Number Theory cho trước.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Sửa try/except.
+### BÃÂ i 6: BiÃ¡ÂºÂ¿n thÃ¡Â»Â ÃÂÃÂ¡n giÃ¡ÂºÂ£n Number Theory Number Theory
 
-### Bài 8: Độ phức tạp Number Theory Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ViÃ¡ÂºÂ¿t biÃ¡ÂºÂ¿n thÃ¡Â»Â ÃÂÃÂ¡n giÃ¡ÂºÂ£n cÃ¡Â»Â¥a Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** Thay ÃÂÃ¡Â»Âi tham sÃ¡Â»Â nhÃ¡Â»Â.
 
-* **Đề bài:** Tính độ phức tạp O() của Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Đếm phép toán.
+### BÃÂ i 7: Debug Number Theory Number Theory
 
-### Bài 9: Kiểm tra hiểu Number Theory Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** SÃ¡Â»Â­a lÃ¡Â»Âi trong code Number Theory cho trÃÂ°Ã¡Â»Âc.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** SÃ¡Â»Â­a try/except.
 
-* **Đề bài:** Giải thích bước quan trọng của Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Giải thích logic.
+### BÃÂ i 8: ÃÂÃ¡Â»Â phÃ¡Â»Â©c tÃ¡ÂºÂ¡p Number Theory Number Theory
 
-### Bài 10: Mở rộng Number Theory Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** TÃÂ­nh ÃÂÃ¡Â»Â phÃ¡Â»Â©c tÃ¡ÂºÂ¡p O() cÃ¡Â»Â¥a Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** ÃÂÃ¡ÂºÂ¿m phÃÂ©p toÃÂ¡n.
 
-* **Đề bài:** Mở rộng Number Theory cho trường hợp mới.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Mở rộng tham số.
+### BÃÂ i 9: KiÃ¡Â»Âm tra hiÃ¡Â»Âu Number Theory Number Theory
 
-### Bài 11: Cài đặt đầy đủ Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** GiÃ¡ÂºÂ£i thÃÂ­ch bÃÂ°Ã¡Â»Âc quan trÃ¡Â»Âng cÃ¡Â»Â¥a Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** GiÃ¡ÂºÂ£i thÃÂ­ch logic.
 
-* **Đề bài:** Viết chương trình hoàn chỉnh cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Viết full code.
+### BÃÂ i 10: MÃ¡Â»Â rÃ¡Â»Âng Number Theory Number Theory
 
-### Bài 12: Biến thể Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** MÃ¡Â»Â rÃ¡Â»Âng Number Theory cho trÃÂ°Ã¡Â»Âng hÃ¡Â»Â£p mÃ¡Â»Âi.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** MÃ¡Â»Â rÃ¡Â»Âng tham sÃ¡Â»Â.
 
-* **Đề bài:** Sửa thuật toán Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Sửa logic core.
+### BÃÂ i 11: CÃÂ i ÃÂÃ¡ÂºÂ·t ÃÂÃ¡ÂºÂ§y ÃÂÃ¡Â»Â§ Number Theory
 
-### Bài 13: Tối ưu hóa Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ViÃ¡ÂºÂ¿t chÃÂ°ÃÂ¡ng trÃÂ¬nh hoÃÂ n chÃ¡Â»Ânh cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** ViÃ¡ÂºÂ¿t full code.
 
-* **Đề bài:** Cải tiến độ phức tạp của Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Cải tiến cấu trúc dữ liệu.
+### BÃÂ i 12: BiÃ¡ÂºÂ¿n thÃ¡Â»Â Number Theory
 
-### Bài 14: Kết hợp Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** SÃ¡Â»Â­a thuÃ¡ÂºÂ­t toÃÂ¡n Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** SÃ¡Â»Â­a logic core.
 
-* **Đề bài:** Kết hợp Number Theory với thuật toán khác.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Kết hợp 2 hàm.
+### BÃÂ i 13: TÃ¡Â»Âi ÃÂ°u hÃÂ³a Number Theory
 
-### Bài 15: Trace phức tạp Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** CÃ¡ÂºÂ£i tiÃ¡ÂºÂ¿n ÃÂÃ¡Â»Â phÃ¡Â»Â©c tÃ¡ÂºÂ¡p cÃ¡Â»Â¥a Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** CÃ¡ÂºÂ£i tiÃ¡ÂºÂ¿n cÃ¡ÂºÂ¥u trÃÂºc dÃ¡Â»Â¯ liÃ¡Â»Âu.
 
-* **Đề bài:** Chạy trace thủ công cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Viết nhật ký chạy.
+### BÃÂ i 14: KÃ¡ÂºÂ¿t hÃ¡Â»Â£p Number Theory
 
-### Bài 16: Biến thể ngược Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** KÃ¡ÂºÂ¿t hÃ¡Â»Â£p Number Theory vÃ¡Â»Âi thuÃ¡ÂºÂ­t toÃÂ¡n khÃÂ¡c.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** KÃ¡ÂºÂ¿t hÃ¡Â»Â£p 2 hÃÂ m.
 
-* **Đề bài:** Tìm input từ output cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Ngược logic.
+### BÃÂ i 15: Trace phÃ¡Â»Â©c tÃ¡ÂºÂ¡p Number Theory
 
-### Bài 17: Giới hạn lớn Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ChÃ¡ÂºÂ¡y trace thÃ¡Â»Â§ cÃÂ´ng cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** ViÃ¡ÂºÂ¿t nhÃ¡ÂºÂ­t kÃÂ½ chÃ¡ÂºÂ¡y.
 
-* **Đề bài:** Xử lý n lớn cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Dùng cấu trúc dữ liệu phù hợp.
+### BÃÂ i 16: BiÃ¡ÂºÂ¿n thÃ¡Â»Â ngÃÂ°Ã¡Â»Â£c Number Theory
 
-### Bài 18: So sánh thực tế Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** TÃÂ¬m input tÃ¡Â»Â« output cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** NgÃÂ°Ã¡Â»Â£c logic.
 
-* **Đề bài:** So sánh thực tế các thuật toán.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Dùng timeit.
+### BÃÂ i 17: GiÃ¡Â»Âi hÃ¡ÂºÂ¡n lÃ¡Â»Ân Number Theory
 
-### Bài 19: Mở rộng Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** XÃ¡Â»Â­ lÃÂ½ n lÃ¡Â»Ân cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** DÃÂ¹ng cÃ¡ÂºÂ¥u trÃÂºc dÃ¡Â»Â¯ liÃ¡Â»Âu phÃÂ¹ hÃ¡Â»Â£p.
 
-* **Đề bài:** Mở rộng Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Thêm tham số.
+### BÃÂ i 18: So sÃÂ¡nh thÃ¡Â»Â±c tÃ¡ÂºÂ¿ Number Theory
 
-### Bài 20: Áp dụng thực tế Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** So sÃÂ¡nh thÃ¡Â»Â±c tÃ¡ÂºÂ¿ cÃÂ¡c thuÃ¡ÂºÂ­t toÃÂ¡n.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** DÃÂ¹ng timeit.
 
-* **Đề bài:** Áp dụng Number Theory vào thực tế.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Áp dụng thực tế.
+### BÃÂ i 19: MÃ¡Â»Â rÃ¡Â»Âng Number Theory
 
-### Bài 21: Thiết kế thuật toán Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** MÃ¡Â»Â rÃ¡Â»Âng Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** ThÃÂªm tham sÃ¡Â»Â.
 
-* **Đề bài:** Thiết kế thuật toán O() cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Tham khảo CLRS.
+### BÃÂ i 20: ÃÂp dÃ¡Â»Â¥ng thÃ¡Â»Â±c tÃ¡ÂºÂ¿ Number Theory
 
-### Bài 22: Chứng minh Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ÃÂp dÃ¡Â»Â¥ng Number Theory vÃÂ o thÃ¡Â»Â±c tÃ¡ÂºÂ¿.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** ÃÂp dÃ¡Â»Â¥ng thÃ¡Â»Â±c tÃ¡ÂºÂ¿.
 
-* **Đề bài:** Chứng minh đúng đắn cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Dùng exchange argument.
+### BÃÂ i 21: ThiÃ¡ÂºÂ¿t kÃ¡ÂºÂ¿ thuÃ¡ÂºÂ­t toÃÂ¡n Number Theory
 
-### Bài 23: Giới hạn dưới Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ThiÃ¡ÂºÂ¿t kÃ¡ÂºÂ¿ thuÃ¡ÂºÂ­t toÃÂ¡n O() cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** Tham khÃ¡ÂºÂ£o CLRS.
 
-* **Đề bài:** Chứng minh lower bound cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Dùng adversary argument.
+### BÃÂ i 22: ChÃ¡Â»Â©ng minh Number Theory
 
-### Bài 24: Tối ưu cực hạn Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ChÃ¡Â»Â©ng minh ÃÂÃÂºng ÃÂÃ¡ÂºÂ¯n cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** DÃÂ¹ng exchange argument.
 
-* **Đề bài:** Tối ưu Number Theory chạy trong time limit.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Profile + tối ưu.
+### BÃÂ i 23: GiÃ¡Â»Âi hÃ¡ÂºÂ¡n dÃÂ°Ã¡Â»Âi Number Theory
 
-### Bài 25: Biến thể nghiên cứu Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ChÃ¡Â»Â©ng minh lower bound cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** DÃÂ¹ng adversary argument.
 
-* **Đề bài:** Viết biến thể của Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Tham khảo paper.
+### BÃÂ i 24: TÃ¡Â»Âi ÃÂ°u cÃ¡Â»Â±c hÃ¡ÂºÂ¡n Number Theory
 
-### Bài 26: Kết hợp nâng cao Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** TÃ¡Â»Âi ÃÂ°u Number Theory chÃ¡ÂºÂ¡y trong time limit.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** Profile + tÃ¡Â»Âi ÃÂ°u.
 
-* **Đề bài:** Kết hợp 3 thuật toán cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Phân chia rõ ràng.
+### BÃÂ i 25: BiÃ¡ÂºÂ¿n thÃ¡Â»Â nghiÃÂªn cÃ¡Â»Â©u Number Theory
 
-### Bài 27: Đối kháng Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ViÃ¡ÂºÂ¿t biÃ¡ÂºÂ¿n thÃ¡Â»Â cÃ¡Â»Â¥a Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** Tham khÃ¡ÂºÂ£o paper.
 
-* **Đề bài:** Viết generator test phá Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Sinh test adversarial.
+### BÃÂ i 26: KÃ¡ÂºÂ¿t hÃ¡Â»Â£p nÃÂ¢ng cao Number Theory
 
-### Bài 28: Mở rộng lý thuyết Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** KÃ¡ÂºÂ¿t hÃ¡Â»Â£p 3 thuÃ¡ÂºÂ­t toÃÂ¡n cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** PhÃÂ¢n chia rÃÂµ rÃÂ ng.
 
-* **Đề bài:** Mở rộng định lý cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Generalize định lý.
+### BÃÂ i 27: ÃÂÃ¡Â»Âi khÃÂ¡ng Number Theory
 
-### Bài 29: Cài đặt production Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** ViÃ¡ÂºÂ¿t generator test phÃÂ¡ Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** Sinh test adversarial.
 
-* **Đề bài:** Cài Number Theory production-ready.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Production checklist.
+### BÃÂ i 28: MÃ¡Â»Â rÃ¡Â»Âng lÃÂ½ thuyÃ¡ÂºÂ¿t Number Theory
 
-### Bài 30: Nghiên cứu mở Number Theory
+* **ÃÂÃ¡Â»Â bÃÂ i:** MÃ¡Â»Â rÃ¡Â»Âng ÃÂÃ¡Â»Ânh lÃÂ½ cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** Generalize ÃÂÃ¡Â»Ânh lÃÂ½.
 
-* **Đề bài:** Đề xuất cải tiến mới cho Number Theory.
-* **Input:** (theo đề bài)
-* **Output:** (theo đề bài)
-* **Gợi ý:** Đọc paper mới.
+### BÃÂ i 29: CÃÂ i ÃÂÃ¡ÂºÂ·t production Number Theory
+
+* **ÃÂÃ¡Â»Â bÃÂ i:** CÃÂ i Number Theory production-ready.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** Production checklist.
+
+### BÃÂ i 30: NghiÃÂªn cÃ¡Â»Â©u mÃ¡Â»Â Number Theory
+
+* **ÃÂÃ¡Â»Â bÃÂ i:** ÃÂÃ¡Â»Â xuÃ¡ÂºÂ¥t cÃ¡ÂºÂ£i tiÃ¡ÂºÂ¿n mÃ¡Â»Âi cho Number Theory.
+* **Input:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **Output:** (theo ÃÂÃ¡Â»Â bÃÂ i)
+* **GÃ¡Â»Â£i ÃÂ½:** ÃÂÃ¡Â»Âc paper mÃ¡Â»Âi.
 
 
-## ✅ Đáp án
+## Ã¢ÂÂ ÃÂÃÂ¡p ÃÂ¡n
 
-> 💡 **Hãy tự làm bài tập trước** rồi mới mở đáp án.
+> Ã°ÂÂÂ¡ **HÃÂ£y tÃ¡Â»Â± lÃÂ m bÃÂ i tÃ¡ÂºÂ­p trÃÂ°Ã¡Â»Âc** rÃ¡Â»Âi mÃ¡Â»Âi mÃ¡Â»Â ÃÂÃÂ¡p ÃÂ¡n.
 
 <details>
-<summary>✅ Bài 1: Sàng tay</summary>
+<summary>Ã¢ÂÂ BÃÂ i 1: SÃÂ ng tay</summary>
 
-* p=2: loại 4,6,...,50 (chẵn > 2).
-* p=3: loại 9,15,21,27,33,39,45 (lẻ chưa bị loại).
-* p=5: loại 25,35,49 (bắt đầu 25).
-* p=7: loại đúng số 49 (bội 7 tiếp theo 77 > 50). Số 49 chưa bị loại ở các
-  bước trước vì ước nguyên tố nhỏ nhất của nó chính là 7.
-* Nguyên tố ≤ 50: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47 = **15 số**.
+* p=2: loÃ¡ÂºÂ¡i 4,6,...,50 (chÃ¡ÂºÂµn > 2).
+* p=3: loÃ¡ÂºÂ¡i 9,15,21,27,33,39,45 (lÃ¡ÂºÂ» chÃÂ°a bÃ¡Â»Â loÃ¡ÂºÂ¡i).
+* p=5: loÃ¡ÂºÂ¡i 25,35,49 (bÃ¡ÂºÂ¯t ÃÂÃ¡ÂºÂ§u 25).
+* p=7: loÃ¡ÂºÂ¡i ÃÂÃÂºng sÃ¡Â»Â 49 (bÃ¡Â»Âi 7 tiÃ¡ÂºÂ¿p theo 77 > 50). SÃ¡Â»Â 49 chÃÂ°a bÃ¡Â»Â loÃ¡ÂºÂ¡i Ã¡Â»Â cÃÂ¡c
+  bÃÂ°Ã¡Â»Âc trÃÂ°Ã¡Â»Âc vÃÂ¬ ÃÂ°Ã¡Â»Âc nguyÃÂªn tÃ¡Â»Â nhÃ¡Â»Â nhÃ¡ÂºÂ¥t cÃ¡Â»Â¥a nÃÂ³ chÃÂ­nh lÃÂ  7.
+* NguyÃÂªn tÃ¡Â»Â Ã¢ÂÂ¤ 50: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47 = **15 sÃ¡Â»Â**.
 
 </details>
 
 <details>
-<summary>✅ Bài 2: Euclid tay</summary>
+<summary>Ã¢ÂÂ BÃÂ i 2: Euclid tay</summary>
 
-270 % 192 = 78 → (192, 78); 192 % 78 = 36 → (78, 36); 78 % 36 = 6 →
-(36, 6); 36 % 6 = 0 → (6, 0) → **gcd = 6**.
+270 % 192 = 78 Ã¢ÂÂ (192, 78); 192 % 78 = 36 Ã¢ÂÂ (78, 36); 78 % 36 = 6 Ã¢ÂÂ
+(36, 6); 36 % 6 = 0 Ã¢ÂÂ (6, 0) Ã¢ÂÂ **gcd = 6**.
 
 ```python
 import math
@@ -636,7 +636,7 @@ assert math.gcd(270, 192) == 6
 </details>
 
 <details>
-<summary>✅ Bài 3: Rút gọn</summary>
+<summary>Ã¢ÂÂ BÃÂ i 3: RÃÂºt gÃ¡Â»Ân</summary>
 
 ```python
 import math
@@ -648,12 +648,12 @@ def rut_gon(a, b):
 print(rut_gon(1071, 462))  # 51/22
 ```
 
-1071/21 = 51, 462/21 = 22 → **51/22**. ✔
+1071/21 = 51, 462/21 = 22 Ã¢ÂÂ **51/22**. Ã¢ÂÂ
 
 </details>
 
 <details>
-<summary>✅ Bài 4: Sàng đoạn</summary>
+<summary>Ã¢ÂÂ BÃÂ i 4: SÃÂ ng ÃÂoÃ¡ÂºÂ¡n</summary>
 
 ```python
 import math
@@ -665,20 +665,20 @@ def dem_nt_doan(l, r):
     if l <= 1 <= r:
         la_nt[1 - l] = 0
     for p in range(2, math.isqrt(r) + 1):
-        # bội nhỏ nhất của p mà ≥ l (và ≥ p*p)
+        # bÃ¡Â»Âi nhÃ¡Â»Â nhÃ¡ÂºÂ¥t cÃ¡Â»Â¥a p mÃÂ  Ã¢ÂÂ¥ l (vÃÂ  Ã¢ÂÂ¥ p*p)
         bat_dau = max(p * p, (l + p - 1) // p * p)
         for m in range(bat_dau, r + 1, p):
             la_nt[m - l] = 0
     return sum(la_nt)
 ```
 
-Vì sao chỉ cần p ≤ √r: mọi hợp số ≤ r đều có ước nguyên tố ≤ √r (như mục 1).
-Độ phức tạp O((r−l+1) log log r + √r) — sàng được đoạn tới 10¹².
+VÃÂ¬ sao chÃ¡Â»Â cÃ¡ÂºÂ§n p Ã¢ÂÂ¤ Ã¢ÂÂr: mÃ¡Â»Âi hÃ¡Â»Â£p sÃ¡Â»Â Ã¢ÂÂ¤ r ÃÂÃ¡Â»Âu cÃÂ³ ÃÂ°Ã¡Â»Âc nguyÃÂªn tÃ¡Â»Â Ã¢ÂÂ¤ Ã¢ÂÂr (nhÃÂ° mÃ¡Â»Â¥c 1).
+ÃÂÃ¡Â»Â phÃ¡Â»Â©c tÃ¡ÂºÂ¡p O((rÃ¢ÂÂl+1) log log r + Ã¢ÂÂr) Ã¢ÂÂ sÃÂ ng ÃÂÃÂ°Ã¡Â»Â£c ÃÂoÃ¡ÂºÂ¡n tÃ¡Â»Âi 10ÃÂ¹ÃÂ².
 
 </details>
 
 <details>
-<summary>✅ Bài 5: Fibonacci mod M</summary>
+<summary>Ã¢ÂÂ BÃÂ i 5: Fibonacci mod M</summary>
 
 ```python
 MOD = 10**9 + 7
@@ -704,15 +704,15 @@ def fib_mod(n):
     return mu_mt([[1, 1], [1, 0]], n - 1)[0][0]
 ```
 
-[[1,1],[1,0]]ⁿ chứa F(n+1), F(n)... nên F(n) = góc [0][0] của mũ (n−1).
-O(log n) phép nhân ma trận 2×2 — n = 10¹⁸ chỉ ~60 bước.
+[[1,1],[1,0]]Ã¢ÂÂ¿ chÃ¡Â»Â©a F(n+1), F(n)... nÃÂªn F(n) = gÃÂ³c [0][0] cÃ¡Â»Â¥a mÃÂ© (nÃ¢ÂÂ1).
+O(log n) phÃÂ©p nhÃÂ¢n ma trÃ¡ÂºÂ­n 2ÃÂ2 Ã¢ÂÂ n = 10ÃÂ¹Ã¢ÂÂ¸ chÃ¡Â»Â ~60 bÃÂ°Ã¡Â»Âc.
 
 </details>
 
 <details>
-<summary>✅ Bài 6: C(n,k) mod</summary>
+<summary>Ã¢ÂÂ BÃÂ i 6: C(n,k) mod</summary>
 
-Dùng nguyên code mục 6:
+DÃÂ¹ng nguyÃÂªn code mÃ¡Â»Â¥c 6:
 
 ```python
 MOD = 10**9 + 7
@@ -721,16 +721,16 @@ assert C(10, 3, fact, inv_fact) == 120
 print(C(100, 50, fact, inv_fact))  # 538992043
 ```
 
-C(100,50) = 100891344545564193334812497256, mod 10⁹+7 = 538992043
-(kiểm chứng bằng `math.comb(100, 50) % MOD`).
+C(100,50) = 100891344545564193334812497256, mod 10Ã¢ÂÂ¹+7 = 538992043
+(kiÃ¡Â»Âm chÃ¡Â»Â©ng bÃ¡ÂºÂ±ng `math.comb(100, 50) % MOD`).
 
 </details>
 
 <details>
-<summary>✅ Bài 7: Tổng ước</summary>
+<summary>Ã¢ÂÂ BÃÂ i 7: TÃ¡Â»Âng ÃÂ°Ã¡Â»Âc</summary>
 
-360 = 2³·3²·5¹. Số ước = 4×3×2 = **24**. Tổng = (2⁴−1)/1 × (3³−1)/2 ×
-(5²−1)/4 = 15 × 13 × 6 = **1170**. Kiểm chứng brute force:
+360 = 2ÃÂ³ÃÂ·3ÃÂ²ÃÂ·5ÃÂ¹. SÃ¡Â»Â ÃÂ°Ã¡Â»Âc = 4ÃÂ3ÃÂ2 = **24**. TÃ¡Â»Âng = (2Ã¢ÂÂ´Ã¢ÂÂ1)/1 ÃÂ (3ÃÂ³Ã¢ÂÂ1)/2 ÃÂ
+(5ÃÂ²Ã¢ÂÂ1)/4 = 15 ÃÂ 13 ÃÂ 6 = **1170**. KiÃ¡Â»Âm chÃ¡Â»Â©ng brute force:
 
 ```python
 n = 360
@@ -741,12 +741,12 @@ assert len(uoc) == 24 and sum(uoc) == 1170
 </details>
 
 <details>
-<summary>✅ Bài 8: Mũ tháp (nâng cao)</summary>
+<summary>Ã¢ÂÂ BÃÂ i 8: MÃÂ© thÃÂ¡p (nÃÂ¢ng cao)</summary>
 
-Ý tưởng (Euler + overflow-cap): định nghĩa đệ quy f(k, m) = tháp k số 2 mod m.
-Nếu m = 1 → 0. Ngược lại: φ = phi(m); e = f(k−1, φ); số mũ thật = e +
-(φ nếu tháp con ≥ φ — "đủ lớn" thì cộng bù để Euler đúng); kết quả
-pow(2, mũ_thật, m).
+ÃÂ tÃÂ°Ã¡Â»Âng (Euler + overflow-cap): ÃÂÃ¡Â»Ânh nghÃÂ©a ÃÂÃ¡Â»Â quy f(k, m) = thÃÂ¡p k sÃ¡Â»Â 2 mod m.
+NÃ¡ÂºÂ¿u m = 1 Ã¢ÂÂ 0. NgÃÂ°Ã¡Â»Â£c lÃ¡ÂºÂ¡i: ÃÂ = phi(m); e = f(kÃ¢ÂÂ1, ÃÂ); sÃ¡Â»Â mÃÂ© thÃ¡ÂºÂ­t = e +
+(ÃÂ nÃ¡ÂºÂ¿u thÃÂ¡p con Ã¢ÂÂ¥ ÃÂ Ã¢ÂÂ "ÃÂÃ¡Â»Â§ lÃ¡Â»Ân" thÃÂ¬ cÃ¡Â»Âng bÃÂ¹ ÃÂÃ¡Â»Â Euler ÃÂÃÂºng); kÃ¡ÂºÂ¿t quÃ¡ÂºÂ£
+pow(2, mÃÂ©_thÃ¡ÂºÂ­t, m).
 
 ```python
 import math
@@ -764,12 +764,12 @@ def phi(n):
     return kq
 
 def du_lon(k, gioi_han):
-    # tháp k số 2 có ≥ gioi_han không? (tính có chặn trên)
+    # thÃÂ¡p k sÃ¡Â»Â 2 cÃÂ³ Ã¢ÂÂ¥ gioi_han khÃÂ´ng? (tÃÂ­nh cÃÂ³ chÃ¡ÂºÂ·n trÃÂªn)
     if gioi_han <= 1:
         return True
     if k == 1:
         return 2 >= gioi_han
-    # 2^e ≥ G ⟺ e ≥ log2(G); đệ quy với log
+    # 2^e Ã¢ÂÂ¥ G Ã¢ÂÂº e Ã¢ÂÂ¥ log2(G); ÃÂÃ¡Â»Â quy vÃ¡Â»Âi log
     import math as mth
     return du_lon(k - 1, mth.log2(gioi_han))
 
@@ -785,13 +785,13 @@ def thap(k, m):
     return pow(2, e, m)
 ```
 
-Đây là bài khó cấp quốc gia — hiểu được lời giải đã là thành công;
-cài đúng + phân tích overflow-cap là xuất sắc.
+ÃÂÃÂ¢y lÃÂ  bÃÂ i khÃÂ³ cÃ¡ÂºÂ¥p quÃ¡Â»Âc gia Ã¢ÂÂ hiÃ¡Â»Âu ÃÂÃÂ°Ã¡Â»Â£c lÃ¡Â»Âi giÃ¡ÂºÂ£i ÃÂÃÂ£ lÃÂ  thÃÂ nh cÃÂ´ng;
+cÃÂ i ÃÂÃÂºng + phÃÂ¢n tÃÂ­ch overflow-cap lÃÂ  xuÃ¡ÂºÂ¥t sÃ¡ÂºÂ¯c.
 
 </details>
 
 <details>
-<summary>✅ Bài 9: Gặp lại sau bao lâu</summary>
+<summary>Ã¢ÂÂ BÃÂ i 9: GÃ¡ÂºÂ·p lÃ¡ÂºÂ¡i sau bao lÃÂ¢u</summary>
 
 ```python
 import math
@@ -799,21 +799,21 @@ import math
 def gap_lai(*chu_ky):
     kq = 1
     for c in chu_ky:
-        kq = kq // math.gcd(kq, c) * c   # lcm(a,b) = a*b/gcd (chia trước!)
+        kq = kq // math.gcd(kq, c) * c   # lcm(a,b) = a*b/gcd (chia trÃÂ°Ã¡Â»Âc!)
     return kq
 
 assert gap_lai(4, 6) == 12
 assert gap_lai(4, 6, 8) == 24
 ```
 
-Cùng chớp ⟺ thời gian là bội chung → đáp án là BCNN. `kq // gcd * c` (chia
-trước nhân sau) tránh số phình trung gian — thói quen từ C++ vẫn tốt cho Python
-(nhanh hơn với số khổng lồ).
+CÃÂ¹ng chÃ¡Â»Âp Ã¢ÂÂº thÃ¡Â»Âi gian lÃÂ  bÃ¡Â»Âi chung Ã¢ÂÂ ÃÂÃÂ¡p ÃÂ¡n lÃÂ  BCNN. `kq // gcd * c` (chia
+trÃÂ°Ã¡Â»Âc nhÃÂ¢n sau) trÃÂ¡nh sÃ¡Â»Â phÃÂ¬nh trung gian Ã¢ÂÂ thÃÂ³i quen tÃ¡Â»Â« C++ vÃ¡ÂºÂ«n tÃ¡Â»Ât cho Python
+(nhanh hÃÂ¡n vÃ¡Â»Âi sÃ¡Â»Â khÃ¡Â»Âng lÃ¡Â»Â).
 
 </details>
 
 <details>
-<summary>✅ Bài 10: Đếm ước 2 cách</summary>
+<summary>Ã¢ÂÂ BÃÂ i 10: ÃÂÃ¡ÂºÂ¿m ÃÂ°Ã¡Â»Âc 2 cÃÂ¡ch</summary>
 
 ```python
 import time
@@ -826,25 +826,25 @@ def dem_uoc_can(n):
     dem, r = 0, math.isqrt(n)
     for d in range(1, r + 1):
         if n % d == 0:
-            dem += 2 if d * d != n else 1   # cặp (d, n//d), trừ chính phương
+            dem += 2 if d * d != n else 1   # cÃ¡ÂºÂ·p (d, n//d), trÃ¡Â»Â« chÃÂ­nh phÃÂ°ÃÂ¡ng
     return dem
 
 n = 999983 * 999979
 t0 = time.perf_counter()
 assert dem_uoc_can(n) == 4
 t1 = time.perf_counter()
-print(f"Can bac 2: {t1 - t0:.3f}s")   # ~0.3s (10^6 vòng)
-# dem_uoc_naive(n): 10^12 vòng ~ hàng giờ -> KHÔNG CHẠY, chỉ tính lý thuyết!
+print(f"Can bac 2: {t1 - t0:.3f}s")   # ~0.3s (10^6 vÃÂ²ng)
+# dem_uoc_naive(n): 10^12 vÃÂ²ng ~ hÃÂ ng giÃ¡Â»Â -> KHÃÂNG CHÃ¡ÂºÂ Y, chÃ¡Â»Â tÃÂ­nh lÃÂ½ thuyÃ¡ÂºÂ¿t!
 ```
 
-n = 999983 × 999979 có đúng 4 ước (1, 2 số nguyên tố, n). Cách naive 10¹² vòng
-≈ hàng giờ/ngày; cách căn 10⁶ vòng ≈ 0.3s. Bài học: **đếm bằng cặp ước, không
-bao giờ duyệt tới n** — và với n ≤ 10¹² thì O(√n) luôn đủ.
+n = 999983 ÃÂ 999979 cÃÂ³ ÃÂÃÂºng 4 ÃÂ°Ã¡Â»Âc (1, 2 sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â, n). CÃÂ¡ch naive 10ÃÂ¹ÃÂ² vÃÂ²ng
+Ã¢ÂÂ hÃÂ ng giÃ¡Â»Â/ngÃÂ y; cÃÂ¡ch cÃÂn 10Ã¢ÂÂ¶ vÃÂ²ng Ã¢ÂÂ 0.3s. BÃÂ i hÃ¡Â»Âc: **ÃÂÃ¡ÂºÂ¿m bÃ¡ÂºÂ±ng cÃ¡ÂºÂ·p ÃÂ°Ã¡Â»Âc, khÃÂ´ng
+bao giÃ¡Â»Â duyÃ¡Â»Ât tÃ¡Â»Âi n** Ã¢ÂÂ vÃÂ  vÃ¡Â»Âi n Ã¢ÂÂ¤ 10ÃÂ¹ÃÂ² thÃÂ¬ O(Ã¢ÂÂn) luÃÂ´n ÃÂÃ¡Â»Â§.
 
 </details>
 
 <details>
-<summary>✅ Bài 11: Tổ hợp 1 truy vấn</summary>
+<summary>Ã¢ÂÂ BÃÂ i 11: TÃ¡Â»Â hÃ¡Â»Â£p 1 truy vÃ¡ÂºÂ¥n</summary>
 
 ```python
 MOD = 10**9 + 7
@@ -852,7 +852,7 @@ MOD = 10**9 + 7
 def Cn_k_1_truy_van(n, k):
     if k < 0 or k > n:
         return 0
-    k = min(k, n - k)          # C(n,k) = C(n,n-k): vòng lặp ngắn hơn!
+    k = min(k, n - k)          # C(n,k) = C(n,n-k): vÃÂ²ng lÃ¡ÂºÂ·p ngÃ¡ÂºÂ¯n hÃÂ¡n!
     tu = mau = 1
     for i in range(k):
         tu = tu * (n - i) % MOD
@@ -864,14 +864,14 @@ assert Cn_k_1_truy_van(100, 50) == math.comb(100, 50) % MOD
 assert Cn_k_1_truy_van(10, 3) == 120
 ```
 
-O(k) mỗi truy vấn, O(1) nhớ. Dùng khi q nhỏ (vài truy vấn) hoặc n quá lớn
-không tiền xử lý nổi. q ≥ 10⁵ → bảng giai thừa (Bài 5) thắng vì O(1)/truy vấn
-sau O(N) một lần. Chọn công cụ theo q!
+O(k) mÃ¡Â»Âi truy vÃ¡ÂºÂ¥n, O(1) nhÃ¡Â»Â. DÃÂ¹ng khi q nhÃ¡Â»Â (vÃÂ i truy vÃ¡ÂºÂ¥n) hoÃ¡ÂºÂ·c n quÃÂ¡ lÃ¡Â»Ân
+khÃÂ´ng tiÃ¡Â»Ân xÃ¡Â»Â­ lÃÂ½ nÃ¡Â»Âi. q Ã¢ÂÂ¥ 10Ã¢ÂÂµ Ã¢ÂÂ bÃ¡ÂºÂ£ng giai thÃ¡Â»Â«a (BÃÂ i 5) thÃ¡ÂºÂ¯ng vÃÂ¬ O(1)/truy vÃ¡ÂºÂ¥n
+sau O(N) mÃ¡Â»Ât lÃ¡ÂºÂ§n. ChÃ¡Â»Ân cÃÂ´ng cÃ¡Â»Â¥ theo q!
 
 </details>
 
 <details>
-<summary>✅ Bài 12: Hàm phi Euler</summary>
+<summary>Ã¢ÂÂ BÃÂ i 12: HÃÂ m phi Euler</summary>
 
 ```python
 def phi(n):
@@ -880,7 +880,7 @@ def phi(n):
         if x % p == 0:
             while x % p == 0:
                 x //= p
-            ket_qua -= ket_qua // p   # bỏ các bội của p
+            ket_qua -= ket_qua // p   # bÃ¡Â»Â cÃÂ¡c bÃ¡Â»Âi cÃ¡Â»Â¥a p
         p += 1 if p == 2 else 2
     if x > 1:
         ket_qua -= ket_qua // x
@@ -889,88 +889,88 @@ def phi(n):
 assert phi(36) == 12 and phi(10**9 + 7) == 10**9 + 6 and phi(1) == 1
 ```
 
-Với n = ∏p^e: tỉ lệ số nguyên tố cùng nhau với n là ∏(1 − 1/p) → nhân với n.
-Ứng dụng đã gặp: `pow(b, MOD-2, MOD)` (Bài 5) đúng vì phi(MOD) = MOD−1 khi MOD
-nguyên tố (Fermat nhỏ là trường hợp riêng của Euler!). Hiểu phi = hiểu vì sao
-nghịch đảo modular tồn tại.
+VÃ¡Â»Âi n = Ã¢ÂÂp^e: tÃ¡Â»Â lÃ¡Â»Â sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â cÃÂ¹ng nhau vÃ¡Â»Âi n lÃÂ  Ã¢ÂÂ(1 Ã¢ÂÂ 1/p) Ã¢ÂÂ nhÃÂ¢n vÃ¡Â»Âi n.
+Ã¡Â»Â¨ng dÃ¡Â»Â¥ng ÃÂÃÂ£ gÃ¡ÂºÂ·p: `pow(b, MOD-2, MOD)` (BÃÂ i 5) ÃÂÃÂºng vÃÂ¬ phi(MOD) = MODÃ¢ÂÂ1 khi MOD
+nguyÃÂªn tÃ¡Â»Â (Fermat nhÃ¡Â»Â lÃÂ  trÃÂ°Ã¡Â»Âng hÃ¡Â»Â£p riÃÂªng cÃ¡Â»Â¥a Euler!). HiÃ¡Â»Âu phi = hiÃ¡Â»Âu vÃÂ¬ sao
+nghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o modular tÃ¡Â»Ân tÃ¡ÂºÂ¡i.
 
 </details>
 
 ---
 
-## 🧠 Thử thách
+## Ã°ÂÂ§Â  ThÃ¡Â»Â­ thÃÂ¡ch
 
-**Thử thách HSG:** Đếm số nguyên tố ≤ 10¹¹ (π(10¹¹) = 4118054813) trong 2 giây
-bằng **sàng Meissel-Lehmer** (đếm nguyên tố O(n^(2/3))). *Gợi ý: công thức truy
-hồi π(x) = φ(x, a) + b − ... với a = π(x^(1/4)). Đây là thuật toán đếm nguyên tố
-chuẩn cho n lớn — cài được thì không còn bài sàng nào làm khó bạn.*
+**ThÃ¡Â»Â­ thÃÂ¡ch HSG:** ÃÂÃ¡ÂºÂ¿m sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â Ã¢ÂÂ¤ 10ÃÂ¹ÃÂ¹ (ÃÂ(10ÃÂ¹ÃÂ¹) = 4118054813) trong 2 giÃÂ¢y
+bÃ¡ÂºÂ±ng **sÃÂ ng Meissel-Lehmer** (ÃÂÃ¡ÂºÂ¿m nguyÃÂªn tÃ¡Â»Â O(n^(2/3))). *GÃ¡Â»Â£i ÃÂ½: cÃÂ´ng thÃ¡Â»Â©c truy
+hÃ¡Â»Âi ÃÂ(x) = ÃÂ(x, a) + b Ã¢ÂÂ ... vÃ¡Â»Âi a = ÃÂ(x^(1/4)). ÃÂÃÂ¢y lÃÂ  thuÃ¡ÂºÂ­t toÃÂ¡n ÃÂÃ¡ÂºÂ¿m nguyÃÂªn tÃ¡Â»Â
+chuÃ¡ÂºÂ©n cho n lÃ¡Â»Ân Ã¢ÂÂ cÃÂ i ÃÂÃÂ°Ã¡Â»Â£c thÃÂ¬ khÃÂ´ng cÃÂ²n bÃÂ i sÃÂ ng nÃÂ o lÃÂ m khÃÂ³ bÃ¡ÂºÂ¡n.*
 
 ---
 
-## 📝 Tóm tắt
+## Ã°ÂÂÂ TÃÂ³m tÃ¡ÂºÂ¯t
 
-| Khái niệm | Nội dung |
+| KhÃÂ¡i niÃ¡Â»Âm | NÃ¡Â»Âi dung |
 |---|---|
-| 🔢 Nguyên tố 1 số | Thử đến `isqrt`, chỉ lẻ — O(√n) |
-| 🪤 Sàng | Eratosthenes O(n log log n); bắt đầu i²; slice gán |
-| ➗ Euclid | GCD O(log); LCM qua GCD; `math.gcd` |
-| ⚡ Mũ mod | Lũy thừa nhanh O(log n); `pow(x,n,m)` có sẵn |
-| 🔄 Fermat | b⁻¹ = b^(M−2); C(n,k) bằng fact + inv_fact |
-| ⚠️ Bẫy | Float với số lớn — `isqrt`, `//`, int |
+| Ã°ÂÂÂ¢ NguyÃÂªn tÃ¡Â»Â 1 sÃ¡Â»Â | ThÃ¡Â»Â­ ÃÂÃ¡ÂºÂ¿n `isqrt`, chÃ¡Â»Â lÃ¡ÂºÂ» Ã¢ÂÂ O(Ã¢ÂÂn) |
+| Ã°ÂÂªÂ¤ SÃÂ ng | Eratosthenes O(n log log n); bÃ¡ÂºÂ¯t ÃÂÃ¡ÂºÂ§u iÃÂ²; slice gÃÂ¡n |
+| Ã¢ÂÂ Euclid | GCD O(log); LCM qua GCD; `math.gcd` |
+| Ã¢ÂÂ¡ MÃÂ© mod | LÃÂ©y thÃ¡Â»Â«a nhanh O(log n); `pow(x,n,m)` cÃÂ³ sÃ¡ÂºÂµn |
+| Ã°ÂÂÂ Fermat | bÃ¢ÂÂ»ÃÂ¹ = b^(MÃ¢ÂÂ2); C(n,k) bÃ¡ÂºÂ±ng fact + inv_fact |
+| Ã¢ÂÂ Ã¯Â¸Â BÃ¡ÂºÂ«y | Float vÃ¡Â»Âi sÃ¡Â»Â lÃ¡Â»Ân Ã¢ÂÂ `isqrt`, `//`, int |
 
 ---
 
-## 🏠 Bài tập về nhà
+## Ã°ÂÂÂ  BÃÂ i tÃ¡ÂºÂ­p vÃ¡Â»Â nhÃÂ 
 
-> 📝 Làm vào vở (hoặc nộp GV). Đáp án chi tiết sẽ bổ sung trong đợt hoàn thiện.
+> Ã°ÂÂÂ LÃÂ m vÃÂ o vÃ¡Â»Â (hoÃ¡ÂºÂ·c nÃ¡Â»Âp GV). ÃÂÃÂ¡p ÃÂ¡n chi tiÃ¡ÂºÂ¿t sÃ¡ÂºÂ½ bÃ¡Â»Â sung trong ÃÂÃ¡Â»Â£t hoÃÂ n thiÃ¡Â»Ân.
 
-1. **Sàng lọc:** viết sàng Eratosthenes tìm số nguyên tố ≤ 10⁶ — so với `is_prime` lặp √n.
-2. **Euclid & lũy thừa nhanh:** cài `gcd` và `pow_mod(a, n, m)` tay (không dùng `math`/`pow`) — test 5 cặp số lớn.
-3. **Tổ hợp C(n,k) mod M:** giải bài chọn k món từ n món, kết quả modulo 10⁹+7 — dùng Fermat + fact/invfact.
+1. **SÃÂ ng lÃ¡Â»Âc:** viÃ¡ÂºÂ¿t sÃÂ ng Eratosthenes tÃÂ¬m sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â Ã¢ÂÂ¤ 10Ã¢ÂÂ¶ Ã¢ÂÂ so vÃ¡Â»Âi `is_prime` lÃ¡ÂºÂ·p Ã¢ÂÂn.
+2. **Euclid & lÃÂ©y thÃ¡Â»Â«a nhanh:** cÃÂ i `gcd` vÃÂ  `pow_mod(a, n, m)` tay (khÃÂ´ng dÃÂ¹ng `math`/`pow`) Ã¢ÂÂ test 5 cÃ¡ÂºÂ·p sÃ¡Â»Â lÃ¡Â»Ân.
+3. **TÃ¡Â»Â hÃ¡Â»Â£p C(n,k) mod M:** giÃ¡ÂºÂ£i bÃÂ i chÃ¡Â»Ân k mÃÂ³n tÃ¡Â»Â« n mÃÂ³n, kÃ¡ÂºÂ¿t quÃ¡ÂºÂ£ modulo 10Ã¢ÂÂ¹+7 Ã¢ÂÂ dÃÂ¹ng Fermat + fact/invfact.
 
 ---
 
-## 📎 Tra cứu nhanh — Sàng, Euclid, lũy thừa, Fermat, tổ hợp
+## Ã°ÂÂÂ Tra cÃ¡Â»Â©u nhanh Ã¢ÂÂ SÃÂ ng, Euclid, lÃÂ©y thÃ¡Â»Â«a, Fermat, tÃ¡Â»Â hÃ¡Â»Â£p
 
-| Kỹ thuật | Template | Ví dụ |
+| KÃ¡Â»Â¹ thuÃ¡ÂºÂ­t | Template | VÃÂ­ dÃ¡Â»Â¥ |
 |---|---|---|
-| Sàng Eratosthenes | `s = [True]*(n+1); for i in range(2, isqrt(n)+1):` | Liệt kê nguyên tố ≤ 10⁶ |
-| Kiểm tra nguyên tố | Miller-Rabin (n ≤ 10¹⁸) | `pow(a, n-1, n) == 1` |
-| GCD | `def gcd(a,b): return gcd(b, a%b) if b else a` | `gcd(48, 18)` → 6 |
-| Lũy thừa nhanh | `pow_mod(x, n, m)` chia đôi mũ | `pow(x, n, m)` có sẵn |
-| Fermat nhỏ | `a^(p-1) ≡ 1 (mod p)` | Nghịch đảo modulo |
-| Tổ hợp C(n,k) mod p | `fact[n] * invfact[k] * invfact[n-k] % p` | `n, k ≤ 10⁶` |
+| SÃÂ ng Eratosthenes | `s = [True]*(n+1); for i in range(2, isqrt(n)+1):` | LiÃ¡Â»Ât kÃÂª nguyÃÂªn tÃ¡Â»Â Ã¢ÂÂ¤ 10Ã¢ÂÂ¶ |
+| KiÃ¡Â»Âm tra nguyÃÂªn tÃ¡Â»Â | Miller-Rabin (n Ã¢ÂÂ¤ 10ÃÂ¹Ã¢ÂÂ¸) | `pow(a, n-1, n) == 1` |
+| GCD | `def gcd(a,b): return gcd(b, a%b) if b else a` | `gcd(48, 18)` Ã¢ÂÂ 6 |
+| LÃÂ©y thÃ¡Â»Â«a nhanh | `pow_mod(x, n, m)` chia ÃÂÃÂ´i mÃÂ© | `pow(x, n, m)` cÃÂ³ sÃ¡ÂºÂµn |
+| Fermat nhÃ¡Â»Â | `a^(p-1) Ã¢ÂÂ¡ 1 (mod p)` | NghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o modulo |
+| TÃ¡Â»Â hÃ¡Â»Â£p C(n,k) mod p | `fact[n] * invfact[k] * invfact[n-k] % p` | `n, k Ã¢ÂÂ¤ 10Ã¢ÂÂ¶` |
 
-**Ghi nhớ:** Python có sẵn `math.gcd`, `math.comb`, `pow(x, n, m)` — thi dùng luôn, tự cài chỉ để hiểu bản chất.
-
----
-
+**Ghi nhÃ¡Â»Â:** Python cÃÂ³ sÃ¡ÂºÂµn `math.gcd`, `math.comb`, `pow(x, n, m)` Ã¢ÂÂ thi dÃÂ¹ng luÃÂ´n, tÃ¡Â»Â± cÃÂ i chÃ¡Â»Â ÃÂÃ¡Â»Â hiÃ¡Â»Âu bÃ¡ÂºÂ£n chÃ¡ÂºÂ¥t.
 
 ---
 
-## 📌 Cheatsheet — Sàng, Euclid, lũy thừa, Fermat, tổ hợp
 
-| Kỹ thuật | Template | Ví dụ |
+---
+
+## Ã°ÂÂÂ Cheatsheet Ã¢ÂÂ SÃÂ ng, Euclid, lÃÂ©y thÃ¡Â»Â«a, Fermat, tÃ¡Â»Â hÃ¡Â»Â£p
+
+| KÃ¡Â»Â¹ thuÃ¡ÂºÂ­t | Template | VÃÂ­ dÃ¡Â»Â¥ |
 |---|---|---|
-| Sàng Eratosthenes | `s = [True]*(n+1); for i in range(2, isqrt(n)+1):` | Liệt kê nguyên tố ≤ 10⁶ |
-| Kiểm tra nguyên tố | Miller-Rabin (n ≤ 10¹⁸) | `pow(a, n-1, n) == 1` |
-| GCD | `def gcd(a,b): return gcd(b, a%b) if b else a` | `gcd(48, 18)` → 6 |
-| Lũy thừa nhanh | `pow_mod(x, n, m)` chia đôi mũ | `pow(x, n, m)` có sẵn |
-| Fermat nhỏ | `a^(p-1) ≡ 1 (mod p)` | Nghịch đảo modulo |
-| Tổ hợp C(n,k) mod p | `fact[n] * invfact[k] * invfact[n-k] % p` | `n, k ≤ 10⁶` |
+| SÃÂ ng Eratosthenes | `s = [True]*(n+1); for i in range(2, isqrt(n)+1):` | LiÃ¡Â»Ât kÃÂª nguyÃÂªn tÃ¡Â»Â Ã¢ÂÂ¤ 10Ã¢ÂÂ¶ |
+| KiÃ¡Â»Âm tra nguyÃÂªn tÃ¡Â»Â | Miller-Rabin (n Ã¢ÂÂ¤ 10ÃÂ¹Ã¢ÂÂ¸) | `pow(a, n-1, n) == 1` |
+| GCD | `def gcd(a,b): return gcd(b, a%b) if b else a` | `gcd(48, 18)` Ã¢ÂÂ 6 |
+| LÃÂ©y thÃ¡Â»Â«a nhanh | `pow_mod(x, n, m)` chia ÃÂÃÂ´i mÃÂ© | `pow(x, n, m)` cÃÂ³ sÃ¡ÂºÂµn |
+| Fermat nhÃ¡Â»Â | `a^(p-1) Ã¢ÂÂ¡ 1 (mod p)` | NghÃ¡Â»Âch ÃÂÃ¡ÂºÂ£o modulo |
+| TÃ¡Â»Â hÃ¡Â»Â£p C(n,k) mod p | `fact[n] * invfact[k] * invfact[n-k] % p` | `n, k Ã¢ÂÂ¤ 10Ã¢ÂÂ¶` |
 
-**Ghi nhớ:** Python có sẵn `math.gcd`, `math.comb`, `pow(x, n, m)` — thi dùng luôn, tự cài chỉ để hiểu bản chất.
+**Ghi nhÃ¡Â»Â:** Python cÃÂ³ sÃ¡ÂºÂµn `math.gcd`, `math.comb`, `pow(x, n, m)` Ã¢ÂÂ thi dÃÂ¹ng luÃÂ´n, tÃ¡Â»Â± cÃÂ i chÃ¡Â»Â ÃÂÃ¡Â»Â hiÃ¡Â»Âu bÃ¡ÂºÂ£n chÃ¡ÂºÂ¥t.
 
 ---
 
-## 📌 Cheatsheet — Số chính phương
+## Ã°ÂÂÂ Cheatsheet Ã¢ÂÂ SÃ¡Â»Â chÃÂ­nh phÃÂ°ÃÂ¡ng
 
 ```python
 import math
 def is_square(n):
     r = int(math.isqrt(n))  # Python 3.8+
     return r * r == n
-# hoặc không dùng math:
+# hoÃ¡ÂºÂ·c khÃÂ´ng dÃÂ¹ng math:
 x = 0
 while x * x <= n:
     if x * x == n: return True
@@ -979,16 +979,16 @@ while x * x <= n:
 
 ---
 
-## 📌 Cheatsheet — Fibonacci lặp (O(n), không đệ quy)
+## Ã°ÂÂÂ Cheatsheet Ã¢ÂÂ Fibonacci lÃ¡ÂºÂ·p (O(n), khÃÂ´ng ÃÂÃ¡Â»Â quy)
 
 ```python
-# Cách 1: 2 biến (tối ưu bộ nhớ)
+# CÃÂ¡ch 1: 2 biÃ¡ÂºÂ¿n (tÃ¡Â»Âi ÃÂ°u bÃ¡Â»Â nhÃ¡Â»Â)
 a, b = 0, 1
 for _ in range(n):
     a, b = b, a + b
 print(a)  # F(n)
 
-# Cách 2: Mảng (khi cần truy xuất nhiều lần, n ≤ 10^6)
+# CÃÂ¡ch 2: MÃ¡ÂºÂ£ng (khi cÃ¡ÂºÂ§n truy xuÃ¡ÂºÂ¥t nhiÃ¡Â»Âu lÃ¡ÂºÂ§n, n Ã¢ÂÂ¤ 10^6)
 f = [0] * 1_000_006
 f[1] = f[2] = 1
 for i in range(3, n+1):
@@ -997,24 +997,24 @@ for i in range(3, n+1):
 
 ---
 
-## 📌 Cheatsheet — Kiểm tra SNT (3 mức độ)
+## Ã°ÂÂÂ Cheatsheet Ã¢ÂÂ KiÃ¡Â»Âm tra SNT (3 mÃ¡Â»Â©c ÃÂÃ¡Â»Â)
 
 ```python
-# Cách 1: O(n) - cơ bản
+# CÃÂ¡ch 1: O(n) - cÃÂ¡ bÃ¡ÂºÂ£n
 def is_prime_basic(n):
     if n < 2: return False
     for i in range(2, n):
         if n % i == 0: return False
     return True
 
-# Cách 2: O(√n) - TỐI ƯU (cần nhớ!)
+# CÃÂ¡ch 2: O(Ã¢ÂÂn) - TÃ¡Â»ÂI ÃÂ¯U (cÃ¡ÂºÂ§n nhÃ¡Â»Â!)
 def is_prime(n):
     if n < 2: return False
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0: return False
     return True
 
-# Cách 3: Sieve (Eratosthenes) - cho nhiều truy vấn, n ≤ 10^6
+# CÃÂ¡ch 3: Sieve (Eratosthenes) - cho nhiÃ¡Â»Âu truy vÃ¡ÂºÂ¥n, n Ã¢ÂÂ¤ 10^6
 N = 1_000_006
 is_prime = [True] * N
 is_prime[0] = is_prime[1] = False
@@ -1026,7 +1026,7 @@ for i in range(2, int(N**0.5)+1):
 
 ---
 
-## 📌 Cheatsheet — Phân tích thừa số nguyên tố
+## Ã°ÂÂÂ Cheatsheet Ã¢ÂÂ PhÃÂ¢n tÃÂ­ch thÃ¡Â»Â«a sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â
 
 ```python
 x = int(input())
@@ -1037,10 +1037,10 @@ while d * d <= x:
     while x % d == 0:
         x //= d
         cnt += 1
-    if cnt % 2 == 1:      # số mũ lẻ → nhân vào kết quả
+    if cnt % 2 == 1:      # sÃ¡Â»Â mÃÂ© lÃ¡ÂºÂ» Ã¢ÂÂ nhÃÂ¢n vÃÂ o kÃ¡ÂºÂ¿t quÃ¡ÂºÂ£
         y *= d
     d += 1
-if x > 1:                 # thừa số nguyên tố lớn cuối cùng
+if x > 1:                 # thÃ¡Â»Â«a sÃ¡Â»Â nguyÃÂªn tÃ¡Â»Â lÃ¡Â»Ân cuÃ¡Â»Âi cÃÂ¹ng
     y *= x
 print(y)
 ```
@@ -1049,8 +1049,9 @@ print(y)
 
 
 
-## ➡️ Điều hướng
+## Ã¢ÂÂ¡Ã¯Â¸Â ÃÂiÃ¡Â»Âu hÃÂ°Ã¡Â»Âng
 
-**Vị trí:** `b36-Toan-Hoc-So-Hoc/bai.md`
+**VÃ¡Â»Â trÃÂ­:** `b36-Toan-Hoc-So-Hoc/bai.md`
 
-**Bài tiếp theo:** [Bài 37 — Đồ Thị: BFS & DFS](../b37-Do-Thi-BFS-DFS/bai.md)
+**BÃÂ i tiÃ¡ÂºÂ¿p theo:** [BÃÂ i 37 Ã¢ÂÂ ÃÂÃ¡Â»Â ThÃ¡Â»Â: BFS & DFS](../b37-Do-Thi-BFS-DFS/bai.md)
+`

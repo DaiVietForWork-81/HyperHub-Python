@@ -1065,3 +1065,4 @@ của nhóm bài đoạn — làm chủ nó thì không còn bài đoạn nào l
 **Vị trí:** `b40-Segment-Tree/bai.md`
 
 **Bài tiếp theo:** [Bài 41 — Xử Lý Chuỗi Nâng Cao: KMP, Z, Hash & Trie](../b41-Xu-Ly-Chuoi/bai.md)
+`

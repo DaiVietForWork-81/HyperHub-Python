@@ -898,3 +898,4 @@ không tỉa đối xứng.
 **Vị trí:** `b32-Quay-Lui/bai.md`
 
 **Bài tiếp theo:** [Bài 33 — Hai Con Trỏ, Cửa Sổ Trượt & Tổng Tiền Tố](../b33-Hai-Con-Tro/bai.md)
+`

@@ -879,3 +879,4 @@ in sang out (đảo thứ tự đúng thành FIFO). Phân tích khấu hao vì s
 **Vị trí:** `b29-Stack-Queue-Hashing/bai.md`
 
 **Bài tiếp theo:** [Bài 30 — Tần Suất (Đếm & Thống Kê)](../b30-Tan-Suat/bai.md)
+`

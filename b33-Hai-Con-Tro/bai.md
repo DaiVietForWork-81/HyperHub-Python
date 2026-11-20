@@ -877,3 +877,4 @@ Mỗi truy vấn O(1) + cộng dồn cuối O(n) → O(n+q) thay vì O(n·q).
 **Vị trí:** `b33-Hai-Con-Tro/bai.md`
 
 **Bài tiếp theo:** [Bài 34 — Tham Lam (Greedy)](../b34-Tham-Lam/bai.md)
+`

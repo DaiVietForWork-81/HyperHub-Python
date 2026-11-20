@@ -1080,3 +1080,4 @@ trên cây!) → đếm tần suất mỗi giá trị prefix: C(cnt,2) từng nh
 **Vị trí:** `b39-Cay-Va-DSU/bai.md`
 
 **Bài tiếp theo:** [Bài 40 — Segment Tree & Fenwick (Cây Đoạn & Cây BIT)](../b40-Segment-Tree/bai.md)
+`

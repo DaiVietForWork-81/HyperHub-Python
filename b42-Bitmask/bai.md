@@ -1000,3 +1000,4 @@ dp[mask][i] = rẻ nhất nối tập mask (i là gốc cây Steiner)... mở r�
 **Vị trí:** `b42-Bitmask/bai.md`
 
 **Bài tiếp theo:** [Bài 43 — Quy Hoạch Động Nâng Cao: DAG, Digit, Tree & Interval](../b43-DP-Nang-Cao/bai.md)
+`

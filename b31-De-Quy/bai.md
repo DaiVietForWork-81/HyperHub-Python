@@ -872,3 +872,4 @@ for i in range(3, n+1):
 **Vị trí:** `b31-De-Quy/bai.md`
 
 **Bài tiếp theo:** [Bài 32 — Quay Lui (Backtracking)](../b32-Quay-Lui/bai.md)
+`
